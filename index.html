@@ -3,445 +3,215 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KPM Capital Management — Quant Capital Architecture</title>
-  <meta name="description" content="KPM Capital Management is a private systematic strategy research initiative focused on regime-aware architecture, risk-first design, and long-horizon capital frameworks." />
+  <title>KPM Capital Management - Live Dashboard</title>
+  <meta name="description" content="KPM AEGIS Large live dashboard with public performance metrics, trade history, and research pipeline." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Favicons / App Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-512.png">
 
-  <!-- Social Preview -->
-  <meta property="og:title" content="KPM Capital Management — Systematic Strategy Research">
-  <meta property="og:description" content="A private systematic research initiative focused on regime-aware architecture and risk-first design.">
-  <meta property="og:image" content="https://www.kpmcapitalmanagement.com/assets/logo-512.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.kpmcapitalmanagement.com/">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- NAV -->
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="KPM Home">
-        <img src="assets/logo.png" alt="KPM Capital Management Logo" class="logo-img">
+        <img src="assets/logo.png" alt="KPM logo" class="logo-img">
       </a>
-
       <nav class="nav-links" aria-label="Primary">
         <a href="#dashboard">Dashboard</a>
-        <a href="#overview">Overview</a>
-        <a href="#engines">Engines</a>
-        <a href="#architecture">Architecture</a>
+        <a href="#research">Research</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="#disclaimer">Disclaimer</a>
+        <a href="#disclaimer">Disclaimer</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <!-- HERO (lacapm-style: big, minimal, centered, strong hierarchy) -->
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-
-      <div class="container hero-inner">
-        <div class="hero-left">
-          <div class="eyebrow">
-            <span class="dot"></span>
-            <span>Quant Capital Architecture</span>
-          </div>
-
-          <h1 class="hero-title">
-            Systematic strategy research.<br />
-            <span class="gold">Risk-first</span> architecture.
-          </h1>
-
-          <p class="hero-sub">
-            KPM is a private research initiative developing regime-aware systems designed to survive noise,
-            adapt through transitions, and compound institutional credibility over time.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-outline" href="#engines">Explore engines</a>
-            <a class="btn btn-outline-soft" href="#disclaimer">Research-only • Not financial advice</a>
-          </div>
-
-          <div class="hero-stats" aria-label="High-level positioning">
-            <div class="stat">
-              <div class="stat-k">Orientation</div>
-              <div class="stat-v">Research & Engineering</div>
-            </div>
-            <div class="stat">
-              <div class="stat-k">Principle</div>
-              <div class="stat-v">Survivability First</div>
-            </div>
-            <div class="stat">
-              <div class="stat-k">Status</div>
-              <div class="stat-v">Private Initiative</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right card column (lacapm-style featured card) -->
-        <aside class="hero-right">
-          <div class="feature-card">
-            <div class="feature-top">
-              <div class="feature-title">Research pillars</div>
-              <div class="feature-badge">No proprietary disclosure</div>
-            </div>
-
-            <div class="feature-list">
-              <div class="feature-item">
-                <div class="feature-h">Regime-awareness</div>
-                <div class="feature-p">Built to operate across market states and transitions.</div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-h">Risk governance</div>
-                <div class="feature-p">Exposure control and drawdown discipline precede return seeking.</div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-h">Multi-engine stack</div>
-                <div class="feature-p">Distinct roles across horizons to reduce single-edge concentration.</div>
-              </div>
-            </div>
-
-            <div class="feature-foot">
-              <span class="tag"></span>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- LIVE DASHBOARD -->
-    <section id="dashboard" class="section section-alt">
+    <section id="dashboard" class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
       <div class="container">
-        <div class="section-head">
-          <h2>Live Dashboard</h2>
-          <p>
-            Public-safe performance telemetry updated from the scheduler cadence. No proprietary strategy internals are exposed.
-          </p>
-        </div>
-
-        <div class="dash-grid">
-          <article class="dash-kpi">
-            <div class="dash-k">Profile</div>
-            <div class="dash-v" id="dash-profile">-</div>
-          </article>
-          <article class="dash-kpi">
-            <div class="dash-k">Equity</div>
-            <div class="dash-v" id="dash-equity">-</div>
-          </article>
-          <article class="dash-kpi">
-            <div class="dash-k">Run PnL</div>
-            <div class="dash-v" id="dash-run-pnl">-</div>
-          </article>
-          <article class="dash-kpi">
-            <div class="dash-k">Open Positions</div>
-            <div class="dash-v" id="dash-open-count">-</div>
-          </article>
-          <article class="dash-kpi">
-            <div class="dash-k">Signals Ready</div>
-            <div class="dash-v" id="dash-signals-ready">-</div>
-          </article>
-          <article class="dash-kpi">
-            <div class="dash-k">Win Rate (Recent)</div>
-            <div class="dash-v" id="dash-winrate">-</div>
-          </article>
-        </div>
-
-        <div class="dash-panels">
-          <article class="dash-panel">
-            <h3>Position Mix</h3>
-            <div class="dash-list-row"><span>Long</span><strong id="dash-open-long">-</strong></div>
-            <div class="dash-list-row"><span>Short</span><strong id="dash-open-short">-</strong></div>
-            <div class="dash-list-row"><span>Avg Open R</span><strong id="dash-open-r">-</strong></div>
-          </article>
-
-          <article class="dash-panel">
-            <h3>System Health</h3>
-            <div class="dash-list-row"><span>Geometry Rows</span><strong id="dash-geom-rows">-</strong></div>
-            <div class="dash-list-row"><span>Trade Events (Recent)</span><strong id="dash-trade-events">-</strong></div>
-            <div class="dash-list-row"><span>Updated</span><strong id="dash-updated">-</strong></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- OVERVIEW -->
-    <section id="overview" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Overview</h2>
-          <p>
-            KPM is designed as a multi-layered capital and strategy platform—focused on durable systems,
-            controlled innovation, and long-lived institutional compounding.
-          </p>
-        </div>
-
-        <div class="split">
-          <div class="panel panel-strong">
-            <h3>What KPM is</h3>
-            <p>
-              A systems-driven research lab focused on building a resilient strategy stack—rather than a single product or
-              one-off trading approach.
-            </p>
-          </div>
-
-          <div class="panel">
-            <h3>What KPM is not</h3>
-            <p>
-              Not an investment adviser. Not an offer or solicitation. Not a guarantee of performance.
-              This site is strictly informational and research-oriented.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ENGINES -->
-    <section id="engines" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <h2>Research engines</h2>
-          <p>
-            KPM operates a three-engine framework designed to serve distinct economic roles across different time horizons:
-            return generation, capital stabilization, and long-horizon compounding.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card-top">
-              <h3>KPM Vector</h3>
-              <span class="pill">Return engine</span>
-            </div>
-            <p>
-              A regime-adaptive momentum research program focused on responding to changing market structure,
-              emphasizing exposure control and execution realism.
-            </p>
-            <ul>
-              <li>Designed for trending and stable regimes</li>
-              <li>Volatility treated as a structural regime</li>
-              <li>Exit engineering emphasized at the system level</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-top">
-              <h3>KPM Aegis</h3>
-              <span class="pill">Stabilizer</span>
-            </div>
-            <p>
-              A defensive, probabilistic swing research program built around risk governance, adaptive sizing,
-              and survivability through adverse conditions.
-            </p>
-            <ul>
-              <li>Risk-managed first; returns are a consequence</li>
-              <li>Adaptive behavior by market conditions</li>
-              <li>Designed to dampen drawdowns at the system level</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-top">
-              <h3>KPM Oracle</h3>
-              <span class="pill">Long-horizon</span>
-            </div>
-            <p>
-              A long-horizon capital allocation framework oriented around identifying future economic winners
-              and building patient compounding exposure.
-            </p>
-            <ul>
-              <li>Research-driven allocation (not a trading system)</li>
-              <li>Multi-year horizon and uncertainty-aware sizing</li>
-              <li>Complements shorter-horizon systematic work</li>
-            </ul>
-          </article>
-        </div>
-
-        <p class="note">
+        <p class="eyebrow">KPM AEGIS LARGE · LIVE PUBLIC DASHBOARD</p>
+        <h1 class="title">Systematic Performance Monitor</h1>
+        <p class="subtitle">
+          Live snapshot updated from scheduler cadence. Displays public-safe metrics and broker execution history.
         </p>
+
+        <div class="kpi-grid">
+          <article class="kpi"><span>Equity</span><strong id="equity">-</strong></article>
+          <article class="kpi"><span>Run PnL</span><strong id="run_pnl">-</strong></article>
+          <article class="kpi"><span>Win Rate</span><strong id="win_rate">-</strong></article>
+          <article class="kpi"><span>Avg R</span><strong id="avg_r">-</strong></article>
+          <article class="kpi"><span>Sharpe (R)</span><strong id="sharpe_like">-</strong></article>
+          <article class="kpi"><span>Max Drawdown (R)</span><strong id="max_dd_r">-</strong></article>
+          <article class="kpi"><span>Profit Factor</span><strong id="profit_factor">-</strong></article>
+          <article class="kpi"><span>Long/Short Ratio</span><strong id="ls_ratio">-</strong></article>
+          <article class="kpi"><span>Signals Ready</span><strong id="signals_ready">-</strong></article>
+          <article class="kpi"><span>Open Positions</span><strong id="open_positions">-</strong></article>
+          <article class="kpi"><span>Closed Trades</span><strong id="closed_trades">-</strong></article>
+          <article class="kpi"><span>Last Update</span><strong id="updated_at">-</strong></article>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Execution History</h2>
+            <p>Recent trade events from the AEGIS LARGE execution feed.</p>
+          </div>
+          <div class="table-wrap">
+            <table id="trade_table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Event</th>
+                  <th>Ticker</th>
+                  <th>Side</th>
+                  <th>Qty</th>
+                  <th>Entry</th>
+                  <th>Exit</th>
+                  <th>R</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td colspan="9" class="empty">Waiting for dashboard data...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
     </section>
 
-    <!-- ARCHITECTURE -->
-    <section id="architecture" class="section">
+    <section id="research" class="section">
       <div class="container">
-        <div class="section-head">
-          <h2>Capital architecture</h2>
-          <p>
-            KPM is structured as an integrated platform that can evolve over decades—compounding intellectual property,
-            capital discipline, and institutional credibility.
-          </p>
+        <div class="panel-head">
+          <h2>Research And Trade Ideas</h2>
+          <p>Reserved area for upcoming thesis notes, market structure observations, and planned strategy experiments.</p>
         </div>
-
-        <div class="timeline">
-          <div class="step">
-            <div class="step-num">I</div>
-            <div class="step-body">
-              <h3>Core strategy operations</h3>
-              <p>Systematic quantitative research across multiple engines and time horizons.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-num">II</div>
-            <div class="step-body">
-              <h3>Strategy incubation platform</h3>
-              <p>
-                A controlled internal R&amp;D lane designed to evaluate new strategies under centralized risk governance
-                and correlation-aware decision-making.
-              </p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-num">III</div>
-            <div class="step-body">
-              <h3>Long-term infrastructure track</h3>
-              <p>
-                A long-horizon initiative to explore trust-anchored, productive reserve concepts and durable capital
-                infrastructure.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="quote">
-          <p>
-            “The objective is not short-term performance alone, but compounding of capital, intellectual property,
-            and institutional credibility over decades.”
-          </p>
-          <span>— KPM Team</span>
+        <div class="research-grid">
+          <article class="research-card">
+            <h3>Idea Queue</h3>
+            <p>Add your upcoming trades, catalysts, and probabilistic theses here.</p>
+          </article>
+          <article class="research-card">
+            <h3>Regime Notes</h3>
+            <p>Track tape condition, volatility posture, and directional conviction snapshots.</p>
+          </article>
+          <article class="research-card">
+            <h3>Post-Trade Review</h3>
+            <p>Store what worked, what failed, and the next rule improvement target.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section section-alt">
       <div class="container">
-        <div class="section-head">
+        <div class="panel-head">
           <h2>Contact</h2>
-          <p>For research discussions only. No client solicitation.</p>
+          <p>For research discussion only. No client solicitation.</p>
         </div>
-
-        <div class="contact">
-          <div class="contact-item">
-            <div class="label">Email</div>
-            <div class="value">
-              <a href="mailto:research@kpmcapitalmanagement.com">research@kpmcapitalmanagement.com</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="label">Location</div>
-            <div class="value">United States</div>
-          </div>
-
-          <div class="contact-item">
-            <div class="label">Status</div>
-            <div class="value">Private research initiative</div>
-          </div>
+        <div class="contact-grid">
+          <div><span>Email</span><strong><a href="mailto:research@kpmcapitalmanagement.com">research@kpmcapitalmanagement.com</a></strong></div>
+          <div><span>Location</span><strong>United States</strong></div>
+          <div><span>Status</span><strong>Private research initiative</strong></div>
         </div>
-
-        <p class="note">
-        </p>
       </div>
     </section>
 
-    <!-- DISCLAIMER -->
     <section id="disclaimer" class="section">
       <div class="container">
-        <div class="section-head">
+        <div class="panel-head">
           <h2>Disclaimer</h2>
-          <p class="strong">
-            This website is for research and informational purposes only. Nothing on this website constitutes financial,
-            investment, legal, or tax advice.
-          </p>
         </div>
-
         <div class="disclaimer">
-          <p>
-            KPM Capital Management is a private research initiative and is not a registered investment adviser.
-            Nothing herein is an offer to sell or a solicitation to buy any security or investment product.
-          </p>
-          <p>
-            Any references to strategies, models, research, or performance are provided for general discussion only and may
-            reflect hypothetical, simulated, or paper-trading environments. Past performance (whether simulated or actual)
-            does not guarantee future results.
-          </p>
-          <p>
-            You should consult a qualified professional before making any investment decisions. By using this site, you
-            agree that you are solely responsible for your own decisions and outcomes.
-          </p>
+          <p>This website is for research and informational purposes only. Nothing on this website constitutes financial, investment, legal, or tax advice.</p>
+          <p>KPM Capital Management is a private research initiative and is not a registered investment adviser. Nothing herein is an offer to sell or a solicitation to buy any security or investment product.</p>
+          <p>Any references to strategies, models, research, or performance are provided for general discussion only and may reflect hypothetical, simulated, or paper-trading environments. Past performance does not guarantee future results.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© <span id="year"></span> KPM Capital Management</div>
-      <div class="footer-links">
-        <a href="#disclaimer">Disclaimer</a>
-        <a href="#top">Back to top</a>
-      </div>
+      <div>&copy; <span id="year"></span> KPM Capital Management</div>
+      <a href="#top">Back to top</a>
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function fmtMoney(v){
-      if (v === null || v === undefined || v === "") return "-";
+    function fMoney(v){
       const n = Number(v);
       if (!Number.isFinite(n)) return "-";
-      return n.toLocaleString(undefined, {style: "currency", currency: "USD", maximumFractionDigits: 2});
+      return n.toLocaleString(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 2 });
     }
-
-    function fmtNum(v, d=2){
-      if (v === null || v === undefined || v === "") return "-";
+    function fNum(v, d = 2){
       const n = Number(v);
       if (!Number.isFinite(n)) return "-";
       return n.toFixed(d);
     }
+    function fPct(v, d = 1){
+      const n = Number(v);
+      if (!Number.isFinite(n)) return "-";
+      return `${n.toFixed(d)}%`;
+    }
+
+    function renderTrades(rows){
+      const tbody = document.querySelector("#trade_table tbody");
+      if (!Array.isArray(rows) || rows.length === 0){
+        tbody.innerHTML = '<tr><td colspan="9" class="empty">No trade history yet.</td></tr>';
+        return;
+      }
+      const last = rows.slice(-80).reverse();
+      tbody.innerHTML = last.map(r => {
+        const t = r.ts_utc || "";
+        const ev = r.event || "";
+        const tk = r.symbol || "";
+        const sd = r.side || "";
+        const q = r.qty ?? "";
+        const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
+        const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
+        const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
+        const rs = r.reason || "";
+        return `<tr>
+          <td>${t}</td><td>${ev}</td><td>${tk}</td><td>${sd}</td><td>${q}</td>
+          <td>${en}</td><td>${ex}</td><td>${rr}</td><td>${rs}</td>
+        </tr>`;
+      }).join("");
+    }
 
     async function loadDashboard(){
       try{
-        const res = await fetch("data/public_dashboard.json?ts=" + Date.now(), {cache: "no-store"});
+        const res = await fetch("data/public_dashboard.json?ts=" + Date.now(), { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);
-        const data = await res.json();
-        const summary = data.summary || {};
-        const perf = data.performance || {};
-        const acct = data.account || {};
-        const geom = data.geometry || {};
+        const d = await res.json();
+        const acct = d.account || {};
+        const sum = d.summary || {};
+        const perf = d.performance || {};
+        const pos = d.positioning || {};
 
-        document.getElementById("dash-profile").textContent = data.profile || "-";
-        document.getElementById("dash-equity").textContent = fmtMoney(acct.equity);
-        document.getElementById("dash-run-pnl").textContent = fmtMoney(acct.run_pnl_dollars);
-        document.getElementById("dash-open-count").textContent = summary.open_positions_count ?? "-";
-        document.getElementById("dash-signals-ready").textContent = summary.signals_ready_count ?? "-";
-        document.getElementById("dash-winrate").textContent =
-          perf.recent_trades_win_rate_pct === null || perf.recent_trades_win_rate_pct === undefined
-            ? "-"
-            : `${fmtNum(perf.recent_trades_win_rate_pct, 1)}%`;
+        document.getElementById("equity").textContent = fMoney(acct.equity);
+        document.getElementById("run_pnl").textContent = fMoney(acct.run_pnl_dollars);
+        document.getElementById("win_rate").textContent = fPct(perf.win_rate_pct ?? perf.recent_trades_win_rate_pct, 1);
+        document.getElementById("avg_r").textContent = fNum(perf.avg_r ?? perf.recent_trades_avg_r, 3);
+        document.getElementById("sharpe_like").textContent = fNum(perf.sharpe_like, 3);
+        document.getElementById("max_dd_r").textContent = fNum(perf.max_drawdown_r, 3);
+        document.getElementById("profit_factor").textContent = fNum(perf.profit_factor_r, 3);
+        document.getElementById("ls_ratio").textContent = fNum(pos.long_short_ratio, 3);
+        document.getElementById("signals_ready").textContent = sum.signals_ready_count ?? "-";
+        document.getElementById("open_positions").textContent = sum.open_positions_count ?? "-";
+        document.getElementById("closed_trades").textContent = perf.closed_trades_count ?? "-";
+        document.getElementById("updated_at").textContent = d.updated_at || "-";
 
-        document.getElementById("dash-open-long").textContent = summary.open_long_count ?? "-";
-        document.getElementById("dash-open-short").textContent = summary.open_short_count ?? "-";
-        document.getElementById("dash-open-r").textContent = fmtNum(summary.avg_open_r_multiple, 3);
-        document.getElementById("dash-geom-rows").textContent = geom.raw_log_rows ?? "-";
-        document.getElementById("dash-trade-events").textContent = summary.recent_trades_count ?? "-";
-        document.getElementById("dash-updated").textContent = data.updated_at || "-";
+        renderTrades(d.trade_history || []);
       }catch(e){
-        document.getElementById("dash-updated").textContent = "Dashboard data unavailable";
+        document.getElementById("updated_at").textContent = "Dashboard data unavailable";
       }
     }
 
