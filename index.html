@@ -35,6 +35,7 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary">
+        <a href="#dashboard">Dashboard</a>
         <a href="#overview">Overview</a>
         <a href="#engines">Engines</a>
         <a href="#architecture">Architecture</a>
@@ -115,6 +116,61 @@
             </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <!-- LIVE DASHBOARD -->
+    <section id="dashboard" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Live Dashboard</h2>
+          <p>
+            Public-safe performance telemetry updated from the scheduler cadence. No proprietary strategy internals are exposed.
+          </p>
+        </div>
+
+        <div class="dash-grid">
+          <article class="dash-kpi">
+            <div class="dash-k">Profile</div>
+            <div class="dash-v" id="dash-profile">-</div>
+          </article>
+          <article class="dash-kpi">
+            <div class="dash-k">Equity</div>
+            <div class="dash-v" id="dash-equity">-</div>
+          </article>
+          <article class="dash-kpi">
+            <div class="dash-k">Run PnL</div>
+            <div class="dash-v" id="dash-run-pnl">-</div>
+          </article>
+          <article class="dash-kpi">
+            <div class="dash-k">Open Positions</div>
+            <div class="dash-v" id="dash-open-count">-</div>
+          </article>
+          <article class="dash-kpi">
+            <div class="dash-k">Signals Ready</div>
+            <div class="dash-v" id="dash-signals-ready">-</div>
+          </article>
+          <article class="dash-kpi">
+            <div class="dash-k">Win Rate (Recent)</div>
+            <div class="dash-v" id="dash-winrate">-</div>
+          </article>
+        </div>
+
+        <div class="dash-panels">
+          <article class="dash-panel">
+            <h3>Position Mix</h3>
+            <div class="dash-list-row"><span>Long</span><strong id="dash-open-long">-</strong></div>
+            <div class="dash-list-row"><span>Short</span><strong id="dash-open-short">-</strong></div>
+            <div class="dash-list-row"><span>Avg Open R</span><strong id="dash-open-r">-</strong></div>
+          </article>
+
+          <article class="dash-panel">
+            <h3>System Health</h3>
+            <div class="dash-list-row"><span>Geometry Rows</span><strong id="dash-geom-rows">-</strong></div>
+            <div class="dash-list-row"><span>Trade Events (Recent)</span><strong id="dash-trade-events">-</strong></div>
+            <div class="dash-list-row"><span>Updated</span><strong id="dash-updated">-</strong></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -343,6 +399,54 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function fmtMoney(v){
+      if (v === null || v === undefined || v === "") return "-";
+      const n = Number(v);
+      if (!Number.isFinite(n)) return "-";
+      return n.toLocaleString(undefined, {style: "currency", currency: "USD", maximumFractionDigits: 2});
+    }
+
+    function fmtNum(v, d=2){
+      if (v === null || v === undefined || v === "") return "-";
+      const n = Number(v);
+      if (!Number.isFinite(n)) return "-";
+      return n.toFixed(d);
+    }
+
+    async function loadDashboard(){
+      try{
+        const res = await fetch("data/public_dashboard.json?ts=" + Date.now(), {cache: "no-store"});
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        const summary = data.summary || {};
+        const perf = data.performance || {};
+        const acct = data.account || {};
+        const geom = data.geometry || {};
+
+        document.getElementById("dash-profile").textContent = data.profile || "-";
+        document.getElementById("dash-equity").textContent = fmtMoney(acct.equity);
+        document.getElementById("dash-run-pnl").textContent = fmtMoney(acct.run_pnl_dollars);
+        document.getElementById("dash-open-count").textContent = summary.open_positions_count ?? "-";
+        document.getElementById("dash-signals-ready").textContent = summary.signals_ready_count ?? "-";
+        document.getElementById("dash-winrate").textContent =
+          perf.recent_trades_win_rate_pct === null || perf.recent_trades_win_rate_pct === undefined
+            ? "-"
+            : `${fmtNum(perf.recent_trades_win_rate_pct, 1)}%`;
+
+        document.getElementById("dash-open-long").textContent = summary.open_long_count ?? "-";
+        document.getElementById("dash-open-short").textContent = summary.open_short_count ?? "-";
+        document.getElementById("dash-open-r").textContent = fmtNum(summary.avg_open_r_multiple, 3);
+        document.getElementById("dash-geom-rows").textContent = geom.raw_log_rows ?? "-";
+        document.getElementById("dash-trade-events").textContent = summary.recent_trades_count ?? "-";
+        document.getElementById("dash-updated").textContent = data.updated_at || "-";
+      }catch(e){
+        document.getElementById("dash-updated").textContent = "Dashboard data unavailable";
+      }
+    }
+
+    loadDashboard();
+    setInterval(loadDashboard, 10000);
   </script>
 </body>
 </html>
