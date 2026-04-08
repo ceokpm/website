@@ -251,6 +251,62 @@ a{color:inherit}
   font-size:15px;
 }
 
+/* Dashboard */
+.dash-grid{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:12px;
+}
+.dash-kpi{
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.035);
+  border-radius:18px;
+  padding:14px 14px;
+}
+.dash-k{
+  color:rgba(238,242,248,.62);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+.dash-v{
+  margin-top:8px;
+  font-size:22px;
+  letter-spacing:-.015em;
+  color:rgba(238,242,248,.95);
+}
+.dash-panels{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:12px;
+}
+.dash-panel{
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius:18px;
+  padding:16px;
+}
+.dash-panel h3{
+  margin:0 0 12px;
+  font-size:15px;
+}
+.dash-list-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:var(--muted);
+  font-size:14px;
+}
+.dash-list-row:first-of-type{border-top:0;padding-top:0}
+.dash-list-row strong{
+  color:rgba(238,242,248,.95);
+  font-weight:600;
+}
+
 .split{
   display:grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
@@ -407,6 +463,8 @@ a{color:inherit}
   .hero-inner{grid-template-columns:1fr}
   .hero-title{font-size:40px}
   .hero-stats{grid-template-columns:1fr}
+  .dash-grid{grid-template-columns:1fr}
+  .dash-panels{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
