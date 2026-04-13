@@ -226,6 +226,9 @@ td{color:#30271f}
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:12px;
 }
+.research-gateway-duo{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
 .gateway-card{
   border:1px solid var(--line);
   background:var(--card);
@@ -329,6 +332,9 @@ td{color:#30271f}
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
 }
+.catalog-grid-single{
+  grid-template-columns:minmax(0, 1fr);
+}
 .catalog-card{
   border:1px solid var(--line);
   border-radius:14px;
@@ -392,6 +398,39 @@ td{color:#30271f}
   padding:16px;
   text-align:center;
   font-size:14px;
+}
+.note-shell{
+  max-width:980px;
+  display:grid;
+  gap:12px;
+}
+.note-section{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--card);
+  padding:16px;
+}
+.note-section h2{
+  margin:0;
+  font-size:22px;
+  letter-spacing:-.02em;
+}
+.note-section p{
+  margin:10px 0 0;
+  color:var(--muted);
+  line-height:1.6;
+}
+.note-section ul{
+  margin:10px 0 0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.6;
+}
+.note-section li{
+  margin-bottom:6px;
+}
+.note-section li:last-child{
+  margin-bottom:0;
 }
 
 .contact-grid{
