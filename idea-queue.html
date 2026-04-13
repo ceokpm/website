@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KPM Capital Management - Idea Queue</title>
+  <meta name="description" content="KPM Idea Queue catalog of thematic, sector, and company-level research briefs." />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html#top" aria-label="KPM Home"><img src="assets/logo.png" alt="KPM logo" class="logo-img"></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#dashboard">Dashboard</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#disclaimer">Disclaimer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="catalog-hero">
+      <div class="container">
+        <p class="eyebrow">KPM Research Catalog</p>
+        <h1 class="catalog-title">Idea Queue</h1>
+        <p class="catalog-subtitle">
+          Developing and active research briefs across thematic opportunities, sector dislocations, and company-specific long/short setups.
+        </p>
+        <div class="catalog-tools" id="idea_filters">
+          <button class="filter-chip active" data-filter="all" type="button">All</button>
+          <button class="filter-chip" data-filter="thematic" type="button">Thematic</button>
+          <button class="filter-chip" data-filter="sector" type="button">Sector</button>
+          <button class="filter-chip" data-filter="long" type="button">Long</button>
+          <button class="filter-chip" data-filter="short" type="button">Short</button>
+          <button class="filter-chip" data-filter="us" type="button">U.S.</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="catalog-grid" id="idea_cards">
+          <article class="catalog-card" data-tags="thematic sector long us">
+            <div class="catalog-meta"><span class="meta-tag">Thematic / Semiconductors</span><span class="meta-date">2026-04-08</span><span class="status-pill">Active Workup</span></div>
+            <h3>Semiconductor Capacity Tightening and Second-Order Beneficiaries</h3>
+            <p>Examines supply-chain pressure transmission into selected equipment, materials, and testing names over the next 4-6 quarters.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="thematic sector long us">
+            <div class="catalog-meta"><span class="meta-tag">Theme / Industrials</span><span class="meta-date">2026-04-01</span><span class="status-pill">Monitoring</span></div>
+            <h3>U.S. Industrial Automation as a Multi-Year Repricing Theme</h3>
+            <p>Frames automation capex durability, margin pathway assumptions, and valuation dispersion among U.S. industrial leaders.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="sector long short us">
+            <div class="catalog-meta"><span class="meta-tag">Relative Value / Consumer</span><span class="meta-date">2026-03-26</span><span class="status-pill">In Review</span></div>
+            <h3>Consumer Weakness vs Luxury Resilience: A Relative-Value Setup</h3>
+            <p>Tests spread behavior between broad consumer softness and premium-brand pricing power under uneven demand conditions.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="sector short us">
+            <div class="catalog-meta"><span class="meta-tag">Credit / Financials</span><span class="meta-date">2026-03-18</span><span class="status-pill">Draft</span></div>
+            <h3>Regional Bank Capital Pressure and Long-Tail Credit Risk</h3>
+            <p>Outlines asymmetric downside scenarios in second-tier balance sheets under prolonged funding and credit-quality stress.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="thematic long us">
+            <div class="catalog-meta"><span class="meta-tag">Theme / Infrastructure</span><span class="meta-date">2026-03-11</span><span class="status-pill">Active Workup</span></div>
+            <h3>Grid Investment Cycle and Deferred Demand in U.S. Utilities Infrastructure</h3>
+            <p>Evaluates delayed replacement cycles and beneficiaries exposed to transmission upgrades and reliability spend.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="sector short us">
+            <div class="catalog-meta"><span class="meta-tag">Dislocation / Software</span><span class="meta-date">2026-02-27</span><span class="status-pill">Archived</span></div>
+            <h3>Mid-Cap Software Multiple Expansion Without Earnings Confirmation</h3>
+            <p>Tracks valuation overshoot risk where estimate revisions have not matched price acceleration.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>&copy; <span id="year"></span> KPM Capital Management</div>
+      <a href="index.html#research">Back to research overview</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const filterWrap = document.getElementById("idea_filters");
+    const cards = Array.from(document.querySelectorAll("#idea_cards .catalog-card"));
+
+    filterWrap?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-chip");
+      if (!btn) return;
+
+      const filter = btn.dataset.filter || "all";
+      document.querySelectorAll("#idea_filters .filter-chip").forEach(chip => chip.classList.remove("active"));
+      btn.classList.add("active");
+
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || "").toLowerCase();
+        const show = filter === "all" || tags.includes(filter.toLowerCase());
+        card.style.display = show ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>

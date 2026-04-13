@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KPM Capital Management - Regime Notes</title>
+  <meta name="description" content="KPM Regime Notes archive covering macro and market structure transitions." />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html#top" aria-label="KPM Home"><img src="assets/logo.png" alt="KPM logo" class="logo-img"></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#dashboard">Dashboard</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#disclaimer">Disclaimer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="catalog-hero">
+      <div class="container">
+        <p class="eyebrow">KPM Research Catalog</p>
+        <h1 class="catalog-title">Regime Notes</h1>
+        <p class="catalog-subtitle">
+          Ongoing interpretation of volatility, trend, breadth, leadership rotation, and regional macro divergence.
+        </p>
+        <div class="catalog-tools" id="regime_filters">
+          <button class="filter-chip active" data-filter="all" type="button">All</button>
+          <button class="filter-chip" data-filter="us" type="button">U.S.</button>
+          <button class="filter-chip" data-filter="europe" type="button">Europe</button>
+          <button class="filter-chip" data-filter="breadth" type="button">Breadth</button>
+          <button class="filter-chip" data-filter="volatility" type="button">Volatility</button>
+          <button class="filter-chip" data-filter="rotation" type="button">Rotation</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="catalog-grid" id="regime_cards">
+          <article class="catalog-card" data-tags="us breadth market-structure">
+            <div class="catalog-meta"><span class="meta-tag">Market Structure / U.S.</span><span class="meta-date">2026-04-11</span><span class="status-pill">Current</span></div>
+            <h3>Narrow Leadership and Fragile Breadth in U.S. Equities</h3>
+            <p>Breadth participation remains thin beneath index-level resilience, raising fragility risk if leadership concentration breaks.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="rotation us sector">
+            <div class="catalog-meta"><span class="meta-tag">Rotation / Sector</span><span class="meta-date">2026-04-06</span><span class="status-pill">Current</span></div>
+            <h3>Early Signs of Rotation into Cyclicals</h3>
+            <p>Examines improving relative momentum in selected cyclicals against defensive leaders after a prolonged narrow-up tape.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="europe macro">
+            <div class="catalog-meta"><span class="meta-tag">Macro / Europe vs U.S.</span><span class="meta-date">2026-03-29</span><span class="status-pill">Monitoring</span></div>
+            <h3>Europe Growth Compression vs U.S. Resilience</h3>
+            <p>Reviews cross-region growth trajectory divergence and implications for earnings revisions and sector-level asset allocation.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="us breadth small-cap">
+            <div class="catalog-meta"><span class="meta-tag">Breadth / Small Caps</span><span class="meta-date">2026-03-21</span><span class="status-pill">Current</span></div>
+            <h3>What Is Breaking in Small Caps and Why It Matters</h3>
+            <p>Tracks deteriorating microstructure and risk appetite signals in lower-liquidity segments as a forward stress indicator.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="volatility us">
+            <div class="catalog-meta"><span class="meta-tag">Volatility / U.S.</span><span class="meta-date">2026-03-13</span><span class="status-pill">Archived</span></div>
+            <h3>Volatility Compression Without Macro Confirmation</h3>
+            <p>Assesses whether suppressed implied volatility is consistent with macro data trend and earnings-quality dispersion.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="macro rotation">
+            <div class="catalog-meta"><span class="meta-tag">Macro / Leadership</span><span class="meta-date">2026-02-28</span><span class="status-pill">Archived</span></div>
+            <h3>From Quality Defensives to Early-Cycle Risk: Conditions Checklist</h3>
+            <p>Provides a repeatable framework for assessing whether leadership transition is durable or still tactical.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>&copy; <span id="year"></span> KPM Capital Management</div>
+      <a href="index.html#research">Back to research overview</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const filterWrap = document.getElementById("regime_filters");
+    const cards = Array.from(document.querySelectorAll("#regime_cards .catalog-card"));
+
+    filterWrap?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-chip");
+      if (!btn) return;
+
+      const filter = btn.dataset.filter || "all";
+      document.querySelectorAll("#regime_filters .filter-chip").forEach(chip => chip.classList.remove("active"));
+      btn.classList.add("active");
+
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || "").toLowerCase();
+        const show = filter === "all" || tags.includes(filter.toLowerCase());
+        card.style.display = show ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>

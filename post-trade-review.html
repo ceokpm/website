@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KPM Capital Management - Post-Trade Review</title>
+  <meta name="description" content="KPM Post-Trade Review archive of structured after-action analysis and risk lessons." />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html#top" aria-label="KPM Home"><img src="assets/logo.png" alt="KPM logo" class="logo-img"></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#dashboard">Dashboard</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#disclaimer">Disclaimer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="catalog-hero">
+      <div class="container">
+        <p class="eyebrow">KPM Research Catalog</p>
+        <h1 class="catalog-title">Post-Trade Review</h1>
+        <p class="catalog-subtitle">
+          Disciplined after-action archive evaluating thesis quality, timing, execution decisions, and risk control outcomes.
+        </p>
+        <div class="catalog-tools" id="review_filters">
+          <button class="filter-chip active" data-filter="all" type="button">All</button>
+          <button class="filter-chip" data-filter="long" type="button">Long</button>
+          <button class="filter-chip" data-filter="short" type="button">Short</button>
+          <button class="filter-chip" data-filter="execution" type="button">Execution</button>
+          <button class="filter-chip" data-filter="risk" type="button">Risk</button>
+          <button class="filter-chip" data-filter="thesis" type="button">Thesis</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="catalog-grid" id="review_cards">
+          <article class="catalog-card" data-tags="long execution thesis">
+            <div class="catalog-meta"><span class="meta-tag">Review / Equity Basket</span><span class="meta-date">2026-04-10</span><span class="status-pill">Closed</span></div>
+            <h3>Review: Failed Breakout in AI Infrastructure Basket</h3>
+            <p>Entry quality was acceptable, but breakout confirmation criteria were too loose against deteriorating breadth conditions.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="long execution risk">
+            <div class="catalog-meta"><span class="meta-tag">Review / Energy</span><span class="meta-date">2026-04-03</span><span class="status-pill">Closed</span></div>
+            <h3>Review: Energy Mean-Reversion Trade and Premature Exit</h3>
+            <p>Directional thesis held, but exit execution cut exposure before setup completion; highlights process gap in hold discipline.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="short thesis risk">
+            <div class="catalog-meta"><span class="meta-tag">Review / Policy Shock</span><span class="meta-date">2026-03-24</span><span class="status-pill">Closed</span></div>
+            <h3>Review: Short Thesis Invalidated by Policy Surprise</h3>
+            <p>Original downside thesis failed after exogenous policy announcement; stop discipline functioned as designed.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="long thesis execution">
+            <div class="catalog-meta"><span class="meta-tag">Review / Timing</span><span class="meta-date">2026-03-16</span><span class="status-pill">Closed</span></div>
+            <h3>Review: Thesis Held, Timing Failed</h3>
+            <p>Direction was ultimately correct, but initial entry timing weakened expectancy and increased drawdown burden.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="short risk execution">
+            <div class="catalog-meta"><span class="meta-tag">Review / Risk Controls</span><span class="meta-date">2026-03-07</span><span class="status-pill">Closed</span></div>
+            <h3>Review: Stop Placement Too Tight in High-Volatility Regime</h3>
+            <p>Stop distance underestimated expected noise under a higher-volatility state, producing avoidable churn.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+          <article class="catalog-card" data-tags="long thesis">
+            <div class="catalog-meta"><span class="meta-tag">Review / Process</span><span class="meta-date">2026-02-25</span><span class="status-pill">Closed</span></div>
+            <h3>Review: Original Catalyst Was Correct but Magnitude Assumption Was Not</h3>
+            <p>Catalyst framework identified direction, but earnings-impact magnitude was overestimated relative to baseline consensus.</p>
+            <a class="read-link" href="#">Read Note</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>&copy; <span id="year"></span> KPM Capital Management</div>
+      <a href="index.html#research">Back to research overview</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const filterWrap = document.getElementById("review_filters");
+    const cards = Array.from(document.querySelectorAll("#review_cards .catalog-card"));
+
+    filterWrap?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-chip");
+      if (!btn) return;
+
+      const filter = btn.dataset.filter || "all";
+      document.querySelectorAll("#review_filters .filter-chip").forEach(chip => chip.classList.remove("active"));
+      btn.classList.add("active");
+
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || "").toLowerCase();
+        const show = filter === "all" || tags.includes(filter.toLowerCase());
+        card.style.display = show ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
