@@ -161,6 +161,30 @@
       if (!Number.isFinite(n)) return "-";
       return `${n.toFixed(d)}%`;
     }
+    function fPstDateTime(isoLike){
+      if (!isoLike) return "-";
+      const dt = new Date(isoLike);
+      if (Number.isNaN(dt.getTime())) return "-";
+
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Los_Angeles",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }).formatToParts(dt);
+
+      const get = (t) => (parts.find(p => p.type === t) || {}).value || "";
+      const yyyy = get("year");
+      const mm = get("month");
+      const dd = get("day");
+      const hh = get("hour");
+      const mi = get("minute");
+      const ap = get("dayPeriod").toLowerCase();
+      return `${yyyy}-${mm}-${dd} ${hh}:${mi}${ap}`;
+    }
 
     function renderTrades(rows){
       const tbody = document.querySelector("#trade_table tbody");
@@ -207,7 +231,7 @@
         document.getElementById("signals_ready").textContent = sum.signals_ready_count ?? "-";
         document.getElementById("open_positions").textContent = sum.open_positions_count ?? "-";
         document.getElementById("closed_trades").textContent = perf.closed_trades_count ?? "-";
-        document.getElementById("updated_at").textContent = d.updated_at || "-";
+        document.getElementById("updated_at").textContent = fPstDateTime(d.updated_at);
 
         renderTrades(d.trade_history || []);
       }catch(e){
