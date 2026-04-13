@@ -161,6 +161,22 @@
       if (!Number.isFinite(n)) return "-";
       return `${n.toFixed(d)}%`;
     }
+    function fUpdatedAt(v){
+      if (!v) return "-";
+      const raw = String(v).trim();
+      const normalized = raw.replace(/(\.\d{3})\d+/, "$1");
+      const dt = new Date(normalized);
+      if (Number.isNaN(dt.getTime())) return raw;
+
+      const year = dt.getFullYear();
+      const month = String(dt.getMonth() + 1).padStart(2, "0");
+      const day = String(dt.getDate()).padStart(2, "0");
+      const mins = String(dt.getMinutes()).padStart(2, "0");
+      const hour24 = dt.getHours();
+      const ampm = hour24 >= 12 ? "pm" : "am";
+      const hour12 = hour24 % 12 || 12;
+      return `${year}-${month}-${day} ${hour12}:${mins}${ampm}`;
+    }
 
     function renderTrades(rows){
       const tbody = document.querySelector("#trade_table tbody");
@@ -207,7 +223,7 @@
         document.getElementById("signals_ready").textContent = sum.signals_ready_count ?? "-";
         document.getElementById("open_positions").textContent = sum.open_positions_count ?? "-";
         document.getElementById("closed_trades").textContent = perf.closed_trades_count ?? "-";
-        document.getElementById("updated_at").textContent = d.updated_at || "-";
+        document.getElementById("updated_at").textContent = fUpdatedAt(d.updated_at);
 
         renderTrades(d.trade_history || []);
       }catch(e){
