@@ -321,18 +321,12 @@
     function fallbackEquitySeries(){
       // TODO: replace mock equity series with real portfolio history
       return [
-        { ts: "2026-01", value: 100.0 },
-        { ts: "2026-02", value: 101.3 },
-        { ts: "2026-03", value: 102.1 },
-        { ts: "2026-04", value: 103.8 },
-        { ts: "2026-05", value: 103.1 },
-        { ts: "2026-06", value: 104.9 },
-        { ts: "2026-07", value: 106.2 },
-        { ts: "2026-08", value: 105.6 },
-        { ts: "2026-09", value: 107.4 },
-        { ts: "2026-10", value: 108.8 },
-        { ts: "2026-11", value: 109.2 },
-        { ts: "2026-12", value: 110.5 }
+        { ts: "P1", value: 100.0 },
+        { ts: "P2", value: 100.0 },
+        { ts: "P3", value: 100.0 },
+        { ts: "P4", value: 100.0 },
+        { ts: "P5", value: 100.0 },
+        { ts: "P6", value: 100.0 }
       ];
     }
 
@@ -445,10 +439,10 @@
     function fallbackMonthlyRows(){
       // TODO: connect monthly performance feed
       return [
-        { month: "2026-01", return_pct: 1.42, net_pnl: 426.0, max_dd_pct: -0.68, trades: 18 },
-        { month: "2026-02", return_pct: 0.93, net_pnl: 279.0, max_dd_pct: -0.91, trades: 14 },
-        { month: "2026-03", return_pct: 1.17, net_pnl: 351.0, max_dd_pct: -0.74, trades: 16 },
-        { month: "2026-04", return_pct: 0.56, net_pnl: 168.0, max_dd_pct: -0.52, trades: 11 }
+        { month: "2026-01", return_pct: 0.00, net_pnl: 0.0, max_dd_pct: 0.00, trades: 0 },
+        { month: "2026-02", return_pct: 0.00, net_pnl: 0.0, max_dd_pct: 0.00, trades: 0 },
+        { month: "2026-03", return_pct: 0.00, net_pnl: 0.0, max_dd_pct: 0.00, trades: 0 },
+        { month: "2026-04", return_pct: 0.00, net_pnl: 0.0, max_dd_pct: 0.00, trades: 0 }
       ];
     }
 
@@ -473,19 +467,34 @@
         const sum = d.summary || {};
         const perf = d.performance || {};
         const pos = d.positioning || {};
+        const tradeHistory = Array.isArray(d.trade_history) ? d.trade_history : [];
+        const closedTrades = Number(perf.closed_trades_count) || 0;
+        const noActivity = closedTrades === 0 && tradeHistory.length === 0;
 
         // TODO: bind live data here for inception and YTD baselines from your portfolio ledger.
-        const inceptionEquity = Number(acct.inception_equity ?? 30000);
-        const ytdStartEquity = Number(acct.ytd_start_equity ?? inceptionEquity);
         const currentEquity = Number(acct.equity);
+        const safeBase = Number.isFinite(currentEquity) && currentEquity > 0 ? currentEquity : null;
+        const inceptionEquity = Number(acct.inception_equity ?? safeBase);
+        const ytdStartEquity = Number(acct.ytd_start_equity ?? inceptionEquity);
 
         const equitySeries = buildSeriesFromLive(d);
         const drawdownSeries = buildDrawdownSeries(equitySeries);
 
-        const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
-        const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
+        let sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
+        let ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
         const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
         const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
+        if (
+          noActivity &&
+          (
+            !Number.isFinite(sinceInceptionReturn) ||
+            !Number.isFinite(ytdReturn) ||
+            (Number.isFinite(currentEquity) && currentEquity <= 0)
+          )
+        ) {
+          sinceInceptionReturn = 0;
+          ytdReturn = 0;
+        }
 
         setText("since_inception_return", fPct(sinceInceptionReturn, 2));
         setText("ytd_return", fPct(ytdReturn, 2));
@@ -523,7 +532,7 @@
           : fallbackMonthlyRows();
         renderMonthlyTable(monthlyRows);
 
-        renderTrades(d.trade_history || []);
+        renderTrades(tradeHistory);
       }catch(e){
         setText("updated_at", "Dashboard data unavailable");
         const equitySeries = fallbackEquitySeries();
