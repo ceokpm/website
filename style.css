@@ -399,37 +399,46 @@ td{color:#30271f}
   text-align:center;
   font-size:14px;
 }
-.note-shell{
-  max-width:980px;
-  display:grid;
-  gap:12px;
+.note-paper{
+  max-width:920px;
 }
-.note-section{
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--card);
-  padding:16px;
+.paper-subtitle{
+  margin:12px 0 0;
+  color:#5f544a;
+  font-size:19px;
+  line-height:1.45;
+  max-width:860px;
 }
-.note-section h2{
-  margin:0;
-  font-size:22px;
+.paper-meta{
+  margin:12px 0 0;
+  color:#8a7868;
+  font-size:13px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.note-paper h2{
+  margin:28px 0 0;
+  font-size:27px;
   letter-spacing:-.02em;
+  color:#231d17;
 }
-.note-section p{
-  margin:10px 0 0;
-  color:var(--muted);
-  line-height:1.6;
+.note-paper p{
+  margin:11px 0 0;
+  color:#4e4339;
+  line-height:1.72;
+  font-size:17px;
 }
-.note-section ul{
-  margin:10px 0 0;
-  padding-left:18px;
-  color:var(--muted);
-  line-height:1.6;
+.note-paper ul{
+  margin:11px 0 0;
+  padding-left:20px;
 }
-.note-section li{
-  margin-bottom:6px;
+.note-paper li{
+  color:#4e4339;
+  line-height:1.72;
+  font-size:17px;
+  margin-bottom:8px;
 }
-.note-section li:last-child{
+.note-paper li:last-child{
   margin-bottom:0;
 }
 
