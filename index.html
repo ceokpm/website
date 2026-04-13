@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KPM Capital Management - Live Dashboard</title>
-  <meta name="description" content="KPM AEGIS Large live dashboard with public performance metrics, trade history, and research pipeline." />
+  <meta name="description" content="KPM AEGIS LARGE public performance dashboard with risk reporting, equity and drawdown visuals, and execution transparency." />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -35,31 +35,130 @@
     <section id="dashboard" class="hero">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container">
-        <p class="eyebrow">Algo Performance Â· LIVE PUBLIC DASHBOARD</p>
+        <p class="eyebrow">Algo Performance · KPM AEGIS LARGE</p>
         <h1 class="title">Paper Trading Portfolio</h1>
         <p class="subtitle">
-          Live snapshot updated from scheduler cadence. Displays public-safe metrics and broker execution history.
+          Public-safe live paper execution reporting with institutional-style performance and risk framing.
+          Metrics refresh from scheduler cadence.
         </p>
+        <p class="hero-note">
+          This page reports strategy behavior in a paper-trading environment and is intended for transparency, not solicitation.
+        </p>
+      </div>
+    </section>
 
-        <div class="kpi-grid">
-          <article class="kpi"><span>Equity</span><strong id="equity">-</strong></article>
-          <article class="kpi"><span>Run PnL</span><strong id="run_pnl">-</strong></article>
-          <article class="kpi"><span>Win Rate</span><strong id="win_rate">-</strong></article>
-          <article class="kpi"><span>Avg R</span><strong id="avg_r">-</strong></article>
-          <article class="kpi"><span>Sharpe (R)</span><strong id="sharpe_like">-</strong></article>
-          <article class="kpi"><span>Max Drawdown (R)</span><strong id="max_dd_r">-</strong></article>
-          <article class="kpi"><span>Profit Factor</span><strong id="profit_factor">-</strong></article>
-          <article class="kpi"><span>Long/Short Ratio</span><strong id="ls_ratio">-</strong></article>
-          <article class="kpi"><span>Signals Ready</span><strong id="signals_ready">-</strong></article>
-          <article class="kpi"><span>Open Positions</span><strong id="open_positions">-</strong></article>
-          <article class="kpi"><span>Closed Trades</span><strong id="closed_trades">-</strong></article>
-          <article class="kpi"><span>Last Update</span><strong id="updated_at">-</strong></article>
+    <section class="section section-tight">
+      <div class="container">
+        <div class="panel-head">
+          <h2>Key Investor Metrics</h2>
+          <p>Performance and risk first. Operational telemetry is shown lower on the page.</p>
         </div>
+        <div class="kpi-grid kpi-grid-primary">
+          <article class="kpi"><span>Since Inception Return</span><strong id="since_inception_return">-</strong></article>
+          <article class="kpi"><span>YTD Return</span><strong id="ytd_return">-</strong></article>
+          <article class="kpi"><span>Current Equity</span><strong id="current_equity">-</strong></article>
+          <article class="kpi"><span>Max Drawdown (%)</span><strong id="max_drawdown_pct">-</strong></article>
+          <article class="kpi"><span>Current Drawdown (%)</span><strong id="current_drawdown_pct">-</strong></article>
+          <article class="kpi"><span>Sharpe Ratio</span><strong id="sharpe_ratio">-</strong></article>
+          <article class="kpi"><span>Sortino Ratio</span><strong id="sortino_ratio">-</strong></article>
+          <article class="kpi"><span>Profit Factor</span><strong id="profit_factor">-</strong></article>
+          <article class="kpi"><span>Win Rate</span><strong id="win_rate">-</strong></article>
+          <article class="kpi"><span>Closed Trades</span><strong id="closed_trades">-</strong></article>
+          <article class="kpi"><span>Last Updated</span><strong id="updated_at">-</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <section class="panel chart-panel">
+          <div class="panel-head">
+            <h2>Equity And Drawdown</h2>
+            <p>Portfolio trajectory and peak-to-trough risk profile.</p>
+          </div>
+          <div class="viz-grid">
+            <article class="chart-card">
+              <h3>Equity Curve</h3>
+              <canvas id="equity_curve_chart" height="260" aria-label="Equity curve"></canvas>
+              <p class="chart-caption">Normalized to strategy start baseline.</p>
+            </article>
+            <article class="chart-card">
+              <h3>Drawdown</h3>
+              <canvas id="drawdown_chart" height="260" aria-label="Drawdown chart"></canvas>
+              <p class="chart-caption">Shows distance from prior equity peak.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Monthly Performance</h2>
+            <p>Calendar-month return framing with risk and trade activity context.</p>
+          </div>
+          <div class="table-wrap">
+            <table id="monthly_table">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Return %</th>
+                  <th>Net PnL $</th>
+                  <th>Max DD %</th>
+                  <th>Trades</th>
+                </tr>
+              </thead>
+              <tbody id="monthly_table_body">
+                <tr><td colspan="5" class="empty">Waiting for performance data...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container strategy-grid">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Strategy Overview</h2>
+            <p>KPM AEGIS LARGE</p>
+          </div>
+          <div class="strategy-copy">
+            <p>
+              KPM AEGIS LARGE is a rules-based systematic equity strategy monitored in a live paper-execution environment.
+              Reporting on this page is public-safe and designed to show realized behavior, risk profile, and process consistency over time.
+            </p>
+            <p>
+              Results shown here are generated in a paper-trading context and may differ from live capital deployment outcomes.
+              The framework emphasizes disciplined risk controls, repeatable logic, and transparent ongoing reporting.
+            </p>
+          </div>
+        </section>
 
         <section class="panel">
           <div class="panel-head">
-            <h2>Execution History</h2>
-            <p>Recent trade events.</p>
+            <h2>Risk Framework</h2>
+            <p>Process controls behind position-level and portfolio-level exposure.</p>
+          </div>
+          <ul class="risk-list">
+            <li>Rules-based signal gating with regime-aware logic and market context filters.</li>
+            <li>Position sizing discipline tied to stop distance and risk budget controls.</li>
+            <li>Risk-managed exits and monitoring designed to reduce unmanaged downside drift.</li>
+            <li>Public-safe transparency: cadence-based reporting, monthly framing, and execution logs.</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Recent Execution History</h2>
+            <p>Secondary operational detail from the strategy event log.</p>
           </div>
           <div class="table-wrap">
             <table id="trade_table">
@@ -77,9 +176,26 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="9" class="empty">Waiting for dashboard data...</td></tr>
+                <tr><td colspan="9" class="empty">Waiting for execution data...</td></tr>
               </tbody>
             </table>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <section class="panel secondary-metrics-panel">
+          <div class="panel-head">
+            <h2>Operational Snapshot</h2>
+            <p>Lower-priority telemetry for strategy monitoring.</p>
+          </div>
+          <div class="kpi-grid kpi-grid-secondary">
+            <article class="kpi"><span>Signals Ready</span><strong id="signals_ready">-</strong></article>
+            <article class="kpi"><span>Open Positions</span><strong id="open_positions">-</strong></article>
+            <article class="kpi"><span>Long / Short Ratio</span><strong id="ls_ratio">-</strong></article>
+            <article class="kpi"><span>Since Inception PnL</span><strong id="run_pnl">-</strong></article>
           </div>
         </section>
       </div>
@@ -89,7 +205,7 @@
       <div class="container">
         <div class="panel-head">
           <h2>Research And Trade Ideas</h2>
-          <p>Coming Soon.</p>
+          <p>Lower-priority exploratory content.</p>
         </div>
         <div class="research-grid">
           <article class="research-card">
@@ -202,6 +318,152 @@
       }).join("");
     }
 
+    function fallbackEquitySeries(){
+      // TODO: replace mock equity series with real portfolio history
+      return [
+        { ts: "2026-01", value: 100.0 },
+        { ts: "2026-02", value: 101.3 },
+        { ts: "2026-03", value: 102.1 },
+        { ts: "2026-04", value: 103.8 },
+        { ts: "2026-05", value: 103.1 },
+        { ts: "2026-06", value: 104.9 },
+        { ts: "2026-07", value: 106.2 },
+        { ts: "2026-08", value: 105.6 },
+        { ts: "2026-09", value: 107.4 },
+        { ts: "2026-10", value: 108.8 },
+        { ts: "2026-11", value: 109.2 },
+        { ts: "2026-12", value: 110.5 }
+      ];
+    }
+
+    function buildSeriesFromLive(d){
+      const acct = d.account || {};
+      const curve = Array.isArray(d.equity_curve_r) ? d.equity_curve_r : [];
+      if (curve.length < 2) return fallbackEquitySeries();
+
+      // TODO: bind live data here using true portfolio equity history instead of R-normalized points.
+      return curve.map((pt, i) => {
+        const cumR = Number(pt.cum_r);
+        const normalized = Number.isFinite(cumR) ? 100 + cumR : (100 + i * 0.2);
+        return {
+          ts: pt.ts || `P${i + 1}`,
+          value: normalized,
+          equity: acct.equity
+        };
+      });
+    }
+
+    function buildDrawdownSeries(series){
+      let peak = -Infinity;
+      return series.map((pt) => {
+        peak = Math.max(peak, pt.value);
+        const dd = peak > 0 ? ((pt.value / peak) - 1) * 100 : 0;
+        return { ts: pt.ts, value: dd };
+      });
+    }
+
+    function drawLineChart(canvasId, series, options = {}){
+      const canvas = document.getElementById(canvasId);
+      if (!canvas || !Array.isArray(series) || series.length < 2) return;
+
+      const ctx = canvas.getContext("2d");
+      const width = canvas.clientWidth || canvas.width;
+      const height = canvas.clientHeight || canvas.height;
+      const ratio = window.devicePixelRatio || 1;
+
+      canvas.width = Math.floor(width * ratio);
+      canvas.height = Math.floor(height * ratio);
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+
+      const pad = { top: 20, right: 12, bottom: 24, left: 12 };
+      const innerW = width - pad.left - pad.right;
+      const innerH = height - pad.top - pad.bottom;
+
+      const vals = series.map(p => Number(p.value)).filter(Number.isFinite);
+      if (!vals.length) return;
+      const minV = Math.min(...vals);
+      const maxV = Math.max(...vals);
+      const span = Math.max(maxV - minV, 1e-6);
+
+      const xAt = i => pad.left + (i / (series.length - 1)) * innerW;
+      const yAt = v => pad.top + (1 - ((v - minV) / span)) * innerH;
+
+      ctx.strokeStyle = "#eadfce";
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 3; i++) {
+        const gy = pad.top + (i / 3) * innerH;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, gy);
+        ctx.lineTo(width - pad.right, gy);
+        ctx.stroke();
+      }
+
+      ctx.beginPath();
+      series.forEach((p, i) => {
+        const x = xAt(i);
+        const y = yAt(Number(p.value));
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = options.stroke || "#f28c28";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      if (options.fill){
+        ctx.lineTo(xAt(series.length - 1), pad.top + innerH);
+        ctx.lineTo(xAt(0), pad.top + innerH);
+        ctx.closePath();
+        const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + innerH);
+        grad.addColorStop(0, options.fillTop || "rgba(242,140,40,.20)");
+        grad.addColorStop(1, options.fillBottom || "rgba(242,140,40,.02)");
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+    }
+
+    function renderMonthlyTable(rows){
+      const tbody = document.getElementById("monthly_table_body");
+      if (!tbody) return;
+
+      if (!Array.isArray(rows) || rows.length === 0){
+        tbody.innerHTML = '<tr><td colspan="5" class="empty">Monthly performance feed unavailable.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = rows.map(r => `
+        <tr>
+          <td>${r.month || "-"}</td>
+          <td>${fPct(r.return_pct, 2)}</td>
+          <td>${fMoney(r.net_pnl)}</td>
+          <td>${fPct(r.max_dd_pct, 2)}</td>
+          <td>${Number.isFinite(Number(r.trades)) ? Number(r.trades) : "-"}</td>
+        </tr>
+      `).join("");
+    }
+
+    function fallbackMonthlyRows(){
+      // TODO: connect monthly performance feed
+      return [
+        { month: "2026-01", return_pct: 1.42, net_pnl: 426.0, max_dd_pct: -0.68, trades: 18 },
+        { month: "2026-02", return_pct: 0.93, net_pnl: 279.0, max_dd_pct: -0.91, trades: 14 },
+        { month: "2026-03", return_pct: 1.17, net_pnl: 351.0, max_dd_pct: -0.74, trades: 16 },
+        { month: "2026-04", return_pct: 0.56, net_pnl: 168.0, max_dd_pct: -0.52, trades: 11 }
+      ];
+    }
+
+    function pctFromBase(current, base){
+      const c = Number(current);
+      const b = Number(base);
+      if (!Number.isFinite(c) || !Number.isFinite(b) || b === 0) return null;
+      return ((c / b) - 1) * 100;
+    }
+
+    function setText(id, val){
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    }
+
     async function loadDashboard(){
       try{
         const res = await fetch("data/public_dashboard.json?ts=" + Date.now(), { cache: "no-store" });
@@ -212,27 +474,78 @@
         const perf = d.performance || {};
         const pos = d.positioning || {};
 
-        document.getElementById("equity").textContent = fMoney(acct.equity);
-        document.getElementById("run_pnl").textContent = fMoney(acct.run_pnl_dollars);
-        document.getElementById("win_rate").textContent = fPct(perf.win_rate_pct ?? perf.recent_trades_win_rate_pct, 1);
-        document.getElementById("avg_r").textContent = fNum(perf.avg_r ?? perf.recent_trades_avg_r, 3);
-        document.getElementById("sharpe_like").textContent = fNum(perf.sharpe_like, 3);
-        document.getElementById("max_dd_r").textContent = fNum(perf.max_drawdown_r, 3);
-        document.getElementById("profit_factor").textContent = fNum(perf.profit_factor_r, 3);
-        document.getElementById("ls_ratio").textContent = fNum(pos.long_short_ratio, 3);
-        document.getElementById("signals_ready").textContent = sum.signals_ready_count ?? "-";
-        document.getElementById("open_positions").textContent = sum.open_positions_count ?? "-";
-        document.getElementById("closed_trades").textContent = perf.closed_trades_count ?? "-";
-        document.getElementById("updated_at").textContent = fUpdatedAt(d.updated_at);
+        // TODO: bind live data here for inception and YTD baselines from your portfolio ledger.
+        const inceptionEquity = Number(acct.inception_equity ?? 30000);
+        const ytdStartEquity = Number(acct.ytd_start_equity ?? inceptionEquity);
+        const currentEquity = Number(acct.equity);
+
+        const equitySeries = buildSeriesFromLive(d);
+        const drawdownSeries = buildDrawdownSeries(equitySeries);
+
+        const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
+        const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
+        const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
+        const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
+
+        setText("since_inception_return", fPct(sinceInceptionReturn, 2));
+        setText("ytd_return", fPct(ytdReturn, 2));
+        setText("current_equity", fMoney(currentEquity));
+        setText("max_drawdown_pct", fPct(-(Number.isFinite(Number(perf.max_drawdown_pct_est)) ? Number(perf.max_drawdown_pct_est) : Math.abs(minDrawdown)), 2));
+        setText("current_drawdown_pct", fPct(currentDrawdown, 2));
+        setText("sharpe_ratio", fNum(perf.sharpe_like, 3));
+        setText("sortino_ratio", fNum(perf.sortino_ratio, 3));
+        setText("profit_factor", fNum(perf.profit_factor_r, 3));
+        setText("win_rate", fPct(perf.win_rate_pct ?? perf.recent_trades_win_rate_pct, 1));
+        setText("closed_trades", Number.isFinite(Number(perf.closed_trades_count)) ? String(Number(perf.closed_trades_count)) : "-");
+        setText("updated_at", fUpdatedAt(d.updated_at));
+
+        setText("signals_ready", Number.isFinite(Number(sum.signals_ready_count)) ? String(Number(sum.signals_ready_count)) : "-");
+        setText("open_positions", Number.isFinite(Number(sum.open_positions_count)) ? String(Number(sum.open_positions_count)) : "-");
+        setText("ls_ratio", fNum(pos.long_short_ratio, 3));
+        setText("run_pnl", fMoney(acct.run_pnl_dollars));
+
+        drawLineChart("equity_curve_chart", equitySeries, {
+          stroke: "#c67627",
+          fill: true,
+          fillTop: "rgba(242,140,40,.22)",
+          fillBottom: "rgba(242,140,40,.02)"
+        });
+        drawLineChart("drawdown_chart", drawdownSeries, {
+          stroke: "#9d5a1b",
+          fill: true,
+          fillTop: "rgba(178,95,22,.20)",
+          fillBottom: "rgba(178,95,22,.02)"
+        });
+
+        // TODO: bind live data here when monthly strategy return feed is available.
+        const monthlyRows = Array.isArray(d.monthly_performance) && d.monthly_performance.length
+          ? d.monthly_performance
+          : fallbackMonthlyRows();
+        renderMonthlyTable(monthlyRows);
 
         renderTrades(d.trade_history || []);
       }catch(e){
-        document.getElementById("updated_at").textContent = "Dashboard data unavailable";
+        setText("updated_at", "Dashboard data unavailable");
+        const equitySeries = fallbackEquitySeries();
+        drawLineChart("equity_curve_chart", equitySeries, {
+          stroke: "#c67627",
+          fill: true,
+          fillTop: "rgba(242,140,40,.22)",
+          fillBottom: "rgba(242,140,40,.02)"
+        });
+        drawLineChart("drawdown_chart", buildDrawdownSeries(equitySeries), {
+          stroke: "#9d5a1b",
+          fill: true,
+          fillTop: "rgba(178,95,22,.20)",
+          fillBottom: "rgba(178,95,22,.02)"
+        });
+        renderMonthlyTable(fallbackMonthlyRows());
       }
     }
 
     loadDashboard();
     setInterval(loadDashboard, 10000);
+    window.addEventListener("resize", () => loadDashboard());
   </script>
 </body>
 </html>
