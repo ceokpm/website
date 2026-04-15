@@ -158,6 +158,35 @@
       <div class="container">
         <section class="panel">
           <div class="panel-head">
+            <h2>Live Open Positions</h2>
+            <p>Current open positions snapshot from the latest scheduler run.</p>
+          </div>
+          <div class="table-wrap">
+            <table id="open_table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Ticker</th>
+                  <th>Side</th>
+                  <th>Qty</th>
+                  <th>Entry</th>
+                  <th>Exit</th>
+                  <th>R</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td colspan="7" class="empty">No open positions.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <section class="panel">
+          <div class="panel-head">
             <h2>Recent Execution History</h2>
             <p>Secondary operational detail from the strategy event log.</p>
           </div>
@@ -166,18 +195,16 @@
               <thead>
                 <tr>
                   <th>Time</th>
-                  <th>Event</th>
                   <th>Ticker</th>
                   <th>Side</th>
                   <th>Qty</th>
                   <th>Entry</th>
                   <th>Exit</th>
                   <th>R</th>
-                  <th>Reason</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="9" class="empty">Waiting for execution data...</td></tr>
+                <tr><td colspan="7" class="empty">Waiting for execution data...</td></tr>
               </tbody>
             </table>
           </div>
@@ -321,26 +348,45 @@
       return `${year}-${month}-${day} ${hour12}:${mins}${ampm}`;
     }
 
-    function renderTrades(rows){
-      const tbody = document.querySelector("#trade_table tbody");
+    function renderOpenPositions(rows){
+      const tbody = document.querySelector("#open_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
-        tbody.innerHTML = '<tr><td colspan="9" class="empty">No trade history yet.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="7" class="empty">No open positions.</td></tr>';
         return;
       }
-      const last = rows.slice(-80).reverse();
-      tbody.innerHTML = last.map(r => {
+      tbody.innerHTML = rows.map(r => {
         const t = r.ts_utc || "";
-        const ev = r.event || "";
         const tk = r.symbol || "";
         const sd = r.side || "";
         const q = r.qty ?? "";
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
         const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
-        const rs = r.reason || "";
         return `<tr>
-          <td>${t}</td><td>${ev}</td><td>${tk}</td><td>${sd}</td><td>${q}</td>
-          <td>${en}</td><td>${ex}</td><td>${rr}</td><td>${rs}</td>
+          <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${q}</td>
+          <td>${en}</td><td>${ex}</td><td>${rr}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    function renderTrades(rows){
+      const tbody = document.querySelector("#trade_table tbody");
+      if (!Array.isArray(rows) || rows.length === 0){
+        tbody.innerHTML = '<tr><td colspan="7" class="empty">No trade history yet.</td></tr>';
+        return;
+      }
+      const last = rows.slice(-80).reverse();
+      tbody.innerHTML = last.map(r => {
+        const t = r.ts_utc || "";
+        const tk = r.symbol || "";
+        const sd = r.side || "";
+        const q = r.qty ?? "";
+        const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
+        const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
+        const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
+        return `<tr>
+          <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${q}</td>
+          <td>${en}</td><td>${ex}</td><td>${rr}</td>
         </tr>`;
       }).join("");
     }
@@ -495,6 +541,7 @@
         const perf = d.performance || {};
         const pos = d.positioning || {};
         const tradeHistory = Array.isArray(d.trade_history) ? d.trade_history : [];
+        const openPositionsLive = Array.isArray(d.open_positions_live) ? d.open_positions_live : [];
         const closedTrades = Number(perf.closed_trades_count) || 0;
         const openPositionsCount = Number(sum.open_positions_count) || 0;
         const recentTradesCount = Number(sum.recent_trades_count) || 0;
@@ -557,6 +604,7 @@
           : fallbackMonthlyRows();
         renderMonthlyTable(monthlyRows);
 
+        renderOpenPositions(openPositionsLive);
         renderTrades(tradeHistory);
       }catch(e){
         setText("updated_at", "Dashboard data unavailable");
@@ -574,6 +622,7 @@
           fillBottom: "rgba(178,95,22,.02)"
         });
         renderMonthlyTable(fallbackMonthlyRows());
+        renderOpenPositions([]);
       }
     }
 
