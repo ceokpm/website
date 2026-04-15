@@ -504,23 +504,17 @@
         let ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
         const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
         const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
-        if (
-          noActivity &&
-          (
-            !Number.isFinite(sinceInceptionReturn) ||
-            !Number.isFinite(ytdReturn) ||
-            (Number.isFinite(currentEquity) && currentEquity <= 0)
-          )
-        ) {
-          sinceInceptionReturn = 0;
-          ytdReturn = 0;
+        if (noActivity) {
+          // Fresh baseline mode: hide investor/operational stats until first closed trade history appears.
+          sinceInceptionReturn = null;
+          ytdReturn = null;
         }
 
         setText("since_inception_return", fPct(sinceInceptionReturn, 2));
         setText("ytd_return", fPct(ytdReturn, 2));
-        setText("current_equity", fMoney(currentEquity));
-        setText("max_drawdown_pct", fPct(-(Number.isFinite(Number(perf.max_drawdown_pct_est)) ? Number(perf.max_drawdown_pct_est) : Math.abs(minDrawdown)), 2));
-        setText("current_drawdown_pct", fPct(currentDrawdown, 2));
+        setText("current_equity", noActivity ? "-" : fMoney(currentEquity));
+        setText("max_drawdown_pct", noActivity ? "-" : fPct(-(Number.isFinite(Number(perf.max_drawdown_pct_est)) ? Number(perf.max_drawdown_pct_est) : Math.abs(minDrawdown)), 2));
+        setText("current_drawdown_pct", noActivity ? "-" : fPct(currentDrawdown, 2));
         setText("sharpe_ratio", fNum(perf.sharpe_like, 3));
         setText("sortino_ratio", fNum(perf.sortino_ratio, 3));
         setText("profit_factor", fNum(perf.profit_factor_r, 3));
@@ -528,10 +522,10 @@
         setText("closed_trades", Number.isFinite(Number(perf.closed_trades_count)) ? String(Number(perf.closed_trades_count)) : "-");
         setText("updated_at", fUpdatedAt(d.updated_at));
 
-        setText("signals_ready", Number.isFinite(Number(sum.signals_ready_count)) ? String(Number(sum.signals_ready_count)) : "-");
-        setText("open_positions", Number.isFinite(Number(sum.open_positions_count)) ? String(Number(sum.open_positions_count)) : "-");
-        setText("ls_ratio", fNum(pos.long_short_ratio, 3));
-        setText("run_pnl", fMoney(acct.run_pnl_dollars));
+        setText("signals_ready", noActivity ? "-" : (Number.isFinite(Number(sum.signals_ready_count)) ? String(Number(sum.signals_ready_count)) : "-"));
+        setText("open_positions", noActivity ? "-" : (Number.isFinite(Number(sum.open_positions_count)) ? String(Number(sum.open_positions_count)) : "-"));
+        setText("ls_ratio", noActivity ? "-" : fNum(pos.long_short_ratio, 3));
+        setText("run_pnl", noActivity ? "-" : fMoney(acct.run_pnl_dollars));
 
         drawLineChart("equity_curve_chart", equitySeries, {
           stroke: "#c67627",
