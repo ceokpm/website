@@ -489,7 +489,10 @@
         const pos = d.positioning || {};
         const tradeHistory = Array.isArray(d.trade_history) ? d.trade_history : [];
         const closedTrades = Number(perf.closed_trades_count) || 0;
-        const noActivity = closedTrades === 0 && tradeHistory.length === 0;
+        const openPositionsCount = Number(sum.open_positions_count) || 0;
+        const recentTradesCount = Number(sum.recent_trades_count) || 0;
+        const hasActivity = closedTrades > 0 || tradeHistory.length > 0 || openPositionsCount > 0 || recentTradesCount > 0;
+        const noActivity = !hasActivity;
 
         // TODO: bind live data here for inception and YTD baselines from your portfolio ledger.
         const currentEquity = Number(acct.equity);
