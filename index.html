@@ -288,14 +288,21 @@
       return n.toLocaleString(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 2 });
     }
     function fNum(v, d = 2){
+      if (v === null || v === undefined || v === "") return "-";
       const n = Number(v);
       if (!Number.isFinite(n)) return "-";
       return n.toFixed(d);
     }
     function fPct(v, d = 1){
+      if (v === null || v === undefined || v === "") return "-";
       const n = Number(v);
       if (!Number.isFinite(n)) return "-";
       return `${n.toFixed(d)}%`;
+    }
+    function toFiniteOrNull(v){
+      if (v === null || v === undefined || v === "") return null;
+      const n = Number(v);
+      return Number.isFinite(n) ? n : null;
     }
     function fUpdatedAt(v){
       if (!v) return "-";
@@ -495,10 +502,9 @@
         const noActivity = !hasActivity;
 
         // TODO: bind live data here for inception and YTD baselines from your portfolio ledger.
-        const currentEquity = Number(acct.equity);
-        const safeBase = Number.isFinite(currentEquity) && currentEquity > 0 ? currentEquity : null;
-        const inceptionEquity = Number(acct.inception_equity ?? safeBase);
-        const ytdStartEquity = Number(acct.ytd_start_equity ?? inceptionEquity);
+        const currentEquity = toFiniteOrNull(acct.equity);
+        const inceptionEquity = toFiniteOrNull(acct.inception_equity);
+        const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
 
         const equitySeries = buildSeriesFromLive(d);
         const drawdownSeries = buildDrawdownSeries(equitySeries);
@@ -528,7 +534,9 @@
         setText("signals_ready", noActivity ? "-" : (Number.isFinite(Number(sum.signals_ready_count)) ? String(Number(sum.signals_ready_count)) : "-"));
         setText("open_positions", noActivity ? "-" : (Number.isFinite(Number(sum.open_positions_count)) ? String(Number(sum.open_positions_count)) : "-"));
         setText("ls_ratio", noActivity ? "-" : fNum(pos.long_short_ratio, 3));
-        setText("run_pnl", noActivity ? "-" : fMoney(acct.run_pnl_dollars));
+        const sinceInceptionPnl = toFiniteOrNull(acct.since_inception_pnl_dollars)
+          ?? ((currentEquity !== null && inceptionEquity !== null) ? (currentEquity - inceptionEquity) : null);
+        setText("run_pnl", noActivity ? "-" : fMoney(sinceInceptionPnl));
 
         drawLineChart("equity_curve_chart", equitySeries, {
           stroke: "#c67627",
