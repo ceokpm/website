@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-04-16T07:05:08.711600",
+  "updated_at": "2026-04-16T07:05:42.348384",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30139.65,
-    "run_pnl_dollars": -5.7,
-    "since_inception_pnl_dollars": 139.65,
+    "equity": 30140.51,
+    "run_pnl_dollars": 0.86,
+    "since_inception_pnl_dollars": 140.51,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-16 07:05:06.515262"
+    "asof": "2026-04-16 07:05:35.579919"
   },
   "summary": {
-    "open_positions_count": 0,
-    "open_long_count": 0,
+    "open_positions_count": 1,
+    "open_long_count": 1,
     "open_short_count": 0,
     "signals_ready_count": 1,
     "recent_trades_count": 0,
-    "avg_open_r_multiple": null
+    "avg_open_r_multiple": 0.16
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
@@ -39,18 +39,28 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-16T07:00:21.131057"
+    "last_updated": "2026-04-16T07:05:13.498075"
   },
   "positioning": {
     "long_short_ratio": null,
-    "long_pct": 0.0,
+    "long_pct": 100.0,
     "short_pct": 0.0
   },
   "trade_history": [],
-  "open_positions_live": [],
+  "open_positions_live": [
+    {
+      "ts_utc": "2026-04-16 07:05:35.579919",
+      "symbol": "CVX",
+      "side": "LONG",
+      "qty": 57.0,
+      "entry_px": 185.29,
+      "exit_px": "",
+      "R_realized": 0.16
+    }
+  ],
   "equity_curve_r": [],
   "research": {
     "items": [],
-    "last_updated": "2026-04-16T07:05:08.712597"
+    "last_updated": "2026-04-16T07:05:42.350387"
   }
 }
