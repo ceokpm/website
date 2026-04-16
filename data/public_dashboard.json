@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-16T13:12:45.949555",
+  "updated_at": "2026-04-16T13:23:26.159105",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
@@ -15,27 +15,28 @@
     "open_long_count": 1,
     "open_short_count": 0,
     "signals_ready_count": 4,
-    "recent_trades_count": 0,
+    "recent_trades_count": 10,
     "avg_open_r_multiple": 0.19
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
     "recent_trades_avg_r": null,
-    "closed_trades_count": 0,
-    "win_rate_pct": null,
-    "avg_r": null,
-    "expectancy_r": null,
-    "median_r": null,
-    "best_trade_r": null,
-    "worst_trade_r": null,
-    "last_20_win_rate_pct": null,
-    "avg_hold_days": null,
-    "sharpe_like": null,
-    "max_drawdown_r": null,
-    "max_drawdown_pct_est": null,
-    "profit_factor_r": null,
-    "gross_profit_r": null,
-    "gross_loss_r": null
+    "closed_trades_count": 10,
+    "win_rate_pct": 10.0,
+    "avg_r": -0.271,
+    "expectancy_r": -0.271,
+    "median_r": -0.293,
+    "best_trade_r": 0.168,
+    "worst_trade_r": -1.009,
+    "last_20_win_rate_pct": 10.0,
+    "avg_hold_days": 0.3,
+    "sharpe_like": -0.872,
+    "max_drawdown_r": -2.401,
+    "max_drawdown_pct_est": 0.488,
+    "profit_factor_r": 0.058,
+    "gross_profit_r": 0.168,
+    "gross_loss_r": 2.879,
+    "sortino_ratio": -0.629
   },
   "geometry": {
     "raw_log_rows": 12024,
@@ -46,7 +47,148 @@
     "long_pct": 100.0,
     "short_pct": 0.0
   },
-  "trade_history": [],
+  "trade_history": [
+    {
+      "ts_utc": "2026-04-14 13:30:11",
+      "event": "EXIT",
+      "symbol": "AMD",
+      "side": "SHORT",
+      "qty": 10.0,
+      "entry_date": "2026-04-13",
+      "entry_px": 244.44,
+      "exit_date": "2026-04-14",
+      "exit_px": 252.0,
+      "R_realized": -0.3095823095823095,
+      "pnl_pct": -3.09278350515464,
+      "reason": "SYNTHETIC_CLOSE"
+    },
+    {
+      "ts_utc": "2026-04-14 13:30:12",
+      "event": "EXIT",
+      "symbol": "AMZN",
+      "side": "SHORT",
+      "qty": 6.0,
+      "entry_date": "2026-04-13",
+      "entry_px": 237.405,
+      "exit_date": "2026-04-14",
+      "exit_px": 243.09,
+      "R_realized": -0.3631427658894923,
+      "pnl_pct": -2.394642067353258,
+      "reason": "SYNTHETIC_CLOSE"
+    },
+    {
+      "ts_utc": "2026-04-14 13:30:14",
+      "event": "EXIT",
+      "symbol": "JNJ",
+      "side": "LONG",
+      "qty": 7.0,
+      "entry_date": "2026-04-13",
+      "entry_px": 237.81,
+      "exit_date": "2026-04-14",
+      "exit_px": 234.67,
+      "R_realized": -0.3305263157894752,
+      "pnl_pct": -1.320381817417272,
+      "reason": "SYNTHETIC_CLOSE"
+    },
+    {
+      "ts_utc": "2026-04-14 13:55:05",
+      "event": "EXIT",
+      "symbol": "AMD",
+      "side": "SHORT",
+      "qty": 10.0,
+      "entry_date": "2026-04-14",
+      "entry_px": 244.42,
+      "exit_date": "2026-04-14",
+      "exit_px": 249.35,
+      "R_realized": -1.0085099419032846,
+      "pnl_pct": "",
+      "reason": "SL"
+    },
+    {
+      "ts_utc": "2026-04-15 04:48:31",
+      "event": "EXIT",
+      "symbol": "AAPL",
+      "side": "SHORT",
+      "qty": 17.0,
+      "entry_date": "2026-04-14",
+      "entry_px": 260.94,
+      "exit_date": "2026-04-14",
+      "exit_px": 258.71,
+      "R_realized": 0.1679216867469889,
+      "pnl_pct": "",
+      "reason": "BROKER_CLOSE"
+    },
+    {
+      "ts_utc": "2026-04-15 04:48:31",
+      "event": "EXIT",
+      "symbol": "NVDA",
+      "side": "SHORT",
+      "qty": 11.0,
+      "entry_date": "2026-04-14",
+      "entry_px": 190.94,
+      "exit_date": "2026-04-14",
+      "exit_px": 196.49,
+      "R_realized": -0.4864154250657329,
+      "pnl_pct": "",
+      "reason": "BROKER_CLOSE"
+    },
+    {
+      "ts_utc": "2026-04-15 04:48:31",
+      "event": "EXIT",
+      "symbol": "SPY",
+      "side": "SHORT",
+      "qty": 3.0,
+      "entry_date": "2026-04-14",
+      "entry_px": 687.87,
+      "exit_date": "2026-04-14",
+      "exit_px": 694.17,
+      "R_realized": -0.2759526938239134,
+      "pnl_pct": "",
+      "reason": "BROKER_CLOSE"
+    },
+    {
+      "ts_utc": "2026-04-16 19:55:17",
+      "event": "EXIT",
+      "symbol": "QQQ",
+      "side": "LONG",
+      "qty": 7.0,
+      "entry_date": "2026-04-16",
+      "entry_px": 640.23,
+      "exit_date": "2026-04-16",
+      "exit_px": 640.19,
+      "R_realized": -0.0615384615384077,
+      "pnl_pct": -0.0062477547131442,
+      "reason": "SYNTHETIC_CLOSE"
+    },
+    {
+      "ts_utc": "2026-04-16 19:55:19",
+      "event": "EXIT",
+      "symbol": "SPY",
+      "side": "LONG",
+      "qty": 7.0,
+      "entry_date": "2026-04-16",
+      "entry_px": 701.59,
+      "exit_date": "2026-04-16",
+      "exit_px": 701.56,
+      "R_realized": -0.04225352112688,
+      "pnl_pct": -0.0042760016533996,
+      "reason": "SYNTHETIC_CLOSE"
+    },
+    {
+      "ts_utc": "2026-04-16 20:12:44",
+      "event": "EXIT",
+      "symbol": "JNJ",
+      "side": "LONG",
+      "qty": 13.0,
+      "entry_date": "2026-04-16",
+      "entry_px": 234.46,
+      "exit_date": "2026-04-16",
+      "exit_px": 234.45,
+      "R_realized": -0.0010204081632672,
+      "pnl_pct": "",
+      "reason": "BROKER_CLOSE"
+    }
+  ],
   "open_positions_live": [
     {
       "ts_utc": "2026-04-16 13:12:43.884427",
@@ -59,9 +201,90 @@
       "daytrade_mode": false
     }
   ],
-  "equity_curve_r": [],
+  "equity_curve_r": [
+    {
+      "ts": "2026-04-14 13:30:11",
+      "cum_r": -0.31,
+      "r": -0.31
+    },
+    {
+      "ts": "2026-04-14 13:30:12",
+      "cum_r": -0.673,
+      "r": -0.363
+    },
+    {
+      "ts": "2026-04-14 13:30:14",
+      "cum_r": -1.003,
+      "r": -0.331
+    },
+    {
+      "ts": "2026-04-14 13:55:05",
+      "cum_r": -2.012,
+      "r": -1.009
+    },
+    {
+      "ts": "2026-04-15 04:48:31",
+      "cum_r": -1.844,
+      "r": 0.168
+    },
+    {
+      "ts": "2026-04-15 04:48:31",
+      "cum_r": -2.33,
+      "r": -0.486
+    },
+    {
+      "ts": "2026-04-15 04:48:31",
+      "cum_r": -2.606,
+      "r": -0.276
+    },
+    {
+      "ts": "2026-04-16 19:55:17",
+      "cum_r": -2.668,
+      "r": -0.062
+    },
+    {
+      "ts": "2026-04-16 19:55:19",
+      "cum_r": -2.71,
+      "r": -0.042
+    },
+    {
+      "ts": "2026-04-16 20:12:44",
+      "cum_r": -2.711,
+      "r": -0.001
+    }
+  ],
   "research": {
     "items": [],
     "last_updated": "2026-04-16T13:12:45.951556"
-  }
+  },
+  "monthly_performance": [
+    {
+      "month": "2026-01",
+      "return_pct": 0.0,
+      "net_pnl": 0.0,
+      "max_dd_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "month": "2026-02",
+      "return_pct": 0.0,
+      "net_pnl": 0.0,
+      "max_dd_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "month": "2026-03",
+      "return_pct": 0.0,
+      "net_pnl": 0.0,
+      "max_dd_pct": 0.0,
+      "trades": 0
+    },
+    {
+      "month": "2026-04",
+      "return_pct": -0.75,
+      "net_pnl": -223.65,
+      "max_dd_pct": 0.49,
+      "trades": 10
+    }
+  ]
 }
