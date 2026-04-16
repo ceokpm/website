@@ -193,7 +193,7 @@
         <section class="panel">
           <div class="panel-head">
             <h2>Recent Execution History</h2>
-            <p>Secondary operational detail from the strategy event log.</p>
+            <p>Broker execution history (Alpaca fills, FIFO-matched entries/exits).</p>
           </div>
           <div class="table-wrap">
             <table id="trade_table">
@@ -354,6 +354,25 @@
       return `${year}-${month}-${day} ${hour12}:${mins}${ampm}`;
     }
 
+    function fTradeTime(v){
+      if (!v) return "";
+      const raw = String(v).trim();
+      const hasZone = /z$/i.test(raw) || /[+-]\d{2}:\d{2}$/i.test(raw);
+      const base = raw.includes("T") ? raw : raw.replace(" ", "T");
+      const normalized = hasZone ? base : `${base}Z`;
+      const dt = new Date(normalized);
+      if (Number.isNaN(dt.getTime())) return raw;
+      const year = dt.getFullYear();
+      const month = String(dt.getMonth() + 1).padStart(2, "0");
+      const day = String(dt.getDate()).padStart(2, "0");
+      const mins = String(dt.getMinutes()).padStart(2, "0");
+      const secs = String(dt.getSeconds()).padStart(2, "0");
+      const hour24 = dt.getHours();
+      const ampm = hour24 >= 12 ? "pm" : "am";
+      const hour12 = hour24 % 12 || 12;
+      return `${year}-${month}-${day} ${hour12}:${mins}:${secs}${ampm}`;
+    }
+
     function renderOpenPositions(rows){
       const tbody = document.querySelector("#open_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
@@ -384,7 +403,7 @@
       }
       const last = rows.slice(-80).reverse();
       tbody.innerHTML = last.map(r => {
-        const t = r.ts_utc || "";
+        const t = fTradeTime(r.ts_utc || "");
         const tk = r.symbol || "";
         const sd = r.side || "";
         const q = r.qty ?? "";
