@@ -157,11 +157,19 @@ a{color:inherit}
 }
 canvas{
   width:100%;
-  height:260px;
+  height:auto;
   display:block;
   border:1px solid #f0e7db;
   border-radius:12px;
   background:linear-gradient(180deg, #fff, #fffdf9);
+}
+.chart-canvas-wrap{
+  position:relative;
+  height:260px;
+}
+.chart-canvas-wrap canvas{
+  width:100% !important;
+  height:100% !important;
 }
 .chart-caption{
   margin:10px 0 0;

@@ -80,12 +80,16 @@
           <div class="viz-grid">
             <article class="chart-card">
               <h3>Equity Curve</h3>
-              <canvas id="equity_curve_chart" height="260" aria-label="Equity curve"></canvas>
+              <div class="chart-canvas-wrap">
+                <canvas id="equity_curve_chart" height="260" aria-label="Equity curve"></canvas>
+              </div>
               <p class="chart-caption">Broker-reported portfolio equity over time.</p>
             </article>
             <article class="chart-card">
               <h3>Drawdown</h3>
-              <canvas id="drawdown_chart" height="260" aria-label="Drawdown chart"></canvas>
+              <div class="chart-canvas-wrap">
+                <canvas id="drawdown_chart" height="260" aria-label="Drawdown chart"></canvas>
+              </div>
               <p class="chart-caption">Percent distance from prior equity peak.</p>
             </article>
           </div>
@@ -506,20 +510,42 @@
       const points = series.map((pt) => ({
         x: Number(pt.tsMs),
         y: Number(pt.value)
-      })).filter((pt) => Number.isFinite(pt.x) && Number.isFinite(pt.y));
+      })).filter((pt) => Number.isFinite(pt.x) && Number.isFinite(pt.y) && Math.abs(pt.y) < 1e9);
       if (points.length < 2) return;
 
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
 
-      if (_chartStore[canvasId]){
-        _chartStore[canvasId].destroy();
-        _chartStore[canvasId] = null;
-      }
+      const buildTooltipCallbacks = () => ({
+        title: (items) => {
+          const x = Number(items?.[0]?.parsed?.x);
+          return formatChartDate(x, true);
+        },
+        label: (item) => {
+          const y = Number(item?.parsed?.y);
+          if (!Number.isFinite(y)) return "-";
+          if (typeof options.tooltipLabel === "function") return options.tooltipLabel(y);
+          return String(y);
+        }
+      });
 
-      const grad = ctx.createLinearGradient(0, 0, 0, canvas.height || 260);
-      grad.addColorStop(0, options.fillTop || "rgba(242,140,40,.22)");
-      grad.addColorStop(1, options.fillBottom || "rgba(242,140,40,.02)");
+      const yTickCallback = (v) => {
+        const n = Number(v);
+        if (!Number.isFinite(n)) return "-";
+        if (typeof options.yTickLabel === "function") return options.yTickLabel(n);
+        return String(n);
+      };
+
+      const existing = _chartStore[canvasId];
+      if (existing){
+        existing.data.datasets[0].data = points;
+        existing.data.datasets[0].borderColor = options.stroke || "#c67627";
+        existing.data.datasets[0].backgroundColor = options.fillTop || "rgba(242,140,40,.18)";
+        existing.options.plugins.tooltip.callbacks = buildTooltipCallbacks();
+        existing.options.scales.y.ticks.callback = yTickCallback;
+        existing.update("none");
+        return;
+      }
 
       _chartStore[canvasId] = new Chart(ctx, {
         type: "line",
@@ -527,7 +553,7 @@
           datasets: [{
             data: points,
             borderColor: options.stroke || "#c67627",
-            backgroundColor: grad,
+            backgroundColor: options.fillTop || "rgba(242,140,40,.18)",
             fill: true,
             tension: 0.22,
             borderWidth: 2,
@@ -540,6 +566,7 @@
           responsive: true,
           maintainAspectRatio: false,
           animation: false,
+          normalized: true,
           parsing: false,
           interaction: {
             mode: "nearest",
@@ -548,18 +575,7 @@
           plugins: {
             legend: { display: false },
             tooltip: {
-              callbacks: {
-                title: (items) => {
-                  const x = Number(items?.[0]?.parsed?.x);
-                  return formatChartDate(x, true);
-                },
-                label: (item) => {
-                  const y = Number(item?.parsed?.y);
-                  if (!Number.isFinite(y)) return "-";
-                  if (typeof options.tooltipLabel === "function") return options.tooltipLabel(y);
-                  return String(y);
-                }
-              }
+              callbacks: buildTooltipCallbacks()
             }
           },
           scales: {
@@ -574,12 +590,7 @@
             y: {
               grid: { color: "rgba(234,223,206,.70)" },
               ticks: {
-                callback: (v) => {
-                  const n = Number(v);
-                  if (!Number.isFinite(n)) return "-";
-                  if (typeof options.yTickLabel === "function") return options.yTickLabel(n);
-                  return String(n);
-                }
+                callback: yTickCallback
               }
             }
           }
@@ -730,7 +741,6 @@
 
     loadDashboard();
     setInterval(loadDashboard, 10000);
-    window.addEventListener("resize", () => loadDashboard());
   </script>
 </body>
 </html>
