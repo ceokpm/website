@@ -81,12 +81,12 @@
             <article class="chart-card">
               <h3>Equity Curve</h3>
               <canvas id="equity_curve_chart" height="260" aria-label="Equity curve"></canvas>
-              <p class="chart-caption">Normalized to strategy start baseline.</p>
+              <p class="chart-caption">Broker-reported portfolio equity over time.</p>
             </article>
             <article class="chart-card">
               <h3>Drawdown</h3>
               <canvas id="drawdown_chart" height="260" aria-label="Drawdown chart"></canvas>
-              <p class="chart-caption">Shows distance from prior equity peak.</p>
+              <p class="chart-caption">Percent distance from prior equity peak.</p>
             </article>
           </div>
         </section>
@@ -172,10 +172,11 @@
                   <th>Entry</th>
                   <th>Exit</th>
                   <th>R</th>
+                  <th>Day Trade</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="7" class="empty">No open positions.</td></tr>
+                <tr><td colspan="8" class="empty">No open positions.</td></tr>
               </tbody>
             </table>
           </div>
@@ -306,6 +307,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -351,7 +353,7 @@
     function renderOpenPositions(rows){
       const tbody = document.querySelector("#open_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
-        tbody.innerHTML = '<tr><td colspan="7" class="empty">No open positions.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="8" class="empty">No open positions.</td></tr>';
         return;
       }
       tbody.innerHTML = rows.map(r => {
@@ -362,9 +364,10 @@
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
         const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
+        const dt = (r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "YES" : "NO";
         return `<tr>
           <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${q}</td>
-          <td>${en}</td><td>${ex}</td><td>${rr}</td>
+          <td>${en}</td><td>${ex}</td><td>${rr}</td><td>${dt}</td>
         </tr>`;
       }).join("");
     }
@@ -391,102 +394,197 @@
       }).join("");
     }
 
-    function fallbackEquitySeries(){
-      // TODO: replace mock equity series with real portfolio history
+    const _chartStore = {};
+
+    function toTimestampMs(raw){
+      if (raw === null || raw === undefined || raw === "") return NaN;
+      if (typeof raw === "number" && Number.isFinite(raw)) return raw;
+      const txt = String(raw).trim();
+      if (!txt) return NaN;
+      const normalized = txt.includes("T") ? txt : txt.replace(" ", "T");
+      const dt = new Date(normalized);
+      if (!Number.isNaN(dt.getTime())) return dt.getTime();
+      const dt2 = new Date(txt);
+      return Number.isNaN(dt2.getTime()) ? NaN : dt2.getTime();
+    }
+
+    function formatChartDate(tsMs, withSeconds = false){
+      if (!Number.isFinite(tsMs)) return "-";
+      const dt = new Date(tsMs);
+      if (Number.isNaN(dt.getTime())) return "-";
+      const year = dt.getFullYear();
+      const month = String(dt.getMonth() + 1).padStart(2, "0");
+      const day = String(dt.getDate()).padStart(2, "0");
+      const hh = String(dt.getHours()).padStart(2, "0");
+      const mm = String(dt.getMinutes()).padStart(2, "0");
+      const ss = String(dt.getSeconds()).padStart(2, "0");
+      return withSeconds ? `${year}-${month}-${day} ${hh}:${mm}:${ss}` : `${month}/${day} ${hh}:${mm}`;
+    }
+
+    function fallbackEquitySeries(anchorEquity = null){
+      const now = Date.now();
+      const base = Number.isFinite(Number(anchorEquity)) ? Number(anchorEquity) : 30000;
       return [
-        { ts: "P1", value: 100.0 },
-        { ts: "P2", value: 100.0 },
-        { ts: "P3", value: 100.0 },
-        { ts: "P4", value: 100.0 },
-        { ts: "P5", value: 100.0 },
-        { ts: "P6", value: 100.0 }
+        { tsMs: now - 2 * 60 * 60 * 1000, value: base },
+        { tsMs: now - 60 * 60 * 1000, value: base },
+        { tsMs: now, value: base }
       ];
     }
 
     function buildSeriesFromLive(d){
       const acct = d.account || {};
-      const curve = Array.isArray(d.equity_curve_r) ? d.equity_curve_r : [];
-      if (curve.length < 2) return fallbackEquitySeries();
+      const brokerCurve = Array.isArray(d.equity_curve) ? d.equity_curve : [];
 
-      // TODO: bind live data here using true portfolio equity history instead of R-normalized points.
-      return curve.map((pt, i) => {
-        const cumR = Number(pt.cum_r);
-        const normalized = Number.isFinite(cumR) ? 100 + cumR : (100 + i * 0.2);
-        return {
-          ts: pt.ts || `P${i + 1}`,
-          value: normalized,
-          equity: acct.equity
-        };
-      });
+      if (brokerCurve.length >= 2){
+        const rows = brokerCurve.map((pt) => {
+          const tsMs = toTimestampMs(pt.ts);
+          const eq = Number(pt.equity);
+          const dd = Number(pt.drawdown_pct);
+          return {
+            tsMs,
+            value: eq,
+            drawdownPct: Number.isFinite(dd) ? dd : null
+          };
+        }).filter((pt) => Number.isFinite(pt.tsMs) && Number.isFinite(pt.value));
+
+        if (rows.length >= 2){
+          rows.sort((a, b) => a.tsMs - b.tsMs);
+          const dedup = [];
+          for (const r of rows){
+            if (!dedup.length || dedup[dedup.length - 1].tsMs !== r.tsMs){
+              dedup.push(r);
+            } else {
+              dedup[dedup.length - 1] = r;
+            }
+          }
+          return dedup;
+        }
+      }
+
+      const curveR = Array.isArray(d.equity_curve_r) ? d.equity_curve_r : [];
+      if (curveR.length >= 2){
+        const base = toFiniteOrNull(acct.inception_equity) ?? toFiniteOrNull(acct.equity) ?? 30000;
+        const now = Date.now();
+        return curveR.map((pt, i) => {
+          const cumR = Number(pt.cum_r);
+          return {
+            tsMs: Number.isFinite(toTimestampMs(pt.ts)) ? toTimestampMs(pt.ts) : (now - (curveR.length - i) * 60 * 1000),
+            value: base + (Number.isFinite(cumR) ? cumR : 0)
+          };
+        });
+      }
+
+      return fallbackEquitySeries(acct.equity);
     }
 
-    function buildDrawdownSeries(series){
+    function buildDrawdownSeries(equitySeries, d){
+      const provided = Array.isArray(d.drawdown_curve) ? d.drawdown_curve : [];
+      if (provided.length >= 2){
+        const rows = provided.map((pt) => {
+          const tsMs = toTimestampMs(pt.ts);
+          const dd = Number(pt.drawdown_pct);
+          return { tsMs, value: dd };
+        }).filter((pt) => Number.isFinite(pt.tsMs) && Number.isFinite(pt.value));
+        if (rows.length >= 2){
+          rows.sort((a, b) => a.tsMs - b.tsMs);
+          return rows;
+        }
+      }
+
       let peak = -Infinity;
-      return series.map((pt) => {
-        peak = Math.max(peak, pt.value);
-        const dd = peak > 0 ? ((pt.value / peak) - 1) * 100 : 0;
-        return { ts: pt.ts, value: dd };
-      });
+      return equitySeries.map((pt) => {
+        peak = Math.max(peak, Number(pt.value));
+        const dd = peak > 0 ? ((Number(pt.value) / peak) - 1) * 100 : 0;
+        return { tsMs: pt.tsMs, value: dd };
+      }).filter((pt) => Number.isFinite(pt.tsMs) && Number.isFinite(pt.value));
     }
 
-    function drawLineChart(canvasId, series, options = {}){
+    function renderInteractiveLineChart(canvasId, series, options = {}){
       const canvas = document.getElementById(canvasId);
-      if (!canvas || !Array.isArray(series) || series.length < 2) return;
+      if (!canvas || !Array.isArray(series) || series.length < 2 || !window.Chart) return;
+
+      const points = series.map((pt) => ({
+        x: Number(pt.tsMs),
+        y: Number(pt.value)
+      })).filter((pt) => Number.isFinite(pt.x) && Number.isFinite(pt.y));
+      if (points.length < 2) return;
 
       const ctx = canvas.getContext("2d");
-      const width = canvas.clientWidth || canvas.width;
-      const height = canvas.clientHeight || canvas.height;
-      const ratio = window.devicePixelRatio || 1;
+      if (!ctx) return;
 
-      canvas.width = Math.floor(width * ratio);
-      canvas.height = Math.floor(height * ratio);
-      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-      ctx.clearRect(0, 0, width, height);
-
-      const pad = { top: 20, right: 12, bottom: 24, left: 12 };
-      const innerW = width - pad.left - pad.right;
-      const innerH = height - pad.top - pad.bottom;
-
-      const vals = series.map(p => Number(p.value)).filter(Number.isFinite);
-      if (!vals.length) return;
-      const minV = Math.min(...vals);
-      const maxV = Math.max(...vals);
-      const span = Math.max(maxV - minV, 1e-6);
-
-      const xAt = i => pad.left + (i / (series.length - 1)) * innerW;
-      const yAt = v => pad.top + (1 - ((v - minV) / span)) * innerH;
-
-      ctx.strokeStyle = "#eadfce";
-      ctx.lineWidth = 1;
-      for (let i = 0; i <= 3; i++) {
-        const gy = pad.top + (i / 3) * innerH;
-        ctx.beginPath();
-        ctx.moveTo(pad.left, gy);
-        ctx.lineTo(width - pad.right, gy);
-        ctx.stroke();
+      if (_chartStore[canvasId]){
+        _chartStore[canvasId].destroy();
+        _chartStore[canvasId] = null;
       }
 
-      ctx.beginPath();
-      series.forEach((p, i) => {
-        const x = xAt(i);
-        const y = yAt(Number(p.value));
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+      const grad = ctx.createLinearGradient(0, 0, 0, canvas.height || 260);
+      grad.addColorStop(0, options.fillTop || "rgba(242,140,40,.22)");
+      grad.addColorStop(1, options.fillBottom || "rgba(242,140,40,.02)");
+
+      _chartStore[canvasId] = new Chart(ctx, {
+        type: "line",
+        data: {
+          datasets: [{
+            data: points,
+            borderColor: options.stroke || "#c67627",
+            backgroundColor: grad,
+            fill: true,
+            tension: 0.22,
+            borderWidth: 2,
+            pointRadius: 0,
+            pointHoverRadius: 4,
+            pointHitRadius: 18
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: false,
+          parsing: false,
+          interaction: {
+            mode: "nearest",
+            intersect: false
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                title: (items) => {
+                  const x = Number(items?.[0]?.parsed?.x);
+                  return formatChartDate(x, true);
+                },
+                label: (item) => {
+                  const y = Number(item?.parsed?.y);
+                  if (!Number.isFinite(y)) return "-";
+                  if (typeof options.tooltipLabel === "function") return options.tooltipLabel(y);
+                  return String(y);
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              type: "linear",
+              grid: { color: "rgba(234,223,206,.45)" },
+              ticks: {
+                maxTicksLimit: 6,
+                callback: (v) => formatChartDate(Number(v), false)
+              }
+            },
+            y: {
+              grid: { color: "rgba(234,223,206,.70)" },
+              ticks: {
+                callback: (v) => {
+                  const n = Number(v);
+                  if (!Number.isFinite(n)) return "-";
+                  if (typeof options.yTickLabel === "function") return options.yTickLabel(n);
+                  return String(n);
+                }
+              }
+            }
+          }
+        }
       });
-      ctx.strokeStyle = options.stroke || "#f28c28";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      if (options.fill){
-        ctx.lineTo(xAt(series.length - 1), pad.top + innerH);
-        ctx.lineTo(xAt(0), pad.top + innerH);
-        ctx.closePath();
-        const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + innerH);
-        grad.addColorStop(0, options.fillTop || "rgba(242,140,40,.20)");
-        grad.addColorStop(1, options.fillBottom || "rgba(242,140,40,.02)");
-        ctx.fillStyle = grad;
-        ctx.fill();
-      }
     }
 
     function renderMonthlyTable(rows){
@@ -554,7 +652,7 @@
         const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
 
         const equitySeries = buildSeriesFromLive(d);
-        const drawdownSeries = buildDrawdownSeries(equitySeries);
+        const drawdownSeries = buildDrawdownSeries(equitySeries, d);
 
         let sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
         let ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
@@ -585,17 +683,19 @@
           ?? ((currentEquity !== null && inceptionEquity !== null) ? (currentEquity - inceptionEquity) : null);
         setText("run_pnl", noActivity ? "-" : fMoney(sinceInceptionPnl));
 
-        drawLineChart("equity_curve_chart", equitySeries, {
+        renderInteractiveLineChart("equity_curve_chart", equitySeries, {
           stroke: "#c67627",
-          fill: true,
           fillTop: "rgba(242,140,40,.22)",
-          fillBottom: "rgba(242,140,40,.02)"
+          fillBottom: "rgba(242,140,40,.02)",
+          yTickLabel: (v) => fMoney(v),
+          tooltipLabel: (v) => `Equity: ${fMoney(v)}`
         });
-        drawLineChart("drawdown_chart", drawdownSeries, {
+        renderInteractiveLineChart("drawdown_chart", drawdownSeries, {
           stroke: "#9d5a1b",
-          fill: true,
           fillTop: "rgba(178,95,22,.20)",
-          fillBottom: "rgba(178,95,22,.02)"
+          fillBottom: "rgba(178,95,22,.02)",
+          yTickLabel: (v) => `${Number(v).toFixed(2)}%`,
+          tooltipLabel: (v) => `Drawdown: ${Number(v).toFixed(2)}%`
         });
 
         // TODO: bind live data here when monthly strategy return feed is available.
@@ -609,17 +709,19 @@
       }catch(e){
         setText("updated_at", "Dashboard data unavailable");
         const equitySeries = fallbackEquitySeries();
-        drawLineChart("equity_curve_chart", equitySeries, {
+        renderInteractiveLineChart("equity_curve_chart", equitySeries, {
           stroke: "#c67627",
-          fill: true,
           fillTop: "rgba(242,140,40,.22)",
-          fillBottom: "rgba(242,140,40,.02)"
+          fillBottom: "rgba(242,140,40,.02)",
+          yTickLabel: (v) => fMoney(v),
+          tooltipLabel: (v) => `Equity: ${fMoney(v)}`
         });
-        drawLineChart("drawdown_chart", buildDrawdownSeries(equitySeries), {
+        renderInteractiveLineChart("drawdown_chart", buildDrawdownSeries(equitySeries, {}), {
           stroke: "#9d5a1b",
-          fill: true,
           fillTop: "rgba(178,95,22,.20)",
-          fillBottom: "rgba(178,95,22,.02)"
+          fillBottom: "rgba(178,95,22,.02)",
+          yTickLabel: (v) => `${Number(v).toFixed(2)}%`,
+          tooltipLabel: (v) => `Drawdown: ${Number(v).toFixed(2)}%`
         });
         renderMonthlyTable(fallbackMonthlyRows());
         renderOpenPositions([]);
