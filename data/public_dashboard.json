@@ -1,46 +1,46 @@
 {
-  "updated_at": "2026-04-17T09:30:17.605265",
+  "updated_at": "2026-04-17T09:35:11.528053",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30006.78,
+    "equity": 30009.7,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": 6.78,
+    "since_inception_pnl_dollars": 9.7,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 09:30:08.269230"
+    "asof": "2026-04-17 09:35:05.899171"
   },
   "summary": {
     "open_positions_count": 4,
     "open_long_count": 4,
     "open_short_count": 0,
     "signals_ready_count": 0,
-    "recent_trades_count": 1,
-    "avg_open_r_multiple": 0.025
+    "recent_trades_count": 2,
+    "avg_open_r_multiple": 0.035
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
     "recent_trades_avg_r": null,
-    "closed_trades_count": 1,
-    "win_rate_pct": 0.0,
-    "avg_r": -0.098,
-    "expectancy_r": -0.098,
-    "median_r": -0.098,
-    "best_trade_r": -0.098,
+    "closed_trades_count": 2,
+    "win_rate_pct": 50.0,
+    "avg_r": 0.027,
+    "expectancy_r": 0.027,
+    "median_r": 0.027,
+    "best_trade_r": 0.153,
     "worst_trade_r": -0.098,
-    "last_20_win_rate_pct": 0.0,
+    "last_20_win_rate_pct": 50.0,
     "avg_hold_days": 0.0,
-    "sharpe_like": null,
-    "sortino_ratio": -1.0,
+    "sharpe_like": 0.218,
+    "sortino_ratio": 0.279,
     "max_drawdown_r": 0.0,
     "max_drawdown_pct_est": 0.0,
-    "profit_factor_r": 0.0,
-    "gross_profit_r": 0.0,
+    "profit_factor_r": 1.517,
+    "gross_profit_r": 8.68,
     "gross_loss_r": 5.72
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T09:25:34.971731"
+    "last_updated": "2026-04-17T09:30:23.284338"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -61,50 +61,64 @@
       "R_realized": "",
       "pnl_pct": -0.097986,
       "reason": "BROKER_FIFO"
+    },
+    {
+      "ts_utc": "2026-04-17T16:30:30Z",
+      "event": "EXIT",
+      "symbol": "SPY",
+      "side": "LONG",
+      "qty": 8.0,
+      "entry_date": "2026-04-17",
+      "entry_px": 710.59,
+      "exit_date": "2026-04-17",
+      "exit_px": 711.675,
+      "R_realized": "",
+      "pnl_pct": 0.15269,
+      "reason": "BROKER_FIFO"
     }
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-17 09:30:05.964903",
+      "ts_utc": "2026-04-17 09:35:06.032688",
       "symbol": "QQQ",
       "side": "LONG",
       "qty": 2.7692,
       "entry_px": 648.62,
       "exit_px": "",
-      "R_realized": 0.02,
+      "R_realized": 0.03,
       "daytrade_mode": true,
       "entry_model": "TREND_INTRADAY"
     },
     {
-      "ts_utc": "2026-04-17 09:30:05.964903",
+      "ts_utc": "2026-04-17 09:35:06.032688",
       "symbol": "QQQ",
       "side": "LONG",
       "qty": 1.2308,
       "entry_px": 648.62,
       "exit_px": "",
-      "R_realized": 0.02,
+      "R_realized": 0.03,
       "daytrade_mode": false,
       "entry_model": "TREND_SWING"
     },
     {
-      "ts_utc": "2026-04-17 09:30:05.964903",
+      "ts_utc": "2026-04-17 09:35:06.032688",
       "symbol": "SPY",
       "side": "LONG",
-      "qty": 8.0,
+      "qty": 1.6,
       "entry_px": 710.58,
       "exit_px": "",
-      "R_realized": 0.03,
+      "R_realized": 0.04,
       "daytrade_mode": true,
       "entry_model": "TREND_INTRADAY"
     },
     {
-      "ts_utc": "2026-04-17 09:30:05.964903",
+      "ts_utc": "2026-04-17 09:35:06.032688",
       "symbol": "SPY",
       "side": "LONG",
-      "qty": 2.0,
+      "qty": 0.4,
       "entry_px": 710.58,
       "exit_px": "",
-      "R_realized": 0.03,
+      "R_realized": 0.04,
       "daytrade_mode": false,
       "entry_model": "TREND_SWING"
     }
@@ -217,20 +231,25 @@
       "ts": "2026-04-17 16:00:05+00:00",
       "cum_r": -0.098,
       "r": -0.098
+    },
+    {
+      "ts": "2026-04-17 16:30:30+00:00",
+      "cum_r": 0.055,
+      "r": 0.153
     }
   ],
   "monthly_performance": [
     {
       "month": "2026-04",
-      "return_pct": -0.02,
-      "net_pnl": -5.72,
+      "return_pct": 0.01,
+      "net_pnl": 2.96,
       "max_dd_pct": 0.0,
-      "trades": 1
+      "trades": 2
     }
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T09:30:12.560243"
+    "last_updated": "2026-04-17T09:35:07.641803"
   },
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
