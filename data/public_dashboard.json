@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-04-17T09:00:12.863993",
+  "updated_at": "2026-04-17T09:05:17.166216",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 29992.22,
+    "equity": 30001.88,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": -7.78,
+    "since_inception_pnl_dollars": 1.88,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 09:00:06.260403"
+    "asof": "2026-04-17 09:05:05.559596"
   },
   "summary": {
-    "open_positions_count": 0,
-    "open_long_count": 0,
+    "open_positions_count": 2,
+    "open_long_count": 2,
     "open_short_count": 0,
     "signals_ready_count": 0,
     "recent_trades_count": 1,
-    "avg_open_r_multiple": null
+    "avg_open_r_multiple": 0.015
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
@@ -40,11 +40,11 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T08:55:23.322329"
+    "last_updated": "2026-04-17T09:00:20.687364"
   },
   "positioning": {
     "long_short_ratio": null,
-    "long_pct": 0.0,
+    "long_pct": 100.0,
     "short_pct": 0.0
   },
   "trade_history": [
@@ -63,7 +63,30 @@
       "reason": "BROKER_FIFO"
     }
   ],
-  "open_positions_live": [],
+  "open_positions_live": [
+    {
+      "ts_utc": "2026-04-17 09:05:05.451149",
+      "symbol": "QQQ",
+      "side": "LONG",
+      "qty": 4.0,
+      "entry_px": 648.62,
+      "exit_px": "",
+      "R_realized": 0.01,
+      "daytrade_mode": false,
+      "entry_model": "TREND_SWING"
+    },
+    {
+      "ts_utc": "2026-04-17 09:05:05.451149",
+      "symbol": "SPY",
+      "side": "LONG",
+      "qty": 10.0,
+      "entry_px": 710.58,
+      "exit_px": "",
+      "R_realized": 0.02,
+      "daytrade_mode": false,
+      "entry_model": "TREND_SWING"
+    }
+  ],
   "equity_curve": [
     {
       "ts": "2026-04-17T06:27:26",
@@ -185,7 +208,7 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T09:00:08.145157"
+    "last_updated": "2026-04-17T09:05:08.348903"
   },
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
