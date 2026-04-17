@@ -1,50 +1,52 @@
 {
-  "updated_at": "2026-04-17T09:50:23.623246",
+  "updated_at": "2026-04-17T10:25:19.131446",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30010.57,
+    "equity": 30004.33,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": 10.57,
+    "since_inception_pnl_dollars": 4.33,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 09:50:08.347844"
+    "asof": "2026-04-17 10:25:05.420155"
   },
   "summary": {
-    "open_positions_count": 4,
-    "open_long_count": 4,
+    "open_positions_count": 0,
+    "open_long_count": 0,
     "open_short_count": 0,
     "signals_ready_count": 0,
-    "recent_trades_count": 2,
-    "avg_open_r_multiple": 0.04
+    "recent_trades_count": 4,
+    "avg_open_r_multiple": null,
+    "twelve_data_ema9_called": false,
+    "twelve_data_macd_called": false
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
     "recent_trades_avg_r": null,
-    "closed_trades_count": 2,
-    "win_rate_pct": 50.0,
-    "avg_r": 0.027,
-    "expectancy_r": 0.027,
-    "median_r": 0.027,
+    "closed_trades_count": 4,
+    "win_rate_pct": 75.0,
+    "avg_r": 0.034,
+    "expectancy_r": 0.034,
+    "median_r": 0.041,
     "best_trade_r": 0.153,
     "worst_trade_r": -0.098,
-    "last_20_win_rate_pct": 50.0,
+    "last_20_win_rate_pct": 75.0,
     "avg_hold_days": 0.0,
-    "sharpe_like": 0.218,
-    "sortino_ratio": 0.279,
+    "sharpe_like": 0.377,
+    "sortino_ratio": 0.348,
     "max_drawdown_r": 0.0,
     "max_drawdown_pct_est": 0.0,
-    "profit_factor_r": 1.517,
-    "gross_profit_r": 8.68,
+    "profit_factor_r": 1.757,
+    "gross_profit_r": 10.05,
     "gross_loss_r": 5.72
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T09:45:20.690591"
+    "last_updated": "2026-04-17T10:20:49.279416"
   },
   "positioning": {
     "long_short_ratio": null,
-    "long_pct": 100.0,
+    "long_pct": 0.0,
     "short_pct": 0.0
   },
   "trade_history": [
@@ -79,54 +81,41 @@
       "reason": "BROKER_FIFO",
       "entry_model": "TREND_INTRADAY",
       "daytrade_mode": true
-    }
-  ],
-  "open_positions_live": [
+    },
     {
-      "ts_utc": "2026-04-17 09:50:08.124603",
+      "ts_utc": "2026-04-17T17:11:48Z",
+      "event": "EXIT",
       "symbol": "QQQ",
       "side": "LONG",
-      "qty": 2.7692,
-      "entry_px": 648.62,
-      "exit_px": "",
-      "R_realized": 0.03,
-      "daytrade_mode": true,
-      "entry_model": "TREND_INTRADAY"
+      "qty": 4.0,
+      "entry_date": "2026-04-17",
+      "entry_px": 648.64,
+      "exit_date": "2026-04-17",
+      "exit_px": 648.755,
+      "R_realized": "",
+      "pnl_pct": 0.017729,
+      "reason": "BROKER_FIFO",
+      "entry_model": "TREND_SWING",
+      "daytrade_mode": false
     },
     {
-      "ts_utc": "2026-04-17 09:50:08.124603",
-      "symbol": "QQQ",
-      "side": "LONG",
-      "qty": 1.2308,
-      "entry_px": 648.62,
-      "exit_px": "",
-      "R_realized": 0.03,
-      "daytrade_mode": false,
-      "entry_model": "TREND_SWING"
-    },
-    {
-      "ts_utc": "2026-04-17 09:50:08.124603",
+      "ts_utc": "2026-04-17T17:11:50Z",
+      "event": "EXIT",
       "symbol": "SPY",
       "side": "LONG",
-      "qty": 1.6,
-      "entry_px": 710.58,
-      "exit_px": "",
-      "R_realized": 0.05,
-      "daytrade_mode": true,
-      "entry_model": "TREND_INTRADAY"
-    },
-    {
-      "ts_utc": "2026-04-17 09:50:08.124603",
-      "symbol": "SPY",
-      "side": "LONG",
-      "qty": 0.4,
-      "entry_px": 710.58,
-      "exit_px": "",
-      "R_realized": 0.05,
-      "daytrade_mode": false,
-      "entry_model": "TREND_SWING"
+      "qty": 2.0,
+      "entry_date": "2026-04-17",
+      "entry_px": 710.59,
+      "exit_date": "2026-04-17",
+      "exit_px": 711.045,
+      "R_realized": "",
+      "pnl_pct": 0.064031,
+      "reason": "BROKER_FIFO",
+      "entry_model": "TREND_SWING",
+      "daytrade_mode": false
     }
   ],
+  "open_positions_live": [],
   "equity_curve": [
     {
       "ts": "2026-04-17T06:27:26",
@@ -240,20 +229,97 @@
       "ts": "2026-04-17 16:30:30+00:00",
       "cum_r": 0.055,
       "r": 0.153
+    },
+    {
+      "ts": "2026-04-17 17:11:48+00:00",
+      "cum_r": 0.072,
+      "r": 0.018
+    },
+    {
+      "ts": "2026-04-17 17:11:50+00:00",
+      "cum_r": 0.136,
+      "r": 0.064
     }
   ],
   "monthly_performance": [
     {
       "month": "2026-04",
       "return_pct": 0.01,
-      "net_pnl": 2.96,
+      "net_pnl": 4.33,
       "max_dd_pct": 0.0,
-      "trades": 2
+      "trades": 4
     }
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T09:50:13.108323"
+    "last_updated": "2026-04-17T10:25:07.930722"
+  },
+  "entry_progress": {
+    "twelve_data": {
+      "ema9_api_called": false,
+      "macd_api_called": false,
+      "ema9_markers": 0,
+      "macd_markers": 0,
+      "src_twelve_markers": 0,
+      "strict_gate_markers": 0,
+      "heartbeat_attempted": 8,
+      "heartbeat_success": 0,
+      "heartbeat_symbols": [
+        "QQQ",
+        "SPY"
+      ],
+      "heartbeat_errors": [
+        "EMA QQQ: HTTP Error 403: Forbidden",
+        "MACD QQQ: HTTP Error 403: Forbidden",
+        "EMA SPY: HTTP Error 403: Forbidden",
+        "MACD SPY: HTTP Error 403: Forbidden",
+        "EMA QQQ: HTTP Error 403: Forbidden",
+        "MACD QQQ: HTTP Error 403: Forbidden",
+        "EMA SPY: HTTP Error 403: Forbidden",
+        "MACD SPY: HTTP Error 403: Forbidden"
+      ]
+    },
+    "models": {
+      "TREND_INTRADAY": {
+        "signals_ready_count": 0,
+        "near_ready_count": 0,
+        "closest_symbol": null,
+        "closest_progress_pct": null,
+        "closest_reason": null,
+        "tracker_staged_count": 0,
+        "tracker_ready_count": 0,
+        "tracker_building_count": 0,
+        "tracker_waiting_count": 0,
+        "tracker_path_a_ready_count": 0,
+        "tracker_max_progress_pct": null
+      },
+      "TREND_SWING": {
+        "signals_ready_count": 0,
+        "near_ready_count": 0,
+        "closest_symbol": null,
+        "closest_progress_pct": null,
+        "closest_reason": null,
+        "tracker_staged_count": 0,
+        "tracker_ready_count": 0,
+        "tracker_building_count": 0,
+        "tracker_waiting_count": 0,
+        "tracker_path_a_ready_count": 0,
+        "tracker_max_progress_pct": null
+      },
+      "REGULAR_SWING": {
+        "signals_ready_count": 0,
+        "near_ready_count": 4,
+        "closest_symbol": "AMZN",
+        "closest_progress_pct": 96.9,
+        "closest_reason": "prob 0.533/0.550",
+        "tracker_staged_count": 0,
+        "tracker_ready_count": 0,
+        "tracker_building_count": 0,
+        "tracker_waiting_count": 0,
+        "tracker_path_a_ready_count": 0,
+        "tracker_max_progress_pct": null
+      }
+    }
   },
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
