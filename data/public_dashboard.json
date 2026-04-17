@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-04-16T22:14:03.114267",
+  "updated_at": "2026-04-16T22:24:43.980022",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": null,
+    "equity": 29979.06,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": null,
+    "since_inception_pnl_dollars": -20.94,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": null
+    "asof": "2026-04-16 22:24:41.212144"
   },
   "summary": {
-    "open_positions_count": 0,
-    "open_long_count": 0,
+    "open_positions_count": 1,
+    "open_long_count": 1,
     "open_short_count": 0,
     "signals_ready_count": 0,
     "recent_trades_count": 9,
-    "avg_open_r_multiple": null
+    "avg_open_r_multiple": 0.19
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
@@ -40,11 +40,11 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-16T21:45:41.722128"
+    "last_updated": "2026-04-16T22:14:09.318096"
   },
   "positioning": {
     "long_short_ratio": null,
-    "long_pct": 0.0,
+    "long_pct": 100.0,
     "short_pct": 0.0
   },
   "trade_history": [
@@ -175,7 +175,18 @@
       "reason": "BROKER_FIFO"
     }
   ],
-  "open_positions_live": [],
+  "open_positions_live": [
+    {
+      "ts_utc": "2026-04-16 22:24:41.212144",
+      "symbol": "CVX",
+      "side": "LONG",
+      "qty": 57.0,
+      "entry_px": 185.29,
+      "exit_px": "",
+      "R_realized": 0.19,
+      "daytrade_mode": false
+    }
+  ],
   "equity_curve": [
     {
       "ts": "2026-04-15T07:55:27",
@@ -936,6 +947,11 @@
       "ts": "2026-04-16T21:45:33",
       "equity": 29979.06,
       "drawdown_pct": -0.6536
+    },
+    {
+      "ts": "2026-04-16T22:24:41",
+      "equity": 29979.06,
+      "drawdown_pct": -0.6536
     }
   ],
   "drawdown_curve": [
@@ -1546,6 +1562,10 @@
     {
       "ts": "2026-04-16T21:45:33",
       "drawdown_pct": -0.6536
+    },
+    {
+      "ts": "2026-04-16T22:24:41",
+      "drawdown_pct": -0.6536
     }
   ],
   "equity_curve_r": [
@@ -1606,6 +1626,6 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-16T22:14:03.115267"
+    "last_updated": "2026-04-16T22:24:43.982024"
   }
 }
