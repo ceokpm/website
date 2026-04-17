@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-17T12:00:16.068102",
+  "updated_at": "2026-04-17T12:05:12.756886",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
@@ -8,7 +8,7 @@
     "since_inception_pnl_dollars": 4.33,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 12:00:05.821148"
+    "asof": "2026-04-17 12:05:05.262343"
   },
   "summary": {
     "open_positions_count": 0,
@@ -42,7 +42,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T11:55:20.617739"
+    "last_updated": "2026-04-17T12:00:21.146628"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -252,28 +252,22 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T12:00:11.176339"
+    "last_updated": "2026-04-17T12:05:08.283863"
   },
   "entry_progress": {
     "twelve_data": {
       "ema9_api_called": true,
       "macd_api_called": true,
-      "ema9_markers": 6,
-      "macd_markers": 6,
+      "ema9_markers": 4,
+      "macd_markers": 4,
       "src_twelve_markers": 0,
       "strict_gate_markers": 4,
-      "heartbeat_attempted": 4,
+      "heartbeat_attempted": 0,
       "heartbeat_success": 0,
-      "heartbeat_symbols": [
-        "QQQ",
-        "SPY"
-      ],
+      "heartbeat_symbols": [],
       "heartbeat_errors": [
-        "heartbeat skipped for non-trend lane",
-        "EMA QQQ: You have run out of API credits for the current minute. 9 API credits were used, with the current limit being 8. Wait for the next minute or consider switching to a higher tier plan at https://twelvedata.com/pricing",
-        "MACD QQQ: You have run out of API credits for the current minute. 10 API credits were used, with the current limit being 8. Wait for the next minute or consider switching to a higher tier plan at https://twelvedata.com/pricing",
-        "EMA SPY: You have run out of API credits for the current minute. 11 API credits were used, with the current limit being 8. Wait for the next minute or consider switching to a higher tier plan at https://twelvedata.com/pricing",
-        "MACD SPY: You have run out of API credits for the current minute. 12 API credits were used, with the current limit being 8. Wait for the next minute or consider switching to a higher tier plan at https://twelvedata.com/pricing"
+        "heartbeat disabled",
+        "heartbeat disabled"
       ]
     },
     "models": {
