@@ -172,6 +172,7 @@
                   <th>Time</th>
                   <th>Ticker</th>
                   <th>Side</th>
+                  <th>Model</th>
                   <th>Qty</th>
                   <th>Entry</th>
                   <th>Exit</th>
@@ -180,7 +181,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="8" class="empty">No open positions.</td></tr>
+                <tr><td colspan="9" class="empty">No open positions.</td></tr>
               </tbody>
             </table>
           </div>
@@ -202,14 +203,16 @@
                   <th>Time</th>
                   <th>Ticker</th>
                   <th>Side</th>
+                  <th>Model</th>
                   <th>Qty</th>
                   <th>Entry</th>
                   <th>Exit</th>
+                  <th>Day Trade</th>
                   <th>R</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="7" class="empty">Waiting for execution data...</td></tr>
+                <tr><td colspan="9" class="empty">Waiting for execution data...</td></tr>
               </tbody>
             </table>
           </div>
@@ -376,20 +379,21 @@
     function renderOpenPositions(rows){
       const tbody = document.querySelector("#open_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
-        tbody.innerHTML = '<tr><td colspan="8" class="empty">No open positions.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="9" class="empty">No open positions.</td></tr>';
         return;
       }
       tbody.innerHTML = rows.map(r => {
         const t = r.ts_utc || "";
         const tk = r.symbol || "";
         const sd = r.side || "";
+        const model = String(r.entry_model || "").trim().toUpperCase() || ((r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "TREND_INTRADAY" : "TREND_SWING");
         const q = r.qty ?? "";
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
         const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
         const dt = (r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "YES" : "NO";
         return `<tr>
-          <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${q}</td>
+          <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
           <td>${en}</td><td>${ex}</td><td>${rr}</td><td>${dt}</td>
         </tr>`;
       }).join("");
@@ -398,7 +402,7 @@
     function renderTrades(rows){
       const tbody = document.querySelector("#trade_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
-        tbody.innerHTML = '<tr><td colspan="7" class="empty">No trade history yet.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="9" class="empty">No trade history yet.</td></tr>';
         return;
       }
       const last = rows.slice(-80).reverse();
@@ -406,13 +410,15 @@
         const t = fTradeTime(r.ts_utc || "");
         const tk = r.symbol || "";
         const sd = r.side || "";
+        const model = String(r.entry_model || "").trim().toUpperCase() || ((r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "TREND_INTRADAY" : "TREND_SWING");
         const q = r.qty ?? "";
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
+        const dt = (r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "YES" : "NO";
         const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
         return `<tr>
-          <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${q}</td>
-          <td>${en}</td><td>${ex}</td><td>${rr}</td>
+          <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
+          <td>${en}</td><td>${ex}</td><td>${dt}</td><td>${rr}</td>
         </tr>`;
       }).join("");
     }
