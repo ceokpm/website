@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-04-16T15:21:29.973145",
+  "updated_at": "2026-04-16T21:39:12.022887",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30168.3,
-    "run_pnl_dollars": 0.0,
-    "since_inception_pnl_dollars": 168.3,
+    "equity": 29979.06,
+    "run_pnl_dollars": -189.24,
+    "since_inception_pnl_dollars": -20.94,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-16 15:21:26.973279"
+    "asof": "2026-04-16 21:39:09.408958"
   },
   "summary": {
     "open_positions_count": 1,
@@ -33,14 +33,14 @@
     "sharpe_like": 1.037,
     "sortino_ratio": 2.922,
     "max_drawdown_r": -0.017,
-    "max_drawdown_pct_est": 0.396,
+    "max_drawdown_pct_est": 0.654,
     "profit_factor_r": 12.459,
     "gross_profit_r": 7.6,
     "gross_loss_r": 0.61
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-16T15:19:28.679053"
+    "last_updated": "2026-04-16T15:21:35.683834"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -177,7 +177,7 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-16 15:21:26.973279",
+      "ts_utc": "2026-04-16 21:39:09.408958",
       "symbol": "CVX",
       "side": "LONG",
       "qty": 57.0,
@@ -937,6 +937,11 @@
       "ts": "2026-04-16T15:21:26",
       "equity": 30168.3,
       "drawdown_pct": -0.0264
+    },
+    {
+      "ts": "2026-04-16T21:39:09",
+      "equity": 29979.06,
+      "drawdown_pct": -0.6536
     }
   ],
   "drawdown_curve": [
@@ -1539,6 +1544,10 @@
     {
       "ts": "2026-04-16T15:21:26",
       "drawdown_pct": -0.0264
+    },
+    {
+      "ts": "2026-04-16T21:39:09",
+      "drawdown_pct": -0.6536
     }
   ],
   "equity_curve_r": [
@@ -1599,6 +1608,6 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-16T15:21:29.975147"
+    "last_updated": "2026-04-16T21:39:12.024888"
   }
 }
