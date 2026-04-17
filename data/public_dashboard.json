@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-04-17T07:35:19.028553",
+  "updated_at": "2026-04-17T07:40:14.196696",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
     "equity": 30000.0,
-    "run_pnl_dollars": 0.0,
+    "run_pnl_dollars": null,
     "since_inception_pnl_dollars": 0.0,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 07:35:06.172396"
+    "asof": "2026-04-17 07:40:04.920906"
   },
   "summary": {
     "open_positions_count": 0,
@@ -40,7 +40,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T07:30:32.565947"
+    "last_updated": "2026-04-17T07:35:24.381060"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -156,6 +156,14 @@
   "monthly_performance": [],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T07:35:19.029556"
+    "last_updated": "2026-04-17T07:40:11.680669"
+  },
+  "strategy_lanes": [
+    "AEGIS_LARGE_BASE",
+    "AEGIS_LARGE_TREND"
+  ],
+  "lane_feeds": {
+    "base": "public_dashboard_large_base.json",
+    "trend": "public_dashboard_large_trend.json"
   }
 }
