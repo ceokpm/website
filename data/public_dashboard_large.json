@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-04-17T09:45:13.368650",
+  "updated_at": "2026-04-17T09:50:23.623246",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30010.6,
+    "equity": 30010.57,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": 10.6,
+    "since_inception_pnl_dollars": 10.57,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 09:45:09.008738"
+    "asof": "2026-04-17 09:50:08.347844"
   },
   "summary": {
     "open_positions_count": 4,
@@ -40,7 +40,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T09:40:14.050432"
+    "last_updated": "2026-04-17T09:45:20.690591"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -60,7 +60,9 @@
       "exit_px": 647.981111,
       "R_realized": "",
       "pnl_pct": -0.097986,
-      "reason": "BROKER_FIFO"
+      "reason": "BROKER_FIFO",
+      "entry_model": "TREND_INTRADAY",
+      "daytrade_mode": true
     },
     {
       "ts_utc": "2026-04-17T16:30:30Z",
@@ -74,12 +76,14 @@
       "exit_px": 711.675,
       "R_realized": "",
       "pnl_pct": 0.15269,
-      "reason": "BROKER_FIFO"
+      "reason": "BROKER_FIFO",
+      "entry_model": "TREND_INTRADAY",
+      "daytrade_mode": true
     }
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-17 09:45:08.994735",
+      "ts_utc": "2026-04-17 09:50:08.124603",
       "symbol": "QQQ",
       "side": "LONG",
       "qty": 2.7692,
@@ -90,7 +94,7 @@
       "entry_model": "TREND_INTRADAY"
     },
     {
-      "ts_utc": "2026-04-17 09:45:08.994735",
+      "ts_utc": "2026-04-17 09:50:08.124603",
       "symbol": "QQQ",
       "side": "LONG",
       "qty": 1.2308,
@@ -101,7 +105,7 @@
       "entry_model": "TREND_SWING"
     },
     {
-      "ts_utc": "2026-04-17 09:45:08.994735",
+      "ts_utc": "2026-04-17 09:50:08.124603",
       "symbol": "SPY",
       "side": "LONG",
       "qty": 1.6,
@@ -112,7 +116,7 @@
       "entry_model": "TREND_INTRADAY"
     },
     {
-      "ts_utc": "2026-04-17 09:45:08.994735",
+      "ts_utc": "2026-04-17 09:50:08.124603",
       "symbol": "SPY",
       "side": "LONG",
       "qty": 0.4,
@@ -249,7 +253,7 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T09:45:10.646000"
+    "last_updated": "2026-04-17T09:50:13.108323"
   },
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
