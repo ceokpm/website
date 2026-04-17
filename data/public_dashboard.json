@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-17T10:25:19.131446",
+  "updated_at": "2026-04-17T10:30:18.389825",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
@@ -8,7 +8,7 @@
     "since_inception_pnl_dollars": 4.33,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 10:25:05.420155"
+    "asof": "2026-04-17 10:30:06.990461"
   },
   "summary": {
     "open_positions_count": 0,
@@ -17,8 +17,8 @@
     "signals_ready_count": 0,
     "recent_trades_count": 4,
     "avg_open_r_multiple": null,
-    "twelve_data_ema9_called": false,
-    "twelve_data_macd_called": false
+    "twelve_data_ema9_called": true,
+    "twelve_data_macd_called": true
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
@@ -42,7 +42,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T10:20:49.279416"
+    "last_updated": "2026-04-17T10:25:58.981197"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -252,40 +252,36 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T10:25:07.930722"
+    "last_updated": "2026-04-17T10:30:11.071981"
   },
   "entry_progress": {
     "twelve_data": {
-      "ema9_api_called": false,
-      "macd_api_called": false,
+      "ema9_api_called": true,
+      "macd_api_called": true,
       "ema9_markers": 0,
       "macd_markers": 0,
       "src_twelve_markers": 0,
       "strict_gate_markers": 0,
       "heartbeat_attempted": 8,
-      "heartbeat_success": 0,
+      "heartbeat_success": 4,
       "heartbeat_symbols": [
         "QQQ",
         "SPY"
       ],
       "heartbeat_errors": [
-        "EMA QQQ: HTTP Error 403: Forbidden",
-        "MACD QQQ: HTTP Error 403: Forbidden",
-        "EMA SPY: HTTP Error 403: Forbidden",
-        "MACD SPY: HTTP Error 403: Forbidden",
-        "EMA QQQ: HTTP Error 403: Forbidden",
-        "MACD QQQ: HTTP Error 403: Forbidden",
-        "EMA SPY: HTTP Error 403: Forbidden",
-        "MACD SPY: HTTP Error 403: Forbidden"
+        "EMA QQQ: You have run out of API credits for the current minute. 13 API credits were used, with the current limit being 8. Wait for the next minute or consider switching to a higher tier plan at https://twelvedata.com/pricing",
+        "MACD QQQ: You have run out of API credits for the current minute. 14 API credits were used, with the current limit being 8. Wait for the next minute or consider switching to a higher tier plan at https://twelvedata.com/pricing",
+        "EMA SPY: You have run out of API credits for the current minute. 15 API credits were used, with the current limit being 8. Wait for the next minute or consider switching to a higher tier plan at https://twelvedata.com/pricing",
+        "MACD SPY: You have run out of API credits for the current minute. 16 API credits were used, with the current limit being 8. Wait for the next minute or consider switching to a higher tier plan at https://twelvedata.com/pricing"
       ]
     },
     "models": {
       "TREND_INTRADAY": {
-        "signals_ready_count": 0,
+        "signals_ready_count": 2,
         "near_ready_count": 0,
-        "closest_symbol": null,
-        "closest_progress_pct": null,
-        "closest_reason": null,
+        "closest_symbol": "QQQ",
+        "closest_progress_pct": 100.0,
+        "closest_reason": "SIGNAL_READY",
         "tracker_staged_count": 0,
         "tracker_ready_count": 0,
         "tracker_building_count": 0,
@@ -294,11 +290,11 @@
         "tracker_max_progress_pct": null
       },
       "TREND_SWING": {
-        "signals_ready_count": 0,
+        "signals_ready_count": 2,
         "near_ready_count": 0,
-        "closest_symbol": null,
-        "closest_progress_pct": null,
-        "closest_reason": null,
+        "closest_symbol": "QQQ",
+        "closest_progress_pct": 100.0,
+        "closest_reason": "SIGNAL_READY",
         "tracker_staged_count": 0,
         "tracker_ready_count": 0,
         "tracker_building_count": 0,
