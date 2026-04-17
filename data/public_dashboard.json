@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-04-17T12:15:22.958788",
+  "updated_at": "2026-04-17T12:16:27.642540",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30003.28,
+    "equity": 30004.42,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": 3.28,
+    "since_inception_pnl_dollars": 4.42,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 12:15:05.776223"
+    "asof": "2026-04-17 12:15:53.516349"
   },
   "summary": {
-    "open_positions_count": 4,
-    "open_long_count": 4,
+    "open_positions_count": 6,
+    "open_long_count": 6,
     "open_short_count": 0,
     "signals_ready_count": 0,
     "recent_trades_count": 4,
-    "avg_open_r_multiple": -0.005,
+    "avg_open_r_multiple": 0.005,
     "twelve_data_ema9_called": false,
     "twelve_data_macd_called": false
   },
@@ -42,7 +42,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T12:10:23.430660"
+    "last_updated": "2026-04-17T12:15:30.728040"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -117,46 +117,68 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-17 12:15:05.806191",
+      "ts_utc": "2026-04-17 12:15:53.516349",
+      "symbol": "QQQ",
+      "side": "LONG",
+      "qty": 4.0,
+      "entry_px": 647.45,
+      "exit_px": "",
+      "R_realized": null,
+      "daytrade_mode": false,
+      "entry_model": ""
+    },
+    {
+      "ts_utc": "2026-04-17 12:15:53.516349",
+      "symbol": "SPY",
+      "side": "LONG",
+      "qty": 2.0,
+      "entry_px": 709.435,
+      "exit_px": "",
+      "R_realized": null,
+      "daytrade_mode": false,
+      "entry_model": ""
+    },
+    {
+      "ts_utc": "2026-04-17 12:15:53.477844",
       "symbol": "QQQ",
       "side": "LONG",
       "qty": 2.1176,
       "entry_px": 647.46,
       "exit_px": "",
-      "R_realized": -0.0,
+      "R_realized": 0.01,
       "daytrade_mode": true,
       "entry_model": "TREND_INTRADAY"
     },
     {
-      "ts_utc": "2026-04-17 12:15:05.806191",
+      "ts_utc": "2026-04-17 12:15:53.477844",
       "symbol": "QQQ",
       "side": "LONG",
       "qty": 1.8824,
       "entry_px": 647.46,
       "exit_px": "",
-      "R_realized": -0.0,
+      "R_realized": 0.01,
       "daytrade_mode": false,
       "entry_model": "TREND_SWING"
     },
     {
-      "ts_utc": "2026-04-17 12:15:05.806191",
+      "ts_utc": "2026-04-17 12:15:53.477844",
       "symbol": "SPY",
       "side": "LONG",
       "qty": 1.3333,
       "entry_px": 709.45,
       "exit_px": "",
-      "R_realized": -0.01,
+      "R_realized": 0.0,
       "daytrade_mode": true,
       "entry_model": "TREND_INTRADAY"
     },
     {
-      "ts_utc": "2026-04-17 12:15:05.806191",
+      "ts_utc": "2026-04-17 12:15:53.477844",
       "symbol": "SPY",
       "side": "LONG",
       "qty": 0.6667,
       "entry_px": 709.45,
       "exit_px": "",
-      "R_realized": -0.01,
+      "R_realized": 0.0,
       "daytrade_mode": false,
       "entry_model": "TREND_SWING"
     }
@@ -297,7 +319,7 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T12:15:07.364862"
+    "last_updated": "2026-04-17T12:15:55.615139"
   },
   "entry_progress": {
     "twelve_data": {
