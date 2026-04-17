@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-04-17T09:15:12.451261",
+  "updated_at": "2026-04-17T09:20:20.540457",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30003.84,
+    "equity": 30001.12,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": 3.84,
+    "since_inception_pnl_dollars": 1.12,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-17 09:15:05.825429"
+    "asof": "2026-04-17 09:20:05.639375"
   },
   "summary": {
-    "open_positions_count": 2,
-    "open_long_count": 2,
+    "open_positions_count": 4,
+    "open_long_count": 4,
     "open_short_count": 0,
     "signals_ready_count": 0,
     "recent_trades_count": 1,
-    "avg_open_r_multiple": 0.025
+    "avg_open_r_multiple": 0.015
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
@@ -40,7 +40,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-17T09:10:21.626082"
+    "last_updated": "2026-04-17T09:15:19.302910"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -65,24 +65,46 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-17 09:15:05.839433",
+      "ts_utc": "2026-04-17 09:20:08.141304",
       "symbol": "QQQ",
       "side": "LONG",
-      "qty": 4.0,
+      "qty": 2.7692,
       "entry_px": 648.62,
       "exit_px": "",
-      "R_realized": 0.02,
+      "R_realized": 0.01,
+      "daytrade_mode": true,
+      "entry_model": "TREND_INTRADAY"
+    },
+    {
+      "ts_utc": "2026-04-17 09:20:08.141304",
+      "symbol": "QQQ",
+      "side": "LONG",
+      "qty": 1.2308,
+      "entry_px": 648.62,
+      "exit_px": "",
+      "R_realized": 0.01,
       "daytrade_mode": false,
       "entry_model": "TREND_SWING"
     },
     {
-      "ts_utc": "2026-04-17 09:15:05.839433",
+      "ts_utc": "2026-04-17 09:20:08.141304",
       "symbol": "SPY",
       "side": "LONG",
-      "qty": 10.0,
+      "qty": 8.0,
       "entry_px": 710.58,
       "exit_px": "",
-      "R_realized": 0.03,
+      "R_realized": 0.02,
+      "daytrade_mode": true,
+      "entry_model": "TREND_INTRADAY"
+    },
+    {
+      "ts_utc": "2026-04-17 09:20:08.141304",
+      "symbol": "SPY",
+      "side": "LONG",
+      "qty": 2.0,
+      "entry_px": 710.58,
+      "exit_px": "",
+      "R_realized": 0.02,
       "daytrade_mode": false,
       "entry_model": "TREND_SWING"
     }
@@ -208,7 +230,7 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-17T09:15:09.596491"
+    "last_updated": "2026-04-17T09:20:09.511106"
   },
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
