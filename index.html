@@ -710,7 +710,7 @@
         setText("profit_factor", fNum(perf.profit_factor_r, 3));
         setText("win_rate", fPct(perf.win_rate_pct ?? perf.recent_trades_win_rate_pct, 1));
         setText("closed_trades", Number.isFinite(Number(perf.closed_trades_count)) ? String(Number(perf.closed_trades_count)) : "-");
-        setText("updated_at", fUpdatedAt(d.updated_at));
+        setText("updated_at", fUpdatedAt(d.published_at_utc || d.updated_at));
 
         setText("signals_ready", noActivity ? "-" : (Number.isFinite(Number(sum.signals_ready_count)) ? String(Number(sum.signals_ready_count)) : "-"));
         setText("open_positions", noActivity ? "-" : (Number.isFinite(Number(sum.open_positions_count)) ? String(Number(sum.open_positions_count)) : "-"));
