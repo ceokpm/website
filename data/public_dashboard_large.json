@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-04-20T10:55:30.887165",
+  "updated_at": "2026-04-20T11:00:32.365033",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 29868.28,
+    "equity": 29868.68,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": -131.72,
+    "since_inception_pnl_dollars": -131.32,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-20T10:55:21"
+    "asof": "2026-04-20T11:00:20"
   },
   "summary": {
-    "open_positions_count": 1,
-    "open_long_count": 1,
+    "open_positions_count": 3,
+    "open_long_count": 3,
     "open_short_count": 0,
     "signals_ready_count": 0,
     "recent_trades_count": 6,
@@ -42,7 +42,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-20T10:50:23.857236"
+    "last_updated": "2026-04-20T10:55:30.580788"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -149,11 +149,33 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-20T10:55:21",
+      "ts_utc": "2026-04-20T11:00:20",
       "symbol": "CVX",
       "side": "LONG",
       "qty": 84.0,
       "entry_px": 185.59,
+      "exit_px": "",
+      "R_realized": null,
+      "daytrade_mode": false,
+      "entry_model": ""
+    },
+    {
+      "ts_utc": "2026-04-20T11:00:20",
+      "symbol": "QQQ",
+      "side": "LONG",
+      "qty": 21.0,
+      "entry_px": 645.946667,
+      "exit_px": "",
+      "R_realized": null,
+      "daytrade_mode": false,
+      "entry_model": ""
+    },
+    {
+      "ts_utc": "2026-04-20T11:00:20",
+      "symbol": "SPY",
+      "side": "LONG",
+      "qty": 20.0,
+      "entry_px": 707.77,
       "exit_px": "",
       "R_realized": null,
       "daytrade_mode": false,
@@ -855,6 +877,16 @@
       "ts": "2026-04-20T10:55:12",
       "equity": 29867.44,
       "drawdown_pct": -0.5924
+    },
+    {
+      "ts": "2026-04-20T11:00:06",
+      "equity": 29869.96,
+      "drawdown_pct": -0.584
+    },
+    {
+      "ts": "2026-04-20T11:00:14",
+      "equity": 29869.96,
+      "drawdown_pct": -0.584
     }
   ],
   "drawdown_curve": [
@@ -1413,6 +1445,14 @@
     {
       "ts": "2026-04-20T10:55:12",
       "drawdown_pct": -0.5924
+    },
+    {
+      "ts": "2026-04-20T11:00:06",
+      "drawdown_pct": -0.584
+    },
+    {
+      "ts": "2026-04-20T11:00:14",
+      "drawdown_pct": -0.584
     }
   ],
   "equity_curve_r": [
@@ -1458,15 +1498,15 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-20T10:55:23.685839"
+    "last_updated": "2026-04-20T11:00:24.238131"
   },
   "entry_progress": {
     "twelve_data": {
       "ema9_api_called": true,
       "macd_api_called": true,
       "ema9_markers": 2,
-      "macd_markers": 2,
-      "src_twelve_markers": 0,
+      "macd_markers": 4,
+      "src_twelve_markers": 2,
       "strict_gate_markers": 0,
       "heartbeat_attempted": 0,
       "heartbeat_success": 0,
@@ -1518,16 +1558,16 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-04-20T10:55:23.354834",
+    "updated_at": "2026-04-20T11:00:23.878126",
     "interval": "5min",
     "symbols": {}
   },
-  "source_updated_at_max": "2026-04-20T10:55:23.683840",
+  "source_updated_at_max": "2026-04-20T11:00:24.236126",
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
     "AEGIS_LARGE_TREND"
   ],
-  "published_at_utc": "2026-04-20T17:55:30Z",
+  "published_at_utc": "2026-04-20T18:00:32Z",
   "lane_feeds": {
     "latest": "public_dashboard_large_latest.json",
     "base": null,
