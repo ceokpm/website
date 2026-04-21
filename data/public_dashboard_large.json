@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-04-21T07:01:36.276255",
+  "updated_at": "2026-04-21T07:05:44.427084",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 29779.04,
+    "equity": 29754.84,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": -220.96,
+    "since_inception_pnl_dollars": -245.16,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-21T07:01:17"
+    "asof": "2026-04-21T07:05:34"
   },
   "summary": {
     "open_positions_count": 4,
@@ -42,7 +42,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-21T06:57:37.571938"
+    "last_updated": "2026-04-21T07:01:35.947740"
   },
   "positioning": {
     "long_short_ratio": 1.0,
@@ -165,7 +165,7 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-21T07:01:17",
+      "ts_utc": "2026-04-21T07:05:34",
       "symbol": "AMD",
       "side": "SHORT",
       "qty": 42.0,
@@ -176,7 +176,7 @@
       "entry_model": ""
     },
     {
-      "ts_utc": "2026-04-21T07:01:17",
+      "ts_utc": "2026-04-21T07:05:34",
       "symbol": "CVX",
       "side": "LONG",
       "qty": 84.0,
@@ -187,7 +187,7 @@
       "entry_model": ""
     },
     {
-      "ts_utc": "2026-04-21T07:01:17",
+      "ts_utc": "2026-04-21T07:05:34",
       "symbol": "QQQ",
       "side": "SHORT",
       "qty": 18.0,
@@ -198,7 +198,7 @@
       "entry_model": ""
     },
     {
-      "ts_utc": "2026-04-21T07:01:17",
+      "ts_utc": "2026-04-21T07:05:34",
       "symbol": "SPY",
       "side": "LONG",
       "qty": 20.0,
@@ -1204,6 +1204,16 @@
       "ts": "2026-04-21T07:01:09",
       "equity": 29780.86,
       "drawdown_pct": -0.8806
+    },
+    {
+      "ts": "2026-04-21T07:05:13",
+      "equity": 29771.9,
+      "drawdown_pct": -0.9104
+    },
+    {
+      "ts": "2026-04-21T07:05:29",
+      "equity": 29760.53,
+      "drawdown_pct": -0.9482
     }
   ],
   "drawdown_curve": [
@@ -2002,6 +2012,14 @@
     {
       "ts": "2026-04-21T07:01:09",
       "drawdown_pct": -0.8806
+    },
+    {
+      "ts": "2026-04-21T07:05:13",
+      "drawdown_pct": -0.9104
+    },
+    {
+      "ts": "2026-04-21T07:05:29",
+      "drawdown_pct": -0.9482
     }
   ],
   "equity_curve_r": [
@@ -2052,7 +2070,7 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-21T07:01:25.415140"
+    "last_updated": "2026-04-21T07:05:37.058398"
   },
   "entry_progress": {
     "twelve_data": {
@@ -2112,7 +2130,7 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-04-21T07:01:24.697991",
+    "updated_at": "2026-04-21T07:05:36.307073",
     "interval": "5min",
     "symbols": {
       "SPY": {
@@ -4146,14 +4164,14 @@
           {
             "ts": "2026-04-21 07:00:00",
             "open": 710.71,
-            "high": 710.92,
+            "high": 710.96,
             "low": 710.5,
-            "close": 710.71,
-            "volume": 2812.0,
-            "ema9": 709.8526,
-            "macd": 0.629433,
-            "macd_signal": 0.357723,
-            "macd_hist": 0.27171,
+            "close": 710.645,
+            "volume": 10959.0,
+            "ema9": 709.8396,
+            "macd": 0.624248,
+            "macd_signal": 0.356686,
+            "macd_hist": 0.267562,
             "trend_intraday_confirm_count": 9,
             "trend_intraday_ready": true,
             "trend_swing_ready": false,
@@ -4163,11 +4181,11 @@
         ],
         "last": {
           "ts": "2026-04-21 07:00:00",
-          "close": 710.71,
-          "ema9": 709.8526,
-          "macd": 0.629433,
-          "macd_signal": 0.357723,
-          "macd_hist": 0.27171,
+          "close": 710.645,
+          "ema9": 709.8396,
+          "macd": 0.624248,
+          "macd_signal": 0.356686,
+          "macd_hist": 0.267562,
           "trend_intraday_ready": true,
           "trend_swing_ready": false
         },
@@ -6209,13 +6227,13 @@
             "ts": "2026-04-21 07:00:00",
             "open": 649.09,
             "high": 649.43,
-            "low": 648.87,
-            "close": 649.255,
-            "volume": 2704.0,
-            "ema9": 647.8872,
-            "macd": 0.62071,
-            "macd_signal": 0.35878,
-            "macd_hist": 0.26193,
+            "low": 648.68,
+            "close": 648.82,
+            "volume": 17751.0,
+            "ema9": 647.8002,
+            "macd": 0.586009,
+            "macd_signal": 0.35184,
+            "macd_hist": 0.23417,
             "trend_intraday_confirm_count": 8,
             "trend_intraday_ready": true,
             "trend_swing_ready": false,
@@ -6225,11 +6243,11 @@
         ],
         "last": {
           "ts": "2026-04-21 07:00:00",
-          "close": 649.255,
-          "ema9": 647.8872,
-          "macd": 0.62071,
-          "macd_signal": 0.35878,
-          "macd_hist": 0.26193,
+          "close": 648.82,
+          "ema9": 647.8002,
+          "macd": 0.586009,
+          "macd_signal": 0.35184,
+          "macd_hist": 0.23417,
           "trend_intraday_ready": true,
           "trend_swing_ready": false
         },
@@ -6241,12 +6259,12 @@
       }
     }
   },
-  "source_updated_at_max": "2026-04-21T07:01:25.401138",
+  "source_updated_at_max": "2026-04-21T07:05:37.045397",
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
     "AEGIS_LARGE_TREND"
   ],
-  "published_at_utc": "2026-04-21T14:01:36Z",
+  "published_at_utc": "2026-04-21T14:05:44Z",
   "lane_feeds": {
     "latest": "public_dashboard_large_latest.json",
     "base": null,
