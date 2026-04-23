@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-04-23T06:45:29.586812",
+  "updated_at": "2026-04-23T06:50:54.624719",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 29625.68,
+    "equity": 29641.06,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": -374.32,
+    "since_inception_pnl_dollars": -358.94,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-23T06:45:17"
+    "asof": "2026-04-23T06:50:48"
   },
   "summary": {
     "open_positions_count": 1,
@@ -17,8 +17,8 @@
     "signals_ready_count": 0,
     "recent_trades_count": 0,
     "avg_open_r_multiple": null,
-    "twelve_data_ema9_called": false,
-    "twelve_data_macd_called": false
+    "twelve_data_ema9_called": true,
+    "twelve_data_macd_called": true
   },
   "performance": {
     "recent_trades_win_rate_pct": null,
@@ -42,7 +42,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-23T06:40:47.431005"
+    "last_updated": "2026-04-23T06:45:29.278363"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -52,7 +52,7 @@
   "trade_history": [],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-23T06:45:17",
+      "ts_utc": "2026-04-23T06:50:48",
       "symbol": "GOOGL",
       "side": "LONG",
       "qty": 59.0,
@@ -858,6 +858,16 @@
       "ts": "2026-04-23T06:45:13",
       "equity": 29637.18,
       "drawdown_pct": -1.8603
+    },
+    {
+      "ts": "2026-04-23T06:50:15",
+      "equity": 29643.38,
+      "drawdown_pct": -1.8398
+    },
+    {
+      "ts": "2026-04-23T06:50:40",
+      "equity": 29650.46,
+      "drawdown_pct": -1.8164
     }
   ],
   "drawdown_curve": [
@@ -1496,21 +1506,29 @@
     {
       "ts": "2026-04-23T06:45:13",
       "drawdown_pct": -1.8603
+    },
+    {
+      "ts": "2026-04-23T06:50:15",
+      "drawdown_pct": -1.8398
+    },
+    {
+      "ts": "2026-04-23T06:50:40",
+      "drawdown_pct": -1.8164
     }
   ],
   "equity_curve_r": [],
   "monthly_performance": [],
   "research": {
     "items": [],
-    "last_updated": "2026-04-23T06:45:23.892281"
+    "last_updated": "2026-04-23T06:50:50.794988"
   },
   "entry_progress": {
     "twelve_data": {
-      "ema9_api_called": false,
-      "macd_api_called": false,
-      "ema9_markers": 0,
-      "macd_markers": 0,
-      "src_twelve_markers": 0,
+      "ema9_api_called": true,
+      "macd_api_called": true,
+      "ema9_markers": 2,
+      "macd_markers": 2,
+      "src_twelve_markers": 4,
       "strict_gate_markers": 0,
       "heartbeat_attempted": 0,
       "heartbeat_success": 0,
@@ -1562,16 +1580,16 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-04-23T06:45:23.424925",
+    "updated_at": "2026-04-23T06:50:50.302979",
     "interval": "5min",
     "symbols": {}
   },
-  "source_updated_at_max": "2026-04-23T06:45:23.890283",
+  "source_updated_at_max": "2026-04-23T06:50:50.793984",
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
     "AEGIS_LARGE_TREND"
   ],
-  "published_at_utc": "2026-04-23T13:45:29Z",
+  "published_at_utc": "2026-04-23T13:50:54Z",
   "lane_feeds": {
     "latest": "public_dashboard_large_latest.json",
     "base": null,
