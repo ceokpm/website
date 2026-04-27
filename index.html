@@ -99,33 +99,6 @@
 
     <section class="section section-tight">
       <div class="container">
-        <section class="panel chart-panel">
-          <div class="panel-head">
-            <h2>Algo Entry Charts</h2>
-            <p>5-minute candles with EMA9 and entry-condition markers for Trend Intraday and Trend Swing.</p>
-          </div>
-          <div class="viz-grid">
-            <article class="chart-card">
-              <h3>SPY (5m)</h3>
-              <div class="chart-canvas-wrap">
-                <div id="algo_chart_spy" class="lw-chart" aria-label="SPY algorithm candle chart"></div>
-              </div>
-              <p id="algo_chart_spy_meta" class="chart-caption">Waiting for SPY intraday feed...</p>
-            </article>
-            <article class="chart-card">
-              <h3>QQQ (5m)</h3>
-              <div class="chart-canvas-wrap">
-                <div id="algo_chart_qqq" class="lw-chart" aria-label="QQQ algorithm candle chart"></div>
-              </div>
-              <p id="algo_chart_qqq_meta" class="chart-caption">Waiting for QQQ intraday feed...</p>
-            </article>
-          </div>
-        </section>
-      </div>
-    </section>
-
-    <section class="section section-tight">
-      <div class="container">
         <section class="panel">
           <div class="panel-head">
             <h2>Monthly Performance</h2>
@@ -340,7 +313,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
