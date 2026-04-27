@@ -647,6 +647,14 @@
       `).join("");
     }
 
+    function maxDrawdownFromMonthly(rows){
+      if (!Array.isArray(rows) || rows.length === 0) return null;
+      const vals = rows
+        .map((r) => Math.abs(Number(r && r.max_dd_pct)))
+        .filter(Number.isFinite);
+      return vals.length ? Math.max(...vals) : null;
+    }
+
     function fallbackMonthlyRows(){
       // TODO: connect monthly performance feed
       return [
@@ -662,6 +670,14 @@
       const b = Number(base);
       if (!Number.isFinite(c) || !Number.isFinite(b) || b === 0) return null;
       return ((c / b) - 1) * 100;
+    }
+
+    function maxDrawdownMetric(perf, monthlyRows, minDrawdown){
+      const monthlyMax = maxDrawdownFromMonthly(monthlyRows);
+      if (monthlyMax !== null) return monthlyMax;
+      const perfMax = toFiniteOrNull(perf && perf.max_drawdown_pct_est);
+      if (perfMax !== null) return Math.abs(perfMax);
+      return Number.isFinite(Number(minDrawdown)) ? Math.abs(Number(minDrawdown)) : null;
     }
 
     function setText(id, val){
@@ -693,11 +709,16 @@
 
         const equitySeries = buildSeriesFromLive(d);
         const drawdownSeries = buildDrawdownSeries(equitySeries, d);
+        const liveMonthlyRows = Array.isArray(d.monthly_performance) && d.monthly_performance.length
+          ? d.monthly_performance
+          : [];
+        const monthlyRows = liveMonthlyRows.length ? liveMonthlyRows : fallbackMonthlyRows();
 
         let sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
         let ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
         const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
         const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
+        const maxDrawdown = maxDrawdownMetric(perf, liveMonthlyRows, minDrawdown);
         if (noActivity) {
           // Fresh baseline mode: hide investor/operational stats until first closed trade history appears.
           sinceInceptionReturn = null;
@@ -707,7 +728,7 @@
         setText("since_inception_return", fPct(sinceInceptionReturn, 2));
         setText("ytd_return", fPct(ytdReturn, 2));
         setText("current_equity", noActivity ? "-" : fMoney(currentEquity));
-        setText("max_drawdown_pct", noActivity ? "-" : fPct(-(Number.isFinite(Number(perf.max_drawdown_pct_est)) ? Number(perf.max_drawdown_pct_est) : Math.abs(minDrawdown)), 2));
+        setText("max_drawdown_pct", noActivity ? "-" : fPct(maxDrawdown, 2));
         setText("current_drawdown_pct", noActivity ? "-" : fPct(currentDrawdown, 2));
         setText("sharpe_ratio", fNum(perf.sharpe_like, 3));
         setText("sortino_ratio", fNum(perf.sortino_ratio, 3));
@@ -738,10 +759,6 @@
           tooltipLabel: (v) => `Drawdown: ${Number(v).toFixed(2)}%`
         });
 
-        // TODO: bind live data here when monthly strategy return feed is available.
-        const monthlyRows = Array.isArray(d.monthly_performance) && d.monthly_performance.length
-          ? d.monthly_performance
-          : fallbackMonthlyRows();
         renderMonthlyTable(monthlyRows);
 
         renderOpenPositions(openPositionsLive);
