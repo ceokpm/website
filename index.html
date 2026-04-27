@@ -99,6 +99,33 @@
 
     <section class="section section-tight">
       <div class="container">
+        <section class="panel chart-panel">
+          <div class="panel-head">
+            <h2>Algo Entry Charts</h2>
+            <p>5-minute candles with EMA9 and entry-condition markers for Trend Intraday and Trend Swing.</p>
+          </div>
+          <div class="viz-grid">
+            <article class="chart-card">
+              <h3>SPY (5m)</h3>
+              <div class="chart-canvas-wrap">
+                <div id="algo_chart_spy" class="lw-chart" aria-label="SPY algorithm candle chart"></div>
+              </div>
+              <p id="algo_chart_spy_meta" class="chart-caption">Waiting for SPY intraday feed...</p>
+            </article>
+            <article class="chart-card">
+              <h3>QQQ (5m)</h3>
+              <div class="chart-canvas-wrap">
+                <div id="algo_chart_qqq" class="lw-chart" aria-label="QQQ algorithm candle chart"></div>
+              </div>
+              <p id="algo_chart_qqq_meta" class="chart-caption">Waiting for QQQ intraday feed...</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
         <section class="panel">
           <div class="panel-head">
             <h2>Monthly Performance</h2>
@@ -177,11 +204,10 @@
                   <th>Entry</th>
                   <th>Exit</th>
                   <th>R</th>
-                  <th>Day Trade</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="9" class="empty">No open positions.</td></tr>
+                <tr><td colspan="8" class="empty">No open positions.</td></tr>
               </tbody>
             </table>
           </div>
@@ -207,12 +233,11 @@
                   <th>Qty</th>
                   <th>Entry</th>
                   <th>Exit</th>
-                  <th>Day Trade</th>
                   <th>R</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="9" class="empty">Waiting for execution data...</td></tr>
+                <tr><td colspan="8" class="empty">Waiting for execution data...</td></tr>
               </tbody>
             </table>
           </div>
@@ -315,6 +340,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -376,25 +402,32 @@
       return `${year}-${month}-${day} ${hour12}:${mins}:${secs}${ampm}`;
     }
 
+    function modelLabel(r){
+      const raw = String((r && r.entry_model) || "").trim();
+      const norm = raw.toUpperCase().replace(/\s+/g, "_");
+      const dt = r && (r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true");
+      if (dt || norm.includes("INTRADAY") || norm === "DAYTRADE" || norm === "DAY_TRADE") return "Day Trade";
+      return "Swing";
+    }
+
     function renderOpenPositions(rows){
       const tbody = document.querySelector("#open_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
-        tbody.innerHTML = '<tr><td colspan="9" class="empty">No open positions.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="8" class="empty">No open positions.</td></tr>';
         return;
       }
       tbody.innerHTML = rows.map(r => {
         const t = r.ts_utc || "";
         const tk = r.symbol || "";
         const sd = r.side || "";
-        const model = String(r.entry_model || "").trim().toUpperCase() || ((r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "TREND_INTRADAY" : "TREND_SWING");
+        const model = modelLabel(r);
         const q = r.qty ?? "";
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
         const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
-        const dt = (r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "YES" : "NO";
         return `<tr>
           <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
-          <td>${en}</td><td>${ex}</td><td>${rr}</td><td>${dt}</td>
+          <td>${en}</td><td>${ex}</td><td>${rr}</td>
         </tr>`;
       }).join("");
     }
@@ -402,7 +435,7 @@
     function renderTrades(rows){
       const tbody = document.querySelector("#trade_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
-        tbody.innerHTML = '<tr><td colspan="9" class="empty">No trade history yet.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="8" class="empty">No trade history yet.</td></tr>';
         return;
       }
       const last = rows.slice(-80).reverse();
@@ -410,15 +443,14 @@
         const t = fTradeTime(r.ts_utc || "");
         const tk = r.symbol || "";
         const sd = r.side || "";
-        const model = String(r.entry_model || "").trim().toUpperCase() || ((r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "TREND_INTRADAY" : "TREND_SWING");
+        const model = modelLabel(r);
         const q = r.qty ?? "";
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
-        const dt = (r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true") ? "YES" : "NO";
         const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
         return `<tr>
           <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
-          <td>${en}</td><td>${ex}</td><td>${dt}</td><td>${rr}</td>
+          <td>${en}</td><td>${ex}</td><td>${rr}</td>
         </tr>`;
       }).join("");
     }
