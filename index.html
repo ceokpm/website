@@ -384,7 +384,7 @@
       const raw = String((r && r.entry_model) || "").trim();
       const norm = raw.toUpperCase().replace(/\s+/g, "_");
       const dt = r && (r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true");
-      if (dt || norm.includes("INTRADAY") || norm === "DAYTRADE" || norm === "DAY_TRADE") return "Day Trade";
+      if (dt || norm.includes("INTRADAY") || ["DAYTRADE", "DAY_TRADE", "BINTRA", "BASE_INTRADAY", "TINTRA", "TREND_INTRADAY"].includes(norm)) return "Day Trade";
       return "Swing";
     }
 
