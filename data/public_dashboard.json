@@ -1,27 +1,27 @@
 {
-  "updated_at": "2026-04-28T06:45:33.654195",
+  "updated_at": "2026-04-28T06:50:25.060047",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30036.77,
+    "equity": 30042.53,
     "status": null,
     "trading_blocked": null,
     "account_blocked": null,
     "trading_enabled": null,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": 36.77,
+    "since_inception_pnl_dollars": 42.53,
     "inception_equity": 30000.0,
     "ytd_start_equity": 30000.0,
-    "asof": "2026-04-28T06:45:26"
+    "asof": "2026-04-28T06:50:17"
   },
   "summary": {
-    "open_positions_count": 2,
-    "open_long_count": 2,
+    "open_positions_count": 1,
+    "open_long_count": 1,
     "open_short_count": 0,
     "signals_ready_count": 0,
     "recent_trades_count": 16,
-    "avg_open_r_multiple": null,
-    "twelve_data_ema9_called": false,
+    "avg_open_r_multiple": 0.84,
+    "twelve_data_ema9_called": true,
     "twelve_data_macd_called": false
   },
   "performance": {
@@ -46,7 +46,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-28T06:40:29.658331"
+    "last_updated": "2026-04-28T06:45:33.355712"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -297,24 +297,14 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-28T06:45:26",
+      "ts_utc": "2026-04-28T06:50:17",
       "symbol": "AAPL",
       "side": "LONG",
       "qty": 62.0,
       "entry_px": 269.941452,
       "exit_px": "",
-      "R_realized": null,
-      "entry_model": "Swing"
-    },
-    {
-      "ts_utc": "2026-04-28T06:45:26",
-      "symbol": "CVX",
-      "side": "LONG",
-      "qty": 86.0,
-      "entry_px": 187.31,
-      "exit_px": "",
-      "R_realized": null,
-      "entry_model": "Swing"
+      "R_realized": 0.84,
+      "entry_model": "Day Trade"
     }
   ],
   "equity_curve": [
@@ -1327,6 +1317,16 @@
       "ts": "2026-04-28T06:45:13",
       "equity": 30035.86,
       "drawdown_pct": -0.0302
+    },
+    {
+      "ts": "2026-04-28T06:50:05",
+      "equity": 30047.32,
+      "drawdown_pct": 0.0
+    },
+    {
+      "ts": "2026-04-28T06:50:11",
+      "equity": 30041.63,
+      "drawdown_pct": -0.0189
     }
   ],
   "drawdown_curve": [
@@ -1339,8 +1339,8 @@
       "drawdown_pct": 0.0
     },
     {
-      "ts": "2026-04-28T06:45:26",
-      "drawdown_pct": -0.0084
+      "ts": "2026-04-28T06:50:17",
+      "drawdown_pct": 0.0
     }
   ],
   "equity_curve_r": [
@@ -1436,15 +1436,15 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-28T06:45:29.004224"
+    "last_updated": "2026-04-28T06:50:20.359877"
   },
   "entry_progress": {
     "twelve_data": {
-      "ema9_api_called": false,
+      "ema9_api_called": true,
       "macd_api_called": false,
-      "ema9_markers": 0,
+      "ema9_markers": 2,
       "macd_markers": 0,
-      "src_twelve_markers": 0,
+      "src_twelve_markers": 2,
       "strict_gate_markers": 0,
       "heartbeat_attempted": 0,
       "heartbeat_success": 0,
@@ -1496,16 +1496,16 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-04-28T06:45:28.539476",
+    "updated_at": "2026-04-28T06:50:19.758797",
     "interval": "5min",
     "symbols": {}
   },
-  "source_updated_at_max": "2026-04-28T06:45:29.003225",
+  "source_updated_at_max": "2026-04-28T06:50:20.356817",
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
     "AEGIS_LARGE_TREND"
   ],
-  "published_at_utc": "2026-04-28T13:45:33Z",
+  "published_at_utc": "2026-04-28T13:50:25Z",
   "lane_feeds": {
     "latest": "public_dashboard_large_latest.json",
     "base": null,
