@@ -176,7 +176,7 @@
                   <th>Qty</th>
                   <th>Entry</th>
                   <th>Exit</th>
-                  <th>R</th>
+                  <th>Return %</th>
                 </tr>
               </thead>
               <tbody>
@@ -206,7 +206,7 @@
                   <th>Qty</th>
                   <th>Entry</th>
                   <th>Exit</th>
-                  <th>R</th>
+                  <th>Return %</th>
                 </tr>
               </thead>
               <tbody>
@@ -339,6 +339,26 @@
       const n = Number(v);
       return Number.isFinite(n) ? n : null;
     }
+    function signedReturnPct(r){
+      const direct = toFiniteOrNull(r && r.pnl_pct);
+      if (direct !== null) return direct;
+
+      const entry = toFiniteOrNull(r && r.entry_px);
+      const exit = toFiniteOrNull(r && r.exit_px);
+      const mark = exit !== null ? exit : toFiniteOrNull(r && (r.current_px ?? r.last_px ?? r.px));
+      if (entry === null || mark === null || entry <= 0) return null;
+
+      const side = String((r && r.side) || "").toUpperCase().trim();
+      const sign = side === "SHORT" ? -1 : 1;
+      return ((mark - entry) / entry) * 100 * sign;
+    }
+    function returnCell(r){
+      const ret = signedReturnPct(r);
+      if (ret === null) return '<span class="return-neutral">-</span>';
+      const cls = ret > 0 ? "return-positive" : (ret < 0 ? "return-negative" : "return-neutral");
+      const sign = ret > 0 ? "+" : "";
+      return `<span class="${cls}">${sign}${fPct(ret, 2)}</span>`;
+    }
     function signedDrawdownPct(v){
       const n = toFiniteOrNull(v);
       if (n === null) return null;
@@ -401,11 +421,12 @@
         const model = modelLabel(r);
         const q = r.qty ?? "";
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
-        const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
-        const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
+        const exPx = r.exit_px !== "" && r.exit_px !== undefined ? r.exit_px : (r.current_px ?? r.last_px ?? r.px);
+        const ex = exPx !== "" && exPx !== undefined && exPx !== null ? fNum(exPx, 2) : "";
+        const ret = returnCell(r);
         return `<tr>
           <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
-          <td>${en}</td><td>${ex}</td><td>${rr}</td>
+          <td>${en}</td><td>${ex}</td><td>${ret}</td>
         </tr>`;
       }).join("");
     }
@@ -425,10 +446,10 @@
         const q = r.qty ?? "";
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
-        const rr = r.R_realized !== "" && r.R_realized !== undefined ? fNum(r.R_realized, 3) : "";
+        const ret = returnCell(r);
         return `<tr>
           <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
-          <td>${en}</td><td>${ex}</td><td>${rr}</td>
+          <td>${en}</td><td>${ex}</td><td>${ret}</td>
         </tr>`;
       }).join("");
     }
