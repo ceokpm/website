@@ -52,23 +52,42 @@
       <div class="container">
         <div class="panel-head">
           <h2>Key Investor Metrics</h2>
-          <p>Performance and risk first. Operational telemetry is shown lower on the page.</p>
+          <p>Intraday and swing accounts are reported separately.</p>
         </div>
-        <div class="kpi-grid kpi-grid-primary">
-          <article class="kpi"><span>Since Inception Return</span><strong id="since_inception_return">-</strong></article>
-          <article class="kpi"><span>YTD Return</span><strong id="ytd_return">-</strong></article>
-          <article class="kpi"><span>Current Equity</span><strong id="current_equity">-</strong></article>
-          <article class="kpi"><span>Intraday Equity</span><strong id="intraday_equity">-</strong></article>
-          <article class="kpi"><span>Swing Equity</span><strong id="swing_equity">-</strong></article>
-          <article class="kpi"><span>Max Drawdown (%)</span><strong id="max_drawdown_pct">-</strong></article>
-          <article class="kpi"><span>Current Drawdown (%)</span><strong id="current_drawdown_pct">-</strong></article>
-          <article class="kpi"><span>Sharpe Ratio</span><strong id="sharpe_ratio">-</strong></article>
-          <article class="kpi"><span>Sortino Ratio</span><strong id="sortino_ratio">-</strong></article>
-          <article class="kpi"><span>Profit Factor</span><strong id="profit_factor">-</strong></article>
-          <article class="kpi"><span>Win Rate</span><strong id="win_rate">-</strong></article>
-          <article class="kpi"><span>Closed Trades</span><strong id="closed_trades">-</strong></article>
-          <article class="kpi"><span>Last Updated</span><strong id="updated_at">-</strong></article>
+        <div class="account-metrics-grid">
+          <section class="account-metrics">
+            <h3>Intraday Account</h3>
+            <div class="kpi-grid kpi-grid-primary">
+              <article class="kpi"><span>Since Inception Return</span><strong id="intraday_since_inception_return">-</strong></article>
+              <article class="kpi"><span>YTD Return</span><strong id="intraday_ytd_return">-</strong></article>
+              <article class="kpi"><span>Current Equity</span><strong id="intraday_current_equity">-</strong></article>
+              <article class="kpi"><span>Max Drawdown (%)</span><strong id="intraday_max_drawdown_pct">-</strong></article>
+              <article class="kpi"><span>Current Drawdown (%)</span><strong id="intraday_current_drawdown_pct">-</strong></article>
+              <article class="kpi"><span>Sharpe Ratio</span><strong id="intraday_sharpe_ratio">-</strong></article>
+              <article class="kpi"><span>Sortino Ratio</span><strong id="intraday_sortino_ratio">-</strong></article>
+              <article class="kpi"><span>Profit Factor</span><strong id="intraday_profit_factor">-</strong></article>
+              <article class="kpi"><span>Win Rate</span><strong id="intraday_win_rate">-</strong></article>
+              <article class="kpi"><span>Closed Trades</span><strong id="intraday_closed_trades">-</strong></article>
+            </div>
+          </section>
+
+          <section class="account-metrics">
+            <h3>Swing Account</h3>
+            <div class="kpi-grid kpi-grid-primary">
+              <article class="kpi"><span>Since Inception Return</span><strong id="swing_since_inception_return">-</strong></article>
+              <article class="kpi"><span>YTD Return</span><strong id="swing_ytd_return">-</strong></article>
+              <article class="kpi"><span>Current Equity</span><strong id="swing_current_equity">-</strong></article>
+              <article class="kpi"><span>Max Drawdown (%)</span><strong id="swing_max_drawdown_pct">-</strong></article>
+              <article class="kpi"><span>Current Drawdown (%)</span><strong id="swing_current_drawdown_pct">-</strong></article>
+              <article class="kpi"><span>Sharpe Ratio</span><strong id="swing_sharpe_ratio">-</strong></article>
+              <article class="kpi"><span>Sortino Ratio</span><strong id="swing_sortino_ratio">-</strong></article>
+              <article class="kpi"><span>Profit Factor</span><strong id="swing_profit_factor">-</strong></article>
+              <article class="kpi"><span>Win Rate</span><strong id="swing_win_rate">-</strong></article>
+              <article class="kpi"><span>Closed Trades</span><strong id="swing_closed_trades">-</strong></article>
+            </div>
+          </section>
         </div>
+        <p class="data-stamp">Last Updated <strong id="updated_at">-</strong></p>
       </div>
     </section>
 
@@ -77,22 +96,36 @@
         <section class="panel chart-panel">
           <div class="panel-head">
             <h2>Equity And Drawdown</h2>
-            <p>Portfolio trajectory and peak-to-trough risk profile.</p>
+            <p>Account-level trajectory and peak-to-trough risk profile.</p>
           </div>
           <div class="viz-grid">
             <article class="chart-card">
-              <h3>Equity Curve</h3>
+              <h3>Intraday Equity Curve</h3>
               <div class="chart-canvas-wrap">
-                <canvas id="equity_curve_chart" height="260" aria-label="Equity curve"></canvas>
+                <canvas id="intraday_equity_curve_chart" height="260" aria-label="Intraday equity curve"></canvas>
               </div>
-              <p class="chart-caption">Broker-reported portfolio equity over time.</p>
+              <p class="chart-caption">Broker-reported intraday account equity over time.</p>
             </article>
             <article class="chart-card">
-              <h3>Drawdown</h3>
+              <h3>Intraday Drawdown</h3>
               <div class="chart-canvas-wrap">
-                <canvas id="drawdown_chart" height="260" aria-label="Drawdown chart"></canvas>
+                <canvas id="intraday_drawdown_chart" height="260" aria-label="Intraday drawdown chart"></canvas>
               </div>
-              <p class="chart-caption">Percent distance from prior equity peak.</p>
+              <p class="chart-caption">Intraday account distance from prior equity peak.</p>
+            </article>
+            <article class="chart-card">
+              <h3>Swing Equity Curve</h3>
+              <div class="chart-canvas-wrap">
+                <canvas id="swing_equity_curve_chart" height="260" aria-label="Swing equity curve"></canvas>
+              </div>
+              <p class="chart-caption">Broker-reported swing account equity over time.</p>
+            </article>
+            <article class="chart-card">
+              <h3>Swing Drawdown</h3>
+              <div class="chart-canvas-wrap">
+                <canvas id="swing_drawdown_chart" height="260" aria-label="Swing drawdown chart"></canvas>
+              </div>
+              <p class="chart-caption">Swing account distance from prior equity peak.</p>
             </article>
           </div>
         </section>
@@ -727,6 +760,84 @@
       return seriesMax;
     }
 
+    function performanceFromTrades(rows){
+      const vals = (Array.isArray(rows) ? rows : [])
+        .map((r) => signedReturnPct(r))
+        .filter((v) => v !== null && Number.isFinite(Number(v)))
+        .map(Number);
+      const out = { closed_trades_count: Array.isArray(rows) ? rows.length : 0 };
+      if (!vals.length) return out;
+
+      const wins = vals.filter((v) => v > 0);
+      const losses = vals.filter((v) => v < 0);
+      const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+      const variance = vals.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / vals.length;
+      const std = Math.sqrt(variance);
+      const downside = losses.length
+        ? Math.sqrt(losses.reduce((a, b) => a + Math.pow(b, 2), 0) / losses.length)
+        : 0;
+      const grossProfit = wins.reduce((a, b) => a + b, 0);
+      const grossLoss = Math.abs(losses.reduce((a, b) => a + b, 0));
+
+      out.win_rate_pct = (wins.length / vals.length) * 100;
+      out.sharpe_like = std > 1e-12 ? mean / std : null;
+      out.sortino_ratio = downside > 1e-12 ? mean / downside : null;
+      out.profit_factor_r = grossLoss > 1e-12 ? grossProfit / grossLoss : null;
+      return out;
+    }
+
+    function accountView(d, key){
+      const views = d.account_views || {};
+      if (views && views[key]) return views[key];
+      const brokerAccounts = d.broker_accounts || {};
+      const acct = brokerAccounts[key] || {};
+      const label = key === "intraday" ? "Intraday" : "Swing";
+      const scopedTrades = (Array.isArray(d.trade_history) ? d.trade_history : [])
+        .filter((r) => accountLabel(r).toLowerCase() === label.toLowerCase());
+      return {
+        label,
+        account: acct,
+        performance: performanceFromTrades(scopedTrades),
+        summary: {},
+        trade_history: scopedTrades,
+        open_positions_live: [],
+        equity_curve: [],
+        drawdown_curve: [],
+        monthly_performance: []
+      };
+    }
+
+    function renderAccountMetrics(prefix, view){
+      const acct = view.account || {};
+      const perf = view.performance || {};
+      const summary = view.summary || {};
+      const monthlyRows = Array.isArray(view.monthly_performance) ? view.monthly_performance : [];
+      const equitySeries = buildSeriesFromLive(view);
+      const drawdownSeries = buildDrawdownSeries(equitySeries, view);
+
+      const currentEquity = toFiniteOrNull(acct.equity);
+      const inceptionEquity = toFiniteOrNull(acct.inception_equity);
+      const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
+      const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
+      const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
+      const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
+      const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
+      const maxDrawdown = maxDrawdownMetric(perf, monthlyRows, minDrawdown);
+
+      setText(`${prefix}_since_inception_return`, fPct(sinceInceptionReturn, 2));
+      setText(`${prefix}_ytd_return`, fPct(ytdReturn, 2));
+      setText(`${prefix}_current_equity`, currentEquity === null ? "-" : fMoney(currentEquity));
+      setText(`${prefix}_max_drawdown_pct`, fPct(maxDrawdown, 2));
+      setText(`${prefix}_current_drawdown_pct`, fPct(currentDrawdown, 2));
+      setText(`${prefix}_sharpe_ratio`, fNum(perf.sharpe_like, 3));
+      setText(`${prefix}_sortino_ratio`, fNum(perf.sortino_ratio, 3));
+      setText(`${prefix}_profit_factor`, fNum(perf.profit_factor_r, 3));
+      setText(`${prefix}_win_rate`, fPct(perf.win_rate_pct ?? perf.recent_trades_win_rate_pct, 1));
+      setText(`${prefix}_closed_trades`, Number.isFinite(Number(perf.closed_trades_count)) ? String(Number(perf.closed_trades_count)) : "-");
+
+      return { equitySeries, drawdownSeries, summary };
+    }
+
     function setText(id, val){
       const el = document.getElementById(id);
       if (el) el.textContent = val;
@@ -738,55 +849,28 @@
         if (!res.ok) throw new Error("HTTP " + res.status);
         const d = await res.json();
         const acct = d.account || {};
-        const brokerAccounts = d.broker_accounts || {};
-        const intradayAcct = brokerAccounts.intraday || {};
-        const swingAcct = brokerAccounts.swing || {};
         const sum = d.summary || {};
-        const perf = d.performance || {};
         const pos = d.positioning || {};
+        const intradayView = accountView(d, "intraday");
+        const swingView = accountView(d, "swing");
         const tradeHistory = Array.isArray(d.trade_history) ? d.trade_history : [];
         const openPositionsLive = Array.isArray(d.open_positions_live) ? d.open_positions_live : [];
-        const closedTrades = Number(perf.closed_trades_count) || 0;
+        const closedTrades = Number((d.performance || {}).closed_trades_count) || 0;
         const openPositionsCount = Number(sum.open_positions_count) || 0;
         const recentTradesCount = Number(sum.recent_trades_count) || 0;
         const hasActivity = closedTrades > 0 || tradeHistory.length > 0 || openPositionsCount > 0 || recentTradesCount > 0;
         const noActivity = !hasActivity;
 
-        // TODO: bind live data here for inception and YTD baselines from your portfolio ledger.
+        const intradayMetrics = renderAccountMetrics("intraday", intradayView);
+        const swingMetrics = renderAccountMetrics("swing", swingView);
+
         const currentEquity = toFiniteOrNull(acct.equity);
         const inceptionEquity = toFiniteOrNull(acct.inception_equity);
-        const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
-
-        const equitySeries = buildSeriesFromLive(d);
-        const drawdownSeries = buildDrawdownSeries(equitySeries, d);
         const liveMonthlyRows = Array.isArray(d.monthly_performance) && d.monthly_performance.length
           ? d.monthly_performance
           : [];
         const monthlyRows = liveMonthlyRows.length ? liveMonthlyRows : fallbackMonthlyRows();
 
-        let sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
-        let ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
-        const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
-        const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
-        const maxDrawdown = maxDrawdownMetric(perf, liveMonthlyRows, minDrawdown);
-        if (noActivity) {
-          // Fresh baseline mode: hide investor/operational stats until first closed trade history appears.
-          sinceInceptionReturn = null;
-          ytdReturn = null;
-        }
-
-        setText("since_inception_return", fPct(sinceInceptionReturn, 2));
-        setText("ytd_return", fPct(ytdReturn, 2));
-        setText("current_equity", currentEquity === null ? "-" : fMoney(currentEquity));
-        setText("intraday_equity", fMoney(intradayAcct.equity));
-        setText("swing_equity", fMoney(swingAcct.equity));
-        setText("max_drawdown_pct", noActivity ? "-" : fPct(maxDrawdown, 2));
-        setText("current_drawdown_pct", noActivity ? "-" : fPct(currentDrawdown, 2));
-        setText("sharpe_ratio", fNum(perf.sharpe_like, 3));
-        setText("sortino_ratio", fNum(perf.sortino_ratio, 3));
-        setText("profit_factor", fNum(perf.profit_factor_r, 3));
-        setText("win_rate", fPct(perf.win_rate_pct ?? perf.recent_trades_win_rate_pct, 1));
-        setText("closed_trades", Number.isFinite(Number(perf.closed_trades_count)) ? String(Number(perf.closed_trades_count)) : "-");
         setText("updated_at", fUpdatedAt(d.published_at_utc || d.updated_at));
 
         setText("signals_ready", noActivity ? "-" : (Number.isFinite(Number(sum.signals_ready_count)) ? String(Number(sum.signals_ready_count)) : "-"));
@@ -796,19 +880,33 @@
           ?? ((currentEquity !== null && inceptionEquity !== null) ? (currentEquity - inceptionEquity) : null);
         setText("run_pnl", noActivity ? "-" : fMoney(sinceInceptionPnl));
 
-        renderInteractiveLineChart("equity_curve_chart", equitySeries, {
+        renderInteractiveLineChart("intraday_equity_curve_chart", intradayMetrics.equitySeries, {
           stroke: "#c67627",
           fillTop: "rgba(242,140,40,.22)",
           fillBottom: "rgba(242,140,40,.02)",
           yTickLabel: (v) => fMoney(v),
-          tooltipLabel: (v) => `Equity: ${fMoney(v)}`
+          tooltipLabel: (v) => `Intraday equity: ${fMoney(v)}`
         });
-        renderInteractiveLineChart("drawdown_chart", drawdownSeries, {
+        renderInteractiveLineChart("intraday_drawdown_chart", intradayMetrics.drawdownSeries, {
           stroke: "#9d5a1b",
           fillTop: "rgba(178,95,22,.20)",
           fillBottom: "rgba(178,95,22,.02)",
           yTickLabel: (v) => fPct(v, 2),
-          tooltipLabel: (v) => `Drawdown: ${fPct(v, 2)}`
+          tooltipLabel: (v) => `Intraday drawdown: ${fPct(v, 2)}`
+        });
+        renderInteractiveLineChart("swing_equity_curve_chart", swingMetrics.equitySeries, {
+          stroke: "#3f7f7a",
+          fillTop: "rgba(63,127,122,.20)",
+          fillBottom: "rgba(63,127,122,.02)",
+          yTickLabel: (v) => fMoney(v),
+          tooltipLabel: (v) => `Swing equity: ${fMoney(v)}`
+        });
+        renderInteractiveLineChart("swing_drawdown_chart", swingMetrics.drawdownSeries, {
+          stroke: "#315f5c",
+          fillTop: "rgba(49,95,92,.18)",
+          fillBottom: "rgba(49,95,92,.02)",
+          yTickLabel: (v) => fPct(v, 2),
+          tooltipLabel: (v) => `Swing drawdown: ${fPct(v, 2)}`
         });
 
         renderMonthlyTable(monthlyRows);
@@ -818,19 +916,33 @@
       }catch(e){
         setText("updated_at", "Dashboard data unavailable");
         const equitySeries = fallbackEquitySeries();
-        renderInteractiveLineChart("equity_curve_chart", equitySeries, {
+        renderInteractiveLineChart("intraday_equity_curve_chart", equitySeries, {
           stroke: "#c67627",
           fillTop: "rgba(242,140,40,.22)",
           fillBottom: "rgba(242,140,40,.02)",
           yTickLabel: (v) => fMoney(v),
-          tooltipLabel: (v) => `Equity: ${fMoney(v)}`
+          tooltipLabel: (v) => `Intraday equity: ${fMoney(v)}`
         });
-        renderInteractiveLineChart("drawdown_chart", buildDrawdownSeries(equitySeries, {}), {
+        renderInteractiveLineChart("intraday_drawdown_chart", buildDrawdownSeries(equitySeries, {}), {
           stroke: "#9d5a1b",
           fillTop: "rgba(178,95,22,.20)",
           fillBottom: "rgba(178,95,22,.02)",
           yTickLabel: (v) => fPct(v, 2),
-          tooltipLabel: (v) => `Drawdown: ${fPct(v, 2)}`
+          tooltipLabel: (v) => `Intraday drawdown: ${fPct(v, 2)}`
+        });
+        renderInteractiveLineChart("swing_equity_curve_chart", equitySeries, {
+          stroke: "#3f7f7a",
+          fillTop: "rgba(63,127,122,.20)",
+          fillBottom: "rgba(63,127,122,.02)",
+          yTickLabel: (v) => fMoney(v),
+          tooltipLabel: (v) => `Swing equity: ${fMoney(v)}`
+        });
+        renderInteractiveLineChart("swing_drawdown_chart", buildDrawdownSeries(equitySeries, {}), {
+          stroke: "#315f5c",
+          fillTop: "rgba(49,95,92,.18)",
+          fillBottom: "rgba(49,95,92,.02)",
+          yTickLabel: (v) => fPct(v, 2),
+          tooltipLabel: (v) => `Swing drawdown: ${fPct(v, 2)}`
         });
         renderMonthlyTable(fallbackMonthlyRows());
         renderOpenPositions([]);
