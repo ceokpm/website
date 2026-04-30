@@ -360,6 +360,8 @@
     }
     function fNum(v, d = 2){
       if (v === null || v === undefined || v === "") return "-";
+      const txt = String(v).trim().toLowerCase();
+      if (["\u221e", "inf", "+inf", "infinity", "+infinity"].includes(txt)) return "\u221e";
       const n = Number(v);
       if (!Number.isFinite(n)) return "-";
       return n.toFixed(d);
@@ -781,8 +783,8 @@
 
       out.win_rate_pct = (wins.length / vals.length) * 100;
       out.sharpe_like = std > 1e-12 ? mean / std : null;
-      out.sortino_ratio = downside > 1e-12 ? mean / downside : null;
-      out.profit_factor_r = grossLoss > 1e-12 ? grossProfit / grossLoss : null;
+      out.sortino_ratio = downside > 1e-12 ? mean / downside : (mean > 1e-12 && losses.length === 0 ? "Infinity" : null);
+      out.profit_factor_r = grossLoss > 1e-12 ? grossProfit / grossLoss : (grossProfit > 1e-12 ? "Infinity" : null);
       return out;
     }
 

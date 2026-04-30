@@ -2654,10 +2654,12 @@
   "monthly_performance": [
     {
       "month": "2026-04",
-      "return_pct": 0.29,
-      "net_pnl": 174.23,
+      "return_pct": 0.27,
+      "net_pnl": 161.23,
       "max_dd_pct": 0.77,
-      "trades": 38
+      "trades": 38,
+      "realized_net_pnl": 174.23,
+      "equity_reconciled": true
     }
   ],
   "research": {
@@ -6914,10 +6916,10 @@
         "last_20_win_rate_pct": 100.0,
         "avg_hold_days": 0.0,
         "sharpe_like": 24.283,
-        "sortino_ratio": null,
+        "sortino_ratio": "Infinity",
         "max_drawdown_r": 0.0,
         "max_drawdown_pct_est": 0.0,
-        "profit_factor_r": null,
+        "profit_factor_r": "Infinity",
         "gross_profit_r": 181.72,
         "gross_loss_r": 0.0
       },
