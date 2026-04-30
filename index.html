@@ -58,6 +58,8 @@
           <article class="kpi"><span>Since Inception Return</span><strong id="since_inception_return">-</strong></article>
           <article class="kpi"><span>YTD Return</span><strong id="ytd_return">-</strong></article>
           <article class="kpi"><span>Current Equity</span><strong id="current_equity">-</strong></article>
+          <article class="kpi"><span>Intraday Equity</span><strong id="intraday_equity">-</strong></article>
+          <article class="kpi"><span>Swing Equity</span><strong id="swing_equity">-</strong></article>
           <article class="kpi"><span>Max Drawdown (%)</span><strong id="max_drawdown_pct">-</strong></article>
           <article class="kpi"><span>Current Drawdown (%)</span><strong id="current_drawdown_pct">-</strong></article>
           <article class="kpi"><span>Sharpe Ratio</span><strong id="sharpe_ratio">-</strong></article>
@@ -170,6 +172,7 @@
               <thead>
                 <tr>
                   <th>Time</th>
+                  <th>Account</th>
                   <th>Ticker</th>
                   <th>Side</th>
                   <th>Model</th>
@@ -180,7 +183,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="8" class="empty">No open positions.</td></tr>
+                <tr><td colspan="9" class="empty">No open positions.</td></tr>
               </tbody>
             </table>
           </div>
@@ -200,6 +203,7 @@
               <thead>
                 <tr>
                   <th>Time</th>
+                  <th>Account</th>
                   <th>Ticker</th>
                   <th>Side</th>
                   <th>Model</th>
@@ -210,7 +214,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td colspan="8" class="empty">Waiting for execution data...</td></tr>
+                <tr><td colspan="9" class="empty">Waiting for execution data...</td></tr>
               </tbody>
             </table>
           </div>
@@ -407,15 +411,21 @@
       if (dt || norm.includes("INTRADAY") || ["DAYTRADE", "DAY_TRADE", "BINTRA", "BASE_INTRADAY", "TINTRA", "TREND_INTRADAY"].includes(norm)) return "Day Trade";
       return "Swing";
     }
+    function accountLabel(r){
+      const explicit = String((r && (r.broker_account || r.account || r.account_label)) || "").trim();
+      if (explicit) return explicit;
+      return modelLabel(r) === "Day Trade" ? "Intraday" : "Swing";
+    }
 
     function renderOpenPositions(rows){
       const tbody = document.querySelector("#open_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
-        tbody.innerHTML = '<tr><td colspan="8" class="empty">No open positions.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="9" class="empty">No open positions.</td></tr>';
         return;
       }
       tbody.innerHTML = rows.map(r => {
         const t = r.ts_utc || "";
+        const acct = accountLabel(r);
         const tk = r.symbol || "";
         const sd = r.side || "";
         const model = modelLabel(r);
@@ -425,7 +435,7 @@
         const ex = exPx !== "" && exPx !== undefined && exPx !== null ? fNum(exPx, 2) : "";
         const ret = returnCell(r);
         return `<tr>
-          <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
+          <td>${t}</td><td>${acct}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
           <td>${en}</td><td>${ex}</td><td>${ret}</td>
         </tr>`;
       }).join("");
@@ -434,12 +444,13 @@
     function renderTrades(rows){
       const tbody = document.querySelector("#trade_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
-        tbody.innerHTML = '<tr><td colspan="8" class="empty">No trade history yet.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="9" class="empty">No trade history yet.</td></tr>';
         return;
       }
       const last = rows.slice(-80).reverse();
       tbody.innerHTML = last.map(r => {
         const t = fTradeTime(r.ts_utc || "");
+        const acct = accountLabel(r);
         const tk = r.symbol || "";
         const sd = r.side || "";
         const model = modelLabel(r);
@@ -448,7 +459,7 @@
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
         const ret = returnCell(r);
         return `<tr>
-          <td>${t}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
+          <td>${t}</td><td>${acct}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
           <td>${en}</td><td>${ex}</td><td>${ret}</td>
         </tr>`;
       }).join("");
@@ -727,6 +738,9 @@
         if (!res.ok) throw new Error("HTTP " + res.status);
         const d = await res.json();
         const acct = d.account || {};
+        const brokerAccounts = d.broker_accounts || {};
+        const intradayAcct = brokerAccounts.intraday || {};
+        const swingAcct = brokerAccounts.swing || {};
         const sum = d.summary || {};
         const perf = d.performance || {};
         const pos = d.positioning || {};
@@ -763,7 +777,9 @@
 
         setText("since_inception_return", fPct(sinceInceptionReturn, 2));
         setText("ytd_return", fPct(ytdReturn, 2));
-        setText("current_equity", noActivity ? "-" : fMoney(currentEquity));
+        setText("current_equity", currentEquity === null ? "-" : fMoney(currentEquity));
+        setText("intraday_equity", fMoney(intradayAcct.equity));
+        setText("swing_equity", fMoney(swingAcct.equity));
         setText("max_drawdown_pct", noActivity ? "-" : fPct(maxDrawdown, 2));
         setText("current_drawdown_pct", noActivity ? "-" : fPct(currentDrawdown, 2));
         setText("sharpe_ratio", fNum(perf.sharpe_like, 3));
