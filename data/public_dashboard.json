@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-04-29T21:55:51.264120",
+  "updated_at": "2026-04-30T06:30:25.007110",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 30124.11,
+    "equity": 30124.01,
     "status": null,
     "trading_blocked": null,
     "account_blocked": null,
     "trading_enabled": null,
     "run_pnl_dollars": null,
-    "since_inception_pnl_dollars": 84.89,
+    "since_inception_pnl_dollars": 84.79,
     "inception_equity": 30039.22,
     "ytd_start_equity": 30039.22,
-    "asof": "2026-04-29T21:55:42"
+    "asof": "2026-04-30T06:30:16"
   },
   "summary": {
     "open_positions_count": 0,
@@ -46,7 +46,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-29T21:47:40.197859"
+    "last_updated": "2026-04-29T21:55:50.963119"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -2011,6 +2011,16 @@
       "ts": "2026-04-29T21:55:41",
       "equity": 30124.11,
       "drawdown_pct": -0.1956
+    },
+    {
+      "ts": "2026-04-30T06:30:06",
+      "equity": 30124.01,
+      "drawdown_pct": -0.1959
+    },
+    {
+      "ts": "2026-04-30T06:30:11",
+      "equity": 30124.01,
+      "drawdown_pct": -0.1959
     }
   ],
   "drawdown_curve": [
@@ -2027,8 +2037,8 @@
       "drawdown_pct": -0.147
     },
     {
-      "ts": "2026-04-29T21:55:42",
-      "drawdown_pct": -0.2934
+      "ts": "2026-04-30T06:30:16",
+      "drawdown_pct": -0.2937
     }
   ],
   "equity_curve_r": [
@@ -2199,7 +2209,7 @@
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-29T21:55:45.741944"
+    "last_updated": "2026-04-30T06:30:19.457443"
   },
   "entry_progress": {
     "twelve_data": {
@@ -2220,15 +2230,15 @@
       "TREND_INTRADAY": {
         "signals_ready_count": 0,
         "near_ready_count": 0,
-        "closest_symbol": null,
-        "closest_progress_pct": null,
-        "closest_reason": null,
-        "tracker_staged_count": 0,
+        "closest_symbol": "QQQ",
+        "closest_progress_pct": 0.0,
+        "closest_reason": "WARMUP(0bars)",
+        "tracker_staged_count": 1,
         "tracker_ready_count": 0,
         "tracker_building_count": 0,
-        "tracker_waiting_count": 0,
+        "tracker_waiting_count": 1,
         "tracker_path_a_ready_count": 0,
-        "tracker_max_progress_pct": null
+        "tracker_max_progress_pct": 0.0
       },
       "TREND_SWING": {
         "signals_ready_count": 0,
@@ -2236,12 +2246,12 @@
         "closest_symbol": null,
         "closest_progress_pct": null,
         "closest_reason": null,
-        "tracker_staged_count": 0,
-        "tracker_ready_count": 0,
+        "tracker_staged_count": 1,
+        "tracker_ready_count": 1,
         "tracker_building_count": 0,
         "tracker_waiting_count": 0,
-        "tracker_path_a_ready_count": 0,
-        "tracker_max_progress_pct": null
+        "tracker_path_a_ready_count": 1,
+        "tracker_max_progress_pct": 100.0
       },
       "REGULAR_SWING": {
         "signals_ready_count": 0,
@@ -2259,7 +2269,7 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-04-29T21:55:45.001948",
+    "updated_at": "2026-04-30T06:30:18.486885",
     "interval": "5min",
     "symbols": {
       "SPY": {
@@ -6388,12 +6398,12 @@
       }
     }
   },
-  "source_updated_at_max": "2026-04-29T21:55:45.727945",
+  "source_updated_at_max": "2026-04-30T06:30:19.443934",
   "strategy_lanes": [
     "AEGIS_LARGE_BASE",
     "AEGIS_LARGE_TREND"
   ],
-  "published_at_utc": "2026-04-30T04:55:51Z",
+  "published_at_utc": "2026-04-30T13:30:25Z",
   "lane_feeds": {
     "latest": "public_dashboard_large_latest.json",
     "base": null,
