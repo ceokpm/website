@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-04-30T22:20:32.196797",
+  "updated_at": "2026-05-01T06:31:19.811940",
   "profile": "LARGE",
   "scheduler_interval_minutes": 5,
   "account": {
-    "equity": 60266.53,
+    "equity": 60300.08,
     "buying_power": null,
     "inception_equity": 60076.58,
     "ytd_start_equity": 60076.58,
-    "since_inception_pnl_dollars": 189.95,
-    "asof": "2026-04-30T22:20:26"
+    "since_inception_pnl_dollars": 223.5,
+    "asof": "2026-05-01T06:31:13"
   },
   "summary": {
     "open_positions_count": 2,
@@ -16,7 +16,7 @@
     "open_short_count": 0,
     "signals_ready_count": 8,
     "recent_trades_count": 38,
-    "avg_open_r_multiple": 0.005,
+    "avg_open_r_multiple": 0.305,
     "twelve_data_ema9_called": false,
     "twelve_data_macd_called": false
   },
@@ -42,7 +42,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-04-30T13:43:37.562617"
+    "last_updated": "2026-04-30T22:20:31.875616"
   },
   "positioning": {
     "long_short_ratio": null,
@@ -699,29 +699,29 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-04-30T22:20:26",
+      "ts_utc": "2026-05-01T06:31:13",
       "symbol": "QQQ",
       "side": "LONG",
       "qty": 16.0,
-      "entry_px": 667.31125,
-      "exit_px": 669.0,
-      "current_px": 669.0,
-      "R_realized": 0.04,
-      "pnl_pct": 0.25306781505632153,
+      "entry_px": 664.821,
+      "exit_px": 670.49,
+      "current_px": 670.49,
+      "R_realized": 0.27,
+      "pnl_pct": 0.8527107296550475,
       "entry_model": "Swing",
       "broker_account": "Swing",
       "broker_profile": "LARGE_SWING"
     },
     {
-      "ts_utc": "2026-04-30T22:20:26",
+      "ts_utc": "2026-05-01T06:31:13",
       "symbol": "SPY",
       "side": "LONG",
       "qty": 14.0,
-      "entry_px": 718.74,
-      "exit_px": 720.62,
-      "current_px": 720.62,
-      "R_realized": -0.03,
-      "pnl_pct": 0.26156885661017826,
+      "entry_px": 716.308857,
+      "exit_px": 721.36,
+      "current_px": 721.36,
+      "R_realized": 0.34,
+      "pnl_pct": 0.7051627172606669,
       "entry_model": "Swing",
       "broker_account": "Swing",
       "broker_profile": "LARGE_SWING"
@@ -1827,6 +1827,26 @@
       "ts": "2026-04-30T22:20:25",
       "equity": 60267.93,
       "drawdown_pct": 0.0
+    },
+    {
+      "ts": "2026-05-01T06:30:44",
+      "equity": 60267.91,
+      "drawdown_pct": -0.0
+    },
+    {
+      "ts": "2026-05-01T06:30:49",
+      "equity": 60267.91,
+      "drawdown_pct": -0.0
+    },
+    {
+      "ts": "2026-05-01T06:31:05",
+      "equity": 60289.85,
+      "drawdown_pct": 0.0
+    },
+    {
+      "ts": "2026-05-01T06:31:09",
+      "equity": 60294.66,
+      "drawdown_pct": 0.0
     }
   ],
   "drawdown_curve": [
@@ -2709,6 +2729,22 @@
     {
       "ts": "2026-04-30T22:20:25",
       "drawdown_pct": 0.0
+    },
+    {
+      "ts": "2026-05-01T06:30:44",
+      "drawdown_pct": -0.0
+    },
+    {
+      "ts": "2026-05-01T06:30:49",
+      "drawdown_pct": -0.0
+    },
+    {
+      "ts": "2026-05-01T06:31:05",
+      "drawdown_pct": 0.0
+    },
+    {
+      "ts": "2026-05-01T06:31:09",
+      "drawdown_pct": 0.0
     }
   ],
   "equity_curve_r": [
@@ -2726,17 +2762,24 @@
   "monthly_performance": [
     {
       "month": "2026-04",
-      "return_pct": 0.32,
-      "net_pnl": 189.95,
+      "return_pct": 0.29,
+      "net_pnl": 174.23,
       "max_dd_pct": 0.77,
-      "trades": 38,
-      "realized_net_pnl": 174.23,
+      "trades": 38
+    },
+    {
+      "month": "2026-05",
+      "return_pct": 0.08,
+      "net_pnl": 49.27,
+      "max_dd_pct": 0.0,
+      "trades": 0,
+      "realized_net_pnl": 0.0,
       "equity_reconciled": true
     }
   ],
   "research": {
     "items": [],
-    "last_updated": "2026-04-30T22:20:27.882455"
+    "last_updated": "2026-05-01T06:31:15.491878"
   },
   "entry_progress": {
     "twelve_data": {
@@ -2804,7 +2847,7 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-04-30T22:20:27.618077",
+    "updated_at": "2026-05-01T06:31:14.509436",
     "interval": "5min",
     "symbols": {
       "SPY": {
@@ -6937,28 +6980,28 @@
     "AEGIS_LARGE_INTRADAY",
     "AEGIS_LARGE_SWING"
   ],
-  "published_at_utc": "2026-05-01T05:20:32Z",
-  "source_updated_at_max": "2026-04-30T22:20:27.869454",
+  "published_at_utc": "2026-05-01T13:31:19Z",
+  "source_updated_at_max": "2026-05-01T06:31:15.478866",
   "broker_accounts": {
     "swing": {
       "label": "Swing",
       "profile": "LARGE_SWING",
-      "equity": 30235.06,
+      "equity": 30268.63,
       "buying_power": null,
       "inception_equity": 30000.0,
       "ytd_start_equity": 30000.0,
-      "since_inception_pnl_dollars": 235.06,
-      "asof": "2026-04-30T22:20:26"
+      "since_inception_pnl_dollars": 268.63,
+      "asof": "2026-05-01T06:31:13"
     },
     "intraday": {
       "label": "Intraday",
       "profile": "LARGE_INTRADAY",
-      "equity": 30031.47,
+      "equity": 30031.45,
       "buying_power": null,
       "inception_equity": 30076.58,
       "ytd_start_equity": 30076.58,
-      "since_inception_pnl_dollars": -45.11,
-      "asof": "2026-04-30T22:20:08"
+      "since_inception_pnl_dollars": -45.13,
+      "asof": "2026-05-01T06:30:51"
     }
   },
   "account_views": {
@@ -6968,12 +7011,12 @@
       "account": {
         "label": "Swing",
         "profile": "LARGE_SWING",
-        "equity": 30235.06,
+        "equity": 30268.63,
         "buying_power": null,
         "inception_equity": 30000.0,
         "ytd_start_equity": 30000.0,
-        "since_inception_pnl_dollars": 235.06,
-        "asof": "2026-04-30T22:20:26"
+        "since_inception_pnl_dollars": 268.63,
+        "asof": "2026-05-01T06:31:13"
       },
       "performance": {
         "recent_trades_win_rate_pct": null,
@@ -7001,7 +7044,7 @@
         "open_short_count": 0,
         "signals_ready_count": 4,
         "recent_trades_count": 2,
-        "avg_open_r_multiple": 0.005,
+        "avg_open_r_multiple": 0.305,
         "twelve_data_ema9_called": false,
         "twelve_data_macd_called": false
       },
@@ -7048,29 +7091,29 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-04-30T22:20:26",
+          "ts_utc": "2026-05-01T06:31:13",
           "symbol": "QQQ",
           "side": "LONG",
           "qty": 16.0,
-          "entry_px": 667.31125,
-          "exit_px": 669.0,
-          "current_px": 669.0,
-          "R_realized": 0.04,
-          "pnl_pct": 0.25306781505632153,
+          "entry_px": 664.821,
+          "exit_px": 670.49,
+          "current_px": 670.49,
+          "R_realized": 0.27,
+          "pnl_pct": 0.8527107296550475,
           "entry_model": "Swing",
           "broker_account": "Swing",
           "broker_profile": "LARGE_SWING"
         },
         {
-          "ts_utc": "2026-04-30T22:20:26",
+          "ts_utc": "2026-05-01T06:31:13",
           "symbol": "SPY",
           "side": "LONG",
           "qty": 14.0,
-          "entry_px": 718.74,
-          "exit_px": 720.62,
-          "current_px": 720.62,
-          "R_realized": -0.03,
-          "pnl_pct": 0.26156885661017826,
+          "entry_px": 716.308857,
+          "exit_px": 721.36,
+          "current_px": 721.36,
+          "R_realized": 0.34,
+          "pnl_pct": 0.7051627172606669,
           "entry_model": "Swing",
           "broker_account": "Swing",
           "broker_profile": "LARGE_SWING"
@@ -7626,6 +7669,16 @@
           "ts": "2026-04-30T22:20:25+00:00",
           "equity": 30236.46,
           "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-05-01T06:31:05+00:00",
+          "equity": 30258.4,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-05-01T06:31:09+00:00",
+          "equity": 30263.21,
+          "drawdown_pct": 0.0
         }
       ],
       "drawdown_curve": [
@@ -8068,6 +8121,14 @@
         {
           "ts": "2026-04-30T22:20:25+00:00",
           "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-05-01T06:31:05+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-05-01T06:31:09+00:00",
+          "drawdown_pct": 0.0
         }
       ],
       "monthly_performance": [
@@ -8077,9 +8138,16 @@
           "net_pnl": 181.72,
           "max_dd_pct": 0.0,
           "trades": 2
+        },
+        {
+          "month": "2026-05",
+          "return_pct": 0.0,
+          "net_pnl": 0.0,
+          "max_dd_pct": 0.0,
+          "trades": 0
         }
       ],
-      "updated_at": "2026-04-30T22:20:27.869454",
+      "updated_at": "2026-05-01T06:31:15.478866",
       "published_at_utc": null
     },
     "intraday": {
@@ -8088,12 +8156,12 @@
       "account": {
         "label": "Intraday",
         "profile": "LARGE_INTRADAY",
-        "equity": 30031.47,
+        "equity": 30031.45,
         "buying_power": null,
         "inception_equity": 30076.58,
         "ytd_start_equity": 30076.58,
-        "since_inception_pnl_dollars": -45.11,
-        "asof": "2026-04-30T22:20:08"
+        "since_inception_pnl_dollars": -45.13,
+        "asof": "2026-05-01T06:30:51"
       },
       "performance": {
         "recent_trades_win_rate_pct": null,
@@ -9295,6 +9363,16 @@
           "ts": "2026-04-30T22:20:07+00:00",
           "equity": 30031.47,
           "drawdown_pct": -0.15
+        },
+        {
+          "ts": "2026-05-01T06:30:44+00:00",
+          "equity": 30031.45,
+          "drawdown_pct": -0.1501
+        },
+        {
+          "ts": "2026-05-01T06:30:49+00:00",
+          "equity": 30031.45,
+          "drawdown_pct": -0.1501
         }
       ],
       "drawdown_curve": [
@@ -9737,6 +9815,14 @@
         {
           "ts": "2026-04-30T22:20:07+00:00",
           "drawdown_pct": -0.15
+        },
+        {
+          "ts": "2026-05-01T06:30:44+00:00",
+          "drawdown_pct": -0.1501
+        },
+        {
+          "ts": "2026-05-01T06:30:49+00:00",
+          "drawdown_pct": -0.1501
         }
       ],
       "monthly_performance": [
@@ -9746,9 +9832,16 @@
           "net_pnl": -7.49,
           "max_dd_pct": 0.77,
           "trades": 36
+        },
+        {
+          "month": "2026-05",
+          "return_pct": 0.0,
+          "net_pnl": 0.0,
+          "max_dd_pct": 0.0,
+          "trades": 0
         }
       ],
-      "updated_at": "2026-04-30T22:20:11.374372",
+      "updated_at": "2026-05-01T06:30:55.709990",
       "published_at_utc": null
     }
   },
