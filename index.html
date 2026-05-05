@@ -503,6 +503,17 @@
 
     const _chartStore = {};
 
+    function clearChart(canvasId){
+      const existing = _chartStore[canvasId];
+      if (existing){
+        existing.destroy();
+        delete _chartStore[canvasId];
+      }
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas && canvas.getContext("2d");
+      if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
     function toTimestampMs(raw){
       if (raw === null || raw === undefined || raw === "") return NaN;
       if (typeof raw === "number" && Number.isFinite(raw)) return raw;
@@ -539,6 +550,7 @@
     }
 
     function buildSeriesFromLive(d){
+      if (d && d.missing) return [];
       const acct = d.account || {};
       const brokerCurve = Array.isArray(d.equity_curve) ? d.equity_curve : [];
 
@@ -581,7 +593,7 @@
         });
       }
 
-      return fallbackEquitySeries(acct.equity);
+      return [];
     }
 
     function buildDrawdownSeries(equitySeries, d){
@@ -615,13 +627,20 @@
 
     function renderInteractiveLineChart(canvasId, series, options = {}){
       const canvas = document.getElementById(canvasId);
-      if (!canvas || !Array.isArray(series) || series.length < 2 || !window.Chart) return;
+      if (!canvas || !window.Chart) return;
+      if (!Array.isArray(series) || series.length < 2){
+        clearChart(canvasId);
+        return;
+      }
 
       const points = series.map((pt) => ({
         x: Number(pt.tsMs),
         y: Number(pt.value)
       })).filter((pt) => Number.isFinite(pt.x) && Number.isFinite(pt.y) && Math.abs(pt.y) < 1e9);
-      if (points.length < 2) return;
+      if (points.length < 2){
+        clearChart(canvasId);
+        return;
+      }
 
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
@@ -797,13 +816,17 @@
       const label = key === "intraday" ? "Intraday" : "Swing";
       const scopedTrades = (Array.isArray(d.trade_history) ? d.trade_history : [])
         .filter((r) => accountLabel(r).toLowerCase() === label.toLowerCase());
+      const scopedOpen = (Array.isArray(d.open_positions_live) ? d.open_positions_live : [])
+        .filter((r) => accountLabel(r).toLowerCase() === label.toLowerCase());
+      const hasAccount = Object.keys(acct).length > 0;
       return {
         label,
+        missing: !hasAccount && scopedTrades.length === 0 && scopedOpen.length === 0,
         account: acct,
         performance: performanceFromTrades(scopedTrades),
         summary: {},
         trade_history: scopedTrades,
-        open_positions_live: [],
+        open_positions_live: scopedOpen,
         equity_curve: [],
         drawdown_curve: [],
         monthly_performance: []
