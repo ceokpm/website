@@ -60,6 +60,7 @@
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="intraday_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="intraday_ytd_return">-</strong></article>
+              <article class="kpi"><span>Daily Return</span><strong id="intraday_daily_return">-</strong></article>
               <article class="kpi"><span>Current Equity</span><strong id="intraday_current_equity">-</strong></article>
               <article class="kpi"><span>Max Drawdown (%)</span><strong id="intraday_max_drawdown_pct">-</strong></article>
               <article class="kpi"><span>Current Drawdown (%)</span><strong id="intraday_current_drawdown_pct">-</strong></article>
@@ -76,6 +77,7 @@
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="swing_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="swing_ytd_return">-</strong></article>
+              <article class="kpi"><span>Daily Return</span><strong id="swing_daily_return">-</strong></article>
               <article class="kpi"><span>Current Equity</span><strong id="swing_current_equity">-</strong></article>
               <article class="kpi"><span>Max Drawdown (%)</span><strong id="swing_max_drawdown_pct">-</strong></article>
               <article class="kpi"><span>Current Drawdown (%)</span><strong id="swing_current_drawdown_pct">-</strong></article>
@@ -772,6 +774,63 @@
       return ((c / b) - 1) * 100;
     }
 
+    function dateKeyFromTimestampMs(tsMs){
+      if (!Number.isFinite(tsMs)) return "";
+      const dt = new Date(tsMs);
+      if (Number.isNaN(dt.getTime())) return "";
+      return dt.toISOString().slice(0, 10);
+    }
+
+    function dateKeyFromRawTimestamp(raw){
+      if (raw !== null && raw !== undefined && raw !== ""){
+        const match = String(raw).match(/^(\d{4}-\d{2}-\d{2})/);
+        if (match) return match[1];
+      }
+      return dateKeyFromTimestampMs(toTimestampMs(raw));
+    }
+
+    function dailyReturnFromEquitySeries(equitySeries, currentEquity = null, latestDateKey = ""){
+      const rows = Array.isArray(equitySeries)
+        ? equitySeries.map((pt) => ({
+            tsMs: Number(pt.tsMs),
+            value: Number(pt.value)
+          })).filter((pt) => Number.isFinite(pt.tsMs) && Number.isFinite(pt.value) && pt.value > 0)
+        : [];
+
+      if (!rows.length) return null;
+      rows.sort((a, b) => a.tsMs - b.tsMs);
+
+      const latest = rows[rows.length - 1];
+      const current = currentEquity !== null ? currentEquity : latest.value;
+      const dayKey = latestDateKey || dateKeyFromTimestampMs(latest.tsMs);
+      if (!dayKey || !Number.isFinite(current)) return null;
+
+      const dayRows = rows.filter((pt) => dateKeyFromTimestampMs(pt.tsMs) === dayKey);
+      if (!dayRows.length) return null;
+      return pctFromBase(current, dayRows[0].value);
+    }
+
+    function dailyReturnFromView(view, equitySeries, currentEquity){
+      const acct = view.account || {};
+      const perf = view.performance || {};
+      const summary = view.summary || {};
+      const direct = toFiniteOrNull(
+        acct.daily_return_pct ?? acct.day_return_pct ?? perf.daily_return_pct ??
+        perf.day_return_pct ?? summary.daily_return_pct ?? view.daily_return_pct
+      );
+      if (direct !== null) return direct;
+
+      const dailyStartEquity = toFiniteOrNull(
+        acct.daily_start_equity ?? acct.day_start_equity ?? acct.start_of_day_equity ??
+        acct.previous_close_equity ?? acct.prev_close_equity
+      );
+      if (currentEquity !== null && dailyStartEquity !== null && dailyStartEquity > 0){
+        return pctFromBase(currentEquity, dailyStartEquity);
+      }
+
+      return dailyReturnFromEquitySeries(equitySeries, currentEquity, dateKeyFromRawTimestamp(acct.asof));
+    }
+
     function maxDrawdownMetric(perf, monthlyRows, minDrawdown){
       const seriesMax = signedDrawdownPct(minDrawdown);
       if (seriesMax !== null && seriesMax < 0) return seriesMax;
@@ -846,12 +905,14 @@
       const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
       const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
       const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
+      const dailyReturn = dailyReturnFromView(view, equitySeries, currentEquity);
       const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
       const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
       const maxDrawdown = maxDrawdownMetric(perf, monthlyRows, minDrawdown);
 
       setText(`${prefix}_since_inception_return`, fPct(sinceInceptionReturn, 2));
       setText(`${prefix}_ytd_return`, fPct(ytdReturn, 2));
+      setText(`${prefix}_daily_return`, fPct(dailyReturn, 2));
       setText(`${prefix}_current_equity`, currentEquity === null ? "-" : fMoney(currentEquity));
       setText(`${prefix}_max_drawdown_pct`, fPct(maxDrawdown, 2));
       setText(`${prefix}_current_drawdown_pct`, fPct(currentDrawdown, 2));
