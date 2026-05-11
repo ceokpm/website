@@ -551,6 +551,56 @@
       ];
     }
 
+    function sameMoney(a, b){
+      const x = toFiniteOrNull(a);
+      const y = toFiniteOrNull(b);
+      return x !== null && y !== null && Math.abs(x - y) < 0.005;
+    }
+
+    function resetBaselineIsFlat(view){
+      if (!view || view.missing) return false;
+      const acct = view.account || {};
+      const currentEquity = toFiniteOrNull(acct.equity);
+      const inceptionEquity = toFiniteOrNull(acct.inception_equity);
+      const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity);
+      if (currentEquity === null || inceptionEquity === null) return false;
+      if (!sameMoney(currentEquity, inceptionEquity)) return false;
+      if (ytdStartEquity !== null && !sameMoney(currentEquity, ytdStartEquity)) return false;
+
+      const perf = view.performance || {};
+      const summary = view.summary || {};
+      const closedTrades = toFiniteOrNull(perf.closed_trades_count) ?? 0;
+      const recentTrades = toFiniteOrNull(summary.recent_trades_count) ?? 0;
+      const openPositions = toFiniteOrNull(summary.open_positions_count) ?? 0;
+      const tradeRows = Array.isArray(view.trade_history) ? view.trade_history.length : 0;
+      const openRows = Array.isArray(view.open_positions_live) ? view.open_positions_live.length : 0;
+      return closedTrades === 0 && recentTrades === 0 && openPositions === 0 && tradeRows === 0 && openRows === 0;
+    }
+
+    function flatEquitySeriesFromView(view){
+      const acct = (view && view.account) || {};
+      const base = toFiniteOrNull(acct.equity) ?? toFiniteOrNull(acct.inception_equity) ?? 30000;
+      const end = toTimestampMs(acct.asof || (view && (view.updated_at || view.published_at_utc)));
+      const endTs = Number.isFinite(end) ? end : Date.now();
+      return [
+        { tsMs: endTs - 60 * 60 * 1000, value: base, drawdownPct: 0 },
+        { tsMs: endTs, value: base, drawdownPct: 0 }
+      ];
+    }
+
+    function zeroDrawdownSeries(equitySeries){
+      const rows = Array.isArray(equitySeries)
+        ? equitySeries.map((pt) => ({ tsMs: Number(pt.tsMs), value: 0 }))
+            .filter((pt) => Number.isFinite(pt.tsMs))
+        : [];
+      if (rows.length >= 2) return rows;
+      const now = Date.now();
+      return [
+        { tsMs: now - 60 * 60 * 1000, value: 0 },
+        { tsMs: now, value: 0 }
+      ];
+    }
+
     function buildSeriesFromLive(d){
       if (d && d.missing) return [];
       const acct = d.account || {};
@@ -897,18 +947,19 @@
       const perf = view.performance || {};
       const summary = view.summary || {};
       const monthlyRows = Array.isArray(view.monthly_performance) ? view.monthly_performance : [];
-      const equitySeries = buildSeriesFromLive(view);
-      const drawdownSeries = buildDrawdownSeries(equitySeries, view);
+      const resetFlat = resetBaselineIsFlat(view);
+      const equitySeries = resetFlat ? flatEquitySeriesFromView(view) : buildSeriesFromLive(view);
+      const drawdownSeries = resetFlat ? zeroDrawdownSeries(equitySeries) : buildDrawdownSeries(equitySeries, view);
 
       const currentEquity = toFiniteOrNull(acct.equity);
       const inceptionEquity = toFiniteOrNull(acct.inception_equity);
       const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
       const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
       const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
-      const dailyReturn = dailyReturnFromView(view, equitySeries, currentEquity);
-      const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
+      const dailyReturn = resetFlat ? 0 : dailyReturnFromView(view, equitySeries, currentEquity);
+      const currentDrawdown = resetFlat ? 0 : (drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null);
       const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
-      const maxDrawdown = maxDrawdownMetric(perf, monthlyRows, minDrawdown);
+      const maxDrawdown = resetFlat ? 0 : maxDrawdownMetric(perf, monthlyRows, minDrawdown);
 
       setText(`${prefix}_since_inception_return`, fPct(sinceInceptionReturn, 2));
       setText(`${prefix}_ytd_return`, fPct(ytdReturn, 2));
