@@ -608,6 +608,42 @@
       ];
     }
 
+    function activeAccountEquitySeries(rows, acct){
+      if (!Array.isArray(rows) || rows.length < 2) return rows;
+      const base = toFiniteOrNull(acct.inception_equity) ?? toFiniteOrNull(acct.ytd_start_equity);
+      const currentEquity = toFiniteOrNull(acct.equity);
+      if (base === null || base <= 0) return rows;
+
+      const resetTolerance = Math.max(25, base * 0.001);
+      const resetDrop = Math.max(100, base * 0.003);
+      let resetIndex = -1;
+      for (let i = 1; i < rows.length; i += 1){
+        const prev = Number(rows[i - 1].value);
+        const value = Number(rows[i].value);
+        if (!Number.isFinite(prev) || !Number.isFinite(value)) continue;
+        if (Math.abs(value - base) <= resetTolerance && (prev - value) >= resetDrop){
+          resetIndex = i;
+        }
+      }
+
+      let active = resetIndex >= 0 ? rows.slice(resetIndex) : rows.slice();
+      if (resetIndex >= 0){
+        active = active.map((pt) => ({ ...pt, drawdownPct: null, resetAdjusted: true }));
+      }
+
+      if (currentEquity !== null && active.length){
+        const asofMs = toTimestampMs(acct.asof);
+        const last = active[active.length - 1];
+        if (Number.isFinite(asofMs) && asofMs > Number(last.tsMs)){
+          active.push({ tsMs: asofMs, value: currentEquity, drawdownPct: null, resetAdjusted: resetIndex >= 0 });
+        } else if (Math.abs(Number(last.value) - currentEquity) > 0.005){
+          active[active.length - 1] = { ...last, value: currentEquity, drawdownPct: null, resetAdjusted: resetIndex >= 0 };
+        }
+      }
+
+      return active;
+    }
+
     function buildSeriesFromLive(d){
       if (d && d.missing) return [];
       const acct = d.account || {};
@@ -635,7 +671,7 @@
               dedup[dedup.length - 1] = r;
             }
           }
-          return dedup;
+          return activeAccountEquitySeries(dedup, acct);
         }
       }
 
@@ -656,6 +692,16 @@
     }
 
     function buildDrawdownSeries(equitySeries, d){
+      const shouldRecompute = Array.isArray(equitySeries) && equitySeries.some((pt) => pt && pt.resetAdjusted);
+      if (shouldRecompute){
+        let peak = -Infinity;
+        return equitySeries.map((pt) => {
+          peak = Math.max(peak, Number(pt.value));
+          const dd = peak > 0 ? ((Number(pt.value) / peak) - 1) * 100 : 0;
+          return { tsMs: pt.tsMs, value: dd };
+        }).filter((pt) => Number.isFinite(pt.tsMs) && Number.isFinite(pt.value));
+      }
+
       const equityDrawdowns = Array.isArray(equitySeries)
         ? equitySeries.map((pt) => ({
             tsMs: Number(pt.tsMs),
@@ -916,12 +962,27 @@
       );
       if (direct !== null) return direct;
 
+      const dailyChangeDollars = toFiniteOrNull(
+        acct.daily_change_dollars ?? acct.day_change_dollars ?? acct.daily_pnl_dollars ??
+        acct.day_pnl_dollars ?? perf.daily_pnl_dollars ?? perf.day_pnl_dollars ??
+        summary.daily_pnl_dollars ?? view.daily_pnl_dollars
+      );
+      if (currentEquity !== null && dailyChangeDollars !== null){
+        const startFromChange = currentEquity - dailyChangeDollars;
+        if (startFromChange > 0) return pctFromBase(currentEquity, startFromChange);
+      }
+
       const dailyStartEquity = toFiniteOrNull(
         acct.daily_start_equity ?? acct.day_start_equity ?? acct.start_of_day_equity ??
         acct.previous_close_equity ?? acct.prev_close_equity
       );
       if (currentEquity !== null && dailyStartEquity !== null && dailyStartEquity > 0){
         return pctFromBase(currentEquity, dailyStartEquity);
+      }
+
+      const resetStartEquity = toFiniteOrNull(acct.inception_equity) ?? toFiniteOrNull(acct.ytd_start_equity);
+      if (options.resetFlat && currentEquity !== null && resetStartEquity !== null && resetStartEquity > 0){
+        return pctFromBase(currentEquity, resetStartEquity);
       }
 
       const openPnlReturn = dailyReturnFromOpenPnl(view, currentEquity);
@@ -997,8 +1058,8 @@
       const summary = view.summary || {};
       const monthlyRows = Array.isArray(view.monthly_performance) ? view.monthly_performance : [];
       const resetFlat = resetBaselineIsFlat(view);
-      const equitySeries = resetFlat ? flatEquitySeriesFromView(view) : buildSeriesFromLive(view);
-      const drawdownSeries = resetFlat ? zeroDrawdownSeries(equitySeries) : buildDrawdownSeries(equitySeries, view);
+      const equitySeries = buildSeriesFromLive(view);
+      const drawdownSeries = buildDrawdownSeries(equitySeries, view);
 
       const currentEquity = toFiniteOrNull(acct.equity);
       const inceptionEquity = toFiniteOrNull(acct.inception_equity);
@@ -1006,9 +1067,9 @@
       const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
       const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
       const dailyReturn = dailyReturnFromView(view, equitySeries, currentEquity, { resetFlat });
-      const currentDrawdown = resetFlat ? 0 : (drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null);
+      const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
       const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
-      const maxDrawdown = resetFlat ? 0 : maxDrawdownMetric(perf, monthlyRows, minDrawdown);
+      const maxDrawdown = maxDrawdownMetric(perf, monthlyRows, minDrawdown);
 
       setText(`${prefix}_since_inception_return`, fPct(sinceInceptionReturn, 2));
       setText(`${prefix}_ytd_return`, fPct(ytdReturn, 2));
