@@ -564,17 +564,24 @@
       const inceptionEquity = toFiniteOrNull(acct.inception_equity);
       const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity);
       if (currentEquity === null || inceptionEquity === null) return false;
-      if (!sameMoney(currentEquity, inceptionEquity)) return false;
-      if (ytdStartEquity !== null && !sameMoney(currentEquity, ytdStartEquity)) return false;
+      if (ytdStartEquity !== null && !sameMoney(inceptionEquity, ytdStartEquity)) return false;
 
       const perf = view.performance || {};
       const summary = view.summary || {};
       const closedTrades = toFiniteOrNull(perf.closed_trades_count) ?? 0;
       const recentTrades = toFiniteOrNull(summary.recent_trades_count) ?? 0;
-      const openPositions = toFiniteOrNull(summary.open_positions_count) ?? 0;
       const tradeRows = Array.isArray(view.trade_history) ? view.trade_history.length : 0;
-      const openRows = Array.isArray(view.open_positions_live) ? view.open_positions_live.length : 0;
-      return closedTrades === 0 && recentTrades === 0 && openPositions === 0 && tradeRows === 0 && openRows === 0;
+      if (closedTrades !== 0 || recentTrades !== 0 || tradeRows !== 0) return false;
+      if (sameMoney(currentEquity, inceptionEquity)) return true;
+
+      const curveEquities = (Array.isArray(view.equity_curve) ? view.equity_curve : [])
+        .map((pt) => toFiniteOrNull(pt && pt.equity))
+        .filter((v) => v !== null && v > 0);
+      if (!curveEquities.length || inceptionEquity <= 0) return false;
+
+      const currentDeviation = Math.abs(pctFromBase(currentEquity, inceptionEquity) ?? 0);
+      const curveDeviation = Math.max(...curveEquities.map((v) => Math.abs(pctFromBase(v, inceptionEquity) ?? 0)));
+      return curveDeviation > Math.max(1, currentDeviation + 0.25);
     }
 
     function flatEquitySeriesFromView(view){
