@@ -867,7 +867,46 @@
       return pctFromBase(current, dayRows[0].value);
     }
 
-    function dailyReturnFromView(view, equitySeries, currentEquity){
+    function positionPnlDollars(r){
+      const direct = toFiniteOrNull(
+        r && (
+          r.unrealized_pl ?? r.unrealized_pnl ?? r.unrealized_profit_loss ??
+          r.pnl_dollars ?? r.pnl
+        )
+      );
+      if (direct !== null) return direct;
+
+      const qty = Math.abs(toFiniteOrNull(r && r.qty) ?? 0);
+      const entry = toFiniteOrNull(r && r.entry_px);
+      const mark = toFiniteOrNull(r && (r.current_px ?? r.exit_px ?? r.last_px ?? r.price));
+      if (!qty || entry === null || mark === null || entry <= 0) return null;
+
+      const side = String((r && r.side) || "").toUpperCase().trim();
+      const sign = side === "SHORT" ? -1 : 1;
+      return (mark - entry) * qty * sign;
+    }
+
+    function openPositionPnlDollars(view){
+      const rows = []
+        .concat(Array.isArray(view && view.open_positions_live) ? view.open_positions_live : [])
+        .concat(Array.isArray(view && view.open_positions) ? view.open_positions : []);
+      const vals = rows
+        .map((r) => positionPnlDollars(r))
+        .filter((v) => v !== null && Number.isFinite(Number(v)))
+        .map(Number);
+      if (!vals.length) return null;
+      return vals.reduce((a, b) => a + b, 0);
+    }
+
+    function dailyReturnFromOpenPnl(view, currentEquity){
+      const pnl = openPositionPnlDollars(view);
+      if (pnl === null || currentEquity === null || !Number.isFinite(Number(currentEquity))) return null;
+      const startEquity = Number(currentEquity) - Number(pnl);
+      if (startEquity <= 0) return null;
+      return pctFromBase(currentEquity, startEquity);
+    }
+
+    function dailyReturnFromView(view, equitySeries, currentEquity, options = {}){
       const acct = view.account || {};
       const perf = view.performance || {};
       const summary = view.summary || {};
@@ -884,6 +923,9 @@
       if (currentEquity !== null && dailyStartEquity !== null && dailyStartEquity > 0){
         return pctFromBase(currentEquity, dailyStartEquity);
       }
+
+      const openPnlReturn = dailyReturnFromOpenPnl(view, currentEquity);
+      if (options.resetFlat && openPnlReturn !== null) return openPnlReturn;
 
       return dailyReturnFromEquitySeries(equitySeries, currentEquity, dateKeyFromRawTimestamp(acct.asof));
     }
@@ -963,7 +1005,7 @@
       const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
       const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
       const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
-      const dailyReturn = resetFlat ? 0 : dailyReturnFromView(view, equitySeries, currentEquity);
+      const dailyReturn = dailyReturnFromView(view, equitySeries, currentEquity, { resetFlat });
       const currentDrawdown = resetFlat ? 0 : (drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null);
       const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
       const maxDrawdown = resetFlat ? 0 : maxDrawdownMetric(perf, monthlyRows, minDrawdown);
