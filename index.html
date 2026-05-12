@@ -644,35 +644,42 @@
       return active;
     }
 
+    function rawBrokerEquitySeriesFromView(d){
+      const brokerCurve = Array.isArray(d && d.equity_curve) ? d.equity_curve : [];
+      if (brokerCurve.length < 2) return [];
+
+      const rows = brokerCurve.map((pt) => {
+        const tsMs = toTimestampMs(pt && pt.ts);
+        const eq = Number(pt && pt.equity);
+        const dd = Number(pt && pt.drawdown_pct);
+        return {
+          tsMs,
+          value: eq,
+          drawdownPct: Number.isFinite(dd) ? dd : null
+        };
+      }).filter((pt) => Number.isFinite(pt.tsMs) && Number.isFinite(pt.value));
+
+      if (rows.length < 2) return [];
+      rows.sort((a, b) => a.tsMs - b.tsMs);
+
+      const dedup = [];
+      for (const r of rows){
+        if (!dedup.length || dedup[dedup.length - 1].tsMs !== r.tsMs){
+          dedup.push(r);
+        } else {
+          dedup[dedup.length - 1] = r;
+        }
+      }
+      return dedup;
+    }
+
     function buildSeriesFromLive(d){
       if (d && d.missing) return [];
       const acct = d.account || {};
-      const brokerCurve = Array.isArray(d.equity_curve) ? d.equity_curve : [];
+      const brokerRows = rawBrokerEquitySeriesFromView(d);
 
-      if (brokerCurve.length >= 2){
-        const rows = brokerCurve.map((pt) => {
-          const tsMs = toTimestampMs(pt.ts);
-          const eq = Number(pt.equity);
-          const dd = Number(pt.drawdown_pct);
-          return {
-            tsMs,
-            value: eq,
-            drawdownPct: Number.isFinite(dd) ? dd : null
-          };
-        }).filter((pt) => Number.isFinite(pt.tsMs) && Number.isFinite(pt.value));
-
-        if (rows.length >= 2){
-          rows.sort((a, b) => a.tsMs - b.tsMs);
-          const dedup = [];
-          for (const r of rows){
-            if (!dedup.length || dedup[dedup.length - 1].tsMs !== r.tsMs){
-              dedup.push(r);
-            } else {
-              dedup[dedup.length - 1] = r;
-            }
-          }
-          return activeAccountEquitySeries(dedup, acct);
-        }
+      if (brokerRows.length >= 2){
+        return activeAccountEquitySeries(brokerRows, acct);
       }
 
       const curveR = Array.isArray(d.equity_curve_r) ? d.equity_curve_r : [];
@@ -910,7 +917,10 @@
 
       const dayRows = rows.filter((pt) => dateKeyFromTimestampMs(pt.tsMs) === dayKey);
       if (!dayRows.length) return null;
-      return pctFromBase(current, dayRows[0].value);
+
+      const priorRows = rows.filter((pt) => dateKeyFromTimestampMs(pt.tsMs) < dayKey);
+      const start = priorRows.length ? priorRows[priorRows.length - 1].value : dayRows[0].value;
+      return pctFromBase(current, start);
     }
 
     function positionPnlDollars(r){
@@ -1060,13 +1070,19 @@
       const resetFlat = resetBaselineIsFlat(view);
       const equitySeries = buildSeriesFromLive(view);
       const drawdownSeries = buildDrawdownSeries(equitySeries, view);
+      const dailyEquitySeries = rawBrokerEquitySeriesFromView(view);
 
       const currentEquity = toFiniteOrNull(acct.equity);
       const inceptionEquity = toFiniteOrNull(acct.inception_equity);
       const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
       const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
       const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
-      const dailyReturn = dailyReturnFromView(view, equitySeries, currentEquity, { resetFlat });
+      const dailyReturn = dailyReturnFromView(
+        view,
+        dailyEquitySeries.length ? dailyEquitySeries : equitySeries,
+        currentEquity,
+        { resetFlat }
+      );
       const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
       const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
       const maxDrawdown = maxDrawdownMetric(perf, monthlyRows, minDrawdown);
