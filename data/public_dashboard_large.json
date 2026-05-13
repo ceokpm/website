@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-05-13T07:33:51.573154",
+  "updated_at": "2026-05-13T07:35:34.442479",
   "profile": "LARGE",
   "scheduler_interval_minutes": 2,
   "account": {
-    "equity": 60696.27,
+    "equity": 60691.23,
     "buying_power": null,
     "inception_equity": 60000.0,
     "ytd_start_equity": 60000.0,
-    "since_inception_pnl_dollars": 696.27,
-    "asof": "2026-05-13T07:33:12"
+    "since_inception_pnl_dollars": 691.23,
+    "asof": "2026-05-13T07:34:54"
   },
   "summary": {
     "open_positions_count": 4,
@@ -16,9 +16,9 @@
     "open_short_count": 2,
     "signals_ready_count": 22,
     "recent_trades_count": 25,
-    "avg_open_r_multiple": 0.013,
+    "avg_open_r_multiple": 0.0,
     "twelve_data_ema9_called": false,
-    "twelve_data_macd_called": true
+    "twelve_data_macd_called": false
   },
   "performance": {
     "closed_trades_count": 25,
@@ -38,7 +38,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-05-13T07:31:37.676367"
+    "last_updated": "2026-05-13T07:33:49.901354"
   },
   "positioning": {
     "long_short_ratio": 1.0,
@@ -852,15 +852,15 @@
       "status": "CLOSED"
     },
     {
-      "ts_utc": "2026-05-13T07:32:36",
+      "ts_utc": "2026-05-13T07:34:25",
       "symbol": "SPY",
       "side": "LONG",
       "qty": 29.0,
       "entry_px": 738.23,
-      "exit_px": 738.23,
-      "current_px": 738.23,
-      "R_realized": 0.36,
-      "pnl_pct": 0.0,
+      "exit_px": 738.55,
+      "current_px": 738.55,
+      "R_realized": 0.27,
+      "pnl_pct": 0.04334692440024604,
       "entry_model": "Day Trade",
       "broker_account": "Intraday",
       "broker_profile": "LARGE_INTRADAY",
@@ -868,15 +868,15 @@
       "reason": "OPEN"
     },
     {
-      "ts_utc": "2026-05-13T07:33:12",
+      "ts_utc": "2026-05-13T07:34:54",
       "symbol": "AAPL",
       "side": "SHORT",
       "qty": 24.0,
       "entry_px": 295.53,
-      "exit_px": 295.64,
-      "current_px": 295.64,
-      "R_realized": 0.0,
-      "pnl_pct": -0.03722126349271264,
+      "exit_px": 295.55,
+      "current_px": 295.55,
+      "R_realized": -0.0,
+      "pnl_pct": -0.0067675024532327195,
       "entry_model": "Swing",
       "broker_account": "Swing",
       "broker_profile": "LARGE_SWING",
@@ -884,15 +884,15 @@
       "reason": "OPEN"
     },
     {
-      "ts_utc": "2026-05-13T07:33:12",
+      "ts_utc": "2026-05-13T07:34:54",
       "symbol": "AMZN",
       "side": "LONG",
       "qty": 16.0,
       "entry_px": 264.94,
-      "exit_px": 265.77,
-      "current_px": 265.77,
+      "exit_px": 265.5,
+      "current_px": 265.5,
       "R_realized": 0.04,
-      "pnl_pct": 0.31327847814598936,
+      "pnl_pct": 0.21136861176115435,
       "entry_model": "Swing",
       "broker_account": "Swing",
       "broker_profile": "LARGE_SWING",
@@ -900,15 +900,15 @@
       "reason": "OPEN"
     },
     {
-      "ts_utc": "2026-05-13T07:33:12",
+      "ts_utc": "2026-05-13T07:34:54",
       "symbol": "QQQ",
       "side": "SHORT",
       "qty": 20.0,
       "entry_px": 708.6375,
-      "exit_px": 708.895,
-      "current_px": 708.895,
-      "R_realized": null,
-      "pnl_pct": -0.03633733749624262,
+      "exit_px": 709.47,
+      "current_px": 709.47,
+      "R_realized": -0.04,
+      "pnl_pct": -0.11747896491506331,
       "entry_model": "Swing",
       "broker_account": "Swing",
       "broker_profile": "LARGE_SWING",
@@ -990,57 +990,57 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-05-13T07:33:12",
+      "ts_utc": "2026-05-13T07:34:54",
       "symbol": "AAPL",
       "side": "SHORT",
       "qty": 24.0,
       "entry_px": 295.53,
-      "exit_px": 295.64,
-      "current_px": 295.64,
-      "R_realized": 0.0,
-      "pnl_pct": -0.03722126349271264,
+      "exit_px": 295.55,
+      "current_px": 295.55,
+      "R_realized": -0.0,
+      "pnl_pct": -0.0067675024532327195,
       "entry_model": "Swing",
       "broker_account": "Swing",
       "broker_profile": "LARGE_SWING"
     },
     {
-      "ts_utc": "2026-05-13T07:33:12",
+      "ts_utc": "2026-05-13T07:34:54",
       "symbol": "AMZN",
       "side": "LONG",
       "qty": 16.0,
       "entry_px": 264.94,
-      "exit_px": 265.77,
-      "current_px": 265.77,
+      "exit_px": 265.5,
+      "current_px": 265.5,
       "R_realized": 0.04,
-      "pnl_pct": 0.31327847814598936,
+      "pnl_pct": 0.21136861176115435,
       "entry_model": "Swing",
       "broker_account": "Swing",
       "broker_profile": "LARGE_SWING"
     },
     {
-      "ts_utc": "2026-05-13T07:33:12",
+      "ts_utc": "2026-05-13T07:34:54",
       "symbol": "QQQ",
       "side": "SHORT",
       "qty": 20.0,
       "entry_px": 708.6375,
-      "exit_px": 708.895,
-      "current_px": 708.895,
-      "R_realized": null,
-      "pnl_pct": -0.03633733749624262,
+      "exit_px": 709.47,
+      "current_px": 709.47,
+      "R_realized": -0.04,
+      "pnl_pct": -0.11747896491506331,
       "entry_model": "Swing",
       "broker_account": "Swing",
       "broker_profile": "LARGE_SWING"
     },
     {
-      "ts_utc": "2026-05-13T07:32:36",
+      "ts_utc": "2026-05-13T07:34:25",
       "symbol": "SPY",
       "side": "LONG",
       "qty": 29.0,
       "entry_px": 738.23,
-      "exit_px": 738.23,
-      "current_px": 738.23,
-      "R_realized": 0.36,
-      "pnl_pct": 0.0,
+      "exit_px": 738.55,
+      "current_px": 738.55,
+      "R_realized": 0.27,
+      "pnl_pct": 0.04334692440024604,
       "entry_model": "Day Trade",
       "broker_account": "Intraday",
       "broker_profile": "LARGE_INTRADAY"
@@ -9291,6 +9291,26 @@
       "ts": "2026-05-13T07:33:04",
       "equity": 60698.52,
       "drawdown_pct": -0.5948
+    },
+    {
+      "ts": "2026-05-13T07:34:07",
+      "equity": 60708.09,
+      "drawdown_pct": -0.5791
+    },
+    {
+      "ts": "2026-05-13T07:34:18",
+      "equity": 60708.24,
+      "drawdown_pct": -0.5789
+    },
+    {
+      "ts": "2026-05-13T07:34:39",
+      "equity": 60688.64,
+      "drawdown_pct": -0.611
+    },
+    {
+      "ts": "2026-05-13T07:34:49",
+      "equity": 60689.44,
+      "drawdown_pct": -0.6096
     }
   ],
   "drawdown_curve": [
@@ -15889,6 +15909,22 @@
     {
       "ts": "2026-05-13T07:33:04",
       "drawdown_pct": -0.5948
+    },
+    {
+      "ts": "2026-05-13T07:34:07",
+      "drawdown_pct": -0.5791
+    },
+    {
+      "ts": "2026-05-13T07:34:18",
+      "drawdown_pct": -0.5789
+    },
+    {
+      "ts": "2026-05-13T07:34:39",
+      "drawdown_pct": -0.611
+    },
+    {
+      "ts": "2026-05-13T07:34:49",
+      "drawdown_pct": -0.6096
     }
   ],
   "equity_curve_r": [
@@ -15921,14 +15957,14 @@
   "monthly_performance": [],
   "research": {
     "items": [],
-    "last_updated": "2026-05-13T07:33:17.147570"
+    "last_updated": "2026-05-13T07:34:56.793634"
   },
   "entry_progress": {
     "twelve_data": {
       "ema9_api_called": false,
-      "macd_api_called": true,
+      "macd_api_called": false,
       "ema9_markers": 0,
-      "macd_markers": 1,
+      "macd_markers": 0,
       "src_twelve_markers": 0,
       "strict_gate_markers": 0,
       "heartbeat_attempted": 0,
@@ -15939,9 +15975,13 @@
       ]
     },
     "policy_blocks": {
-      "count": 0,
-      "by_symbol": {},
-      "reasons": []
+      "count": 1,
+      "by_symbol": {
+        "AMD": 1
+      },
+      "reasons": [
+        "AMD: blocked: swing exit cooldown active for AMD (11.8m left)"
+      ]
     },
     "models": {
       "TREND_INTRADAY": {
@@ -15989,7 +16029,7 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-05-13T07:33:15.636763",
+    "updated_at": "2026-05-13T07:34:56.410616",
     "interval": "2min",
     "twelvedata_call_estimate": {
       "per_symbol": 3,
@@ -18030,13 +18070,13 @@
             "ts": "2026-05-13 07:32:00",
             "open": 738.44,
             "high": 738.52,
-            "low": 738.24,
-            "close": 738.28,
-            "volume": 6210.0,
-            "ema9": 738.078,
-            "macd": 0.415865,
-            "macd_signal": 0.26773,
-            "macd_hist": 0.148135,
+            "low": 738.12,
+            "close": 738.33,
+            "volume": 17874.0,
+            "ema9": 738.088,
+            "macd": 0.421253,
+            "macd_signal": 0.268808,
+            "macd_hist": 0.152445,
             "trend_intraday_confirm_count": 7,
             "trend_intraday_ready": true,
             "trend_swing_ready": false,
@@ -18046,11 +18086,11 @@
         ],
         "last": {
           "ts": "2026-05-13 07:32:00",
-          "close": 738.28,
-          "ema9": 738.078,
-          "macd": 0.415865,
-          "macd_signal": 0.26773,
-          "macd_hist": 0.148135,
+          "close": 738.33,
+          "ema9": 738.088,
+          "macd": 0.421253,
+          "macd_signal": 0.268808,
+          "macd_hist": 0.152445,
           "trend_intraday_ready": true,
           "trend_swing_ready": false
         },
@@ -20093,13 +20133,13 @@
             "ts": "2026-05-13 07:32:00",
             "open": 709.13,
             "high": 709.31,
-            "low": 708.65,
-            "close": 708.67,
-            "volume": 7598.0,
-            "ema9": 708.4172,
-            "macd": 0.713584,
-            "macd_signal": 0.495429,
-            "macd_hist": 0.218155,
+            "low": 708.45,
+            "close": 708.66,
+            "volume": 10710.0,
+            "ema9": 708.4152,
+            "macd": 0.712507,
+            "macd_signal": 0.495213,
+            "macd_hist": 0.217294,
             "trend_intraday_confirm_count": 7,
             "trend_intraday_ready": true,
             "trend_swing_ready": false,
@@ -20109,11 +20149,11 @@
         ],
         "last": {
           "ts": "2026-05-13 07:32:00",
-          "close": 708.67,
-          "ema9": 708.4172,
-          "macd": 0.713584,
-          "macd_signal": 0.495429,
-          "macd_hist": 0.218155,
+          "close": 708.66,
+          "ema9": 708.4152,
+          "macd": 0.712507,
+          "macd_signal": 0.495213,
+          "macd_hist": 0.217294,
           "trend_intraday_ready": true,
           "trend_swing_ready": false
         },
@@ -20130,28 +20170,28 @@
     "AEGIS_LARGE_SWING",
     "AEGIS_LARGE_INTRADAY"
   ],
-  "published_at_utc": "2026-05-13T14:33:51Z",
-  "source_updated_at_max": "2026-05-13T07:33:17.129574",
+  "published_at_utc": "2026-05-13T14:35:34Z",
+  "source_updated_at_max": "2026-05-13T07:34:56.777636",
   "broker_accounts": {
     "swing": {
       "label": "Swing",
       "profile": "LARGE_SWING",
-      "equity": 30157.46,
+      "equity": 30143.14,
       "buying_power": null,
       "inception_equity": 30000.0,
       "ytd_start_equity": 30000.0,
-      "since_inception_pnl_dollars": 157.46,
-      "asof": "2026-05-13T07:33:12"
+      "since_inception_pnl_dollars": 143.14,
+      "asof": "2026-05-13T07:34:54"
     },
     "intraday": {
       "label": "Intraday",
       "profile": "LARGE_INTRADAY",
-      "equity": 30538.81,
+      "equity": 30548.09,
       "buying_power": null,
       "inception_equity": 30000.0,
       "ytd_start_equity": 30000.0,
-      "since_inception_pnl_dollars": 538.81,
-      "asof": "2026-05-13T07:32:36"
+      "since_inception_pnl_dollars": 548.09,
+      "asof": "2026-05-13T07:34:25"
     }
   },
   "account_views": {
@@ -20161,12 +20201,12 @@
       "account": {
         "label": "Swing",
         "profile": "LARGE_SWING",
-        "equity": 30157.46,
+        "equity": 30143.14,
         "buying_power": null,
         "inception_equity": 30000.0,
         "ytd_start_equity": 30000.0,
-        "since_inception_pnl_dollars": 157.46,
-        "asof": "2026-05-13T07:33:12"
+        "since_inception_pnl_dollars": 143.14,
+        "asof": "2026-05-13T07:34:54"
       },
       "performance": {
         "closed_trades_count": 5,
@@ -20190,9 +20230,9 @@
         "open_short_count": 2,
         "signals_ready_count": 11,
         "recent_trades_count": 5,
-        "avg_open_r_multiple": 0.013,
+        "avg_open_r_multiple": 0.0,
         "twelve_data_ema9_called": false,
-        "twelve_data_macd_called": true
+        "twelve_data_macd_called": false
       },
       "positioning": {
         "long_short_ratio": 0.5,
@@ -20324,15 +20364,15 @@
           "status": "CLOSED"
         },
         {
-          "ts_utc": "2026-05-13T07:33:12",
+          "ts_utc": "2026-05-13T07:34:54",
           "symbol": "AAPL",
           "side": "SHORT",
           "qty": 24.0,
           "entry_px": 295.53,
-          "exit_px": 295.64,
-          "current_px": 295.64,
-          "R_realized": 0.0,
-          "pnl_pct": -0.03722126349271264,
+          "exit_px": 295.55,
+          "current_px": 295.55,
+          "R_realized": -0.0,
+          "pnl_pct": -0.0067675024532327195,
           "entry_model": "Swing",
           "broker_account": "Swing",
           "broker_profile": "LARGE_SWING",
@@ -20340,15 +20380,15 @@
           "reason": "OPEN"
         },
         {
-          "ts_utc": "2026-05-13T07:33:12",
+          "ts_utc": "2026-05-13T07:34:54",
           "symbol": "AMZN",
           "side": "LONG",
           "qty": 16.0,
           "entry_px": 264.94,
-          "exit_px": 265.77,
-          "current_px": 265.77,
+          "exit_px": 265.5,
+          "current_px": 265.5,
           "R_realized": 0.04,
-          "pnl_pct": 0.31327847814598936,
+          "pnl_pct": 0.21136861176115435,
           "entry_model": "Swing",
           "broker_account": "Swing",
           "broker_profile": "LARGE_SWING",
@@ -20356,15 +20396,15 @@
           "reason": "OPEN"
         },
         {
-          "ts_utc": "2026-05-13T07:33:12",
+          "ts_utc": "2026-05-13T07:34:54",
           "symbol": "QQQ",
           "side": "SHORT",
           "qty": 20.0,
           "entry_px": 708.6375,
-          "exit_px": 708.895,
-          "current_px": 708.895,
-          "R_realized": null,
-          "pnl_pct": -0.03633733749624262,
+          "exit_px": 709.47,
+          "current_px": 709.47,
+          "R_realized": -0.04,
+          "pnl_pct": -0.11747896491506331,
           "entry_model": "Swing",
           "broker_account": "Swing",
           "broker_profile": "LARGE_SWING",
@@ -20428,43 +20468,43 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-05-13T07:33:12",
+          "ts_utc": "2026-05-13T07:34:54",
           "symbol": "AAPL",
           "side": "SHORT",
           "qty": 24.0,
           "entry_px": 295.53,
-          "exit_px": 295.64,
-          "current_px": 295.64,
-          "R_realized": 0.0,
-          "pnl_pct": -0.03722126349271264,
+          "exit_px": 295.55,
+          "current_px": 295.55,
+          "R_realized": -0.0,
+          "pnl_pct": -0.0067675024532327195,
           "entry_model": "Swing",
           "broker_account": "Swing",
           "broker_profile": "LARGE_SWING"
         },
         {
-          "ts_utc": "2026-05-13T07:33:12",
+          "ts_utc": "2026-05-13T07:34:54",
           "symbol": "AMZN",
           "side": "LONG",
           "qty": 16.0,
           "entry_px": 264.94,
-          "exit_px": 265.77,
-          "current_px": 265.77,
+          "exit_px": 265.5,
+          "current_px": 265.5,
           "R_realized": 0.04,
-          "pnl_pct": 0.31327847814598936,
+          "pnl_pct": 0.21136861176115435,
           "entry_model": "Swing",
           "broker_account": "Swing",
           "broker_profile": "LARGE_SWING"
         },
         {
-          "ts_utc": "2026-05-13T07:33:12",
+          "ts_utc": "2026-05-13T07:34:54",
           "symbol": "QQQ",
           "side": "SHORT",
           "qty": 20.0,
           "entry_px": 708.6375,
-          "exit_px": 708.895,
-          "current_px": 708.895,
-          "R_realized": null,
-          "pnl_pct": -0.03633733749624262,
+          "exit_px": 709.47,
+          "current_px": 709.47,
+          "R_realized": -0.04,
+          "pnl_pct": -0.11747896491506331,
           "entry_model": "Swing",
           "broker_account": "Swing",
           "broker_profile": "LARGE_SWING"
@@ -24570,6 +24610,16 @@
           "ts": "2026-05-13T07:33:04+00:00",
           "equity": 30160.44,
           "drawdown_pct": -2.1845
+        },
+        {
+          "ts": "2026-05-13T07:34:39+00:00",
+          "equity": 30140.84,
+          "drawdown_pct": -2.248
+        },
+        {
+          "ts": "2026-05-13T07:34:49+00:00",
+          "equity": 30141.64,
+          "drawdown_pct": -2.2454
         }
       ],
       "drawdown_curve": [
@@ -27852,10 +27902,18 @@
         {
           "ts": "2026-05-13T07:33:04+00:00",
           "drawdown_pct": -2.1845
+        },
+        {
+          "ts": "2026-05-13T07:34:39+00:00",
+          "drawdown_pct": -2.248
+        },
+        {
+          "ts": "2026-05-13T07:34:49+00:00",
+          "drawdown_pct": -2.2454
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-05-13T07:33:17.129574",
+      "updated_at": "2026-05-13T07:34:56.777636",
       "published_at_utc": null
     },
     "intraday": {
@@ -27864,12 +27922,12 @@
       "account": {
         "label": "Intraday",
         "profile": "LARGE_INTRADAY",
-        "equity": 30538.81,
+        "equity": 30548.09,
         "buying_power": null,
         "inception_equity": 30000.0,
         "ytd_start_equity": 30000.0,
-        "since_inception_pnl_dollars": 538.81,
-        "asof": "2026-05-13T07:32:36"
+        "since_inception_pnl_dollars": 548.09,
+        "asof": "2026-05-13T07:34:25"
       },
       "performance": {
         "closed_trades_count": 20,
@@ -27893,8 +27951,8 @@
         "open_short_count": 0,
         "signals_ready_count": 11,
         "recent_trades_count": 20,
-        "avg_open_r_multiple": 0.36,
-        "twelve_data_ema9_called": true,
+        "avg_open_r_multiple": 0.27,
+        "twelve_data_ema9_called": false,
         "twelve_data_macd_called": true
       },
       "positioning": {
@@ -28588,15 +28646,15 @@
           "status": "CLOSED"
         },
         {
-          "ts_utc": "2026-05-13T07:32:36",
+          "ts_utc": "2026-05-13T07:34:25",
           "symbol": "SPY",
           "side": "LONG",
           "qty": 29.0,
           "entry_px": 738.23,
-          "exit_px": 738.23,
-          "current_px": 738.23,
-          "R_realized": 0.36,
-          "pnl_pct": 0.0,
+          "exit_px": 738.55,
+          "current_px": 738.55,
+          "R_realized": 0.27,
+          "pnl_pct": 0.04334692440024604,
           "entry_model": "Day Trade",
           "broker_account": "Intraday",
           "broker_profile": "LARGE_INTRADAY",
@@ -28624,15 +28682,15 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-05-13T07:32:36",
+          "ts_utc": "2026-05-13T07:34:25",
           "symbol": "SPY",
           "side": "LONG",
           "qty": 29.0,
           "entry_px": 738.23,
-          "exit_px": 738.23,
-          "current_px": 738.23,
-          "R_realized": 0.36,
-          "pnl_pct": 0.0,
+          "exit_px": 738.55,
+          "current_px": 738.55,
+          "R_realized": 0.27,
+          "pnl_pct": 0.04334692440024604,
           "entry_model": "Day Trade",
           "broker_account": "Intraday",
           "broker_profile": "LARGE_INTRADAY"
@@ -32783,6 +32841,16 @@
           "ts": "2026-05-13T07:32:18+00:00",
           "equity": 30538.08,
           "drawdown_pct": -0.0764
+        },
+        {
+          "ts": "2026-05-13T07:34:07+00:00",
+          "equity": 30547.65,
+          "drawdown_pct": -0.0451
+        },
+        {
+          "ts": "2026-05-13T07:34:18+00:00",
+          "equity": 30547.8,
+          "drawdown_pct": -0.0446
         }
       ],
       "drawdown_curve": [
@@ -36101,10 +36169,18 @@
         {
           "ts": "2026-05-13T07:32:18+00:00",
           "drawdown_pct": -0.0764
+        },
+        {
+          "ts": "2026-05-13T07:34:07+00:00",
+          "drawdown_pct": -0.0451
+        },
+        {
+          "ts": "2026-05-13T07:34:18+00:00",
+          "drawdown_pct": -0.0446
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-05-13T07:32:43.237768",
+      "updated_at": "2026-05-13T07:34:30.540643",
       "published_at_utc": null
     }
   },
