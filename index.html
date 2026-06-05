@@ -507,8 +507,16 @@
     function modelLabel(r){
       const raw = String((r && r.entry_model) || "").trim();
       const norm = raw.toUpperCase().replace(/\s+/g, "_");
+      const profile = String((r && (r.broker_profile || r.profile)) || "").trim().toUpperCase().replace(/\s+/g, "_");
+      const account = String((r && (r.broker_account || r.account || r.account_label)) || "").trim().toUpperCase().replace(/\s+/g, "_");
       const dt = r && (r.daytrade_mode === true || String(r.daytrade_mode).toLowerCase() === "true");
-      if (dt || norm.includes("INTRADAY") || ["DAYTRADE", "DAY_TRADE", "BINTRA", "BASE_INTRADAY", "TINTRA", "TREND_INTRADAY"].includes(norm)) return "Day Trade";
+      if (
+        dt
+        || norm.includes("INTRADAY")
+        || profile.includes("INTRADAY")
+        || account.includes("INTRADAY")
+        || ["DAYTRADE", "DAY_TRADE", "BINTRA", "BASE_INTRADAY", "TINTRA", "TREND_INTRADAY"].includes(norm)
+      ) return "Day Trade";
       return "Swing";
     }
     function accountLabel(r){
