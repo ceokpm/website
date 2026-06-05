@@ -105,6 +105,23 @@
               <article class="kpi"><span>Closed Trades</span><strong id="swing_closed_trades">-</strong></article>
             </div>
           </section>
+
+          <section class="account-metrics">
+            <h3 id="apm_swing_shadow_account_title">Tech Basket + APM Swing Shadow</h3>
+            <div class="kpi-grid kpi-grid-primary">
+              <article class="kpi"><span>Since Inception Return</span><strong id="apm_swing_shadow_since_inception_return">-</strong></article>
+              <article class="kpi"><span>YTD Return</span><strong id="apm_swing_shadow_ytd_return">-</strong></article>
+              <article class="kpi"><span>Daily Return</span><strong id="apm_swing_shadow_daily_return">-</strong></article>
+              <article class="kpi"><span>Current Equity</span><strong id="apm_swing_shadow_current_equity">-</strong></article>
+              <article class="kpi"><span>Max Drawdown (%)</span><strong id="apm_swing_shadow_max_drawdown_pct">-</strong></article>
+              <article class="kpi"><span>Current Drawdown (%)</span><strong id="apm_swing_shadow_current_drawdown_pct">-</strong></article>
+              <article class="kpi"><span>Sharpe Ratio</span><strong id="apm_swing_shadow_sharpe_ratio">-</strong></article>
+              <article class="kpi"><span>Sortino Ratio</span><strong id="apm_swing_shadow_sortino_ratio">-</strong></article>
+              <article class="kpi"><span>Profit Factor</span><strong id="apm_swing_shadow_profit_factor">-</strong></article>
+              <article class="kpi"><span>Win Rate</span><strong id="apm_swing_shadow_win_rate">-</strong></article>
+              <article class="kpi"><span>Closed Trades</span><strong id="apm_swing_shadow_closed_trades">-</strong></article>
+            </div>
+          </section>
         </div>
         <p class="data-stamp">Last Updated <strong id="updated_at">-</strong></p>
       </div>
@@ -159,6 +176,20 @@
                 <canvas id="swing_drawdown_chart" height="260" aria-label="Swing drawdown chart"></canvas>
               </div>
               <p class="chart-caption">Swing account distance from prior equity peak.</p>
+            </article>
+            <article class="chart-card">
+              <h3 id="apm_swing_shadow_equity_curve_title">Tech Basket + APM Swing Shadow Equity Curve</h3>
+              <div class="chart-canvas-wrap">
+                <canvas id="apm_swing_shadow_equity_curve_chart" height="260" aria-label="Tech Basket APM swing shadow equity curve"></canvas>
+              </div>
+              <p class="chart-caption">Virtual Tech basket APM swing shadow account equity over time.</p>
+            </article>
+            <article class="chart-card">
+              <h3 id="apm_swing_shadow_drawdown_title">Tech Basket + APM Swing Shadow Drawdown</h3>
+              <div class="chart-canvas-wrap">
+                <canvas id="apm_swing_shadow_drawdown_chart" height="260" aria-label="Tech Basket APM swing shadow drawdown chart"></canvas>
+              </div>
+              <p class="chart-caption">Virtual APM swing shadow account distance from prior equity peak.</p>
             </article>
           </div>
         </section>
@@ -1069,6 +1100,7 @@
     }
 
     function accountFallbackLabel(key){
+      if (key === "apm_swing_shadow") return "Tech Basket + APM Swing Shadow";
       if (key === "new_intraday") return "Tech Basket + APM Intraday";
       if (key === "intraday") return "SPY QQQ + AEGIS Intraday";
       if (key === "swing") return "Swing";
@@ -1079,6 +1111,7 @@
       const fallback = accountFallbackLabel(key);
       if (key === "intraday") return [fallback, "Intraday"];
       if (key === "new_intraday") return [fallback, "New Intraday", "APM Intraday"];
+      if (key === "apm_swing_shadow") return [fallback, "APM Swing Shadow", "Tech Basket + APM Swing Shadow"];
       if (key === "swing") return [fallback, "Swing"];
       return [fallback];
     }
@@ -1176,6 +1209,7 @@
         const intradayView = accountView(d, "intraday");
         const newIntradayView = accountView(d, "new_intraday");
         const swingView = accountView(d, "swing");
+        const apmSwingShadowView = accountView(d, "apm_swing_shadow");
         const tradeHistory = Array.isArray(d.trade_history) ? d.trade_history : [];
         const openPositionsLive = Array.isArray(d.open_positions_live) ? d.open_positions_live : [];
         const closedTrades = Number((d.performance || {}).closed_trades_count) || 0;
@@ -1187,13 +1221,16 @@
         setAccountTitles("intraday", intradayView);
         setAccountTitles("new_intraday", newIntradayView);
         setAccountTitles("swing", swingView);
+        setAccountTitles("apm_swing_shadow", apmSwingShadowView);
 
         const intradayMetrics = renderAccountMetrics("intraday", intradayView);
         const newIntradayMetrics = renderAccountMetrics("new_intraday", newIntradayView);
         const swingMetrics = renderAccountMetrics("swing", swingView);
+        const apmSwingShadowMetrics = renderAccountMetrics("apm_swing_shadow", apmSwingShadowView);
         const intradayLabel = intradayView.label || accountFallbackLabel("intraday");
         const newIntradayLabel = newIntradayView.label || accountFallbackLabel("new_intraday");
         const swingLabel = swingView.label || accountFallbackLabel("swing");
+        const apmSwingShadowLabel = apmSwingShadowView.label || accountFallbackLabel("apm_swing_shadow");
 
         const currentEquity = toFiniteOrNull(acct.equity);
         const inceptionEquity = toFiniteOrNull(acct.inception_equity);
@@ -1253,6 +1290,20 @@
           yTickLabel: (v) => fPct(v, 2),
           tooltipLabel: (v) => `${swingLabel} drawdown: ${fPct(v, 2)}`
         });
+        renderInteractiveLineChart("apm_swing_shadow_equity_curve_chart", apmSwingShadowMetrics.equitySeries, {
+          stroke: "#7a4cb0",
+          fillTop: "rgba(122,76,176,.18)",
+          fillBottom: "rgba(122,76,176,.02)",
+          yTickLabel: (v) => fMoney(v),
+          tooltipLabel: (v) => `${apmSwingShadowLabel} equity: ${fMoney(v)}`
+        });
+        renderInteractiveLineChart("apm_swing_shadow_drawdown_chart", apmSwingShadowMetrics.drawdownSeries, {
+          stroke: "#553280",
+          fillTop: "rgba(85,50,128,.16)",
+          fillBottom: "rgba(85,50,128,.02)",
+          yTickLabel: (v) => fPct(v, 2),
+          tooltipLabel: (v) => `${apmSwingShadowLabel} drawdown: ${fPct(v, 2)}`
+        });
 
         renderMonthlyTable(monthlyRows);
 
@@ -1302,6 +1353,20 @@
           fillBottom: "rgba(49,95,92,.02)",
           yTickLabel: (v) => fPct(v, 2),
           tooltipLabel: (v) => `Swing drawdown: ${fPct(v, 2)}`
+        });
+        renderInteractiveLineChart("apm_swing_shadow_equity_curve_chart", equitySeries, {
+          stroke: "#7a4cb0",
+          fillTop: "rgba(122,76,176,.18)",
+          fillBottom: "rgba(122,76,176,.02)",
+          yTickLabel: (v) => fMoney(v),
+          tooltipLabel: (v) => `Tech Basket + APM Swing Shadow equity: ${fMoney(v)}`
+        });
+        renderInteractiveLineChart("apm_swing_shadow_drawdown_chart", buildDrawdownSeries(equitySeries, {}), {
+          stroke: "#553280",
+          fillTop: "rgba(85,50,128,.16)",
+          fillBottom: "rgba(85,50,128,.02)",
+          yTickLabel: (v) => fPct(v, 2),
+          tooltipLabel: (v) => `Tech Basket + APM Swing Shadow drawdown: ${fPct(v, 2)}`
         });
         renderMonthlyTable(fallbackMonthlyRows());
         renderOpenPositions([]);
