@@ -52,11 +52,11 @@
       <div class="container">
         <div class="panel-head">
           <h2>Key Investor Metrics</h2>
-          <p>Intraday and swing accounts are reported separately.</p>
+          <p>SPY/QQQ, Tech basket, and swing strategy accounts are reported separately.</p>
         </div>
         <div class="account-metrics-grid">
           <section class="account-metrics">
-            <h3>Intraday Account</h3>
+            <h3 id="intraday_account_title">SPY QQQ + AEGIS Intraday</h3>
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="intraday_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="intraday_ytd_return">-</strong></article>
@@ -73,7 +73,24 @@
           </section>
 
           <section class="account-metrics">
-            <h3>Swing Account</h3>
+            <h3 id="new_intraday_account_title">Tech Basket + APM Intraday</h3>
+            <div class="kpi-grid kpi-grid-primary">
+              <article class="kpi"><span>Since Inception Return</span><strong id="new_intraday_since_inception_return">-</strong></article>
+              <article class="kpi"><span>YTD Return</span><strong id="new_intraday_ytd_return">-</strong></article>
+              <article class="kpi"><span>Daily Return</span><strong id="new_intraday_daily_return">-</strong></article>
+              <article class="kpi"><span>Current Equity</span><strong id="new_intraday_current_equity">-</strong></article>
+              <article class="kpi"><span>Max Drawdown (%)</span><strong id="new_intraday_max_drawdown_pct">-</strong></article>
+              <article class="kpi"><span>Current Drawdown (%)</span><strong id="new_intraday_current_drawdown_pct">-</strong></article>
+              <article class="kpi"><span>Sharpe Ratio</span><strong id="new_intraday_sharpe_ratio">-</strong></article>
+              <article class="kpi"><span>Sortino Ratio</span><strong id="new_intraday_sortino_ratio">-</strong></article>
+              <article class="kpi"><span>Profit Factor</span><strong id="new_intraday_profit_factor">-</strong></article>
+              <article class="kpi"><span>Win Rate</span><strong id="new_intraday_win_rate">-</strong></article>
+              <article class="kpi"><span>Closed Trades</span><strong id="new_intraday_closed_trades">-</strong></article>
+            </div>
+          </section>
+
+          <section class="account-metrics">
+            <h3 id="swing_account_title">Swing</h3>
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="swing_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="swing_ytd_return">-</strong></article>
@@ -102,28 +119,42 @@
           </div>
           <div class="viz-grid">
             <article class="chart-card">
-              <h3>Intraday Equity Curve</h3>
+              <h3 id="intraday_equity_curve_title">SPY QQQ + AEGIS Intraday Equity Curve</h3>
               <div class="chart-canvas-wrap">
-                <canvas id="intraday_equity_curve_chart" height="260" aria-label="Intraday equity curve"></canvas>
+                <canvas id="intraday_equity_curve_chart" height="260" aria-label="SPY QQQ AEGIS intraday equity curve"></canvas>
               </div>
-              <p class="chart-caption">Broker-reported intraday account equity over time.</p>
+              <p class="chart-caption">Broker-reported SPY/QQQ intraday account equity over time.</p>
             </article>
             <article class="chart-card">
-              <h3>Intraday Drawdown</h3>
+              <h3 id="intraday_drawdown_title">SPY QQQ + AEGIS Intraday Drawdown</h3>
               <div class="chart-canvas-wrap">
-                <canvas id="intraday_drawdown_chart" height="260" aria-label="Intraday drawdown chart"></canvas>
+                <canvas id="intraday_drawdown_chart" height="260" aria-label="SPY QQQ AEGIS intraday drawdown chart"></canvas>
               </div>
-              <p class="chart-caption">Intraday account distance from prior equity peak.</p>
+              <p class="chart-caption">SPY/QQQ intraday account distance from prior equity peak.</p>
             </article>
             <article class="chart-card">
-              <h3>Swing Equity Curve</h3>
+              <h3 id="new_intraday_equity_curve_title">Tech Basket + APM Intraday Equity Curve</h3>
+              <div class="chart-canvas-wrap">
+                <canvas id="new_intraday_equity_curve_chart" height="260" aria-label="Tech Basket APM intraday equity curve"></canvas>
+              </div>
+              <p class="chart-caption">Broker-reported Tech basket APM account equity over time.</p>
+            </article>
+            <article class="chart-card">
+              <h3 id="new_intraday_drawdown_title">Tech Basket + APM Intraday Drawdown</h3>
+              <div class="chart-canvas-wrap">
+                <canvas id="new_intraday_drawdown_chart" height="260" aria-label="Tech Basket APM intraday drawdown chart"></canvas>
+              </div>
+              <p class="chart-caption">Tech basket APM account distance from prior equity peak.</p>
+            </article>
+            <article class="chart-card">
+              <h3 id="swing_equity_curve_title">Swing Equity Curve</h3>
               <div class="chart-canvas-wrap">
                 <canvas id="swing_equity_curve_chart" height="260" aria-label="Swing equity curve"></canvas>
               </div>
               <p class="chart-caption">Broker-reported swing account equity over time.</p>
             </article>
             <article class="chart-card">
-              <h3>Swing Drawdown</h3>
+              <h3 id="swing_drawdown_title">Swing Drawdown</h3>
               <div class="chart-canvas-wrap">
                 <canvas id="swing_drawdown_chart" height="260" aria-label="Swing drawdown chart"></canvas>
               </div>
@@ -1037,16 +1068,36 @@
       return out;
     }
 
+    function accountFallbackLabel(key){
+      if (key === "new_intraday") return "Tech Basket + APM Intraday";
+      if (key === "intraday") return "SPY QQQ + AEGIS Intraday";
+      if (key === "swing") return "Swing";
+      return String(key || "Account").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    }
+
+    function accountLabelAliases(key){
+      const fallback = accountFallbackLabel(key);
+      if (key === "intraday") return [fallback, "Intraday"];
+      if (key === "new_intraday") return [fallback, "New Intraday", "APM Intraday"];
+      if (key === "swing") return [fallback, "Swing"];
+      return [fallback];
+    }
+
+    function normalizeAccountView(key, view){
+      return { ...(view || {}), label: accountFallbackLabel(key) };
+    }
+
     function accountView(d, key){
       const views = d.account_views || {};
-      if (views && views[key]) return views[key];
+      if (views && views[key]) return normalizeAccountView(key, views[key]);
       const brokerAccounts = d.broker_accounts || {};
       const acct = brokerAccounts[key] || {};
-      const label = key === "intraday" ? "Intraday" : "Swing";
+      const label = accountFallbackLabel(key);
+      const aliases = accountLabelAliases(key).map((v) => String(v || "").toLowerCase());
       const scopedTrades = (Array.isArray(d.trade_history) ? d.trade_history : [])
-        .filter((r) => accountLabel(r).toLowerCase() === label.toLowerCase());
+        .filter((r) => aliases.includes(accountLabel(r).toLowerCase()));
       const scopedOpen = (Array.isArray(d.open_positions_live) ? d.open_positions_live : [])
-        .filter((r) => accountLabel(r).toLowerCase() === label.toLowerCase());
+        .filter((r) => aliases.includes(accountLabel(r).toLowerCase()));
       const hasAccount = Object.keys(acct).length > 0;
       return {
         label,
@@ -1060,6 +1111,13 @@
         drawdown_curve: [],
         monthly_performance: []
       };
+    }
+
+    function setAccountTitles(prefix, view){
+      const label = (view && view.label) || accountFallbackLabel(prefix);
+      setText(`${prefix}_account_title`, label);
+      setText(`${prefix}_equity_curve_title`, `${label} Equity Curve`);
+      setText(`${prefix}_drawdown_title`, `${label} Drawdown`);
     }
 
     function renderAccountMetrics(prefix, view){
@@ -1116,6 +1174,7 @@
         const sum = d.summary || {};
         const pos = d.positioning || {};
         const intradayView = accountView(d, "intraday");
+        const newIntradayView = accountView(d, "new_intraday");
         const swingView = accountView(d, "swing");
         const tradeHistory = Array.isArray(d.trade_history) ? d.trade_history : [];
         const openPositionsLive = Array.isArray(d.open_positions_live) ? d.open_positions_live : [];
@@ -1125,8 +1184,16 @@
         const hasActivity = closedTrades > 0 || tradeHistory.length > 0 || openPositionsCount > 0 || recentTradesCount > 0;
         const noActivity = !hasActivity;
 
+        setAccountTitles("intraday", intradayView);
+        setAccountTitles("new_intraday", newIntradayView);
+        setAccountTitles("swing", swingView);
+
         const intradayMetrics = renderAccountMetrics("intraday", intradayView);
+        const newIntradayMetrics = renderAccountMetrics("new_intraday", newIntradayView);
         const swingMetrics = renderAccountMetrics("swing", swingView);
+        const intradayLabel = intradayView.label || accountFallbackLabel("intraday");
+        const newIntradayLabel = newIntradayView.label || accountFallbackLabel("new_intraday");
+        const swingLabel = swingView.label || accountFallbackLabel("swing");
 
         const currentEquity = toFiniteOrNull(acct.equity);
         const inceptionEquity = toFiniteOrNull(acct.inception_equity);
@@ -1149,28 +1216,42 @@
           fillTop: "rgba(242,140,40,.22)",
           fillBottom: "rgba(242,140,40,.02)",
           yTickLabel: (v) => fMoney(v),
-          tooltipLabel: (v) => `Intraday equity: ${fMoney(v)}`
+          tooltipLabel: (v) => `${intradayLabel} equity: ${fMoney(v)}`
         });
         renderInteractiveLineChart("intraday_drawdown_chart", intradayMetrics.drawdownSeries, {
           stroke: "#9d5a1b",
           fillTop: "rgba(178,95,22,.20)",
           fillBottom: "rgba(178,95,22,.02)",
           yTickLabel: (v) => fPct(v, 2),
-          tooltipLabel: (v) => `Intraday drawdown: ${fPct(v, 2)}`
+          tooltipLabel: (v) => `${intradayLabel} drawdown: ${fPct(v, 2)}`
+        });
+        renderInteractiveLineChart("new_intraday_equity_curve_chart", newIntradayMetrics.equitySeries, {
+          stroke: "#3867d6",
+          fillTop: "rgba(56,103,214,.20)",
+          fillBottom: "rgba(56,103,214,.02)",
+          yTickLabel: (v) => fMoney(v),
+          tooltipLabel: (v) => `${newIntradayLabel} equity: ${fMoney(v)}`
+        });
+        renderInteractiveLineChart("new_intraday_drawdown_chart", newIntradayMetrics.drawdownSeries, {
+          stroke: "#284da6",
+          fillTop: "rgba(40,77,166,.18)",
+          fillBottom: "rgba(40,77,166,.02)",
+          yTickLabel: (v) => fPct(v, 2),
+          tooltipLabel: (v) => `${newIntradayLabel} drawdown: ${fPct(v, 2)}`
         });
         renderInteractiveLineChart("swing_equity_curve_chart", swingMetrics.equitySeries, {
           stroke: "#3f7f7a",
           fillTop: "rgba(63,127,122,.20)",
           fillBottom: "rgba(63,127,122,.02)",
           yTickLabel: (v) => fMoney(v),
-          tooltipLabel: (v) => `Swing equity: ${fMoney(v)}`
+          tooltipLabel: (v) => `${swingLabel} equity: ${fMoney(v)}`
         });
         renderInteractiveLineChart("swing_drawdown_chart", swingMetrics.drawdownSeries, {
           stroke: "#315f5c",
           fillTop: "rgba(49,95,92,.18)",
           fillBottom: "rgba(49,95,92,.02)",
           yTickLabel: (v) => fPct(v, 2),
-          tooltipLabel: (v) => `Swing drawdown: ${fPct(v, 2)}`
+          tooltipLabel: (v) => `${swingLabel} drawdown: ${fPct(v, 2)}`
         });
 
         renderMonthlyTable(monthlyRows);
@@ -1193,6 +1274,20 @@
           fillBottom: "rgba(178,95,22,.02)",
           yTickLabel: (v) => fPct(v, 2),
           tooltipLabel: (v) => `Intraday drawdown: ${fPct(v, 2)}`
+        });
+        renderInteractiveLineChart("new_intraday_equity_curve_chart", equitySeries, {
+          stroke: "#3867d6",
+          fillTop: "rgba(56,103,214,.20)",
+          fillBottom: "rgba(56,103,214,.02)",
+          yTickLabel: (v) => fMoney(v),
+          tooltipLabel: (v) => `Tech Basket + APM Intraday equity: ${fMoney(v)}`
+        });
+        renderInteractiveLineChart("new_intraday_drawdown_chart", buildDrawdownSeries(equitySeries, {}), {
+          stroke: "#284da6",
+          fillTop: "rgba(40,77,166,.18)",
+          fillBottom: "rgba(40,77,166,.02)",
+          yTickLabel: (v) => fPct(v, 2),
+          tooltipLabel: (v) => `Tech Basket + APM Intraday drawdown: ${fPct(v, 2)}`
         });
         renderInteractiveLineChart("swing_equity_curve_chart", equitySeries, {
           stroke: "#3f7f7a",
