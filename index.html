@@ -521,8 +521,8 @@
     }
     function accountLabel(r){
       const explicit = String((r && (r.broker_account || r.account || r.account_label)) || "").trim();
-      if (explicit) return explicit;
-      return modelLabel(r) === "Day Trade" ? "Intraday" : "Swing";
+      if (explicit) return explicit === "Swing" ? "Mixed Basket + AEGIS Swing" : explicit;
+      return modelLabel(r) === "Day Trade" ? "Intraday" : "Mixed Basket + AEGIS Swing";
     }
 
     function renderOpenPositions(rows){
@@ -1111,7 +1111,7 @@
       if (key === "apm_swing_shadow") return "Tech Basket + APM Swing Shadow";
       if (key === "new_intraday") return "Tech Basket + APM Intraday";
       if (key === "intraday") return "SPY QQQ + AEGIS Intraday";
-      if (key === "swing") return "Swing";
+      if (key === "swing") return "Mixed Basket + AEGIS Swing";
       return String(key || "Account").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
     }
 
@@ -1120,7 +1120,7 @@
       if (key === "intraday") return [fallback, "Intraday"];
       if (key === "new_intraday") return [fallback, "New Intraday", "APM Intraday"];
       if (key === "apm_swing_shadow") return [fallback, "APM Swing Shadow", "Tech Basket + APM Swing Shadow"];
-      if (key === "swing") return [fallback, "Swing"];
+      if (key === "swing") return [fallback, "Swing", "Mixed Basket + AEGIS Swing"];
       return [fallback];
     }
 
@@ -1219,11 +1219,12 @@
         const swingView = accountView(d, "swing");
         const apmSwingShadowView = accountView(d, "apm_swing_shadow");
         const tradeHistory = Array.isArray(d.trade_history) ? d.trade_history : [];
+        const executionHistory = Array.isArray(d.recent_executions) ? d.recent_executions : tradeHistory;
         const openPositionsLive = Array.isArray(d.open_positions_live) ? d.open_positions_live : [];
         const closedTrades = Number((d.performance || {}).closed_trades_count) || 0;
         const openPositionsCount = Number(sum.open_positions_count) || 0;
         const recentTradesCount = Number(sum.recent_trades_count) || 0;
-        const hasActivity = closedTrades > 0 || tradeHistory.length > 0 || openPositionsCount > 0 || recentTradesCount > 0;
+        const hasActivity = closedTrades > 0 || executionHistory.length > 0 || openPositionsCount > 0 || recentTradesCount > 0;
         const noActivity = !hasActivity;
 
         setAccountTitles("intraday", intradayView);
@@ -1316,7 +1317,7 @@
         renderMonthlyTable(monthlyRows);
 
         renderOpenPositions(openPositionsLive);
-        renderTrades(tradeHistory);
+        renderTrades(executionHistory);
       }catch(e){
         setText("updated_at", "Dashboard data unavailable");
         const equitySeries = fallbackEquitySeries();
@@ -1353,14 +1354,14 @@
           fillTop: "rgba(63,127,122,.20)",
           fillBottom: "rgba(63,127,122,.02)",
           yTickLabel: (v) => fMoney(v),
-          tooltipLabel: (v) => `Swing equity: ${fMoney(v)}`
+          tooltipLabel: (v) => `Mixed Basket + AEGIS Swing equity: ${fMoney(v)}`
         });
         renderInteractiveLineChart("swing_drawdown_chart", buildDrawdownSeries(equitySeries, {}), {
           stroke: "#315f5c",
           fillTop: "rgba(49,95,92,.18)",
           fillBottom: "rgba(49,95,92,.02)",
           yTickLabel: (v) => fPct(v, 2),
-          tooltipLabel: (v) => `Swing drawdown: ${fPct(v, 2)}`
+          tooltipLabel: (v) => `Mixed Basket + AEGIS Swing drawdown: ${fPct(v, 2)}`
         });
         renderInteractiveLineChart("apm_swing_shadow_equity_curve_chart", equitySeries, {
           stroke: "#7a4cb0",
