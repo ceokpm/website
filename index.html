@@ -495,13 +495,41 @@
       }).join("");
     }
 
+    function tradeDisplayKey(r){
+      const entry = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
+      const exit = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
+      const ret = signedReturnPct(r);
+      const retText = ret === null ? "" : `${ret > 0 ? "+" : ""}${fPct(ret, 2)}`;
+      return [
+        fTradeTime(r.ts_utc || ""),
+        accountLabel(r),
+        r.symbol || "",
+        r.side || "",
+        modelLabel(r),
+        r.qty ?? "",
+        entry,
+        exit,
+        retText
+      ].map((v) => String(v)).join("|");
+    }
+
+    function uniqueTradeRowsForDisplay(rows){
+      const seen = new Set();
+      return rows.filter((r) => {
+        const key = tradeDisplayKey(r || {});
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
     function renderTrades(rows){
       const tbody = document.querySelector("#trade_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
         tbody.innerHTML = '<tr><td colspan="9" class="empty">No trade history yet.</td></tr>';
         return;
       }
-      const last = rows.slice(-80).reverse();
+      const last = uniqueTradeRowsForDisplay(rows).slice(-80).reverse();
       tbody.innerHTML = last.map(r => {
         const t = fTradeTime(r.ts_utc || "");
         const acct = accountLabel(r);
