@@ -56,7 +56,7 @@
         </div>
         <div class="account-metrics-grid">
           <section class="account-metrics">
-            <h3 id="intraday_account_title">SPY/QQQ Tech Basket Intraday</h3>
+            <h3 id="intraday_account_title">SPY/QQQ + Tech Basket DayTrade</h3>
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="intraday_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="intraday_ytd_return">-</strong></article>
@@ -73,7 +73,7 @@
           </section>
 
           <section class="account-metrics">
-            <h3 id="new_intraday_account_title">SPY/QQQ Tech Basket Intraday</h3>
+            <h3 id="new_intraday_account_title">SPY/QQQ + Tech Basket DayTrade</h3>
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="new_intraday_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="new_intraday_ytd_return">-</strong></article>
@@ -90,7 +90,7 @@
           </section>
 
           <section class="account-metrics">
-            <h3 id="swing_account_title">SPY/QQQ Mixed Basket Swing</h3>
+            <h3 id="swing_account_title">SPY/QQQ + Mixed Basket SwingTrade</h3>
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="swing_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="swing_ytd_return">-</strong></article>
@@ -107,7 +107,7 @@
           </section>
 
           <section class="account-metrics">
-            <h3 id="apm_swing_shadow_account_title">SPY/QQQ Mixed Basket Swing</h3>
+            <h3 id="apm_swing_shadow_account_title">SPY/QQQ + Tech Basket SwingTrade</h3>
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="apm_swing_shadow_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="apm_swing_shadow_ytd_return">-</strong></article>
@@ -345,18 +345,31 @@
   </footer>
 
   <script>
-    const INTRADAY_PUBLIC_LABEL = "SPY/QQQ Tech Basket Intraday";
-    const SWING_PUBLIC_LABEL = "SPY/QQQ Mixed Basket Swing";
+    const INTRADAY_PUBLIC_LABEL = "SPY/QQQ + Tech Basket DayTrade";
+    const SWING_PUBLIC_LABEL = "SPY/QQQ + Mixed Basket SwingTrade";
+    const APM_SWING_PUBLIC_LABEL = "SPY/QQQ + Tech Basket SwingTrade";
     const PUBLIC_DASHBOARD_START_ISO = "2026-06-08T13:30:00Z";
 
-    function publicAccountLabel(raw){
+    function normalizedAccountText(raw){
+      return String(raw || "").trim().toUpperCase().replace(/[_-]+/g, " ").replace(/\s+/g, " ");
+    }
+
+    function normalizedProfile(raw){
+      return String(raw || "").trim().toUpperCase().replace(/[\s-]+/g, "_");
+    }
+
+    function publicAccountLabel(raw, profile = ""){
       const text = String(raw || "").trim();
+      const normalized = normalizedAccountText(text);
+      const profileKey = normalizedProfile(profile);
+      if (profileKey.includes("APM_LARGE_SWING") || profileKey.includes("LARGE_APM_SWING")) return APM_SWING_PUBLIC_LABEL;
+      if (profileKey.includes("LARGE_SWING")) return SWING_PUBLIC_LABEL;
+      if (profileKey.includes("LARGE_INTRADAY") || profileKey.includes("LARGE_NEW_INTRADAY") || profileKey.includes("APM_LARGE_NEW_INTRADAY")) return INTRADAY_PUBLIC_LABEL;
       if (!text) return "";
-      if (text === "Swing") return SWING_PUBLIC_LABEL;
-      if (text === "Intraday" || text === "New Intraday") return INTRADAY_PUBLIC_LABEL;
-      const normalized = text.toUpperCase().replace(/\s+/g, " ");
+      if ((normalized.includes("TECH BASKET") && normalized.includes("SWING")) || normalized.includes("APM SWING")) return APM_SWING_PUBLIC_LABEL;
+      if ((normalized.includes("MIXED BASKET") && normalized.includes("SWING")) || normalized === "SWING") return SWING_PUBLIC_LABEL;
       if (normalized.includes("INTRADAY")) return INTRADAY_PUBLIC_LABEL;
-      if (normalized.includes("SWING")) return SWING_PUBLIC_LABEL;
+      if (normalized.includes("DAYTRADE") || normalized.includes("DAY TRADE")) return INTRADAY_PUBLIC_LABEL;
       return text;
     }
 
@@ -471,7 +484,8 @@
     }
 
     function accountLabel(r){
-      return publicAccountLabel(rawAccountLabel(r));
+      const profile = r && (r.broker_profile || r.profile);
+      return publicAccountLabel(rawAccountLabel(r), profile);
     }
 
     function renderOpenPositions(rows){
@@ -1118,7 +1132,8 @@
     }
 
     function accountFallbackLabel(key){
-      if (key === "apm_swing" || key === "apm_swing_shadow" || key === "swing") return SWING_PUBLIC_LABEL;
+      if (key === "apm_swing" || key === "apm_swing_shadow") return APM_SWING_PUBLIC_LABEL;
+      if (key === "swing") return SWING_PUBLIC_LABEL;
       if (key === "new_intraday" || key === "intraday") return INTRADAY_PUBLIC_LABEL;
       return String(key || "Account").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
     }
@@ -1127,8 +1142,8 @@
       const fallback = accountFallbackLabel(key);
       if (key === "intraday") return [fallback, "Intraday", "SPY + AEGIS Intraday", "SPY QQQ + AEGIS Intraday"];
       if (key === "new_intraday") return [fallback, "New Intraday", "APM Intraday", "Tech Basket + APM Intraday"];
-      if (key === "apm_swing") return [fallback, "APM Swing", "Tech Basket + APM Swing"];
-      if (key === "apm_swing_shadow") return [fallback, "APM Swing Shadow", "Tech Basket + APM Swing Shadow"];
+      if (key === "apm_swing") return [fallback, "APM Swing", "Tech Basket + APM Swing", "Tech Basket + APM SwingTrade"];
+      if (key === "apm_swing_shadow") return [fallback, "APM Swing Shadow", "Tech Basket + APM Swing", "Tech Basket + APM Swing Shadow"];
       if (key === "swing") return [fallback, "Swing", "Mixed Basket + AEGIS Swing"];
       return [fallback];
     }
@@ -1145,9 +1160,9 @@
       const label = accountFallbackLabel(key);
       const aliases = accountLabelAliases(key).map((v) => String(v || "").toLowerCase());
       const scopedTrades = (Array.isArray(d.trade_history) ? d.trade_history : [])
-        .filter((r) => aliases.includes(rawAccountLabel(r).toLowerCase()));
+        .filter((r) => aliases.includes(rawAccountLabel(r).toLowerCase()) || aliases.includes(accountLabel(r).toLowerCase()));
       const scopedOpen = (Array.isArray(d.open_positions_live) ? d.open_positions_live : [])
-        .filter((r) => aliases.includes(rawAccountLabel(r).toLowerCase()));
+        .filter((r) => aliases.includes(rawAccountLabel(r).toLowerCase()) || aliases.includes(accountLabel(r).toLowerCase()));
       const hasAccount = Object.keys(acct).length > 0;
       return {
         label,
@@ -1378,14 +1393,14 @@
           fillTop: "rgba(122,76,176,.18)",
           fillBottom: "rgba(122,76,176,.02)",
           yTickLabel: (v) => fMoney(v),
-          tooltipLabel: (v) => `${SWING_PUBLIC_LABEL} equity: ${fMoney(v)}`
+          tooltipLabel: (v) => `${APM_SWING_PUBLIC_LABEL} equity: ${fMoney(v)}`
         });
         renderInteractiveLineChart("apm_swing_shadow_drawdown_chart", buildDrawdownSeries(equitySeries, {}), {
           stroke: "#553280",
           fillTop: "rgba(85,50,128,.16)",
           fillBottom: "rgba(85,50,128,.02)",
           yTickLabel: (v) => fPct(v, 2),
-          tooltipLabel: (v) => `${SWING_PUBLIC_LABEL} drawdown: ${fPct(v, 2)}`
+          tooltipLabel: (v) => `${APM_SWING_PUBLIC_LABEL} drawdown: ${fPct(v, 2)}`
         });
         renderMonthlyTable(fallbackMonthlyRows());
         renderOpenPositions([]);
