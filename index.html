@@ -471,13 +471,46 @@
       return publicAccountLabel(rawAccountLabel(r), profile);
     }
 
+    function openPositionDisplayKey(r){
+      const entry = r && r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
+      return [
+        accountLabel(r),
+        (r && r.symbol) || "",
+        (r && r.side) || "",
+        modelLabel(r),
+        (r && r.qty) ?? "",
+        entry
+      ].map((v) => String(v).trim()).join("|");
+    }
+
+    function uniqueOpenPositionRowsForDisplay(rows){
+      const byKey = new Map();
+      (Array.isArray(rows) ? rows : []).forEach((r, idx) => {
+        const key = openPositionDisplayKey(r || {});
+        const ts = toTimestampMs((r && (r.ts_utc || r.filled_at || r.submitted_at || r.time)) || "");
+        const prior = byKey.get(key);
+        if (!prior || ts > prior.ts || (!Number.isFinite(prior.ts) && Number.isFinite(ts))){
+          byKey.set(key, { row: r, ts, idx });
+        }
+      });
+      return Array.from(byKey.values())
+        .sort((a, b) => {
+          const aTs = Number.isFinite(a.ts) ? a.ts : -Infinity;
+          const bTs = Number.isFinite(b.ts) ? b.ts : -Infinity;
+          if (aTs !== bTs) return bTs - aTs;
+          return a.idx - b.idx;
+        })
+        .map((item) => item.row);
+    }
+
     function renderOpenPositions(rows){
       const tbody = document.querySelector("#open_table tbody");
-      if (!Array.isArray(rows) || rows.length === 0){
+      const displayRows = uniqueOpenPositionRowsForDisplay(rows);
+      if (displayRows.length === 0){
         tbody.innerHTML = '<tr><td colspan="9" class="empty">No open positions.</td></tr>';
         return;
       }
-      tbody.innerHTML = rows.map(r => {
+      tbody.innerHTML = displayRows.map(r => {
         const t = r.ts_utc || "";
         const acct = accountLabel(r);
         const tk = r.symbol || "";
@@ -1106,7 +1139,7 @@
     function accountViewAfterDashboardStart(view){
       const out = { ...(view || {}) };
       out.trade_history = rowsAfterDashboardStart(out.trade_history);
-      out.open_positions_live = rowsAfterDashboardStart(out.open_positions_live);
+      out.open_positions_live = uniqueOpenPositionRowsForDisplay(rowsAfterDashboardStart(out.open_positions_live));
       out.recent_executions = rowsAfterDashboardStart(out.recent_executions);
       out.equity_curve = rowsAfterDashboardStart(out.equity_curve);
       out.drawdown_curve = rowsAfterDashboardStart(out.drawdown_curve);
@@ -1124,7 +1157,7 @@
       const out = { ...(d || {}) };
       out.public_reset_start = PUBLIC_DASHBOARD_START_ISO;
       out.trade_history = rowsAfterDashboardStart(out.trade_history);
-      out.open_positions_live = rowsAfterDashboardStart(out.open_positions_live);
+      out.open_positions_live = uniqueOpenPositionRowsForDisplay(rowsAfterDashboardStart(out.open_positions_live));
       out.recent_executions = rowsAfterDashboardStart(out.recent_executions);
       out.equity_curve = rowsAfterDashboardStart(out.equity_curve);
       out.drawdown_curve = rowsAfterDashboardStart(out.drawdown_curve);
