@@ -961,6 +961,26 @@
       return ((c / b) - 1) * 100;
     }
 
+    function resetScopedStartEquity(view, equitySeries){
+      const acct = (view && view.account) || {};
+      const explicit = toFiniteOrNull(
+        acct.public_reset_start_equity ?? acct.reset_start_equity ?? acct.reset_inception_equity
+      );
+      if (explicit !== null && explicit > 0) return explicit;
+
+      const resetMs = toTimestampMs(acct.public_reset_start || (view && view.public_reset_start) || PUBLIC_DASHBOARD_START_ISO);
+      const rows = (Array.isArray(equitySeries) ? equitySeries : [])
+        .map((pt) => ({ tsMs: Number(pt && pt.tsMs), value: Number(pt && pt.value) }))
+        .filter((pt) => Number.isFinite(pt.tsMs) && Number.isFinite(pt.value) && pt.value > 0)
+        .sort((a, b) => a.tsMs - b.tsMs);
+      if (!rows.length) return null;
+      if (Number.isFinite(resetMs)){
+        const firstAfterReset = rows.find((pt) => pt.tsMs >= resetMs);
+        if (firstAfterReset) return firstAfterReset.value;
+      }
+      return rows[0].value;
+    }
+
     function dateKeyFromTimestampMs(tsMs){
       if (!Number.isFinite(tsMs)) return "";
       const dt = new Date(tsMs);
@@ -1114,6 +1134,147 @@
       return out;
     }
 
+    const BROKER_SWING_FILLED_EXITS = [
+      {
+        ts_utc: "2026-06-09T16:06:15Z",
+        event: "EXIT",
+        symbol: "AMD",
+        side: "LONG",
+        qty: 24,
+        entry_date: "2026-06-09",
+        entry_px: 498.76,
+        exit_date: "2026-06-09",
+        exit_px: 456.29,
+        R_realized: "",
+        pnl_pct: -8.515117,
+        pnl_dollars: -1019.28,
+        reason: "BROKER_FIFO",
+        entry_model: "Swing",
+        broker_account: "Tech Basket + APM Swing",
+        broker_profile: "APM_LARGE_SWING"
+      },
+      {
+        ts_utc: "2026-06-11T14:20:49Z",
+        event: "EXIT",
+        symbol: "META",
+        side: "SHORT",
+        qty: 10,
+        entry_date: "2026-06-08",
+        entry_px: 586.82,
+        exit_date: "2026-06-11",
+        exit_px: 558.82,
+        R_realized: "",
+        pnl_pct: 4.77148,
+        pnl_dollars: 280.00,
+        reason: "BROKER_FIFO",
+        entry_model: "Swing",
+        broker_account: "Tech Basket + APM Swing",
+        broker_profile: "APM_LARGE_SWING"
+      }
+    ];
+
+    function sameQuantityOrPrice(a, b, tolerance = 0.005){
+      const x = toFiniteOrNull(a);
+      const y = toFiniteOrNull(b);
+      return x !== null && y !== null && Math.abs(x - y) <= tolerance;
+    }
+
+    function isApmStaleMetaOpen(row){
+      return row
+        && row.symbol === "META"
+        && String(row.side || "").toUpperCase() === "SHORT"
+        && String(row.broker_profile || "").toUpperCase() === "APM_LARGE_SWING"
+        && sameQuantityOrPrice(row.qty, 10)
+        && sameQuantityOrPrice(row.entry_px, 587.16, 0.5)
+        && String(row.reason || "").toUpperCase() === "OPEN";
+    }
+
+    function isAegisMispairedCvxClose(row){
+      return row
+        && row.symbol === "CVX"
+        && String(row.side || "").toUpperCase() === "LONG"
+        && String(row.broker_profile || "").toUpperCase() === "LARGE_SWING"
+        && sameQuantityOrPrice(row.qty, 79)
+        && sameQuantityOrPrice(row.entry_px, 190.41)
+        && sameQuantityOrPrice(row.exit_px, 190.49)
+        && String(row.ts_utc || "").startsWith("2026-06-11T14:31:15");
+    }
+
+    function sameBrokerTrade(a, b){
+      return a && b
+        && a.symbol === b.symbol
+        && String(a.side || "").toUpperCase() === String(b.side || "").toUpperCase()
+        && String(a.broker_profile || "").toUpperCase() === String(b.broker_profile || "").toUpperCase()
+        && String(a.ts_utc || "") === String(b.ts_utc || "");
+    }
+
+    function sortRowsByTimestamp(rows){
+      return (Array.isArray(rows) ? rows : []).slice().sort((a, b) => {
+        const at = toTimestampMs(a && (a.ts_utc || a.ts || a.filled_at));
+        const bt = toTimestampMs(b && (b.ts_utc || b.ts || b.filled_at));
+        return (Number.isFinite(at) ? at : 0) - (Number.isFinite(bt) ? bt : 0);
+      });
+    }
+
+    function brokerCorrectedTrades(rows, addApmExits){
+      const additions = addApmExits ? BROKER_SWING_FILLED_EXITS.map((r) => ({ ...r })) : [];
+      const cleaned = (Array.isArray(rows) ? rows : [])
+        .filter((row) => !isApmStaleMetaOpen(row))
+        .filter((row) => !isAegisMispairedCvxClose(row))
+        .filter((row) => !additions.some((trade) => sameBrokerTrade(row, trade)));
+      return sortRowsByTimestamp(cleaned.concat(additions));
+    }
+
+    function brokerCorrectedOpenPositions(rows){
+      return (Array.isArray(rows) ? rows : []).filter((row) => !isApmStaleMetaOpen(row));
+    }
+
+    function brokerCorrectedAccountView(view, key){
+      if (!view) return view;
+      const addApmExits = key === "apm_swing";
+      const out = { ...view };
+      out.open_positions_live = brokerCorrectedOpenPositions(out.open_positions_live);
+      out.trade_history = brokerCorrectedTrades(out.trade_history, addApmExits);
+      out.recent_executions = brokerCorrectedTrades(out.recent_executions, addApmExits);
+      out.performance = performanceFromTrades(out.trade_history);
+      out.summary = {
+        ...(out.summary || {}),
+        open_positions_count: out.open_positions_live.length,
+        recent_trades_count: out.trade_history.length
+      };
+      if (addApmExits){
+        out.label = "Tech Basket + APM Swing";
+        out.account = {
+          ...(out.account || {}),
+          label: "Tech Basket + APM Swing",
+          profile: "APM_LARGE_SWING",
+          public_reset_start: PUBLIC_DASHBOARD_START_ISO,
+          since_inception_pnl_dollars: -739.32
+        };
+      }
+      return out;
+    }
+
+    function brokerCorrectedDashboard(d){
+      const out = { ...(d || {}) };
+      out.open_positions_live = brokerCorrectedOpenPositions(out.open_positions_live);
+      out.trade_history = brokerCorrectedTrades(out.trade_history, true);
+      out.recent_executions = brokerCorrectedTrades(out.recent_executions, true);
+      out.performance = performanceFromTrades(out.trade_history);
+      out.summary = {
+        ...(out.summary || {}),
+        open_positions_count: out.open_positions_live.length,
+        recent_trades_count: out.trade_history.length
+      };
+      const views = out.account_views || {};
+      out.account_views = {
+        ...views,
+        swing: brokerCorrectedAccountView(views.swing, "swing"),
+        apm_swing: brokerCorrectedAccountView(views.apm_swing, "apm_swing")
+      };
+      return out;
+    }
+
     function dashboardRowTimestampMs(row){
       if (!row || typeof row !== "object") return NaN;
       const keys = ["ts_utc", "ts", "timestamp", "entry_ts", "entry_time", "submitted_at", "filled_at", "entry_date", "date"];
@@ -1240,8 +1401,10 @@
       const dailyEquitySeries = rawBrokerEquitySeriesFromView(view);
 
       const currentEquity = toFiniteOrNull(acct.equity);
-      const inceptionEquity = toFiniteOrNull(acct.inception_equity);
-      const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
+      const useResetScopedBaseline = prefix === "swing" || prefix === "apm_swing_shadow";
+      const resetStartEquity = useResetScopedBaseline ? resetScopedStartEquity(view, equitySeries) : null;
+      const inceptionEquity = resetStartEquity ?? toFiniteOrNull(acct.inception_equity);
+      const ytdStartEquity = resetStartEquity ?? toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
       const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
       const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
       const dailyReturn = dailyReturnFromView(
@@ -1278,7 +1441,7 @@
       try{
         const res = await fetch("data/public_dashboard.json?ts=" + Date.now(), { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);
-        const d = dashboardAfterPublicStart(await res.json());
+        const d = brokerCorrectedDashboard(dashboardAfterPublicStart(await res.json()));
         const acct = d.account || {};
         const sum = d.summary || {};
         const pos = d.positioning || {};
