@@ -1039,6 +1039,20 @@
       return (mark - entry) * qty * sign;
     }
 
+    function tradePnlDollars(r){
+      const direct = toFiniteOrNull(r && (r.pnl_dollars ?? r.realized_pnl_dollars ?? r.realized_pl));
+      if (direct !== null) return direct;
+
+      const qty = Math.abs(toFiniteOrNull(r && r.qty) ?? 0);
+      const entry = toFiniteOrNull(r && r.entry_px);
+      const exit = toFiniteOrNull(r && r.exit_px);
+      if (!qty || entry === null || exit === null || entry <= 0) return null;
+
+      const side = String((r && r.side) || "").toUpperCase().trim();
+      const sign = side === "SHORT" ? -1 : 1;
+      return (exit - entry) * qty * sign;
+    }
+
     function openPositionPnlDollars(view){
       const rows = []
         .concat(Array.isArray(view && view.open_positions_live) ? view.open_positions_live : [])
@@ -1053,6 +1067,36 @@
 
     function dailyReturnFromOpenPnl(view, currentEquity){
       const pnl = openPositionPnlDollars(view);
+      if (pnl === null || currentEquity === null || !Number.isFinite(Number(currentEquity))) return null;
+      const startEquity = Number(currentEquity) - Number(pnl);
+      if (startEquity <= 0) return null;
+      return pctFromBase(currentEquity, startEquity);
+    }
+
+    function tradingDayPnlDollarsFromView(view){
+      const acct = (view && view.account) || {};
+      const asofDay = dateKeyFromRawTimestamp(acct.asof);
+      const tradeRows = Array.isArray(view && view.trade_history) ? view.trade_history : [];
+      const latestTradeDay = tradeRows
+        .map((row) => dateKeyFromRawTimestamp(row && row.ts_utc))
+        .filter(Boolean)
+        .sort()
+        .pop();
+      const dayKey = asofDay || latestTradeDay;
+      if (!dayKey) return null;
+
+      const closedPnl = tradeRows
+        .filter((row) => dateKeyFromRawTimestamp(row && row.ts_utc) === dayKey)
+        .map((row) => tradePnlDollars(row))
+        .filter((v) => v !== null && Number.isFinite(Number(v)))
+        .reduce((a, b) => a + Number(b), 0);
+      const openPnl = openPositionPnlDollars(view);
+      const total = closedPnl + (openPnl !== null ? Number(openPnl) : 0);
+      return Number.isFinite(total) ? total : null;
+    }
+
+    function dailyReturnFromTradingDayPnl(view, currentEquity){
+      const pnl = tradingDayPnlDollarsFromView(view);
       if (pnl === null || currentEquity === null || !Number.isFinite(Number(currentEquity))) return null;
       const startEquity = Number(currentEquity) - Number(pnl);
       if (startEquity <= 0) return null;
@@ -1090,6 +1134,11 @@
       const resetStartEquity = toFiniteOrNull(acct.inception_equity) ?? toFiniteOrNull(acct.ytd_start_equity);
       if (options.resetFlat && currentEquity !== null && resetStartEquity !== null && resetStartEquity > 0){
         return pctFromBase(currentEquity, resetStartEquity);
+      }
+
+      if (!Array.isArray(equitySeries) || equitySeries.length < 2){
+        const tradingDayPnlReturn = dailyReturnFromTradingDayPnl(view, currentEquity);
+        if (tradingDayPnlReturn !== null) return tradingDayPnlReturn;
       }
 
       const openPnlReturn = dailyReturnFromOpenPnl(view, currentEquity);
@@ -1413,8 +1462,9 @@
         currentEquity,
         { resetFlat }
       );
-      const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : null;
-      const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : null;
+      const fallbackDrawdown = dailyReturn !== null ? Math.min(0, dailyReturn) : null;
+      const currentDrawdown = drawdownSeries.length ? drawdownSeries[drawdownSeries.length - 1].value : fallbackDrawdown;
+      const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : fallbackDrawdown;
       const maxDrawdown = maxDrawdownMetric(perf, monthlyRows, minDrawdown);
 
       setText(`${prefix}_since_inception_return`, fPct(sinceInceptionReturn, 2));
