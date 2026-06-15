@@ -1266,7 +1266,9 @@
     }
 
     function brokerCorrectedTrades(rows, addApmExits){
-      const additions = addApmExits ? BROKER_SWING_FILLED_EXITS.map((r) => ({ ...r })) : [];
+      const additions = addApmExits
+        ? rowsAfterDashboardStart(BROKER_SWING_FILLED_EXITS.map((r) => ({ ...r })))
+        : [];
       const cleaned = (Array.isArray(rows) ? rows : [])
         .filter((row) => !isApmStaleMetaOpen(row))
         .filter((row) => !isAegisMispairedCvxClose(row))
