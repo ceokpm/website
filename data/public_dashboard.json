@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-06-16T07:02:40.184762",
-  "published_at_utc": "2026-06-16T14:02:40Z",
+  "updated_at": "2026-06-16T07:04:23.544301",
+  "published_at_utc": "2026-06-16T14:04:23Z",
   "profile": "LARGE",
   "strategy": "APM_SWING",
   "shadow_only": false,
@@ -18,21 +18,21 @@
   ],
   "benchmark": "SPY",
   "account": {
-    "equity": 13750.0,
-    "buying_power": 14821.87,
+    "equity": 13731.31,
+    "buying_power": 12637.18,
     "inception_equity": 13750.0,
     "ytd_start_equity": 13750.0,
-    "since_inception_pnl_dollars": 0.0,
-    "asof": "2026-06-16T14:02:11Z"
+    "since_inception_pnl_dollars": -18.69,
+    "asof": "2026-06-16T14:04:09Z"
   },
   "summary": {
     "leaderboard_count": 8,
     "signals_ready_count": 1,
-    "open_positions_count": 0,
+    "open_positions_count": 1,
     "recent_trades_count": 1,
     "top_ticker": "AMD",
     "top_score": 85.727,
-    "open_long_count": 0,
+    "open_long_count": 1,
     "open_short_count": 0
   },
   "performance": {
@@ -313,7 +313,24 @@
       "broker_profile": "APM_LARGE_SWING"
     }
   ],
-  "open_positions_live": [],
+  "open_positions_live": [
+    {
+      "ts_utc": "2026-06-16T14:04:09Z",
+      "symbol": "AMD",
+      "side": "LONG",
+      "qty": 4.0,
+      "entry_px": 540.1,
+      "exit_px": 540.1,
+      "current_px": 540.1,
+      "R_realized": 0.0,
+      "pnl_pct": 0.0,
+      "pnl_dollars": 0.0,
+      "entry_model": "Swing",
+      "reason": "OPEN",
+      "broker_account": "Tech Basket + APM Swing",
+      "broker_profile": "APM_LARGE_SWING"
+    }
+  ],
   "recent_executions": [
     {
       "ts_utc": "2026-06-16T14:02:11Z",
@@ -352,37 +369,37 @@
   ],
   "equity_curve": [
     {
-      "ts": "2026-06-16T14:02:11",
-      "equity": 13750.0,
+      "ts": "2026-06-16T14:04:09",
+      "equity": 13731.31,
       "drawdown_pct": 0.0
     }
   ],
   "drawdown_curve": [
     {
-      "ts": "2026-06-16T14:02:11",
+      "ts": "2026-06-16T14:04:09",
       "drawdown_pct": 0.0
     }
   ],
   "positioning": {
     "long_short_ratio": null,
-    "long_pct": 0.0,
+    "long_pct": 100.0,
     "short_pct": 0.0
   },
   "strategy_lanes": [
     "APM_LARGE_SWING"
   ],
-  "source_updated_at_max": "2026-06-16T07:02:11",
+  "source_updated_at_max": "2026-06-16T07:04:09",
   "broker_accounts": {
     "apm_swing": {
       "label": "Tech Basket + APM Swing",
       "profile": "APM_LARGE_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 13750.0,
-      "buying_power": 14821.87,
+      "equity": 13731.31,
+      "buying_power": 12637.18,
       "inception_equity": 13750.0,
       "ytd_start_equity": 13750.0,
-      "since_inception_pnl_dollars": 0.0,
-      "asof": "2026-06-16T14:02:11Z"
+      "since_inception_pnl_dollars": -18.69,
+      "asof": "2026-06-16T14:04:09Z"
     }
   },
   "account_views": {
@@ -394,12 +411,12 @@
         "label": "Tech Basket + APM Swing",
         "profile": "APM_LARGE_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 13750.0,
-        "buying_power": 14821.87,
+        "equity": 13731.31,
+        "buying_power": 12637.18,
         "inception_equity": 13750.0,
         "ytd_start_equity": 13750.0,
-        "since_inception_pnl_dollars": 0.0,
-        "asof": "2026-06-16T14:02:11Z"
+        "since_inception_pnl_dollars": -18.69,
+        "asof": "2026-06-16T14:04:09Z"
       },
       "performance": {
         "closed_trades_count": 1,
@@ -419,15 +436,15 @@
       "summary": {
         "leaderboard_count": 8,
         "signals_ready_count": 1,
-        "open_positions_count": 0,
+        "open_positions_count": 1,
         "recent_trades_count": 1,
         "top_ticker": "AMD",
         "top_score": 85.727
       },
       "positioning": {
-        "long_short_ratio": 1.0,
-        "long_pct": 50.0,
-        "short_pct": 50.0
+        "long_short_ratio": null,
+        "long_pct": 100.0,
+        "short_pct": 0.0
       },
       "trade_history": [
         {
@@ -500,23 +517,40 @@
           "status": "CLOSED"
         }
       ],
-      "open_positions_live": [],
+      "open_positions_live": [
+        {
+          "ts_utc": "2026-06-16T14:04:09Z",
+          "symbol": "AMD",
+          "side": "LONG",
+          "qty": 4.0,
+          "entry_px": 540.1,
+          "exit_px": 540.1,
+          "current_px": 540.1,
+          "R_realized": 0.0,
+          "pnl_pct": 0.0,
+          "pnl_dollars": 0.0,
+          "entry_model": "Swing",
+          "reason": "OPEN",
+          "broker_account": "Tech Basket + APM Swing",
+          "broker_profile": "APM_LARGE_SWING"
+        }
+      ],
       "equity_curve": [
         {
-          "ts": "2026-06-16T14:02:11+00:00",
-          "equity": 13750.0,
+          "ts": "2026-06-16T14:04:09+00:00",
+          "equity": 13731.31,
           "drawdown_pct": 0.0
         }
       ],
       "drawdown_curve": [
         {
-          "ts": "2026-06-16T14:02:11+00:00",
+          "ts": "2026-06-16T14:04:09+00:00",
           "drawdown_pct": 0.0
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-16T07:02:11",
-      "published_at_utc": "2026-06-16T14:02:11Z"
+      "updated_at": "2026-06-16T07:04:09",
+      "published_at_utc": "2026-06-16T14:04:09Z"
     }
   },
   "public_reset_starts": {
