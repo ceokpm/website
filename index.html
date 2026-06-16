@@ -1183,149 +1183,6 @@
       return out;
     }
 
-    const BROKER_SWING_FILLED_EXITS = [
-      {
-        ts_utc: "2026-06-09T16:06:15Z",
-        event: "EXIT",
-        symbol: "AMD",
-        side: "LONG",
-        qty: 24,
-        entry_date: "2026-06-09",
-        entry_px: 498.76,
-        exit_date: "2026-06-09",
-        exit_px: 456.29,
-        R_realized: "",
-        pnl_pct: -8.515117,
-        pnl_dollars: -1019.28,
-        reason: "BROKER_FIFO",
-        entry_model: "Swing",
-        broker_account: "Tech Basket + APM Swing",
-        broker_profile: "APM_LARGE_SWING"
-      },
-      {
-        ts_utc: "2026-06-11T14:20:49Z",
-        event: "EXIT",
-        symbol: "META",
-        side: "SHORT",
-        qty: 10,
-        entry_date: "2026-06-08",
-        entry_px: 586.82,
-        exit_date: "2026-06-11",
-        exit_px: 558.82,
-        R_realized: "",
-        pnl_pct: 4.77148,
-        pnl_dollars: 280.00,
-        reason: "BROKER_FIFO",
-        entry_model: "Swing",
-        broker_account: "Tech Basket + APM Swing",
-        broker_profile: "APM_LARGE_SWING"
-      }
-    ];
-
-    function sameQuantityOrPrice(a, b, tolerance = 0.005){
-      const x = toFiniteOrNull(a);
-      const y = toFiniteOrNull(b);
-      return x !== null && y !== null && Math.abs(x - y) <= tolerance;
-    }
-
-    function isApmStaleMetaOpen(row){
-      return row
-        && row.symbol === "META"
-        && String(row.side || "").toUpperCase() === "SHORT"
-        && String(row.broker_profile || "").toUpperCase() === "APM_LARGE_SWING"
-        && sameQuantityOrPrice(row.qty, 10)
-        && sameQuantityOrPrice(row.entry_px, 587.16, 0.5)
-        && String(row.reason || "").toUpperCase() === "OPEN";
-    }
-
-    function isAegisMispairedCvxClose(row){
-      return row
-        && row.symbol === "CVX"
-        && String(row.side || "").toUpperCase() === "LONG"
-        && String(row.broker_profile || "").toUpperCase() === "LARGE_SWING"
-        && sameQuantityOrPrice(row.qty, 79)
-        && sameQuantityOrPrice(row.entry_px, 190.41)
-        && sameQuantityOrPrice(row.exit_px, 190.49)
-        && String(row.ts_utc || "").startsWith("2026-06-11T14:31:15");
-    }
-
-    function sameBrokerTrade(a, b){
-      return a && b
-        && a.symbol === b.symbol
-        && String(a.side || "").toUpperCase() === String(b.side || "").toUpperCase()
-        && String(a.broker_profile || "").toUpperCase() === String(b.broker_profile || "").toUpperCase()
-        && String(a.ts_utc || "") === String(b.ts_utc || "");
-    }
-
-    function sortRowsByTimestamp(rows){
-      return (Array.isArray(rows) ? rows : []).slice().sort((a, b) => {
-        const at = toTimestampMs(a && (a.ts_utc || a.ts || a.filled_at));
-        const bt = toTimestampMs(b && (b.ts_utc || b.ts || b.filled_at));
-        return (Number.isFinite(at) ? at : 0) - (Number.isFinite(bt) ? bt : 0);
-      });
-    }
-
-    function brokerCorrectedTrades(rows, addApmExits){
-      const additions = addApmExits
-        ? rowsAfterDashboardStart(BROKER_SWING_FILLED_EXITS.map((r) => ({ ...r })))
-        : [];
-      const cleaned = (Array.isArray(rows) ? rows : [])
-        .filter((row) => !isApmStaleMetaOpen(row))
-        .filter((row) => !isAegisMispairedCvxClose(row))
-        .filter((row) => !additions.some((trade) => sameBrokerTrade(row, trade)));
-      return sortRowsByTimestamp(cleaned.concat(additions));
-    }
-
-    function brokerCorrectedOpenPositions(rows){
-      return (Array.isArray(rows) ? rows : []).filter((row) => !isApmStaleMetaOpen(row));
-    }
-
-    function brokerCorrectedAccountView(view, key){
-      if (!view) return view;
-      const addApmExits = key === "apm_swing";
-      const out = { ...view };
-      out.open_positions_live = brokerCorrectedOpenPositions(out.open_positions_live);
-      out.trade_history = brokerCorrectedTrades(out.trade_history, addApmExits);
-      out.recent_executions = brokerCorrectedTrades(out.recent_executions, addApmExits);
-      out.performance = performanceFromTrades(out.trade_history);
-      out.summary = {
-        ...(out.summary || {}),
-        open_positions_count: out.open_positions_live.length,
-        recent_trades_count: out.trade_history.length
-      };
-      if (addApmExits){
-        out.label = "Tech Basket + APM Swing";
-        out.account = {
-          ...(out.account || {}),
-          label: "Tech Basket + APM Swing",
-          profile: "APM_LARGE_SWING",
-          public_reset_start: PUBLIC_DASHBOARD_START_ISO,
-          since_inception_pnl_dollars: -739.32
-        };
-      }
-      return out;
-    }
-
-    function brokerCorrectedDashboard(d){
-      const out = { ...(d || {}) };
-      out.open_positions_live = brokerCorrectedOpenPositions(out.open_positions_live);
-      out.trade_history = brokerCorrectedTrades(out.trade_history, true);
-      out.recent_executions = brokerCorrectedTrades(out.recent_executions, true);
-      out.performance = performanceFromTrades(out.trade_history);
-      out.summary = {
-        ...(out.summary || {}),
-        open_positions_count: out.open_positions_live.length,
-        recent_trades_count: out.trade_history.length
-      };
-      const views = out.account_views || {};
-      out.account_views = {
-        ...views,
-        swing: brokerCorrectedAccountView(views.swing, "swing"),
-        apm_swing: brokerCorrectedAccountView(views.apm_swing, "apm_swing")
-      };
-      return out;
-    }
-
     function dashboardRowTimestampMs(row){
       if (!row || typeof row !== "object") return NaN;
       const keys = ["ts_utc", "ts", "timestamp", "entry_ts", "entry_time", "submitted_at", "filled_at", "entry_date", "date"];
@@ -1493,7 +1350,7 @@
       try{
         const res = await fetch("data/public_dashboard.json?ts=" + Date.now(), { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);
-        const d = brokerCorrectedDashboard(dashboardAfterPublicStart(await res.json()));
+        const d = dashboardAfterPublicStart(await res.json());
         const acct = d.account || {};
         const sum = d.summary || {};
         const pos = d.positioning || {};
@@ -1504,9 +1361,9 @@
         const apmSwingShadowView = apmSwingLiveView.missing ? accountView(d, "apm_swing_shadow") : apmSwingLiveView;
         const tradeHistory = Array.isArray(d.trade_history) ? d.trade_history : [];
         const executionHistory = Array.isArray(d.recent_executions) ? d.recent_executions : tradeHistory;
-        const openPositionsLive = Array.isArray(d.open_positions_live) ? d.open_positions_live : [];
+        const openPositionsLive = uniqueOpenPositionRowsForDisplay(Array.isArray(d.open_positions_live) ? d.open_positions_live : []);
         const closedTrades = Number((d.performance || {}).closed_trades_count) || 0;
-        const openPositionsCount = Number(sum.open_positions_count) || 0;
+        const openPositionsCount = openPositionsLive.length;
         const recentTradesCount = Number(sum.recent_trades_count) || 0;
         const hasActivity = closedTrades > 0 || executionHistory.length > 0 || openPositionsCount > 0 || recentTradesCount > 0;
         const noActivity = !hasActivity;
@@ -1527,6 +1384,18 @@
 
         const currentEquity = toFiniteOrNull(acct.equity);
         const inceptionEquity = toFiniteOrNull(acct.inception_equity);
+        const visibleAccountViews = [newIntradayView, swingView, apmSwingShadowView].filter((view) => view && !view.missing);
+        const visibleAccountPnls = visibleAccountViews
+          .map((view) => {
+            const account = view.account || {};
+            const direct = toFiniteOrNull(account.since_inception_pnl_dollars);
+            if (direct !== null) return direct;
+            const equity = toFiniteOrNull(account.equity);
+            const inception = toFiniteOrNull(account.inception_equity);
+            return equity !== null && inception !== null ? equity - inception : null;
+          })
+          .filter((v) => v !== null && Number.isFinite(Number(v)))
+          .map(Number);
         const liveMonthlyRows = Array.isArray(d.monthly_performance) && d.monthly_performance.length
           ? d.monthly_performance
           : [];
@@ -1535,10 +1404,14 @@
         setText("updated_at", fUpdatedAt(d.published_at_utc || d.updated_at));
 
         setText("signals_ready", noActivity ? "-" : (Number.isFinite(Number(sum.signals_ready_count)) ? String(Number(sum.signals_ready_count)) : "-"));
-        setText("open_positions", noActivity ? "-" : (Number.isFinite(Number(sum.open_positions_count)) ? String(Number(sum.open_positions_count)) : "-"));
+        setText("open_positions", noActivity ? "-" : String(openPositionsCount));
         setText("ls_ratio", noActivity ? "-" : fNum(pos.long_short_ratio, 3));
-        const sinceInceptionPnl = toFiniteOrNull(acct.since_inception_pnl_dollars)
-          ?? ((currentEquity !== null && inceptionEquity !== null) ? (currentEquity - inceptionEquity) : null);
+        const sinceInceptionPnl = visibleAccountPnls.length
+          ? visibleAccountPnls.reduce((a, b) => a + b, 0)
+          : (
+            toFiniteOrNull(acct.since_inception_pnl_dollars)
+            ?? ((currentEquity !== null && inceptionEquity !== null) ? (currentEquity - inceptionEquity) : null)
+          );
         setText("run_pnl", noActivity ? "-" : fMoney(sinceInceptionPnl));
 
         renderInteractiveLineChart("intraday_equity_curve_chart", intradayMetrics.equitySeries, {
