@@ -1,51 +1,51 @@
 {
-  "updated_at": "2026-06-16T08:39:22.515375",
+  "updated_at": "2026-06-16T08:40:41.763274",
   "profile": "LARGE",
   "scheduler_interval_minutes": 2,
   "account": {
-    "equity": 32283.68,
-    "buying_power": 12412.35,
+    "equity": 32282.53,
+    "buying_power": 12410.88,
     "inception_equity": 32500.0,
     "ytd_start_equity": 32500.0,
-    "since_inception_pnl_dollars": -216.32,
-    "asof": "2026-06-16T15:39:10Z"
+    "since_inception_pnl_dollars": -217.47,
+    "asof": "2026-06-16T15:39:57Z"
   },
   "summary": {
-    "open_positions_count": 2,
+    "open_positions_count": 3,
     "open_long_count": 1,
-    "open_short_count": 1,
+    "open_short_count": 2,
     "signals_ready_count": 18,
-    "recent_trades_count": 5,
-    "avg_open_r_multiple": 0.051,
+    "recent_trades_count": 9,
+    "avg_open_r_multiple": 0.0,
     "twelve_data_ema9_called": false,
     "twelve_data_macd_called": false,
     "apm_signals_ready": 0,
-    "apm_top_ids": 75.966
+    "apm_top_ids": 81.998
   },
   "performance": {
-    "closed_trades_count": 5,
-    "win_rate_pct": 40.0,
-    "avg_r": -0.011,
-    "expectancy_r": -0.011,
+    "closed_trades_count": 9,
+    "win_rate_pct": 44.4,
+    "avg_r": 0.069,
+    "expectancy_r": 0.069,
     "median_r": -0.089,
     "best_trade_r": 1.067,
     "worst_trade_r": -0.727,
-    "last_20_win_rate_pct": 40.0,
-    "sharpe_like": -0.017,
-    "sortino_ratio": -0.021,
-    "profit_factor_r": 0.025,
-    "gross_profit_r": 20.92,
-    "gross_loss_r": 821.59,
+    "last_20_win_rate_pct": 44.4,
+    "sharpe_like": 0.11,
+    "sortino_ratio": 0.142,
+    "profit_factor_r": 0.05,
+    "gross_profit_r": 41.84,
+    "gross_loss_r": 829.43,
     "max_drawdown_pct_est": 0.04
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-06-16T08:37:22.776210"
+    "last_updated": "2026-06-16T08:39:21.241855"
   },
   "positioning": {
-    "long_short_ratio": 1.0,
-    "long_pct": 50.0,
-    "short_pct": 50.0
+    "long_short_ratio": 0.5,
+    "long_pct": 33.3,
+    "short_pct": 66.7
   },
   "trade_history": [
     {
@@ -99,6 +99,23 @@
       "broker_profile": "LARGE_NEW_INTRADAY"
     },
     {
+      "ts_utc": "2026-06-16T14:23:11Z",
+      "event": "EXIT",
+      "symbol": "AMD",
+      "side": "SHORT",
+      "qty": 3.0,
+      "entry_date": "2026-06-16",
+      "entry_px": 535.4,
+      "exit_date": "2026-06-16",
+      "exit_px": 529.686667,
+      "R_realized": "",
+      "pnl_pct": 1.067115,
+      "reason": "BROKER_FIFO",
+      "entry_model": "Day Trade",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY"
+    },
+    {
       "ts_utc": "2026-06-16T14:30:16Z",
       "event": "EXIT",
       "symbol": "SPY",
@@ -114,6 +131,23 @@
       "entry_model": "Day Trade",
       "broker_account": "Tech Basket + QQQ APM Intraday",
       "broker_profile": "LARGE_NEW_INTRADAY"
+    },
+    {
+      "ts_utc": "2026-06-16T14:30:16Z",
+      "event": "EXIT",
+      "symbol": "SPY",
+      "side": "SHORT",
+      "qty": 2.0,
+      "entry_date": "2026-06-16",
+      "entry_px": 754.76,
+      "exit_date": "2026-06-16",
+      "exit_px": 752.87,
+      "R_realized": "",
+      "pnl_pct": 0.250411,
+      "reason": "BROKER_FIFO",
+      "entry_model": "Day Trade",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY"
     },
     {
       "ts_utc": "2026-06-16T14:34:41Z",
@@ -133,6 +167,23 @@
       "broker_profile": "LARGE_NEW_INTRADAY"
     },
     {
+      "ts_utc": "2026-06-16T14:34:41Z",
+      "event": "EXIT",
+      "symbol": "NVDA",
+      "side": "SHORT",
+      "qty": 6.0,
+      "entry_date": "2026-06-16",
+      "entry_px": 208.703333,
+      "exit_date": "2026-06-16",
+      "exit_px": 208.89,
+      "R_realized": "",
+      "pnl_pct": -0.089441,
+      "reason": "BROKER_FIFO",
+      "entry_model": "Day Trade",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY"
+    },
+    {
       "ts_utc": "2026-06-16T14:42:49Z",
       "event": "EXIT",
       "symbol": "TSLA",
@@ -148,6 +199,23 @@
       "entry_model": "Day Trade",
       "broker_account": "Tech Basket + QQQ APM Intraday",
       "broker_profile": "LARGE_NEW_INTRADAY"
+    },
+    {
+      "ts_utc": "2026-06-16T14:42:49Z",
+      "event": "EXIT",
+      "symbol": "TSLA",
+      "side": "SHORT",
+      "qty": 3.0,
+      "entry_date": "2026-06-16",
+      "entry_px": 403.14,
+      "exit_date": "2026-06-16",
+      "exit_px": 405.38,
+      "R_realized": "",
+      "pnl_pct": -0.555638,
+      "reason": "BROKER_FIFO",
+      "entry_model": "Day Trade",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY"
     }
   ],
   "recent_executions": [
@@ -204,6 +272,24 @@
       "status": "CLOSED"
     },
     {
+      "ts_utc": "2026-06-16T14:23:11Z",
+      "event": "EXIT",
+      "symbol": "AMD",
+      "side": "SHORT",
+      "qty": 3.0,
+      "entry_date": "2026-06-16",
+      "entry_px": 535.4,
+      "exit_date": "2026-06-16",
+      "exit_px": 529.686667,
+      "R_realized": "",
+      "pnl_pct": 1.067115,
+      "reason": "BROKER_FIFO",
+      "entry_model": "Day Trade",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY",
+      "status": "CLOSED"
+    },
+    {
       "ts_utc": "2026-06-16T14:30:16Z",
       "event": "EXIT",
       "symbol": "SPY",
@@ -219,6 +305,24 @@
       "entry_model": "Day Trade",
       "broker_account": "Tech Basket + QQQ APM Intraday",
       "broker_profile": "LARGE_NEW_INTRADAY",
+      "status": "CLOSED"
+    },
+    {
+      "ts_utc": "2026-06-16T14:30:16Z",
+      "event": "EXIT",
+      "symbol": "SPY",
+      "side": "SHORT",
+      "qty": 2.0,
+      "entry_date": "2026-06-16",
+      "entry_px": 754.76,
+      "exit_date": "2026-06-16",
+      "exit_px": 752.87,
+      "R_realized": "",
+      "pnl_pct": 0.250411,
+      "reason": "BROKER_FIFO",
+      "entry_model": "Day Trade",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY",
       "status": "CLOSED"
     },
     {
@@ -240,6 +344,24 @@
       "status": "CLOSED"
     },
     {
+      "ts_utc": "2026-06-16T14:34:41Z",
+      "event": "EXIT",
+      "symbol": "NVDA",
+      "side": "SHORT",
+      "qty": 6.0,
+      "entry_date": "2026-06-16",
+      "entry_px": 208.703333,
+      "exit_date": "2026-06-16",
+      "exit_px": 208.89,
+      "R_realized": "",
+      "pnl_pct": -0.089441,
+      "reason": "BROKER_FIFO",
+      "entry_model": "Day Trade",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY",
+      "status": "CLOSED"
+    },
+    {
       "ts_utc": "2026-06-16T14:42:49Z",
       "event": "EXIT",
       "symbol": "TSLA",
@@ -256,21 +378,53 @@
       "broker_account": "Tech Basket + QQQ APM Intraday",
       "broker_profile": "LARGE_NEW_INTRADAY",
       "status": "CLOSED"
+    },
+    {
+      "ts_utc": "2026-06-16T14:42:49Z",
+      "event": "EXIT",
+      "symbol": "TSLA",
+      "side": "SHORT",
+      "qty": 3.0,
+      "entry_date": "2026-06-16",
+      "entry_px": 403.14,
+      "exit_date": "2026-06-16",
+      "exit_px": 405.38,
+      "R_realized": "",
+      "pnl_pct": -0.555638,
+      "reason": "BROKER_FIFO",
+      "entry_model": "Day Trade",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY",
+      "status": "CLOSED"
     }
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-06-16T08:39:14",
+      "ts_utc": "2026-06-16T08:40:35",
       "broker_account": "Tech Basket + QQQ APM Intraday",
       "broker_profile": "LARGE_NEW_INTRADAY",
       "symbol": "SPY",
       "side": "SHORT",
       "qty": 2.0,
       "entry_px": 753.1,
-      "exit_px": 752.775,
-      "current_px": 752.775,
-      "R_realized": 0.051,
-      "pnl_pct": 0.04315495950073635,
+      "exit_px": 752.78,
+      "current_px": 752.78,
+      "R_realized": 0.0,
+      "pnl_pct": 0.042491037046879565,
+      "entry_model": "Day Trade"
+    },
+    {
+      "ts_utc": "2026-06-16T08:40:17",
+      "broker_account": "SPY + AEGIS Intraday",
+      "broker_profile": "LARGE_INTRADAY",
+      "symbol": "SPY",
+      "side": "SHORT",
+      "qty": 2.0,
+      "entry_px": 753.1,
+      "exit_px": 752.8,
+      "current_px": 752.8,
+      "R_realized": 0.23,
+      "pnl_pct": 0.03983534723145243,
       "entry_model": "Day Trade"
     },
     {
@@ -293,1173 +447,1183 @@
   "equity_curve": [
     {
       "ts": "2026-06-16T13:30:08",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:30:14",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:31:05",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:31:11",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:32:11",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:32:16",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:32:59",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:33:05",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:34:06",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:34:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:34:47",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:34:52",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:36:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:36:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:36:45",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:36:50",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:38:06",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:38:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:38:43",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:38:49",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:40:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:40:13",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:40:46",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:40:51",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:42:06",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:42:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:42:43",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:42:49",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:44:06",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:44:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:44:44",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:44:50",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:46:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:46:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:46:56",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:47:01",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:48:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:48:13",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:48:49",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:48:55",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:50:06",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:50:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:50:51",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:50:57",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:52:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:52:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:52:48",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:52:53",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:54:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:54:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:54:45",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:54:51",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:56:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:56:13",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:56:44",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:56:50",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:58:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:58:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:58:44",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T13:58:50",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:00:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:00:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:01:25",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:01:31",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:02:51",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:02:56",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:03:42",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:03:47",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:04:35",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:04:41",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:05:43",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:05:48",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:06:35",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:06:41",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:07:28",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:07:34",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:08:20",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:08:25",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:09:03",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:09:09",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:10:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:10:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:11:13",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:11:18",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:12:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:12:13",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:12:54",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:12:59",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:14:07",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:14:13",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:15:04",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:15:10",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:16:10",
-      "equity": 32270.3,
+      "equity": 32268.83,
       "drawdown_pct": -0.0002
     },
     {
       "ts": "2026-06-16T14:16:15",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:17:06",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:17:12",
-      "equity": 32270.36,
+      "equity": 32268.89,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:18:07",
-      "equity": 32274.81,
+      "equity": 32273.34,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:18:13",
-      "equity": 32273.67,
+      "equity": 32272.2,
       "drawdown_pct": -0.0035
     },
     {
       "ts": "2026-06-16T14:18:59",
-      "equity": 32273.67,
+      "equity": 32272.2,
       "drawdown_pct": -0.0035
     },
     {
       "ts": "2026-06-16T14:19:04",
-      "equity": 32273.67,
+      "equity": 32272.2,
       "drawdown_pct": -0.0035
     },
     {
       "ts": "2026-06-16T14:20:07",
-      "equity": 32281.77,
+      "equity": 32280.3,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:20:13",
-      "equity": 32282.28,
+      "equity": 32280.81,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:20:55",
-      "equity": 32282.28,
+      "equity": 32280.81,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:21:01",
-      "equity": 32282.28,
+      "equity": 32280.81,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:22:07",
-      "equity": 32284.43,
+      "equity": 32282.96,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:22:13",
-      "equity": 32286.08,
+      "equity": 32284.61,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:22:55",
-      "equity": 32286.08,
+      "equity": 32284.61,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:23:01",
-      "equity": 32286.08,
+      "equity": 32284.61,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:24:07",
-      "equity": 32290.3,
+      "equity": 32288.83,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:24:12",
-      "equity": 32290.62,
+      "equity": 32289.15,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:24:48",
-      "equity": 32290.62,
+      "equity": 32289.15,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:24:54",
-      "equity": 32290.62,
+      "equity": 32289.15,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:26:07",
-      "equity": 32285.64,
+      "equity": 32284.17,
       "drawdown_pct": -0.0154
     },
     {
       "ts": "2026-06-16T14:26:12",
-      "equity": 32284.84,
+      "equity": 32283.37,
       "drawdown_pct": -0.0179
     },
     {
       "ts": "2026-06-16T14:26:56",
-      "equity": 32284.84,
+      "equity": 32283.37,
       "drawdown_pct": -0.0179
     },
     {
       "ts": "2026-06-16T14:27:02",
-      "equity": 32284.84,
+      "equity": 32283.37,
       "drawdown_pct": -0.0179
     },
     {
       "ts": "2026-06-16T14:28:07",
-      "equity": 32288.56,
+      "equity": 32287.09,
       "drawdown_pct": -0.0064
     },
     {
       "ts": "2026-06-16T14:28:13",
-      "equity": 32287.76,
+      "equity": 32286.29,
       "drawdown_pct": -0.0089
     },
     {
       "ts": "2026-06-16T14:28:48",
-      "equity": 32287.76,
+      "equity": 32286.29,
       "drawdown_pct": -0.0089
     },
     {
       "ts": "2026-06-16T14:28:53",
-      "equity": 32287.76,
+      "equity": 32286.29,
       "drawdown_pct": -0.0089
     },
     {
       "ts": "2026-06-16T14:30:08",
-      "equity": 32289.14,
+      "equity": 32287.67,
       "drawdown_pct": -0.0046
     },
     {
       "ts": "2026-06-16T14:30:14",
-      "equity": 32289.86,
+      "equity": 32288.39,
       "drawdown_pct": -0.0024
     },
     {
       "ts": "2026-06-16T14:31:05",
-      "equity": 32289.86,
+      "equity": 32288.39,
       "drawdown_pct": -0.0024
     },
     {
       "ts": "2026-06-16T14:31:11",
-      "equity": 32289.86,
+      "equity": 32288.39,
       "drawdown_pct": -0.0024
     },
     {
       "ts": "2026-06-16T14:32:07",
-      "equity": 32295.33,
+      "equity": 32293.86,
       "drawdown_pct": 0.0
     },
     {
       "ts": "2026-06-16T14:32:13",
-      "equity": 32294.83,
+      "equity": 32293.36,
       "drawdown_pct": -0.0015
     },
     {
       "ts": "2026-06-16T14:32:51",
-      "equity": 32294.83,
+      "equity": 32293.36,
       "drawdown_pct": -0.0015
     },
     {
       "ts": "2026-06-16T14:32:56",
-      "equity": 32294.83,
+      "equity": 32293.36,
       "drawdown_pct": -0.0015
     },
     {
       "ts": "2026-06-16T14:34:07",
-      "equity": 32293.43,
+      "equity": 32291.96,
       "drawdown_pct": -0.0059
     },
     {
       "ts": "2026-06-16T14:34:13",
-      "equity": 32293.55,
+      "equity": 32292.08,
       "drawdown_pct": -0.0055
     },
     {
       "ts": "2026-06-16T14:34:53",
-      "equity": 32293.55,
+      "equity": 32292.08,
       "drawdown_pct": -0.0055
     },
     {
       "ts": "2026-06-16T14:34:59",
-      "equity": 32293.55,
+      "equity": 32292.08,
       "drawdown_pct": -0.0055
     },
     {
       "ts": "2026-06-16T14:36:08",
-      "equity": 32293.34,
+      "equity": 32291.87,
       "drawdown_pct": -0.0062
     },
     {
       "ts": "2026-06-16T14:36:14",
-      "equity": 32292.26,
+      "equity": 32290.79,
       "drawdown_pct": -0.0095
     },
     {
       "ts": "2026-06-16T14:36:54",
-      "equity": 32292.26,
+      "equity": 32290.79,
       "drawdown_pct": -0.0095
     },
     {
       "ts": "2026-06-16T14:37:00",
-      "equity": 32292.26,
+      "equity": 32290.79,
       "drawdown_pct": -0.0095
     },
     {
       "ts": "2026-06-16T14:38:07",
-      "equity": 32291.61,
+      "equity": 32290.14,
       "drawdown_pct": -0.0115
     },
     {
       "ts": "2026-06-16T14:38:13",
-      "equity": 32291.23,
+      "equity": 32289.76,
       "drawdown_pct": -0.0127
     },
     {
       "ts": "2026-06-16T14:38:46",
-      "equity": 32291.23,
+      "equity": 32289.76,
       "drawdown_pct": -0.0127
     },
     {
       "ts": "2026-06-16T14:38:52",
-      "equity": 32291.23,
+      "equity": 32289.76,
       "drawdown_pct": -0.0127
     },
     {
       "ts": "2026-06-16T14:40:07",
-      "equity": 32291.24,
+      "equity": 32289.77,
       "drawdown_pct": -0.0127
     },
     {
       "ts": "2026-06-16T14:40:13",
-      "equity": 32290.22,
+      "equity": 32288.75,
       "drawdown_pct": -0.0158
     },
     {
       "ts": "2026-06-16T14:40:47",
-      "equity": 32290.22,
+      "equity": 32288.75,
       "drawdown_pct": -0.0158
     },
     {
       "ts": "2026-06-16T14:40:53",
-      "equity": 32290.22,
+      "equity": 32288.75,
       "drawdown_pct": -0.0158
     },
     {
       "ts": "2026-06-16T14:42:07",
-      "equity": 32284.87,
+      "equity": 32283.4,
       "drawdown_pct": -0.0324
     },
     {
       "ts": "2026-06-16T14:42:14",
-      "equity": 32285.17,
+      "equity": 32283.7,
       "drawdown_pct": -0.0315
     },
     {
       "ts": "2026-06-16T14:42:46",
-      "equity": 32285.17,
+      "equity": 32283.7,
       "drawdown_pct": -0.0315
     },
     {
       "ts": "2026-06-16T14:42:52",
-      "equity": 32285.17,
+      "equity": 32283.7,
       "drawdown_pct": -0.0315
     },
     {
       "ts": "2026-06-16T14:44:06",
-      "equity": 32282.4,
+      "equity": 32280.93,
       "drawdown_pct": -0.04
     },
     {
       "ts": "2026-06-16T14:44:12",
-      "equity": 32282.58,
+      "equity": 32281.11,
       "drawdown_pct": -0.0395
     },
     {
       "ts": "2026-06-16T14:44:44",
-      "equity": 32282.58,
+      "equity": 32281.11,
       "drawdown_pct": -0.0395
     },
     {
       "ts": "2026-06-16T14:44:50",
-      "equity": 32282.58,
+      "equity": 32281.11,
       "drawdown_pct": -0.0395
     },
     {
       "ts": "2026-06-16T14:46:07",
-      "equity": 32283.29,
+      "equity": 32281.82,
       "drawdown_pct": -0.0373
     },
     {
       "ts": "2026-06-16T14:46:13",
-      "equity": 32283.1,
+      "equity": 32281.63,
       "drawdown_pct": -0.0379
     },
     {
       "ts": "2026-06-16T14:46:49",
-      "equity": 32283.1,
+      "equity": 32281.63,
       "drawdown_pct": -0.0379
     },
     {
       "ts": "2026-06-16T14:46:55",
-      "equity": 32283.1,
+      "equity": 32281.63,
       "drawdown_pct": -0.0379
     },
     {
       "ts": "2026-06-16T14:48:07",
-      "equity": 32283.48,
+      "equity": 32282.01,
       "drawdown_pct": -0.0367
     },
     {
       "ts": "2026-06-16T14:48:13",
-      "equity": 32283.44,
+      "equity": 32281.97,
       "drawdown_pct": -0.0368
     },
     {
       "ts": "2026-06-16T14:48:48",
-      "equity": 32283.44,
+      "equity": 32281.97,
       "drawdown_pct": -0.0368
     },
     {
       "ts": "2026-06-16T14:48:55",
-      "equity": 32283.44,
+      "equity": 32281.97,
       "drawdown_pct": -0.0368
     },
     {
       "ts": "2026-06-16T14:50:07",
-      "equity": 32283.31,
+      "equity": 32281.84,
       "drawdown_pct": -0.0372
     },
     {
       "ts": "2026-06-16T14:50:13",
-      "equity": 32282.96,
+      "equity": 32281.49,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T14:50:54",
-      "equity": 32282.96,
+      "equity": 32281.49,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T14:51:00",
-      "equity": 32282.96,
+      "equity": 32281.49,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T14:52:07",
-      "equity": 32282.96,
+      "equity": 32281.49,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T14:52:12",
-      "equity": 32282.96,
+      "equity": 32281.49,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T14:52:44",
-      "equity": 32282.96,
+      "equity": 32281.49,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T14:52:50",
-      "equity": 32282.96,
+      "equity": 32281.49,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T14:54:07",
-      "equity": 32283.06,
+      "equity": 32281.59,
       "drawdown_pct": -0.038
     },
     {
       "ts": "2026-06-16T14:54:12",
-      "equity": 32283.26,
+      "equity": 32281.79,
       "drawdown_pct": -0.0374
     },
     {
       "ts": "2026-06-16T14:54:45",
-      "equity": 32283.26,
+      "equity": 32281.79,
       "drawdown_pct": -0.0374
     },
     {
       "ts": "2026-06-16T14:54:51",
-      "equity": 32283.26,
+      "equity": 32281.79,
       "drawdown_pct": -0.0374
     },
     {
       "ts": "2026-06-16T14:56:07",
-      "equity": 32283.38,
+      "equity": 32281.91,
       "drawdown_pct": -0.037
     },
     {
       "ts": "2026-06-16T14:56:13",
-      "equity": 32283.22,
+      "equity": 32281.75,
       "drawdown_pct": -0.0375
     },
     {
       "ts": "2026-06-16T14:56:44",
-      "equity": 32283.22,
+      "equity": 32281.75,
       "drawdown_pct": -0.0375
     },
     {
       "ts": "2026-06-16T14:56:49",
-      "equity": 32283.22,
+      "equity": 32281.75,
       "drawdown_pct": -0.0375
     },
     {
       "ts": "2026-06-16T14:58:07",
-      "equity": 32283.22,
+      "equity": 32281.75,
       "drawdown_pct": -0.0375
     },
     {
       "ts": "2026-06-16T14:58:12",
-      "equity": 32283.47,
+      "equity": 32282.0,
       "drawdown_pct": -0.0367
     },
     {
       "ts": "2026-06-16T14:58:45",
-      "equity": 32283.47,
+      "equity": 32282.0,
       "drawdown_pct": -0.0367
     },
     {
       "ts": "2026-06-16T14:58:50",
-      "equity": 32283.47,
+      "equity": 32282.0,
       "drawdown_pct": -0.0367
     },
     {
       "ts": "2026-06-16T15:00:08",
-      "equity": 32283.58,
+      "equity": 32282.11,
       "drawdown_pct": -0.0364
     },
     {
       "ts": "2026-06-16T15:00:14",
-      "equity": 32283.56,
+      "equity": 32282.09,
       "drawdown_pct": -0.0364
     },
     {
       "ts": "2026-06-16T15:01:18",
-      "equity": 32283.56,
+      "equity": 32282.09,
       "drawdown_pct": -0.0364
     },
     {
       "ts": "2026-06-16T15:01:24",
-      "equity": 32283.56,
+      "equity": 32282.09,
       "drawdown_pct": -0.0364
     },
     {
       "ts": "2026-06-16T15:02:07",
-      "equity": 32283.5,
+      "equity": 32282.03,
       "drawdown_pct": -0.0366
     },
     {
       "ts": "2026-06-16T15:02:13",
-      "equity": 32283.54,
+      "equity": 32282.07,
       "drawdown_pct": -0.0365
     },
     {
       "ts": "2026-06-16T15:03:01",
-      "equity": 32283.54,
+      "equity": 32282.07,
       "drawdown_pct": -0.0365
     },
     {
       "ts": "2026-06-16T15:03:07",
-      "equity": 32283.54,
+      "equity": 32282.07,
       "drawdown_pct": -0.0365
     },
     {
       "ts": "2026-06-16T15:04:06",
-      "equity": 32282.97,
+      "equity": 32281.5,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T15:04:13",
-      "equity": 32283.06,
+      "equity": 32281.59,
       "drawdown_pct": -0.038
     },
     {
       "ts": "2026-06-16T15:04:53",
-      "equity": 32283.06,
+      "equity": 32281.59,
       "drawdown_pct": -0.038
     },
     {
       "ts": "2026-06-16T15:04:58",
-      "equity": 32283.06,
+      "equity": 32281.59,
       "drawdown_pct": -0.038
     },
     {
       "ts": "2026-06-16T15:06:07",
-      "equity": 32282.56,
+      "equity": 32281.09,
       "drawdown_pct": -0.0395
     },
     {
       "ts": "2026-06-16T15:06:13",
-      "equity": 32282.66,
+      "equity": 32281.19,
       "drawdown_pct": -0.0392
     },
     {
       "ts": "2026-06-16T15:06:50",
-      "equity": 32282.66,
+      "equity": 32281.19,
       "drawdown_pct": -0.0392
     },
     {
       "ts": "2026-06-16T15:06:57",
-      "equity": 32282.66,
+      "equity": 32281.19,
       "drawdown_pct": -0.0392
     },
     {
       "ts": "2026-06-16T15:08:07",
-      "equity": 32282.96,
+      "equity": 32281.49,
       "drawdown_pct": -0.0383
     },
     {
       "ts": "2026-06-16T15:08:14",
-      "equity": 32283.04,
+      "equity": 32281.57,
       "drawdown_pct": -0.0381
     },
     {
       "ts": "2026-06-16T15:08:51",
-      "equity": 32283.04,
+      "equity": 32281.57,
       "drawdown_pct": -0.0381
     },
     {
       "ts": "2026-06-16T15:08:57",
-      "equity": 32283.04,
+      "equity": 32281.57,
       "drawdown_pct": -0.0381
     },
     {
       "ts": "2026-06-16T15:10:07",
-      "equity": 32282.88,
+      "equity": 32281.41,
       "drawdown_pct": -0.0386
     },
     {
       "ts": "2026-06-16T15:10:13",
-      "equity": 32282.8,
+      "equity": 32281.33,
       "drawdown_pct": -0.0388
     },
     {
       "ts": "2026-06-16T15:10:52",
-      "equity": 32282.8,
+      "equity": 32281.33,
       "drawdown_pct": -0.0388
     },
     {
       "ts": "2026-06-16T15:10:58",
-      "equity": 32282.8,
+      "equity": 32281.33,
       "drawdown_pct": -0.0388
     },
     {
       "ts": "2026-06-16T15:12:07",
-      "equity": 32282.88,
+      "equity": 32281.41,
       "drawdown_pct": -0.0386
     },
     {
       "ts": "2026-06-16T15:12:12",
-      "equity": 32283.15,
+      "equity": 32281.68,
       "drawdown_pct": -0.0377
     },
     {
       "ts": "2026-06-16T15:12:45",
-      "equity": 32283.15,
+      "equity": 32281.68,
       "drawdown_pct": -0.0377
     },
     {
       "ts": "2026-06-16T15:12:51",
-      "equity": 32283.15,
+      "equity": 32281.68,
       "drawdown_pct": -0.0377
     },
     {
       "ts": "2026-06-16T15:14:07",
-      "equity": 32283.03,
+      "equity": 32281.56,
       "drawdown_pct": -0.0381
     },
     {
       "ts": "2026-06-16T15:14:13",
-      "equity": 32283.0,
+      "equity": 32281.53,
       "drawdown_pct": -0.0382
     },
     {
       "ts": "2026-06-16T15:14:44",
-      "equity": 32283.0,
+      "equity": 32281.53,
       "drawdown_pct": -0.0382
     },
     {
       "ts": "2026-06-16T15:14:50",
-      "equity": 32283.0,
+      "equity": 32281.53,
       "drawdown_pct": -0.0382
     },
     {
       "ts": "2026-06-16T15:16:07",
-      "equity": 32282.54,
+      "equity": 32281.07,
       "drawdown_pct": -0.0396
     },
     {
       "ts": "2026-06-16T15:16:13",
-      "equity": 32282.6,
+      "equity": 32281.13,
       "drawdown_pct": -0.0394
     },
     {
       "ts": "2026-06-16T15:16:50",
-      "equity": 32282.6,
+      "equity": 32281.13,
       "drawdown_pct": -0.0394
     },
     {
       "ts": "2026-06-16T15:16:55",
-      "equity": 32282.6,
+      "equity": 32281.13,
       "drawdown_pct": -0.0394
     },
     {
       "ts": "2026-06-16T15:32:07",
-      "equity": 32284.1,
+      "equity": 32282.63,
       "drawdown_pct": -0.0348
     },
     {
       "ts": "2026-06-16T15:32:13",
-      "equity": 32284.07,
+      "equity": 32282.6,
       "drawdown_pct": -0.0349
     },
     {
       "ts": "2026-06-16T15:32:47",
-      "equity": 32284.07,
+      "equity": 32282.6,
       "drawdown_pct": -0.0349
     },
     {
       "ts": "2026-06-16T15:32:53",
-      "equity": 32284.07,
+      "equity": 32282.6,
       "drawdown_pct": -0.0349
     },
     {
       "ts": "2026-06-16T15:34:06",
-      "equity": 32283.3,
-      "drawdown_pct": -0.0372
+      "equity": 32281.83,
+      "drawdown_pct": -0.0373
     },
     {
       "ts": "2026-06-16T15:34:12",
-      "equity": 32283.34,
+      "equity": 32281.87,
       "drawdown_pct": -0.0371
     },
     {
       "ts": "2026-06-16T15:34:45",
-      "equity": 32283.34,
+      "equity": 32281.87,
       "drawdown_pct": -0.0371
     },
     {
       "ts": "2026-06-16T15:34:50",
-      "equity": 32283.34,
+      "equity": 32281.87,
       "drawdown_pct": -0.0371
     },
     {
       "ts": "2026-06-16T15:36:07",
-      "equity": 32283.18,
+      "equity": 32281.71,
       "drawdown_pct": -0.0376
     },
     {
       "ts": "2026-06-16T15:36:12",
-      "equity": 32283.14,
+      "equity": 32281.67,
       "drawdown_pct": -0.0377
     },
     {
       "ts": "2026-06-16T15:36:45",
-      "equity": 32283.14,
+      "equity": 32281.67,
       "drawdown_pct": -0.0377
     },
     {
       "ts": "2026-06-16T15:36:51",
-      "equity": 32283.14,
+      "equity": 32281.67,
       "drawdown_pct": -0.0377
     },
     {
       "ts": "2026-06-16T15:38:07",
-      "equity": 32283.7,
+      "equity": 32282.23,
       "drawdown_pct": -0.036
     },
     {
       "ts": "2026-06-16T15:38:12",
-      "equity": 32283.72,
-      "drawdown_pct": -0.0359
+      "equity": 32282.25,
+      "drawdown_pct": -0.036
     },
     {
       "ts": "2026-06-16T15:38:46",
-      "equity": 32283.72,
-      "drawdown_pct": -0.0359
+      "equity": 32282.25,
+      "drawdown_pct": -0.036
     },
     {
       "ts": "2026-06-16T15:38:52",
-      "equity": 32283.72,
-      "drawdown_pct": -0.0359
+      "equity": 32282.25,
+      "drawdown_pct": -0.036
     },
     {
-      "ts": "2026-06-16T15:39:10",
-      "equity": 32283.72,
-      "drawdown_pct": -0.0359
+      "ts": "2026-06-16T15:39:57",
+      "equity": 32282.25,
+      "drawdown_pct": -0.036
     },
     {
-      "ts": "2026-06-16T15:39:14",
-      "equity": 32283.72,
-      "drawdown_pct": -0.0359
+      "ts": "2026-06-16T15:40:07",
+      "equity": 32282.53,
+      "drawdown_pct": -0.0351
+    },
+    {
+      "ts": "2026-06-16T15:40:13",
+      "equity": 32282.51,
+      "drawdown_pct": -0.0351
+    },
+    {
+      "ts": "2026-06-16T15:40:35",
+      "equity": 32282.51,
+      "drawdown_pct": -0.0351
     }
   ],
   "drawdown_curve": [
@@ -2345,7 +2509,7 @@
     },
     {
       "ts": "2026-06-16T15:34:06",
-      "drawdown_pct": -0.0372
+      "drawdown_pct": -0.0373
     },
     {
       "ts": "2026-06-16T15:34:12",
@@ -2381,23 +2545,31 @@
     },
     {
       "ts": "2026-06-16T15:38:12",
-      "drawdown_pct": -0.0359
+      "drawdown_pct": -0.036
     },
     {
       "ts": "2026-06-16T15:38:46",
-      "drawdown_pct": -0.0359
+      "drawdown_pct": -0.036
     },
     {
       "ts": "2026-06-16T15:38:52",
-      "drawdown_pct": -0.0359
+      "drawdown_pct": -0.036
     },
     {
-      "ts": "2026-06-16T15:39:10",
-      "drawdown_pct": -0.0359
+      "ts": "2026-06-16T15:39:57",
+      "drawdown_pct": -0.036
     },
     {
-      "ts": "2026-06-16T15:39:14",
-      "drawdown_pct": -0.0359
+      "ts": "2026-06-16T15:40:07",
+      "drawdown_pct": -0.0351
+    },
+    {
+      "ts": "2026-06-16T15:40:13",
+      "drawdown_pct": -0.0351
+    },
+    {
+      "ts": "2026-06-16T15:40:35",
+      "drawdown_pct": -0.0351
     }
   ],
   "equity_curve_r": [
@@ -2425,7 +2597,7 @@
   "monthly_performance": [],
   "research": {
     "items": [],
-    "last_updated": "2026-06-16T08:39:16.914309"
+    "last_updated": "2026-06-16T08:40:38.512035"
   },
   "entry_progress": {
     "twelve_data": {
@@ -2493,7 +2665,7 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-06-16T08:39:16.432670",
+    "updated_at": "2026-06-16T08:40:38.118033",
     "interval": "2min",
     "twelvedata_call_estimate": {
       "per_symbol": 3,
@@ -4533,14 +4705,14 @@
           {
             "ts": "2026-06-16 08:38:00",
             "open": 753.07,
-            "high": 753.09,
-            "low": 752.92,
-            "close": 752.94,
-            "volume": 16920.0,
-            "ema9": 752.9913,
-            "macd": -0.159941,
-            "macd_signal": -0.193654,
-            "macd_hist": 0.033713,
+            "high": 753.105,
+            "low": 752.82,
+            "close": 752.86,
+            "volume": 42248.0,
+            "ema9": 752.9753,
+            "macd": -0.168561,
+            "macd_signal": -0.195378,
+            "macd_hist": 0.026817,
             "trend_intraday_confirm_count": 0,
             "trend_intraday_ready": false,
             "trend_swing_ready": false,
@@ -4550,11 +4722,11 @@
         ],
         "last": {
           "ts": "2026-06-16 08:38:00",
-          "close": 752.94,
-          "ema9": 752.9913,
-          "macd": -0.159941,
-          "macd_signal": -0.193654,
-          "macd_hist": 0.033713,
+          "close": 752.86,
+          "ema9": 752.9753,
+          "macd": -0.168561,
+          "macd_signal": -0.195378,
+          "macd_hist": 0.026817,
           "trend_intraday_ready": false,
           "trend_swing_ready": false
         },
@@ -6597,13 +6769,13 @@
             "ts": "2026-06-16 08:38:00",
             "open": 735.77,
             "high": 735.785,
-            "low": 735.3,
-            "close": 735.34,
-            "volume": 9180.0,
-            "ema9": 735.9925,
-            "macd": -1.034698,
-            "macd_signal": -1.004215,
-            "macd_hist": -0.030482,
+            "low": 734.91,
+            "close": 734.91,
+            "volume": 19520.0,
+            "ema9": 735.9065,
+            "macd": -1.081027,
+            "macd_signal": -1.013481,
+            "macd_hist": -0.067546,
             "trend_intraday_confirm_count": 0,
             "trend_intraday_ready": false,
             "trend_swing_ready": false,
@@ -6613,11 +6785,11 @@
         ],
         "last": {
           "ts": "2026-06-16 08:38:00",
-          "close": 735.34,
-          "ema9": 735.9925,
-          "macd": -1.034698,
-          "macd_signal": -1.004215,
-          "macd_hist": -0.030482,
+          "close": 734.91,
+          "ema9": 735.9065,
+          "macd": -1.081027,
+          "macd_signal": -1.013481,
+          "macd_hist": -0.067546,
           "trend_intraday_ready": false,
           "trend_swing_ready": false
         },
@@ -6638,31 +6810,31 @@
       "signals_ready_count": 0,
       "open_positions_count": 1,
       "top_ticker": "AMD",
-      "top_ids": 75.966
+      "top_ids": 81.998
     },
     "leaderboard": [
       {
         "ticker": "AMD",
-        "timestamp": "2026-06-16T15:38:28Z",
-        "ids": 75.966,
-        "ids_velocity": 0.829,
+        "timestamp": "2026-06-16T15:40:30Z",
+        "ids": 81.998,
+        "ids_velocity": 6.032,
         "rank": 1,
-        "relative_strength_score": 79.132,
-        "recovery_score": 74.436,
-        "absorption_score": 74.436,
-        "vwap_score": 70.058,
-        "persistence_score": 93.547,
-        "volume_quality_score": 65.452,
-        "last_px": 522.49,
-        "vwap": 546.7276,
-        "vwap_distance_pct": -4.4332,
-        "relative_strength_latest_pct": -1.191,
+        "relative_strength_score": 98.026,
+        "recovery_score": 78.418,
+        "absorption_score": 78.418,
+        "vwap_score": 67.801,
+        "persistence_score": 95.6,
+        "volume_quality_score": 63.946,
+        "last_px": 519.54,
+        "vwap": 546.6962,
+        "vwap_distance_pct": -4.9673,
+        "relative_strength_latest_pct": -2.0138,
         "above_vwap": false,
         "extended": true,
         "status": "NO_SIGNAL",
         "reason": "extended",
-        "stop_px": 526.93,
-        "target_px": 517.17,
+        "stop_px": 524.48,
+        "target_px": 512.63,
         "side": "SHORT",
         "market_bias": "BEAR",
         "benchmark_bear_ok": true,
@@ -6673,26 +6845,26 @@
       },
       {
         "ticker": "AAPL",
-        "timestamp": "2026-06-16T15:38:28Z",
-        "ids": 62.052,
-        "ids_velocity": 62.052,
+        "timestamp": "2026-06-16T15:40:30Z",
+        "ids": 64.32,
+        "ids_velocity": 2.268,
         "rank": 2,
-        "relative_strength_score": 63.247,
+        "relative_strength_score": 74.476,
         "recovery_score": 100.0,
         "absorption_score": 0.0,
-        "vwap_score": 77.423,
-        "persistence_score": 86.546,
-        "volume_quality_score": 59.724,
-        "last_px": 297.93,
-        "vwap": 296.3307,
-        "vwap_distance_pct": 0.5397,
-        "relative_strength_latest_pct": 0.3054,
+        "vwap_score": 77.118,
+        "persistence_score": 81.625,
+        "volume_quality_score": 59.708,
+        "last_px": 298.42,
+        "vwap": 296.3271,
+        "vwap_distance_pct": 0.7063,
+        "relative_strength_latest_pct": 0.5837,
         "above_vwap": true,
         "extended": false,
         "status": "NO_SIGNAL",
-        "reason": "IDS 62.1<=70.0",
-        "stop_px": 295.7,
-        "target_px": 300.16,
+        "reason": "IDS 64.3<=70.0",
+        "stop_px": 296.18,
+        "target_px": 300.66,
         "side": "LONG",
         "market_bias": "BULL",
         "benchmark_bear_ok": true,
@@ -6703,56 +6875,26 @@
       },
       {
         "ticker": "GOOGL",
-        "timestamp": "2026-06-16T15:38:28Z",
-        "ids": 60.438,
-        "ids_velocity": 60.438,
+        "timestamp": "2026-06-16T15:40:30Z",
+        "ids": 60.245,
+        "ids_velocity": -0.193,
         "rank": 3,
-        "relative_strength_score": 72.125,
+        "relative_strength_score": 71.933,
         "recovery_score": 93.075,
         "absorption_score": 0.0,
-        "vwap_score": 62.456,
-        "persistence_score": 91.52,
-        "volume_quality_score": 52.714,
-        "last_px": 374.725,
-        "vwap": 370.7081,
-        "vwap_distance_pct": 1.0836,
-        "relative_strength_latest_pct": 0.7613,
+        "vwap_score": 63.728,
+        "persistence_score": 91.355,
+        "volume_quality_score": 49.522,
+        "last_px": 374.68,
+        "vwap": 370.6857,
+        "vwap_distance_pct": 1.0775,
+        "relative_strength_latest_pct": 0.6272,
         "above_vwap": true,
         "extended": false,
         "status": "NO_SIGNAL",
-        "reason": "IDS 60.4<=70.0",
-        "stop_px": 371.91,
-        "target_px": 377.54,
-        "side": "LONG",
-        "market_bias": "BULL",
-        "benchmark_bear_ok": true,
-        "signal_source": "DIRECT",
-        "basket_pressure": 0.0,
-        "basket_participation": 0.0,
-        "basket_confirmation_cycles": 0
-      },
-      {
-        "ticker": "AMZN",
-        "timestamp": "2026-06-16T15:38:28Z",
-        "ids": 53.147,
-        "ids_velocity": 53.147,
-        "rank": 4,
-        "relative_strength_score": 69.465,
-        "recovery_score": 61.866,
-        "absorption_score": 0.0,
-        "vwap_score": 77.537,
-        "persistence_score": 67.001,
-        "volume_quality_score": 50.768,
-        "last_px": 248.535,
-        "vwap": 246.5138,
-        "vwap_distance_pct": 0.8199,
-        "relative_strength_latest_pct": 0.3816,
-        "above_vwap": true,
-        "extended": false,
-        "status": "NO_SIGNAL",
-        "reason": "IDS 53.1<=70.0",
-        "stop_px": 246.67,
-        "target_px": 250.4,
+        "reason": "IDS 60.2<=70.0; velocity -0.2<=0",
+        "stop_px": 371.87,
+        "target_px": 377.49,
         "side": "LONG",
         "market_bias": "BULL",
         "benchmark_bear_ok": true,
@@ -6763,86 +6905,56 @@
       },
       {
         "ticker": "NVDA",
-        "timestamp": "2026-06-16T15:38:28Z",
-        "ids": 52.337,
-        "ids_velocity": 3.169,
+        "timestamp": "2026-06-16T15:40:30Z",
+        "ids": 53.027,
+        "ids_velocity": 0.69,
+        "rank": 4,
+        "relative_strength_score": 44.411,
+        "recovery_score": 48.077,
+        "absorption_score": 48.077,
+        "vwap_score": 83.471,
+        "persistence_score": 77.819,
+        "volume_quality_score": 23.912,
+        "last_px": 209.36,
+        "vwap": 211.6288,
+        "vwap_distance_pct": -1.0721,
+        "relative_strength_latest_pct": 0.0894,
+        "above_vwap": false,
+        "extended": false,
+        "status": "NO_SIGNAL",
+        "reason": "IDS 53.0<=70.0; relative weakness <=0",
+        "stop_px": 210.93,
+        "target_px": 207.79,
+        "side": "SHORT",
+        "market_bias": "BEAR",
+        "benchmark_bear_ok": true,
+        "signal_source": "DIRECT",
+        "basket_pressure": 0.0,
+        "basket_participation": 0.0,
+        "basket_confirmation_cycles": 0
+      },
+      {
+        "ticker": "AMZN",
+        "timestamp": "2026-06-16T15:40:30Z",
+        "ids": 52.771,
+        "ids_velocity": -0.376,
         "rank": 5,
-        "relative_strength_score": 43.582,
-        "recovery_score": 46.976,
-        "absorption_score": 46.976,
-        "vwap_score": 83.567,
-        "persistence_score": 77.438,
-        "volume_quality_score": 23.721,
-        "last_px": 209.41,
-        "vwap": 211.6309,
-        "vwap_distance_pct": -1.0494,
-        "relative_strength_latest_pct": 0.1027,
-        "above_vwap": false,
-        "extended": false,
-        "status": "NO_SIGNAL",
-        "reason": "IDS 52.3<=70.0; relative weakness <=0",
-        "stop_px": 210.98,
-        "target_px": 207.84,
-        "side": "SHORT",
-        "market_bias": "BEAR",
-        "benchmark_bear_ok": true,
-        "signal_source": "DIRECT",
-        "basket_pressure": 0.0,
-        "basket_participation": 0.0,
-        "basket_confirmation_cycles": 0
-      },
-      {
-        "ticker": "MSFT",
-        "timestamp": "2026-06-16T15:38:28Z",
-        "ids": 50.33,
-        "ids_velocity": 0.014,
-        "rank": 6,
-        "relative_strength_score": 40.145,
-        "recovery_score": 49.965,
-        "absorption_score": 49.965,
-        "vwap_score": 84.646,
-        "persistence_score": 54.244,
-        "volume_quality_score": 21.861,
-        "last_px": 393.36,
-        "vwap": 398.2371,
-        "vwap_distance_pct": -1.2247,
-        "relative_strength_latest_pct": 0.1577,
-        "above_vwap": false,
-        "extended": false,
-        "status": "NO_SIGNAL",
-        "reason": "IDS 50.3<=70.0; relative weakness <=0",
-        "stop_px": 396.31,
-        "target_px": 390.41,
-        "side": "SHORT",
-        "market_bias": "BEAR",
-        "benchmark_bear_ok": true,
-        "signal_source": "DIRECT",
-        "basket_pressure": 0.0,
-        "basket_participation": 0.0,
-        "basket_confirmation_cycles": 0
-      },
-      {
-        "ticker": "META",
-        "timestamp": "2026-06-16T15:38:28Z",
-        "ids": 48.305,
-        "ids_velocity": 48.305,
-        "rank": 7,
-        "relative_strength_score": 54.55,
-        "recovery_score": 61.241,
+        "relative_strength_score": 70.396,
+        "recovery_score": 63.169,
         "absorption_score": 0.0,
-        "vwap_score": 71.931,
-        "persistence_score": 66.452,
-        "volume_quality_score": 49.846,
-        "last_px": 596.18,
-        "vwap": 595.3361,
-        "vwap_distance_pct": 0.1418,
-        "relative_strength_latest_pct": 0.0728,
+        "vwap_score": 77.94,
+        "persistence_score": 58.979,
+        "volume_quality_score": 49.494,
+        "last_px": 248.63,
+        "vwap": 246.5177,
+        "vwap_distance_pct": 0.8569,
+        "relative_strength_latest_pct": 0.3812,
         "above_vwap": true,
         "extended": false,
         "status": "NO_SIGNAL",
-        "reason": "IDS 48.3<=70.0",
-        "stop_px": 591.71,
-        "target_px": 600.65,
+        "reason": "IDS 52.8<=70.0; velocity -0.4<=0",
+        "stop_px": 246.77,
+        "target_px": 250.49,
         "side": "LONG",
         "market_bias": "BULL",
         "benchmark_bear_ok": true,
@@ -6853,26 +6965,86 @@
       },
       {
         "ticker": "TSLA",
-        "timestamp": "2026-06-16T15:38:28Z",
-        "ids": 45.939,
-        "ids_velocity": 1.014,
-        "rank": 8,
-        "relative_strength_score": 32.93,
-        "recovery_score": 49.148,
-        "absorption_score": 49.148,
-        "vwap_score": 81.711,
-        "persistence_score": 37.813,
-        "volume_quality_score": 20.095,
-        "last_px": 406.4,
-        "vwap": 409.7635,
-        "vwap_distance_pct": -0.8208,
-        "relative_strength_latest_pct": 0.4033,
+        "timestamp": "2026-06-16T15:40:30Z",
+        "ids": 50.346,
+        "ids_velocity": 4.407,
+        "rank": 6,
+        "relative_strength_score": 48.324,
+        "recovery_score": 52.771,
+        "absorption_score": 52.771,
+        "vwap_score": 80.938,
+        "persistence_score": 30.473,
+        "volume_quality_score": 19.683,
+        "last_px": 405.83,
+        "vwap": 409.7621,
+        "vwap_distance_pct": -0.9596,
+        "relative_strength_latest_pct": 0.0268,
         "above_vwap": false,
         "extended": false,
         "status": "NO_SIGNAL",
-        "reason": "IDS 45.9<=70.0; relative weakness <=0",
-        "stop_px": 409.45,
-        "target_px": 403.35,
+        "reason": "IDS 50.3<=70.0; relative weakness <=0",
+        "stop_px": 408.87,
+        "target_px": 402.79,
+        "side": "SHORT",
+        "market_bias": "BEAR",
+        "benchmark_bear_ok": true,
+        "signal_source": "DIRECT",
+        "basket_pressure": 0.0,
+        "basket_participation": 0.0,
+        "basket_confirmation_cycles": 0
+      },
+      {
+        "ticker": "META",
+        "timestamp": "2026-06-16T15:40:30Z",
+        "ids": 48.602,
+        "ids_velocity": 0.297,
+        "rank": 7,
+        "relative_strength_score": 54.892,
+        "recovery_score": 61.241,
+        "absorption_score": 0.0,
+        "vwap_score": 72.708,
+        "persistence_score": 66.938,
+        "volume_quality_score": 50.304,
+        "last_px": 596.315,
+        "vwap": 595.3059,
+        "vwap_distance_pct": 0.1695,
+        "relative_strength_latest_pct": 0.0783,
+        "above_vwap": true,
+        "extended": false,
+        "status": "NO_SIGNAL",
+        "reason": "IDS 48.6<=70.0",
+        "stop_px": 591.84,
+        "target_px": 600.79,
+        "side": "LONG",
+        "market_bias": "BULL",
+        "benchmark_bear_ok": true,
+        "signal_source": "DIRECT",
+        "basket_pressure": 0.0,
+        "basket_participation": 0.0,
+        "basket_confirmation_cycles": 0
+      },
+      {
+        "ticker": "MSFT",
+        "timestamp": "2026-06-16T15:40:30Z",
+        "ids": 47.59,
+        "ids_velocity": -2.74,
+        "rank": 8,
+        "relative_strength_score": 33.931,
+        "recovery_score": 46.816,
+        "absorption_score": 46.816,
+        "vwap_score": 86.05,
+        "persistence_score": 52.723,
+        "volume_quality_score": 22.014,
+        "last_px": 393.835,
+        "vwap": 398.2066,
+        "vwap_distance_pct": -1.0978,
+        "relative_strength_latest_pct": 0.2571,
+        "above_vwap": false,
+        "extended": false,
+        "status": "NO_SIGNAL",
+        "reason": "IDS 47.6<=70.0; velocity -2.7<=0; relative weakness <=0",
+        "stop_px": 396.79,
+        "target_px": 390.88,
         "side": "SHORT",
         "market_bias": "BEAR",
         "benchmark_bear_ok": true,
@@ -6883,31 +7055,31 @@
       },
       {
         "ticker": "QQQ",
-        "timestamp": "2026-06-16T15:38:28Z",
+        "timestamp": "2026-06-16T15:40:30Z",
         "ids": 70.0,
         "ids_velocity": 0.0,
         "rank": 9,
-        "relative_strength_score": 73.488,
+        "relative_strength_score": 76.462,
         "recovery_score": 41.76,
-        "absorption_score": 4.16,
-        "vwap_score": 80.986,
-        "persistence_score": 92.157,
-        "volume_quality_score": 26.968,
-        "last_px": 735.34,
-        "vwap": 743.2556,
-        "vwap_distance_pct": -1.065,
-        "relative_strength_latest_pct": -0.3758,
+        "absorption_score": 4.07,
+        "vwap_score": 80.682,
+        "persistence_score": 93.543,
+        "volume_quality_score": 28.121,
+        "last_px": 734.91,
+        "vwap": 743.2517,
+        "vwap_distance_pct": -1.1223,
+        "relative_strength_latest_pct": -0.4234,
         "above_vwap": false,
         "extended": false,
         "status": "NO_SIGNAL",
         "reason": "APM_BASKET_PROXY_QQQ blocked: pressure 0.04<0.65; participation 0.42<0.65; confirm cycles 0<2; QQQ direct side SHORT!=basket LONG; QQQ below VWAP",
-        "stop_px": 734.24,
-        "target_px": 737.18,
+        "stop_px": 733.81,
+        "target_px": 736.75,
         "side": "LONG",
         "market_bias": "BULL",
         "benchmark_bear_ok": true,
         "signal_source": "BASKET_PROXY_QQQ",
-        "basket_pressure": 0.0416,
+        "basket_pressure": 0.0407,
         "basket_participation": 0.4176,
         "basket_confirmation_cycles": 0
       }
@@ -6915,12 +7087,12 @@
   },
   "strategy_lanes": [
     "APM_LARGE_NEW_INTRADAY",
+    "AEGIS_LARGE_INTRADAY",
     "APM_LARGE_SWING",
-    "AEGIS_LARGE_SWING",
-    "AEGIS_LARGE_INTRADAY"
+    "AEGIS_LARGE_SWING"
   ],
-  "published_at_utc": "2026-06-16T15:39:22Z",
-  "source_updated_at_max": "2026-06-16T08:39:16.894307",
+  "published_at_utc": "2026-06-16T15:40:41Z",
+  "source_updated_at_max": "2026-06-16T08:40:38.497034",
   "broker_accounts": {
     "new_intraday": {
       "label": "Tech Basket + QQQ APM Intraday",
@@ -6931,18 +7103,29 @@
       "inception_equity": 2500.0,
       "ytd_start_equity": 2500.0,
       "since_inception_pnl_dollars": 13.72,
-      "asof": "2026-06-16T08:39:14"
+      "asof": "2026-06-16T08:40:35"
+    },
+    "intraday": {
+      "label": "SPY + AEGIS Intraday",
+      "profile": "LARGE_INTRADAY",
+      "public_reset_start": "2026-06-16T13:30:00Z",
+      "equity": 2513.64,
+      "buying_power": null,
+      "inception_equity": 2500.0,
+      "ytd_start_equity": 2500.0,
+      "since_inception_pnl_dollars": 13.64,
+      "asof": "2026-06-16T08:40:17"
     },
     "apm_swing": {
       "label": "Tech Basket + APM Swing",
       "profile": "APM_LARGE_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 13506.64,
-      "buying_power": 12412.35,
+      "equity": 13505.17,
+      "buying_power": 12410.88,
       "inception_equity": 13750.0,
       "ytd_start_equity": 13750.0,
-      "since_inception_pnl_dollars": -243.36,
-      "asof": "2026-06-16T15:39:10Z"
+      "since_inception_pnl_dollars": -244.83,
+      "asof": "2026-06-16T15:39:57Z"
     },
     "swing": {
       "label": "Mixed Basket + AEGIS Swing",
@@ -6954,17 +7137,6 @@
       "ytd_start_equity": 13750.0,
       "since_inception_pnl_dollars": 0.0,
       "asof": "2026-06-16T08:38:57"
-    },
-    "intraday": {
-      "label": "SPY + AEGIS Intraday",
-      "profile": "LARGE_INTRADAY",
-      "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 2513.32,
-      "buying_power": null,
-      "inception_equity": 2500.0,
-      "ytd_start_equity": 2500.0,
-      "since_inception_pnl_dollars": 13.32,
-      "asof": "2026-06-16T08:38:16"
     }
   },
   "account_views": {
@@ -6981,7 +7153,7 @@
         "inception_equity": 2500.0,
         "ytd_start_equity": 2500.0,
         "since_inception_pnl_dollars": 13.72,
-        "asof": "2026-06-16T08:39:14"
+        "asof": "2026-06-16T08:40:35"
       },
       "performance": {
         "closed_trades_count": 4,
@@ -7005,11 +7177,11 @@
         "open_short_count": 1,
         "signals_ready_count": 0,
         "recent_trades_count": 4,
-        "avg_open_r_multiple": 0.051,
+        "avg_open_r_multiple": 0.0,
         "twelve_data_ema9_called": false,
         "twelve_data_macd_called": false,
         "apm_signals_ready": 0,
-        "apm_top_ids": 75.966
+        "apm_top_ids": 81.998
       },
       "positioning": {
         "long_short_ratio": 0.0,
@@ -7162,35 +7334,1313 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-06-16T08:39:14",
+          "ts_utc": "2026-06-16T08:40:35",
           "broker_account": "Tech Basket + QQQ APM Intraday",
           "broker_profile": "LARGE_NEW_INTRADAY",
           "symbol": "SPY",
           "side": "SHORT",
           "qty": 2.0,
           "entry_px": 753.1,
-          "exit_px": 752.775,
-          "current_px": 752.775,
-          "R_realized": 0.051,
-          "pnl_pct": 0.04315495950073635,
+          "exit_px": 752.78,
+          "current_px": 752.78,
+          "R_realized": 0.0,
+          "pnl_pct": 0.042491037046879565,
           "entry_model": "Day Trade"
         }
       ],
       "equity_curve": [
         {
-          "ts": "2026-06-16T15:39:14+00:00",
+          "ts": "2026-06-16T15:40:35+00:00",
           "equity": 2513.72,
           "drawdown_pct": 0.0
         }
       ],
       "drawdown_curve": [
         {
-          "ts": "2026-06-16T15:39:14+00:00",
+          "ts": "2026-06-16T15:40:35+00:00",
           "drawdown_pct": 0.0
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-16T08:39:16.894307",
+      "updated_at": "2026-06-16T08:40:38.497034",
+      "published_at_utc": null
+    },
+    "intraday": {
+      "label": "SPY + AEGIS Intraday",
+      "profile": "LARGE_INTRADAY",
+      "public_reset_start": "2026-06-16T13:30:00Z",
+      "account": {
+        "label": "SPY + AEGIS Intraday",
+        "profile": "LARGE_INTRADAY",
+        "public_reset_start": "2026-06-16T13:30:00Z",
+        "equity": 2513.64,
+        "buying_power": null,
+        "inception_equity": 2500.0,
+        "ytd_start_equity": 2500.0,
+        "since_inception_pnl_dollars": 13.64,
+        "asof": "2026-06-16T08:40:17"
+      },
+      "performance": {
+        "closed_trades_count": 4,
+        "win_rate_pct": 50.0,
+        "avg_r": 0.168,
+        "expectancy_r": 0.168,
+        "median_r": 0.08,
+        "best_trade_r": 1.067,
+        "worst_trade_r": -0.556,
+        "last_20_win_rate_pct": 50.0,
+        "sharpe_like": 0.284,
+        "sortino_ratio": 0.422,
+        "profit_factor_r": 2.668,
+        "gross_profit_r": 20.92,
+        "gross_loss_r": 7.84,
+        "max_drawdown_pct_est": 0.512
+      },
+      "summary": {
+        "open_positions_count": 1,
+        "open_long_count": 0,
+        "open_short_count": 1,
+        "signals_ready_count": 8,
+        "recent_trades_count": 4,
+        "avg_open_r_multiple": 0.23,
+        "twelve_data_ema9_called": false,
+        "twelve_data_macd_called": true,
+        "apm_signals_ready": 0,
+        "apm_top_ids": null
+      },
+      "positioning": {
+        "long_short_ratio": 0.0,
+        "long_pct": 0.0,
+        "short_pct": 100.0
+      },
+      "trade_history": [
+        {
+          "ts_utc": "2026-06-16T14:23:11Z",
+          "event": "EXIT",
+          "symbol": "AMD",
+          "side": "SHORT",
+          "qty": 3.0,
+          "entry_date": "2026-06-16",
+          "entry_px": 535.4,
+          "exit_date": "2026-06-16",
+          "exit_px": 529.686667,
+          "R_realized": "",
+          "pnl_pct": 1.067115,
+          "reason": "BROKER_FIFO",
+          "entry_model": "Day Trade",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY"
+        },
+        {
+          "ts_utc": "2026-06-16T14:30:16Z",
+          "event": "EXIT",
+          "symbol": "SPY",
+          "side": "SHORT",
+          "qty": 2.0,
+          "entry_date": "2026-06-16",
+          "entry_px": 754.76,
+          "exit_date": "2026-06-16",
+          "exit_px": 752.87,
+          "R_realized": "",
+          "pnl_pct": 0.250411,
+          "reason": "BROKER_FIFO",
+          "entry_model": "Day Trade",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY"
+        },
+        {
+          "ts_utc": "2026-06-16T14:34:41Z",
+          "event": "EXIT",
+          "symbol": "NVDA",
+          "side": "SHORT",
+          "qty": 6.0,
+          "entry_date": "2026-06-16",
+          "entry_px": 208.703333,
+          "exit_date": "2026-06-16",
+          "exit_px": 208.89,
+          "R_realized": "",
+          "pnl_pct": -0.089441,
+          "reason": "BROKER_FIFO",
+          "entry_model": "Day Trade",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY"
+        },
+        {
+          "ts_utc": "2026-06-16T14:42:49Z",
+          "event": "EXIT",
+          "symbol": "TSLA",
+          "side": "SHORT",
+          "qty": 3.0,
+          "entry_date": "2026-06-16",
+          "entry_px": 403.14,
+          "exit_date": "2026-06-16",
+          "exit_px": 405.38,
+          "R_realized": "",
+          "pnl_pct": -0.555638,
+          "reason": "BROKER_FIFO",
+          "entry_model": "Day Trade",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY"
+        }
+      ],
+      "recent_executions": [
+        {
+          "ts_utc": "2026-06-16T14:23:11Z",
+          "event": "EXIT",
+          "symbol": "AMD",
+          "side": "SHORT",
+          "qty": 3.0,
+          "entry_date": "2026-06-16",
+          "entry_px": 535.4,
+          "exit_date": "2026-06-16",
+          "exit_px": 529.686667,
+          "R_realized": "",
+          "pnl_pct": 1.067115,
+          "reason": "BROKER_FIFO",
+          "entry_model": "Day Trade",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY",
+          "status": "CLOSED"
+        },
+        {
+          "ts_utc": "2026-06-16T14:30:16Z",
+          "event": "EXIT",
+          "symbol": "SPY",
+          "side": "SHORT",
+          "qty": 2.0,
+          "entry_date": "2026-06-16",
+          "entry_px": 754.76,
+          "exit_date": "2026-06-16",
+          "exit_px": 752.87,
+          "R_realized": "",
+          "pnl_pct": 0.250411,
+          "reason": "BROKER_FIFO",
+          "entry_model": "Day Trade",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY",
+          "status": "CLOSED"
+        },
+        {
+          "ts_utc": "2026-06-16T14:34:41Z",
+          "event": "EXIT",
+          "symbol": "NVDA",
+          "side": "SHORT",
+          "qty": 6.0,
+          "entry_date": "2026-06-16",
+          "entry_px": 208.703333,
+          "exit_date": "2026-06-16",
+          "exit_px": 208.89,
+          "R_realized": "",
+          "pnl_pct": -0.089441,
+          "reason": "BROKER_FIFO",
+          "entry_model": "Day Trade",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY",
+          "status": "CLOSED"
+        },
+        {
+          "ts_utc": "2026-06-16T14:42:49Z",
+          "event": "EXIT",
+          "symbol": "TSLA",
+          "side": "SHORT",
+          "qty": 3.0,
+          "entry_date": "2026-06-16",
+          "entry_px": 403.14,
+          "exit_date": "2026-06-16",
+          "exit_px": 405.38,
+          "R_realized": "",
+          "pnl_pct": -0.555638,
+          "reason": "BROKER_FIFO",
+          "entry_model": "Day Trade",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY",
+          "status": "CLOSED"
+        }
+      ],
+      "open_positions_live": [
+        {
+          "ts_utc": "2026-06-16T08:40:17",
+          "broker_account": "SPY + AEGIS Intraday",
+          "broker_profile": "LARGE_INTRADAY",
+          "symbol": "SPY",
+          "side": "SHORT",
+          "qty": 2.0,
+          "entry_px": 753.1,
+          "exit_px": 752.8,
+          "current_px": 752.8,
+          "R_realized": 0.23,
+          "pnl_pct": 0.03983534723145243,
+          "entry_model": "Day Trade"
+        }
+      ],
+      "equity_curve": [
+        {
+          "ts": "2026-06-16T13:30:08+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:30:14+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:32:11+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:32:16+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:34:06+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:34:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:36:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:36:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:38:06+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:38:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:40:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:40:13+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:42:06+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:42:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:44:06+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:44:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:46:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:46:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:48:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:48:13+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:50:06+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:50:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:52:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:52:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:54:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:54:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:56:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:56:13+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:58:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:58:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:00:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:00:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:02:51+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:02:56+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:04:35+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:04:41+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:06:35+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:06:41+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:08:20+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:08:25+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:10:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:10:12+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:12:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:12:13+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:14:07+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:14:13+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:16:10+00:00",
+          "equity": 2499.94,
+          "drawdown_pct": -0.0024
+        },
+        {
+          "ts": "2026-06-16T14:16:15+00:00",
+          "equity": 2500.0,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:18:07+00:00",
+          "equity": 2504.45,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:18:13+00:00",
+          "equity": 2503.31,
+          "drawdown_pct": -0.0455
+        },
+        {
+          "ts": "2026-06-16T14:20:07+00:00",
+          "equity": 2511.41,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:20:13+00:00",
+          "equity": 2511.92,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:22:07+00:00",
+          "equity": 2514.07,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:22:13+00:00",
+          "equity": 2515.72,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:24:07+00:00",
+          "equity": 2519.94,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:24:12+00:00",
+          "equity": 2520.26,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:26:07+00:00",
+          "equity": 2515.28,
+          "drawdown_pct": -0.1976
+        },
+        {
+          "ts": "2026-06-16T14:26:12+00:00",
+          "equity": 2514.48,
+          "drawdown_pct": -0.2293
+        },
+        {
+          "ts": "2026-06-16T14:28:07+00:00",
+          "equity": 2518.2,
+          "drawdown_pct": -0.0817
+        },
+        {
+          "ts": "2026-06-16T14:28:13+00:00",
+          "equity": 2517.4,
+          "drawdown_pct": -0.1135
+        },
+        {
+          "ts": "2026-06-16T14:30:08+00:00",
+          "equity": 2518.78,
+          "drawdown_pct": -0.0587
+        },
+        {
+          "ts": "2026-06-16T14:30:14+00:00",
+          "equity": 2519.5,
+          "drawdown_pct": -0.0302
+        },
+        {
+          "ts": "2026-06-16T14:32:07+00:00",
+          "equity": 2524.97,
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:32:13+00:00",
+          "equity": 2524.47,
+          "drawdown_pct": -0.0198
+        },
+        {
+          "ts": "2026-06-16T14:34:07+00:00",
+          "equity": 2523.07,
+          "drawdown_pct": -0.0752
+        },
+        {
+          "ts": "2026-06-16T14:34:13+00:00",
+          "equity": 2523.19,
+          "drawdown_pct": -0.0705
+        },
+        {
+          "ts": "2026-06-16T14:36:08+00:00",
+          "equity": 2522.98,
+          "drawdown_pct": -0.0788
+        },
+        {
+          "ts": "2026-06-16T14:36:14+00:00",
+          "equity": 2521.9,
+          "drawdown_pct": -0.1216
+        },
+        {
+          "ts": "2026-06-16T14:38:07+00:00",
+          "equity": 2521.25,
+          "drawdown_pct": -0.1473
+        },
+        {
+          "ts": "2026-06-16T14:38:13+00:00",
+          "equity": 2520.87,
+          "drawdown_pct": -0.1624
+        },
+        {
+          "ts": "2026-06-16T14:40:07+00:00",
+          "equity": 2520.88,
+          "drawdown_pct": -0.162
+        },
+        {
+          "ts": "2026-06-16T14:40:13+00:00",
+          "equity": 2519.86,
+          "drawdown_pct": -0.2024
+        },
+        {
+          "ts": "2026-06-16T14:42:07+00:00",
+          "equity": 2514.51,
+          "drawdown_pct": -0.4143
+        },
+        {
+          "ts": "2026-06-16T14:42:14+00:00",
+          "equity": 2514.81,
+          "drawdown_pct": -0.4024
+        },
+        {
+          "ts": "2026-06-16T14:44:06+00:00",
+          "equity": 2512.04,
+          "drawdown_pct": -0.5121
+        },
+        {
+          "ts": "2026-06-16T14:44:12+00:00",
+          "equity": 2512.22,
+          "drawdown_pct": -0.505
+        },
+        {
+          "ts": "2026-06-16T14:46:07+00:00",
+          "equity": 2512.93,
+          "drawdown_pct": -0.4768
+        },
+        {
+          "ts": "2026-06-16T14:46:13+00:00",
+          "equity": 2512.74,
+          "drawdown_pct": -0.4844
+        },
+        {
+          "ts": "2026-06-16T14:48:07+00:00",
+          "equity": 2513.12,
+          "drawdown_pct": -0.4693
+        },
+        {
+          "ts": "2026-06-16T14:48:13+00:00",
+          "equity": 2513.08,
+          "drawdown_pct": -0.4709
+        },
+        {
+          "ts": "2026-06-16T14:50:07+00:00",
+          "equity": 2512.95,
+          "drawdown_pct": -0.476
+        },
+        {
+          "ts": "2026-06-16T14:50:13+00:00",
+          "equity": 2512.6,
+          "drawdown_pct": -0.4899
+        },
+        {
+          "ts": "2026-06-16T14:52:07+00:00",
+          "equity": 2512.6,
+          "drawdown_pct": -0.4899
+        },
+        {
+          "ts": "2026-06-16T14:52:12+00:00",
+          "equity": 2512.6,
+          "drawdown_pct": -0.4899
+        },
+        {
+          "ts": "2026-06-16T14:54:07+00:00",
+          "equity": 2512.7,
+          "drawdown_pct": -0.4859
+        },
+        {
+          "ts": "2026-06-16T14:54:12+00:00",
+          "equity": 2512.9,
+          "drawdown_pct": -0.478
+        },
+        {
+          "ts": "2026-06-16T14:56:07+00:00",
+          "equity": 2513.02,
+          "drawdown_pct": -0.4733
+        },
+        {
+          "ts": "2026-06-16T14:56:13+00:00",
+          "equity": 2512.86,
+          "drawdown_pct": -0.4796
+        },
+        {
+          "ts": "2026-06-16T14:58:07+00:00",
+          "equity": 2512.86,
+          "drawdown_pct": -0.4796
+        },
+        {
+          "ts": "2026-06-16T14:58:12+00:00",
+          "equity": 2513.11,
+          "drawdown_pct": -0.4697
+        },
+        {
+          "ts": "2026-06-16T15:00:08+00:00",
+          "equity": 2513.22,
+          "drawdown_pct": -0.4654
+        },
+        {
+          "ts": "2026-06-16T15:00:14+00:00",
+          "equity": 2513.2,
+          "drawdown_pct": -0.4661
+        },
+        {
+          "ts": "2026-06-16T15:02:07+00:00",
+          "equity": 2513.14,
+          "drawdown_pct": -0.4685
+        },
+        {
+          "ts": "2026-06-16T15:02:13+00:00",
+          "equity": 2513.18,
+          "drawdown_pct": -0.4669
+        },
+        {
+          "ts": "2026-06-16T15:04:06+00:00",
+          "equity": 2512.61,
+          "drawdown_pct": -0.4895
+        },
+        {
+          "ts": "2026-06-16T15:04:13+00:00",
+          "equity": 2512.7,
+          "drawdown_pct": -0.4859
+        },
+        {
+          "ts": "2026-06-16T15:06:07+00:00",
+          "equity": 2512.2,
+          "drawdown_pct": -0.5057
+        },
+        {
+          "ts": "2026-06-16T15:06:13+00:00",
+          "equity": 2512.3,
+          "drawdown_pct": -0.5018
+        },
+        {
+          "ts": "2026-06-16T15:08:07+00:00",
+          "equity": 2512.6,
+          "drawdown_pct": -0.4899
+        },
+        {
+          "ts": "2026-06-16T15:08:14+00:00",
+          "equity": 2512.68,
+          "drawdown_pct": -0.4867
+        },
+        {
+          "ts": "2026-06-16T15:10:07+00:00",
+          "equity": 2512.52,
+          "drawdown_pct": -0.4931
+        },
+        {
+          "ts": "2026-06-16T15:10:13+00:00",
+          "equity": 2512.44,
+          "drawdown_pct": -0.4962
+        },
+        {
+          "ts": "2026-06-16T15:12:07+00:00",
+          "equity": 2512.52,
+          "drawdown_pct": -0.4931
+        },
+        {
+          "ts": "2026-06-16T15:12:12+00:00",
+          "equity": 2512.79,
+          "drawdown_pct": -0.4824
+        },
+        {
+          "ts": "2026-06-16T15:14:07+00:00",
+          "equity": 2512.67,
+          "drawdown_pct": -0.4871
+        },
+        {
+          "ts": "2026-06-16T15:14:13+00:00",
+          "equity": 2512.64,
+          "drawdown_pct": -0.4883
+        },
+        {
+          "ts": "2026-06-16T15:16:07+00:00",
+          "equity": 2512.18,
+          "drawdown_pct": -0.5065
+        },
+        {
+          "ts": "2026-06-16T15:16:13+00:00",
+          "equity": 2512.24,
+          "drawdown_pct": -0.5042
+        },
+        {
+          "ts": "2026-06-16T15:32:07+00:00",
+          "equity": 2513.74,
+          "drawdown_pct": -0.4448
+        },
+        {
+          "ts": "2026-06-16T15:32:13+00:00",
+          "equity": 2513.71,
+          "drawdown_pct": -0.4459
+        },
+        {
+          "ts": "2026-06-16T15:34:06+00:00",
+          "equity": 2512.94,
+          "drawdown_pct": -0.4764
+        },
+        {
+          "ts": "2026-06-16T15:34:12+00:00",
+          "equity": 2512.98,
+          "drawdown_pct": -0.4749
+        },
+        {
+          "ts": "2026-06-16T15:36:07+00:00",
+          "equity": 2512.82,
+          "drawdown_pct": -0.4812
+        },
+        {
+          "ts": "2026-06-16T15:36:12+00:00",
+          "equity": 2512.78,
+          "drawdown_pct": -0.4828
+        },
+        {
+          "ts": "2026-06-16T15:38:07+00:00",
+          "equity": 2513.34,
+          "drawdown_pct": -0.4606
+        },
+        {
+          "ts": "2026-06-16T15:38:12+00:00",
+          "equity": 2513.36,
+          "drawdown_pct": -0.4598
+        },
+        {
+          "ts": "2026-06-16T15:40:07+00:00",
+          "equity": 2513.64,
+          "drawdown_pct": -0.4487
+        },
+        {
+          "ts": "2026-06-16T15:40:13+00:00",
+          "equity": 2513.62,
+          "drawdown_pct": -0.4495
+        }
+      ],
+      "drawdown_curve": [
+        {
+          "ts": "2026-06-16T13:30:08+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:30:14+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:32:11+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:32:16+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:34:06+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:34:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:36:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:36:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:38:06+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:38:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:40:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:40:13+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:42:06+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:42:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:44:06+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:44:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:46:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:46:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:48:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:48:13+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:50:06+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:50:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:52:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:52:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:54:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:54:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:56:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:56:13+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:58:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T13:58:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:00:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:00:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:02:51+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:02:56+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:04:35+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:04:41+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:06:35+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:06:41+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:08:20+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:08:25+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:10:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:10:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:12:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:12:13+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:14:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:14:13+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:16:10+00:00",
+          "drawdown_pct": -0.0024
+        },
+        {
+          "ts": "2026-06-16T14:16:15+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:18:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:18:13+00:00",
+          "drawdown_pct": -0.0455
+        },
+        {
+          "ts": "2026-06-16T14:20:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:20:13+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:22:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:22:13+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:24:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:24:12+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:26:07+00:00",
+          "drawdown_pct": -0.1976
+        },
+        {
+          "ts": "2026-06-16T14:26:12+00:00",
+          "drawdown_pct": -0.2293
+        },
+        {
+          "ts": "2026-06-16T14:28:07+00:00",
+          "drawdown_pct": -0.0817
+        },
+        {
+          "ts": "2026-06-16T14:28:13+00:00",
+          "drawdown_pct": -0.1135
+        },
+        {
+          "ts": "2026-06-16T14:30:08+00:00",
+          "drawdown_pct": -0.0587
+        },
+        {
+          "ts": "2026-06-16T14:30:14+00:00",
+          "drawdown_pct": -0.0302
+        },
+        {
+          "ts": "2026-06-16T14:32:07+00:00",
+          "drawdown_pct": 0.0
+        },
+        {
+          "ts": "2026-06-16T14:32:13+00:00",
+          "drawdown_pct": -0.0198
+        },
+        {
+          "ts": "2026-06-16T14:34:07+00:00",
+          "drawdown_pct": -0.0752
+        },
+        {
+          "ts": "2026-06-16T14:34:13+00:00",
+          "drawdown_pct": -0.0705
+        },
+        {
+          "ts": "2026-06-16T14:36:08+00:00",
+          "drawdown_pct": -0.0788
+        },
+        {
+          "ts": "2026-06-16T14:36:14+00:00",
+          "drawdown_pct": -0.1216
+        },
+        {
+          "ts": "2026-06-16T14:38:07+00:00",
+          "drawdown_pct": -0.1473
+        },
+        {
+          "ts": "2026-06-16T14:38:13+00:00",
+          "drawdown_pct": -0.1624
+        },
+        {
+          "ts": "2026-06-16T14:40:07+00:00",
+          "drawdown_pct": -0.162
+        },
+        {
+          "ts": "2026-06-16T14:40:13+00:00",
+          "drawdown_pct": -0.2024
+        },
+        {
+          "ts": "2026-06-16T14:42:07+00:00",
+          "drawdown_pct": -0.4143
+        },
+        {
+          "ts": "2026-06-16T14:42:14+00:00",
+          "drawdown_pct": -0.4024
+        },
+        {
+          "ts": "2026-06-16T14:44:06+00:00",
+          "drawdown_pct": -0.5121
+        },
+        {
+          "ts": "2026-06-16T14:44:12+00:00",
+          "drawdown_pct": -0.505
+        },
+        {
+          "ts": "2026-06-16T14:46:07+00:00",
+          "drawdown_pct": -0.4768
+        },
+        {
+          "ts": "2026-06-16T14:46:13+00:00",
+          "drawdown_pct": -0.4844
+        },
+        {
+          "ts": "2026-06-16T14:48:07+00:00",
+          "drawdown_pct": -0.4693
+        },
+        {
+          "ts": "2026-06-16T14:48:13+00:00",
+          "drawdown_pct": -0.4709
+        },
+        {
+          "ts": "2026-06-16T14:50:07+00:00",
+          "drawdown_pct": -0.476
+        },
+        {
+          "ts": "2026-06-16T14:50:13+00:00",
+          "drawdown_pct": -0.4899
+        },
+        {
+          "ts": "2026-06-16T14:52:07+00:00",
+          "drawdown_pct": -0.4899
+        },
+        {
+          "ts": "2026-06-16T14:52:12+00:00",
+          "drawdown_pct": -0.4899
+        },
+        {
+          "ts": "2026-06-16T14:54:07+00:00",
+          "drawdown_pct": -0.4859
+        },
+        {
+          "ts": "2026-06-16T14:54:12+00:00",
+          "drawdown_pct": -0.478
+        },
+        {
+          "ts": "2026-06-16T14:56:07+00:00",
+          "drawdown_pct": -0.4733
+        },
+        {
+          "ts": "2026-06-16T14:56:13+00:00",
+          "drawdown_pct": -0.4796
+        },
+        {
+          "ts": "2026-06-16T14:58:07+00:00",
+          "drawdown_pct": -0.4796
+        },
+        {
+          "ts": "2026-06-16T14:58:12+00:00",
+          "drawdown_pct": -0.4697
+        },
+        {
+          "ts": "2026-06-16T15:00:08+00:00",
+          "drawdown_pct": -0.4654
+        },
+        {
+          "ts": "2026-06-16T15:00:14+00:00",
+          "drawdown_pct": -0.4661
+        },
+        {
+          "ts": "2026-06-16T15:02:07+00:00",
+          "drawdown_pct": -0.4685
+        },
+        {
+          "ts": "2026-06-16T15:02:13+00:00",
+          "drawdown_pct": -0.4669
+        },
+        {
+          "ts": "2026-06-16T15:04:06+00:00",
+          "drawdown_pct": -0.4895
+        },
+        {
+          "ts": "2026-06-16T15:04:13+00:00",
+          "drawdown_pct": -0.4859
+        },
+        {
+          "ts": "2026-06-16T15:06:07+00:00",
+          "drawdown_pct": -0.5057
+        },
+        {
+          "ts": "2026-06-16T15:06:13+00:00",
+          "drawdown_pct": -0.5018
+        },
+        {
+          "ts": "2026-06-16T15:08:07+00:00",
+          "drawdown_pct": -0.4899
+        },
+        {
+          "ts": "2026-06-16T15:08:14+00:00",
+          "drawdown_pct": -0.4867
+        },
+        {
+          "ts": "2026-06-16T15:10:07+00:00",
+          "drawdown_pct": -0.4931
+        },
+        {
+          "ts": "2026-06-16T15:10:13+00:00",
+          "drawdown_pct": -0.4962
+        },
+        {
+          "ts": "2026-06-16T15:12:07+00:00",
+          "drawdown_pct": -0.4931
+        },
+        {
+          "ts": "2026-06-16T15:12:12+00:00",
+          "drawdown_pct": -0.4824
+        },
+        {
+          "ts": "2026-06-16T15:14:07+00:00",
+          "drawdown_pct": -0.4871
+        },
+        {
+          "ts": "2026-06-16T15:14:13+00:00",
+          "drawdown_pct": -0.4883
+        },
+        {
+          "ts": "2026-06-16T15:16:07+00:00",
+          "drawdown_pct": -0.5065
+        },
+        {
+          "ts": "2026-06-16T15:16:13+00:00",
+          "drawdown_pct": -0.5042
+        },
+        {
+          "ts": "2026-06-16T15:32:07+00:00",
+          "drawdown_pct": -0.4448
+        },
+        {
+          "ts": "2026-06-16T15:32:13+00:00",
+          "drawdown_pct": -0.4459
+        },
+        {
+          "ts": "2026-06-16T15:34:06+00:00",
+          "drawdown_pct": -0.4764
+        },
+        {
+          "ts": "2026-06-16T15:34:12+00:00",
+          "drawdown_pct": -0.4749
+        },
+        {
+          "ts": "2026-06-16T15:36:07+00:00",
+          "drawdown_pct": -0.4812
+        },
+        {
+          "ts": "2026-06-16T15:36:12+00:00",
+          "drawdown_pct": -0.4828
+        },
+        {
+          "ts": "2026-06-16T15:38:07+00:00",
+          "drawdown_pct": -0.4606
+        },
+        {
+          "ts": "2026-06-16T15:38:12+00:00",
+          "drawdown_pct": -0.4598
+        },
+        {
+          "ts": "2026-06-16T15:40:07+00:00",
+          "drawdown_pct": -0.4487
+        },
+        {
+          "ts": "2026-06-16T15:40:13+00:00",
+          "drawdown_pct": -0.4495
+        }
+      ],
+      "monthly_performance": [],
+      "updated_at": "2026-06-16T08:40:27.624410",
       "published_at_utc": null
     },
     "apm_swing": {
@@ -7201,12 +8651,12 @@
         "label": "Tech Basket + APM Swing",
         "profile": "APM_LARGE_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 13506.64,
-        "buying_power": 12412.35,
+        "equity": 13505.17,
+        "buying_power": 12410.88,
         "inception_equity": 13750.0,
         "ytd_start_equity": 13750.0,
-        "since_inception_pnl_dollars": -243.36,
-        "asof": "2026-06-16T15:39:10Z"
+        "since_inception_pnl_dollars": -244.83,
+        "asof": "2026-06-16T15:39:57Z"
       },
       "performance": {
         "closed_trades_count": 1,
@@ -7327,20 +8777,20 @@
       ],
       "equity_curve": [
         {
-          "ts": "2026-06-16T15:39:10+00:00",
-          "equity": 13506.64,
+          "ts": "2026-06-16T15:39:57+00:00",
+          "equity": 13505.17,
           "drawdown_pct": 0.0
         }
       ],
       "drawdown_curve": [
         {
-          "ts": "2026-06-16T15:39:10+00:00",
+          "ts": "2026-06-16T15:39:57+00:00",
           "drawdown_pct": 0.0
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-16T08:39:10",
-      "published_at_utc": "2026-06-16T15:39:10Z"
+      "updated_at": "2026-06-16T08:39:57",
+      "published_at_utc": "2026-06-16T15:39:57Z"
     },
     "swing": {
       "label": "Mixed Basket + AEGIS Swing",
@@ -8430,1267 +9880,7 @@
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-16T08:39:07.278066",
-      "published_at_utc": null
-    },
-    "intraday": {
-      "label": "SPY + AEGIS Intraday",
-      "profile": "LARGE_INTRADAY",
-      "public_reset_start": "2026-06-16T13:30:00Z",
-      "account": {
-        "label": "SPY + AEGIS Intraday",
-        "profile": "LARGE_INTRADAY",
-        "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 2513.32,
-        "buying_power": null,
-        "inception_equity": 2500.0,
-        "ytd_start_equity": 2500.0,
-        "since_inception_pnl_dollars": 13.32,
-        "asof": "2026-06-16T08:38:16"
-      },
-      "performance": {
-        "closed_trades_count": 4,
-        "win_rate_pct": 50.0,
-        "avg_r": 0.168,
-        "expectancy_r": 0.168,
-        "median_r": 0.08,
-        "best_trade_r": 1.067,
-        "worst_trade_r": -0.556,
-        "last_20_win_rate_pct": 50.0,
-        "sharpe_like": 0.284,
-        "sortino_ratio": 0.422,
-        "profit_factor_r": 2.668,
-        "gross_profit_r": 20.92,
-        "gross_loss_r": 7.84,
-        "max_drawdown_pct_est": 0.512
-      },
-      "summary": {
-        "open_positions_count": 1,
-        "open_long_count": 0,
-        "open_short_count": 1,
-        "signals_ready_count": 8,
-        "recent_trades_count": 4,
-        "avg_open_r_multiple": 0.15,
-        "twelve_data_ema9_called": false,
-        "twelve_data_macd_called": true,
-        "apm_signals_ready": 0,
-        "apm_top_ids": null
-      },
-      "positioning": {
-        "long_short_ratio": 0.0,
-        "long_pct": 0.0,
-        "short_pct": 100.0
-      },
-      "trade_history": [
-        {
-          "ts_utc": "2026-06-16T14:23:11Z",
-          "event": "EXIT",
-          "symbol": "AMD",
-          "side": "SHORT",
-          "qty": 3.0,
-          "entry_date": "2026-06-16",
-          "entry_px": 535.4,
-          "exit_date": "2026-06-16",
-          "exit_px": 529.686667,
-          "R_realized": "",
-          "pnl_pct": 1.067115,
-          "reason": "BROKER_FIFO",
-          "entry_model": "Day Trade",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY"
-        },
-        {
-          "ts_utc": "2026-06-16T14:30:16Z",
-          "event": "EXIT",
-          "symbol": "SPY",
-          "side": "SHORT",
-          "qty": 2.0,
-          "entry_date": "2026-06-16",
-          "entry_px": 754.76,
-          "exit_date": "2026-06-16",
-          "exit_px": 752.87,
-          "R_realized": "",
-          "pnl_pct": 0.250411,
-          "reason": "BROKER_FIFO",
-          "entry_model": "Day Trade",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY"
-        },
-        {
-          "ts_utc": "2026-06-16T14:34:41Z",
-          "event": "EXIT",
-          "symbol": "NVDA",
-          "side": "SHORT",
-          "qty": 6.0,
-          "entry_date": "2026-06-16",
-          "entry_px": 208.703333,
-          "exit_date": "2026-06-16",
-          "exit_px": 208.89,
-          "R_realized": "",
-          "pnl_pct": -0.089441,
-          "reason": "BROKER_FIFO",
-          "entry_model": "Day Trade",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY"
-        },
-        {
-          "ts_utc": "2026-06-16T14:42:49Z",
-          "event": "EXIT",
-          "symbol": "TSLA",
-          "side": "SHORT",
-          "qty": 3.0,
-          "entry_date": "2026-06-16",
-          "entry_px": 403.14,
-          "exit_date": "2026-06-16",
-          "exit_px": 405.38,
-          "R_realized": "",
-          "pnl_pct": -0.555638,
-          "reason": "BROKER_FIFO",
-          "entry_model": "Day Trade",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY"
-        }
-      ],
-      "recent_executions": [
-        {
-          "ts_utc": "2026-06-16T14:23:11Z",
-          "event": "EXIT",
-          "symbol": "AMD",
-          "side": "SHORT",
-          "qty": 3.0,
-          "entry_date": "2026-06-16",
-          "entry_px": 535.4,
-          "exit_date": "2026-06-16",
-          "exit_px": 529.686667,
-          "R_realized": "",
-          "pnl_pct": 1.067115,
-          "reason": "BROKER_FIFO",
-          "entry_model": "Day Trade",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY",
-          "status": "CLOSED"
-        },
-        {
-          "ts_utc": "2026-06-16T14:30:16Z",
-          "event": "EXIT",
-          "symbol": "SPY",
-          "side": "SHORT",
-          "qty": 2.0,
-          "entry_date": "2026-06-16",
-          "entry_px": 754.76,
-          "exit_date": "2026-06-16",
-          "exit_px": 752.87,
-          "R_realized": "",
-          "pnl_pct": 0.250411,
-          "reason": "BROKER_FIFO",
-          "entry_model": "Day Trade",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY",
-          "status": "CLOSED"
-        },
-        {
-          "ts_utc": "2026-06-16T14:34:41Z",
-          "event": "EXIT",
-          "symbol": "NVDA",
-          "side": "SHORT",
-          "qty": 6.0,
-          "entry_date": "2026-06-16",
-          "entry_px": 208.703333,
-          "exit_date": "2026-06-16",
-          "exit_px": 208.89,
-          "R_realized": "",
-          "pnl_pct": -0.089441,
-          "reason": "BROKER_FIFO",
-          "entry_model": "Day Trade",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY",
-          "status": "CLOSED"
-        },
-        {
-          "ts_utc": "2026-06-16T14:42:49Z",
-          "event": "EXIT",
-          "symbol": "TSLA",
-          "side": "SHORT",
-          "qty": 3.0,
-          "entry_date": "2026-06-16",
-          "entry_px": 403.14,
-          "exit_date": "2026-06-16",
-          "exit_px": 405.38,
-          "R_realized": "",
-          "pnl_pct": -0.555638,
-          "reason": "BROKER_FIFO",
-          "entry_model": "Day Trade",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY",
-          "status": "CLOSED"
-        }
-      ],
-      "open_positions_live": [
-        {
-          "ts_utc": "2026-06-16T08:38:16",
-          "broker_account": "SPY + AEGIS Intraday",
-          "broker_profile": "LARGE_INTRADAY",
-          "symbol": "SPY",
-          "side": "SHORT",
-          "qty": 2.0,
-          "entry_px": 753.1,
-          "exit_px": 752.98,
-          "current_px": 752.98,
-          "R_realized": 0.15,
-          "pnl_pct": 0.01593413889257795,
-          "entry_model": "Day Trade"
-        }
-      ],
-      "equity_curve": [
-        {
-          "ts": "2026-06-16T13:30:08+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:30:14+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:32:11+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:32:16+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:34:06+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:34:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:36:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:36:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:38:06+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:38:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:40:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:40:13+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:42:06+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:42:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:44:06+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:44:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:46:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:46:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:48:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:48:13+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:50:06+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:50:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:52:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:52:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:54:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:54:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:56:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:56:13+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:58:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:58:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:00:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:00:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:02:51+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:02:56+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:04:35+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:04:41+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:06:35+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:06:41+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:08:20+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:08:25+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:10:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:10:12+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:12:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:12:13+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:14:07+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:14:13+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:16:10+00:00",
-          "equity": 2499.94,
-          "drawdown_pct": -0.0024
-        },
-        {
-          "ts": "2026-06-16T14:16:15+00:00",
-          "equity": 2500.0,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:18:07+00:00",
-          "equity": 2504.45,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:18:13+00:00",
-          "equity": 2503.31,
-          "drawdown_pct": -0.0455
-        },
-        {
-          "ts": "2026-06-16T14:20:07+00:00",
-          "equity": 2511.41,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:20:13+00:00",
-          "equity": 2511.92,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:22:07+00:00",
-          "equity": 2514.07,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:22:13+00:00",
-          "equity": 2515.72,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:24:07+00:00",
-          "equity": 2519.94,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:24:12+00:00",
-          "equity": 2520.26,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:26:07+00:00",
-          "equity": 2515.28,
-          "drawdown_pct": -0.1976
-        },
-        {
-          "ts": "2026-06-16T14:26:12+00:00",
-          "equity": 2514.48,
-          "drawdown_pct": -0.2293
-        },
-        {
-          "ts": "2026-06-16T14:28:07+00:00",
-          "equity": 2518.2,
-          "drawdown_pct": -0.0817
-        },
-        {
-          "ts": "2026-06-16T14:28:13+00:00",
-          "equity": 2517.4,
-          "drawdown_pct": -0.1135
-        },
-        {
-          "ts": "2026-06-16T14:30:08+00:00",
-          "equity": 2518.78,
-          "drawdown_pct": -0.0587
-        },
-        {
-          "ts": "2026-06-16T14:30:14+00:00",
-          "equity": 2519.5,
-          "drawdown_pct": -0.0302
-        },
-        {
-          "ts": "2026-06-16T14:32:07+00:00",
-          "equity": 2524.97,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:32:13+00:00",
-          "equity": 2524.47,
-          "drawdown_pct": -0.0198
-        },
-        {
-          "ts": "2026-06-16T14:34:07+00:00",
-          "equity": 2523.07,
-          "drawdown_pct": -0.0752
-        },
-        {
-          "ts": "2026-06-16T14:34:13+00:00",
-          "equity": 2523.19,
-          "drawdown_pct": -0.0705
-        },
-        {
-          "ts": "2026-06-16T14:36:08+00:00",
-          "equity": 2522.98,
-          "drawdown_pct": -0.0788
-        },
-        {
-          "ts": "2026-06-16T14:36:14+00:00",
-          "equity": 2521.9,
-          "drawdown_pct": -0.1216
-        },
-        {
-          "ts": "2026-06-16T14:38:07+00:00",
-          "equity": 2521.25,
-          "drawdown_pct": -0.1473
-        },
-        {
-          "ts": "2026-06-16T14:38:13+00:00",
-          "equity": 2520.87,
-          "drawdown_pct": -0.1624
-        },
-        {
-          "ts": "2026-06-16T14:40:07+00:00",
-          "equity": 2520.88,
-          "drawdown_pct": -0.162
-        },
-        {
-          "ts": "2026-06-16T14:40:13+00:00",
-          "equity": 2519.86,
-          "drawdown_pct": -0.2024
-        },
-        {
-          "ts": "2026-06-16T14:42:07+00:00",
-          "equity": 2514.51,
-          "drawdown_pct": -0.4143
-        },
-        {
-          "ts": "2026-06-16T14:42:14+00:00",
-          "equity": 2514.81,
-          "drawdown_pct": -0.4024
-        },
-        {
-          "ts": "2026-06-16T14:44:06+00:00",
-          "equity": 2512.04,
-          "drawdown_pct": -0.5121
-        },
-        {
-          "ts": "2026-06-16T14:44:12+00:00",
-          "equity": 2512.22,
-          "drawdown_pct": -0.505
-        },
-        {
-          "ts": "2026-06-16T14:46:07+00:00",
-          "equity": 2512.93,
-          "drawdown_pct": -0.4768
-        },
-        {
-          "ts": "2026-06-16T14:46:13+00:00",
-          "equity": 2512.74,
-          "drawdown_pct": -0.4844
-        },
-        {
-          "ts": "2026-06-16T14:48:07+00:00",
-          "equity": 2513.12,
-          "drawdown_pct": -0.4693
-        },
-        {
-          "ts": "2026-06-16T14:48:13+00:00",
-          "equity": 2513.08,
-          "drawdown_pct": -0.4709
-        },
-        {
-          "ts": "2026-06-16T14:50:07+00:00",
-          "equity": 2512.95,
-          "drawdown_pct": -0.476
-        },
-        {
-          "ts": "2026-06-16T14:50:13+00:00",
-          "equity": 2512.6,
-          "drawdown_pct": -0.4899
-        },
-        {
-          "ts": "2026-06-16T14:52:07+00:00",
-          "equity": 2512.6,
-          "drawdown_pct": -0.4899
-        },
-        {
-          "ts": "2026-06-16T14:52:12+00:00",
-          "equity": 2512.6,
-          "drawdown_pct": -0.4899
-        },
-        {
-          "ts": "2026-06-16T14:54:07+00:00",
-          "equity": 2512.7,
-          "drawdown_pct": -0.4859
-        },
-        {
-          "ts": "2026-06-16T14:54:12+00:00",
-          "equity": 2512.9,
-          "drawdown_pct": -0.478
-        },
-        {
-          "ts": "2026-06-16T14:56:07+00:00",
-          "equity": 2513.02,
-          "drawdown_pct": -0.4733
-        },
-        {
-          "ts": "2026-06-16T14:56:13+00:00",
-          "equity": 2512.86,
-          "drawdown_pct": -0.4796
-        },
-        {
-          "ts": "2026-06-16T14:58:07+00:00",
-          "equity": 2512.86,
-          "drawdown_pct": -0.4796
-        },
-        {
-          "ts": "2026-06-16T14:58:12+00:00",
-          "equity": 2513.11,
-          "drawdown_pct": -0.4697
-        },
-        {
-          "ts": "2026-06-16T15:00:08+00:00",
-          "equity": 2513.22,
-          "drawdown_pct": -0.4654
-        },
-        {
-          "ts": "2026-06-16T15:00:14+00:00",
-          "equity": 2513.2,
-          "drawdown_pct": -0.4661
-        },
-        {
-          "ts": "2026-06-16T15:02:07+00:00",
-          "equity": 2513.14,
-          "drawdown_pct": -0.4685
-        },
-        {
-          "ts": "2026-06-16T15:02:13+00:00",
-          "equity": 2513.18,
-          "drawdown_pct": -0.4669
-        },
-        {
-          "ts": "2026-06-16T15:04:06+00:00",
-          "equity": 2512.61,
-          "drawdown_pct": -0.4895
-        },
-        {
-          "ts": "2026-06-16T15:04:13+00:00",
-          "equity": 2512.7,
-          "drawdown_pct": -0.4859
-        },
-        {
-          "ts": "2026-06-16T15:06:07+00:00",
-          "equity": 2512.2,
-          "drawdown_pct": -0.5057
-        },
-        {
-          "ts": "2026-06-16T15:06:13+00:00",
-          "equity": 2512.3,
-          "drawdown_pct": -0.5018
-        },
-        {
-          "ts": "2026-06-16T15:08:07+00:00",
-          "equity": 2512.6,
-          "drawdown_pct": -0.4899
-        },
-        {
-          "ts": "2026-06-16T15:08:14+00:00",
-          "equity": 2512.68,
-          "drawdown_pct": -0.4867
-        },
-        {
-          "ts": "2026-06-16T15:10:07+00:00",
-          "equity": 2512.52,
-          "drawdown_pct": -0.4931
-        },
-        {
-          "ts": "2026-06-16T15:10:13+00:00",
-          "equity": 2512.44,
-          "drawdown_pct": -0.4962
-        },
-        {
-          "ts": "2026-06-16T15:12:07+00:00",
-          "equity": 2512.52,
-          "drawdown_pct": -0.4931
-        },
-        {
-          "ts": "2026-06-16T15:12:12+00:00",
-          "equity": 2512.79,
-          "drawdown_pct": -0.4824
-        },
-        {
-          "ts": "2026-06-16T15:14:07+00:00",
-          "equity": 2512.67,
-          "drawdown_pct": -0.4871
-        },
-        {
-          "ts": "2026-06-16T15:14:13+00:00",
-          "equity": 2512.64,
-          "drawdown_pct": -0.4883
-        },
-        {
-          "ts": "2026-06-16T15:16:07+00:00",
-          "equity": 2512.18,
-          "drawdown_pct": -0.5065
-        },
-        {
-          "ts": "2026-06-16T15:16:13+00:00",
-          "equity": 2512.24,
-          "drawdown_pct": -0.5042
-        },
-        {
-          "ts": "2026-06-16T15:32:07+00:00",
-          "equity": 2513.74,
-          "drawdown_pct": -0.4448
-        },
-        {
-          "ts": "2026-06-16T15:32:13+00:00",
-          "equity": 2513.71,
-          "drawdown_pct": -0.4459
-        },
-        {
-          "ts": "2026-06-16T15:34:06+00:00",
-          "equity": 2512.94,
-          "drawdown_pct": -0.4764
-        },
-        {
-          "ts": "2026-06-16T15:34:12+00:00",
-          "equity": 2512.98,
-          "drawdown_pct": -0.4749
-        },
-        {
-          "ts": "2026-06-16T15:36:07+00:00",
-          "equity": 2512.82,
-          "drawdown_pct": -0.4812
-        },
-        {
-          "ts": "2026-06-16T15:36:12+00:00",
-          "equity": 2512.78,
-          "drawdown_pct": -0.4828
-        },
-        {
-          "ts": "2026-06-16T15:38:07+00:00",
-          "equity": 2513.34,
-          "drawdown_pct": -0.4606
-        },
-        {
-          "ts": "2026-06-16T15:38:12+00:00",
-          "equity": 2513.36,
-          "drawdown_pct": -0.4598
-        }
-      ],
-      "drawdown_curve": [
-        {
-          "ts": "2026-06-16T13:30:08+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:30:14+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:32:11+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:32:16+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:34:06+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:34:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:36:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:36:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:38:06+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:38:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:40:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:40:13+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:42:06+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:42:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:44:06+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:44:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:46:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:46:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:48:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:48:13+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:50:06+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:50:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:52:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:52:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:54:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:54:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:56:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:56:13+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:58:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T13:58:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:00:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:00:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:02:51+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:02:56+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:04:35+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:04:41+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:06:35+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:06:41+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:08:20+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:08:25+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:10:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:10:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:12:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:12:13+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:14:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:14:13+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:16:10+00:00",
-          "drawdown_pct": -0.0024
-        },
-        {
-          "ts": "2026-06-16T14:16:15+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:18:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:18:13+00:00",
-          "drawdown_pct": -0.0455
-        },
-        {
-          "ts": "2026-06-16T14:20:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:20:13+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:22:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:22:13+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:24:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:24:12+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:26:07+00:00",
-          "drawdown_pct": -0.1976
-        },
-        {
-          "ts": "2026-06-16T14:26:12+00:00",
-          "drawdown_pct": -0.2293
-        },
-        {
-          "ts": "2026-06-16T14:28:07+00:00",
-          "drawdown_pct": -0.0817
-        },
-        {
-          "ts": "2026-06-16T14:28:13+00:00",
-          "drawdown_pct": -0.1135
-        },
-        {
-          "ts": "2026-06-16T14:30:08+00:00",
-          "drawdown_pct": -0.0587
-        },
-        {
-          "ts": "2026-06-16T14:30:14+00:00",
-          "drawdown_pct": -0.0302
-        },
-        {
-          "ts": "2026-06-16T14:32:07+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-06-16T14:32:13+00:00",
-          "drawdown_pct": -0.0198
-        },
-        {
-          "ts": "2026-06-16T14:34:07+00:00",
-          "drawdown_pct": -0.0752
-        },
-        {
-          "ts": "2026-06-16T14:34:13+00:00",
-          "drawdown_pct": -0.0705
-        },
-        {
-          "ts": "2026-06-16T14:36:08+00:00",
-          "drawdown_pct": -0.0788
-        },
-        {
-          "ts": "2026-06-16T14:36:14+00:00",
-          "drawdown_pct": -0.1216
-        },
-        {
-          "ts": "2026-06-16T14:38:07+00:00",
-          "drawdown_pct": -0.1473
-        },
-        {
-          "ts": "2026-06-16T14:38:13+00:00",
-          "drawdown_pct": -0.1624
-        },
-        {
-          "ts": "2026-06-16T14:40:07+00:00",
-          "drawdown_pct": -0.162
-        },
-        {
-          "ts": "2026-06-16T14:40:13+00:00",
-          "drawdown_pct": -0.2024
-        },
-        {
-          "ts": "2026-06-16T14:42:07+00:00",
-          "drawdown_pct": -0.4143
-        },
-        {
-          "ts": "2026-06-16T14:42:14+00:00",
-          "drawdown_pct": -0.4024
-        },
-        {
-          "ts": "2026-06-16T14:44:06+00:00",
-          "drawdown_pct": -0.5121
-        },
-        {
-          "ts": "2026-06-16T14:44:12+00:00",
-          "drawdown_pct": -0.505
-        },
-        {
-          "ts": "2026-06-16T14:46:07+00:00",
-          "drawdown_pct": -0.4768
-        },
-        {
-          "ts": "2026-06-16T14:46:13+00:00",
-          "drawdown_pct": -0.4844
-        },
-        {
-          "ts": "2026-06-16T14:48:07+00:00",
-          "drawdown_pct": -0.4693
-        },
-        {
-          "ts": "2026-06-16T14:48:13+00:00",
-          "drawdown_pct": -0.4709
-        },
-        {
-          "ts": "2026-06-16T14:50:07+00:00",
-          "drawdown_pct": -0.476
-        },
-        {
-          "ts": "2026-06-16T14:50:13+00:00",
-          "drawdown_pct": -0.4899
-        },
-        {
-          "ts": "2026-06-16T14:52:07+00:00",
-          "drawdown_pct": -0.4899
-        },
-        {
-          "ts": "2026-06-16T14:52:12+00:00",
-          "drawdown_pct": -0.4899
-        },
-        {
-          "ts": "2026-06-16T14:54:07+00:00",
-          "drawdown_pct": -0.4859
-        },
-        {
-          "ts": "2026-06-16T14:54:12+00:00",
-          "drawdown_pct": -0.478
-        },
-        {
-          "ts": "2026-06-16T14:56:07+00:00",
-          "drawdown_pct": -0.4733
-        },
-        {
-          "ts": "2026-06-16T14:56:13+00:00",
-          "drawdown_pct": -0.4796
-        },
-        {
-          "ts": "2026-06-16T14:58:07+00:00",
-          "drawdown_pct": -0.4796
-        },
-        {
-          "ts": "2026-06-16T14:58:12+00:00",
-          "drawdown_pct": -0.4697
-        },
-        {
-          "ts": "2026-06-16T15:00:08+00:00",
-          "drawdown_pct": -0.4654
-        },
-        {
-          "ts": "2026-06-16T15:00:14+00:00",
-          "drawdown_pct": -0.4661
-        },
-        {
-          "ts": "2026-06-16T15:02:07+00:00",
-          "drawdown_pct": -0.4685
-        },
-        {
-          "ts": "2026-06-16T15:02:13+00:00",
-          "drawdown_pct": -0.4669
-        },
-        {
-          "ts": "2026-06-16T15:04:06+00:00",
-          "drawdown_pct": -0.4895
-        },
-        {
-          "ts": "2026-06-16T15:04:13+00:00",
-          "drawdown_pct": -0.4859
-        },
-        {
-          "ts": "2026-06-16T15:06:07+00:00",
-          "drawdown_pct": -0.5057
-        },
-        {
-          "ts": "2026-06-16T15:06:13+00:00",
-          "drawdown_pct": -0.5018
-        },
-        {
-          "ts": "2026-06-16T15:08:07+00:00",
-          "drawdown_pct": -0.4899
-        },
-        {
-          "ts": "2026-06-16T15:08:14+00:00",
-          "drawdown_pct": -0.4867
-        },
-        {
-          "ts": "2026-06-16T15:10:07+00:00",
-          "drawdown_pct": -0.4931
-        },
-        {
-          "ts": "2026-06-16T15:10:13+00:00",
-          "drawdown_pct": -0.4962
-        },
-        {
-          "ts": "2026-06-16T15:12:07+00:00",
-          "drawdown_pct": -0.4931
-        },
-        {
-          "ts": "2026-06-16T15:12:12+00:00",
-          "drawdown_pct": -0.4824
-        },
-        {
-          "ts": "2026-06-16T15:14:07+00:00",
-          "drawdown_pct": -0.4871
-        },
-        {
-          "ts": "2026-06-16T15:14:13+00:00",
-          "drawdown_pct": -0.4883
-        },
-        {
-          "ts": "2026-06-16T15:16:07+00:00",
-          "drawdown_pct": -0.5065
-        },
-        {
-          "ts": "2026-06-16T15:16:13+00:00",
-          "drawdown_pct": -0.5042
-        },
-        {
-          "ts": "2026-06-16T15:32:07+00:00",
-          "drawdown_pct": -0.4448
-        },
-        {
-          "ts": "2026-06-16T15:32:13+00:00",
-          "drawdown_pct": -0.4459
-        },
-        {
-          "ts": "2026-06-16T15:34:06+00:00",
-          "drawdown_pct": -0.4764
-        },
-        {
-          "ts": "2026-06-16T15:34:12+00:00",
-          "drawdown_pct": -0.4749
-        },
-        {
-          "ts": "2026-06-16T15:36:07+00:00",
-          "drawdown_pct": -0.4812
-        },
-        {
-          "ts": "2026-06-16T15:36:12+00:00",
-          "drawdown_pct": -0.4828
-        },
-        {
-          "ts": "2026-06-16T15:38:07+00:00",
-          "drawdown_pct": -0.4606
-        },
-        {
-          "ts": "2026-06-16T15:38:12+00:00",
-          "drawdown_pct": -0.4598
-        }
-      ],
-      "monthly_performance": [],
-      "updated_at": "2026-06-16T08:38:26.517494",
+      "updated_at": "2026-06-16T08:39:45.803949",
       "published_at_utc": null
     }
   },
@@ -9707,8 +9897,8 @@
   "public_reset_start": "2026-06-16T13:30:00Z",
   "account_feeds": {
     "new_intraday": "public_dashboard_large_new_intraday_latest.json",
+    "intraday": "public_dashboard_large_intraday_latest.json",
     "apm_swing": "public_dashboard_apm_large_swing_latest.json",
-    "swing": "public_dashboard_large_swing_latest.json",
-    "intraday": "public_dashboard_large_intraday_latest.json"
+    "swing": "public_dashboard_large_swing_latest.json"
   }
 }
