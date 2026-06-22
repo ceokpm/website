@@ -1311,8 +1311,8 @@
       const currentEquity = toFiniteOrNull(acct.equity);
       const useResetScopedBaseline = prefix === "swing" || prefix === "apm_swing_shadow";
       const resetStartEquity = useResetScopedBaseline ? resetScopedStartEquity(view, equitySeries) : null;
-      const inceptionEquity = resetStartEquity ?? toFiniteOrNull(acct.inception_equity);
-      const ytdStartEquity = resetStartEquity ?? toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
+      const inceptionEquity = toFiniteOrNull(acct.inception_equity) ?? resetStartEquity;
+      const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity ?? resetStartEquity;
       const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
       const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
       const dailyReturn = dailyReturnFromView(
