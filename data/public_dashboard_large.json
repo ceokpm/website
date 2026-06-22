@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-06-22T08:23:32.259883",
+  "updated_at": "2026-06-22T08:25:34.627795",
   "profile": "LARGE",
   "scheduler_interval_minutes": 2,
   "account": {
-    "equity": 32316.41,
-    "buying_power": 24989.48,
+    "equity": 32306.49,
+    "buying_power": 24987.92,
     "inception_equity": 32500.0,
     "ytd_start_equity": 32500.0,
-    "since_inception_pnl_dollars": -183.59,
-    "asof": "2026-06-22T08:23:23"
+    "since_inception_pnl_dollars": -193.51,
+    "asof": "2026-06-22T08:25:25"
   },
   "summary": {
     "open_positions_count": 2,
     "open_long_count": 1,
     "open_short_count": 1,
-    "signals_ready_count": 1,
+    "signals_ready_count": 2,
     "recent_trades_count": 23,
     "avg_open_r_multiple": null,
     "twelve_data_ema9_called": false,
     "twelve_data_macd_called": false,
-    "apm_signals_ready": 0,
-    "apm_top_ids": 83.148
+    "apm_signals_ready": 1,
+    "apm_top_ids": 83.328
   },
   "performance": {
     "closed_trades_count": 23,
@@ -40,7 +40,7 @@
   },
   "geometry": {
     "raw_log_rows": 12024,
-    "last_updated": "2026-06-22T08:21:41.614105"
+    "last_updated": "2026-06-22T08:23:30.291445"
   },
   "positioning": {
     "long_short_ratio": 1.0,
@@ -922,31 +922,31 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-06-22T08:23:14",
+      "ts_utc": "2026-06-22T08:25:20",
       "broker_account": "Tech Basket + APM Swing",
       "broker_profile": "APM_LARGE_SWING",
       "symbol": "AMD",
       "side": "LONG",
       "qty": 4.0,
       "entry_px": 541.5425,
-      "exit_px": 546.71,
-      "current_px": 546.71,
+      "exit_px": 546.32,
+      "current_px": 546.32,
       "R_realized": null,
-      "pnl_pct": 0.9542187362949386,
+      "pnl_pct": 0.8822022278953234,
       "entry_model": "Swing"
     },
     {
-      "ts_utc": "2026-06-22T08:22:59",
+      "ts_utc": "2026-06-22T08:25:07",
       "broker_account": "Mixed Basket + AEGIS Swing",
       "broker_profile": "LARGE_SWING",
       "symbol": "AMZN",
       "side": "SHORT",
       "qty": 22.0,
       "entry_px": 234.65,
-      "exit_px": 233.04,
-      "current_px": 233.04,
-      "R_realized": 0.09,
-      "pnl_pct": 0.6861282761559828,
+      "exit_px": 233.42,
+      "current_px": 233.42,
+      "R_realized": 0.06,
+      "pnl_pct": 0.524184956317928,
       "entry_model": "Swing"
     }
   ],
@@ -12592,19 +12592,39 @@
       "drawdown_pct": -0.5219
     },
     {
-      "ts": "2026-06-22T15:23:13",
-      "equity": 32317.93,
-      "drawdown_pct": -0.4062
+      "ts": "2026-06-22T15:24:06",
+      "equity": 32280.37,
+      "drawdown_pct": -0.5219
     },
     {
-      "ts": "2026-06-22T15:23:14",
-      "equity": 32317.73,
-      "drawdown_pct": -0.4068
+      "ts": "2026-06-22T15:24:11",
+      "equity": 32280.37,
+      "drawdown_pct": -0.5219
     },
     {
-      "ts": "2026-06-22T15:23:23",
-      "equity": 32317.73,
-      "drawdown_pct": -0.4068
+      "ts": "2026-06-22T15:24:49",
+      "equity": 32269.7,
+      "drawdown_pct": -0.5548
+    },
+    {
+      "ts": "2026-06-22T15:25:00",
+      "equity": 32272.01,
+      "drawdown_pct": -0.5477
+    },
+    {
+      "ts": "2026-06-22T15:25:19",
+      "equity": 32307.85,
+      "drawdown_pct": -0.4373
+    },
+    {
+      "ts": "2026-06-22T15:25:20",
+      "equity": 32307.81,
+      "drawdown_pct": -0.4374
+    },
+    {
+      "ts": "2026-06-22T15:25:25",
+      "equity": 32307.81,
+      "drawdown_pct": -0.4374
     }
   ],
   "drawdown_curve": [
@@ -21921,16 +21941,32 @@
       "drawdown_pct": -0.5219
     },
     {
-      "ts": "2026-06-22T15:23:13",
-      "drawdown_pct": -0.4062
+      "ts": "2026-06-22T15:24:06",
+      "drawdown_pct": -0.5219
     },
     {
-      "ts": "2026-06-22T15:23:14",
-      "drawdown_pct": -0.4068
+      "ts": "2026-06-22T15:24:11",
+      "drawdown_pct": -0.5219
     },
     {
-      "ts": "2026-06-22T15:23:23",
-      "drawdown_pct": -0.4068
+      "ts": "2026-06-22T15:24:49",
+      "drawdown_pct": -0.5548
+    },
+    {
+      "ts": "2026-06-22T15:25:00",
+      "drawdown_pct": -0.5477
+    },
+    {
+      "ts": "2026-06-22T15:25:19",
+      "drawdown_pct": -0.4373
+    },
+    {
+      "ts": "2026-06-22T15:25:20",
+      "drawdown_pct": -0.4374
+    },
+    {
+      "ts": "2026-06-22T15:25:25",
+      "drawdown_pct": -0.4374
     }
   ],
   "equity_curve_r": [
@@ -22028,7 +22064,7 @@
   "monthly_performance": [],
   "research": {
     "items": [],
-    "last_updated": "2026-06-22T08:23:25.719711"
+    "last_updated": "2026-06-22T08:25:28.105073"
   },
   "entry_progress": {
     "twelve_data": {
@@ -22052,11 +22088,11 @@
     },
     "models": {
       "TREND_INTRADAY": {
-        "signals_ready_count": 0,
+        "signals_ready_count": 1,
         "near_ready_count": 0,
-        "closest_symbol": "META",
-        "closest_progress_pct": 0.0,
-        "closest_reason": "velocity -1.2<=0; extended",
+        "closest_symbol": "MSFT",
+        "closest_progress_pct": 100.0,
+        "closest_reason": "SIGNAL_READY",
         "tracker_gate_progress": "",
         "tracker_staged_count": 0,
         "tracker_ready_count": 0,
@@ -22096,7 +22132,7 @@
     }
   },
   "algo_chart": {
-    "updated_at": "2026-06-22T08:23:25.368777",
+    "updated_at": "2026-06-22T08:25:27.756357",
     "interval": "2min",
     "twelvedata_call_estimate": {
       "per_symbol": 3,
@@ -24136,14 +24172,14 @@
           {
             "ts": "2026-06-22 08:22:00",
             "open": 744.07,
-            "high": 744.48,
+            "high": 744.68,
             "low": 744.07,
-            "close": 744.28,
-            "volume": 13540.0,
-            "ema9": 744.4408,
-            "macd": -0.627861,
-            "macd_signal": -0.744626,
-            "macd_hist": 0.116765,
+            "close": 744.32,
+            "volume": 28932.0,
+            "ema9": 744.4488,
+            "macd": -0.623552,
+            "macd_signal": -0.743764,
+            "macd_hist": 0.120213,
             "trend_intraday_confirm_count": 0,
             "trend_intraday_ready": false,
             "trend_swing_ready": false,
@@ -24153,11 +24189,11 @@
         ],
         "last": {
           "ts": "2026-06-22 08:22:00",
-          "close": 744.28,
-          "ema9": 744.4408,
-          "macd": -0.627861,
-          "macd_signal": -0.744626,
-          "macd_hist": 0.116765,
+          "close": 744.32,
+          "ema9": 744.4488,
+          "macd": -0.623552,
+          "macd_signal": -0.743764,
+          "macd_hist": 0.120213,
           "trend_intraday_ready": false,
           "trend_swing_ready": false
         },
@@ -26199,14 +26235,14 @@
           {
             "ts": "2026-06-22 08:22:00",
             "open": 736.8,
-            "high": 737.31,
+            "high": 737.55,
             "low": 736.8,
-            "close": 737.215,
-            "volume": 9864.0,
-            "ema9": 737.3773,
-            "macd": -0.847582,
-            "macd_signal": -0.982806,
-            "macd_hist": 0.135223,
+            "close": 736.93,
+            "volume": 19576.0,
+            "ema9": 737.3203,
+            "macd": -0.878289,
+            "macd_signal": -0.988947,
+            "macd_hist": 0.110658,
             "trend_intraday_confirm_count": 0,
             "trend_intraday_ready": false,
             "trend_swing_ready": false,
@@ -26216,11 +26252,11 @@
         ],
         "last": {
           "ts": "2026-06-22 08:22:00",
-          "close": 737.215,
-          "ema9": 737.3773,
-          "macd": -0.847582,
-          "macd_signal": -0.982806,
-          "macd_hist": 0.135223,
+          "close": 736.93,
+          "ema9": 737.3203,
+          "macd": -0.878289,
+          "macd_signal": -0.988947,
+          "macd_hist": 0.110658,
           "trend_intraday_ready": false,
           "trend_swing_ready": false
         },
@@ -26238,64 +26274,34 @@
     "benchmark": "SPY",
     "summary": {
       "leaderboard_count": 9,
-      "signals_ready_count": 0,
+      "signals_ready_count": 1,
       "open_positions_count": 0,
       "top_ticker": "META",
-      "top_ids": 83.148
+      "top_ids": 83.328
     },
     "leaderboard": [
       {
         "ticker": "META",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 83.148,
-        "ids_velocity": -1.164,
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 83.328,
+        "ids_velocity": 0.18,
         "rank": 1,
-        "relative_strength_score": 86.402,
-        "recovery_score": 92.154,
-        "absorption_score": 92.154,
-        "vwap_score": 62.288,
-        "persistence_score": 92.919,
-        "volume_quality_score": 60.506,
-        "last_px": 561.0,
-        "vwap": 576.6133,
-        "vwap_distance_pct": -2.7078,
-        "relative_strength_latest_pct": -1.073,
+        "relative_strength_score": 86.847,
+        "recovery_score": 92.294,
+        "absorption_score": 92.294,
+        "vwap_score": 62.28,
+        "persistence_score": 92.999,
+        "volume_quality_score": 60.571,
+        "last_px": 560.95,
+        "vwap": 576.607,
+        "vwap_distance_pct": -2.7154,
+        "relative_strength_latest_pct": -1.0872,
         "above_vwap": false,
         "extended": true,
         "status": "NO_SIGNAL",
-        "reason": "velocity -1.2<=0; extended",
-        "stop_px": 566.44,
-        "target_px": 553.18,
-        "side": "SHORT",
-        "market_bias": "BEAR",
-        "benchmark_bear_ok": true,
-        "signal_source": "DIRECT",
-        "basket_pressure": 0.0,
-        "basket_participation": 0.0,
-        "basket_confirmation_cycles": 0
-      },
-      {
-        "ticker": "GOOGL",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 82.641,
-        "ids_velocity": -0.606,
-        "rank": 2,
-        "relative_strength_score": 90.311,
-        "recovery_score": 89.297,
-        "absorption_score": 89.297,
-        "vwap_score": 65.9,
-        "persistence_score": 93.568,
-        "volume_quality_score": 51.022,
-        "last_px": 342.79,
-        "vwap": 363.4241,
-        "vwap_distance_pct": -5.6777,
-        "relative_strength_latest_pct": -2.306,
-        "above_vwap": false,
-        "extended": true,
-        "status": "NO_SIGNAL",
-        "reason": "velocity -0.6<=0; extended",
-        "stop_px": 346.08,
-        "target_px": 338.11,
+        "reason": "extended",
+        "stop_px": 566.4,
+        "target_px": 553.07,
         "side": "SHORT",
         "market_bias": "BEAR",
         "benchmark_bear_ok": true,
@@ -26306,26 +26312,56 @@
       },
       {
         "ticker": "AMZN",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 79.316,
-        "ids_velocity": 3.526,
-        "rank": 3,
-        "relative_strength_score": 94.328,
-        "recovery_score": 82.188,
-        "absorption_score": 82.188,
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 78.901,
+        "ids_velocity": -0.415,
+        "rank": 2,
+        "relative_strength_score": 92.429,
+        "recovery_score": 82.25,
+        "absorption_score": 82.25,
         "vwap_score": 73.367,
-        "persistence_score": 94.712,
-        "volume_quality_score": 23.823,
-        "last_px": 232.78,
-        "vwap": 242.7016,
-        "vwap_distance_pct": -4.088,
-        "relative_strength_latest_pct": -1.6368,
+        "persistence_score": 94.143,
+        "volume_quality_score": 24.746,
+        "last_px": 233.01,
+        "vwap": 242.6923,
+        "vwap_distance_pct": -3.9895,
+        "relative_strength_latest_pct": -1.5452,
         "above_vwap": false,
         "extended": true,
         "status": "NO_SIGNAL",
-        "reason": "extended",
-        "stop_px": 234.89,
-        "target_px": 230.02,
+        "reason": "velocity -0.4<=0; extended",
+        "stop_px": 235.1,
+        "target_px": 230.3,
+        "side": "SHORT",
+        "market_bias": "BEAR",
+        "benchmark_bear_ok": true,
+        "signal_source": "DIRECT",
+        "basket_pressure": 0.0,
+        "basket_participation": 0.0,
+        "basket_confirmation_cycles": 0
+      },
+      {
+        "ticker": "GOOGL",
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 77.932,
+        "ids_velocity": -4.709,
+        "rank": 3,
+        "relative_strength_score": 79.517,
+        "recovery_score": 86.175,
+        "absorption_score": 86.175,
+        "vwap_score": 62.9,
+        "persistence_score": 92.136,
+        "volume_quality_score": 49.346,
+        "last_px": 344.11,
+        "vwap": 363.3275,
+        "vwap_distance_pct": -5.2893,
+        "relative_strength_latest_pct": -1.9742,
+        "above_vwap": false,
+        "extended": true,
+        "status": "NO_SIGNAL",
+        "reason": "velocity -4.7<=0; extended",
+        "stop_px": 347.15,
+        "target_px": 340.27,
         "side": "SHORT",
         "market_bias": "BEAR",
         "benchmark_bear_ok": true,
@@ -26336,26 +26372,26 @@
       },
       {
         "ticker": "MSFT",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 71.275,
-        "ids_velocity": -2.377,
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 73.575,
+        "ids_velocity": 2.3,
         "rank": 4,
-        "relative_strength_score": 83.451,
-        "recovery_score": 71.131,
-        "absorption_score": 71.131,
-        "vwap_score": 68.217,
-        "persistence_score": 93.578,
-        "volume_quality_score": 23.7,
-        "last_px": 370.92,
-        "vwap": 378.3249,
-        "vwap_distance_pct": -1.9573,
-        "relative_strength_latest_pct": -0.824,
+        "relative_strength_score": 85.392,
+        "recovery_score": 75.176,
+        "absorption_score": 75.176,
+        "vwap_score": 68.529,
+        "persistence_score": 93.463,
+        "volume_quality_score": 25.31,
+        "last_px": 370.69,
+        "vwap": 378.3217,
+        "vwap_distance_pct": -2.0172,
+        "relative_strength_latest_pct": -0.8343,
         "above_vwap": false,
         "extended": false,
-        "status": "NO_SIGNAL",
-        "reason": "velocity -2.4<=0",
-        "stop_px": 373.78,
-        "target_px": 367.94,
+        "status": "SIGNAL_READY",
+        "reason": "IDS distribution gate passed",
+        "stop_px": 373.69,
+        "target_px": 367.33,
         "side": "SHORT",
         "market_bias": "BEAR",
         "benchmark_bear_ok": true,
@@ -26366,26 +26402,26 @@
       },
       {
         "ticker": "AMD",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 61.157,
-        "ids_velocity": -0.535,
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 60.703,
+        "ids_velocity": -0.454,
         "rank": 5,
-        "relative_strength_score": 77.099,
-        "recovery_score": 81.574,
+        "relative_strength_score": 80.455,
+        "recovery_score": 75.432,
         "absorption_score": 0.0,
-        "vwap_score": 77.433,
-        "persistence_score": 84.394,
-        "volume_quality_score": 55.13,
-        "last_px": 546.08,
-        "vwap": 535.1976,
-        "vwap_distance_pct": 2.0333,
-        "relative_strength_latest_pct": 0.7955,
+        "vwap_score": 77.074,
+        "persistence_score": 85.265,
+        "volume_quality_score": 54.149,
+        "last_px": 547.0,
+        "vwap": 535.2635,
+        "vwap_distance_pct": 2.1927,
+        "relative_strength_latest_pct": 0.8107,
         "above_vwap": true,
         "extended": false,
         "status": "NO_SIGNAL",
-        "reason": "IDS 61.2<=70.0; velocity -0.5<=0",
-        "stop_px": 541.98,
-        "target_px": 550.18,
+        "reason": "IDS 60.7<=70.0; velocity -0.5<=0",
+        "stop_px": 542.9,
+        "target_px": 551.1,
         "side": "LONG",
         "market_bias": "BULL",
         "benchmark_bear_ok": true,
@@ -26396,26 +26432,26 @@
       },
       {
         "ticker": "TSLA",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 58.319,
-        "ids_velocity": 1.259,
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 57.996,
+        "ids_velocity": -0.323,
         "rank": 6,
-        "relative_strength_score": 85.078,
+        "relative_strength_score": 83.691,
         "recovery_score": 68.053,
         "absorption_score": 0.0,
-        "vwap_score": 74.888,
-        "persistence_score": 93.009,
-        "volume_quality_score": 29.048,
-        "last_px": 410.26,
-        "vwap": 396.9812,
-        "vwap_distance_pct": 3.3449,
-        "relative_strength_latest_pct": 1.172,
+        "vwap_score": 75.124,
+        "persistence_score": 92.756,
+        "volume_quality_score": 29.187,
+        "last_px": 410.1,
+        "vwap": 396.9879,
+        "vwap_distance_pct": 3.3029,
+        "relative_strength_latest_pct": 1.1272,
         "above_vwap": true,
         "extended": true,
         "status": "NO_SIGNAL",
-        "reason": "IDS 58.3<=70.0; extended",
-        "stop_px": 407.18,
-        "target_px": 413.34,
+        "reason": "IDS 58.0<=70.0; velocity -0.3<=0; extended",
+        "stop_px": 407.02,
+        "target_px": 413.18,
         "side": "LONG",
         "market_bias": "BULL",
         "benchmark_bear_ok": true,
@@ -26426,26 +26462,26 @@
       },
       {
         "ticker": "NVDA",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 54.423,
-        "ids_velocity": -2.584,
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 55.152,
+        "ids_velocity": 0.729,
         "rank": 7,
-        "relative_strength_score": 56.627,
-        "recovery_score": 58.34,
-        "absorption_score": 58.34,
-        "vwap_score": 55.677,
-        "persistence_score": 50.069,
-        "volume_quality_score": 35.721,
-        "last_px": 209.86,
-        "vwap": 210.314,
-        "vwap_distance_pct": -0.2159,
-        "relative_strength_latest_pct": -0.106,
+        "relative_strength_score": 58.297,
+        "recovery_score": 58.77,
+        "absorption_score": 58.77,
+        "vwap_score": 55.566,
+        "persistence_score": 50.334,
+        "volume_quality_score": 37.013,
+        "last_px": 209.815,
+        "vwap": 210.3135,
+        "vwap_distance_pct": -0.237,
+        "relative_strength_latest_pct": -0.1328,
         "above_vwap": false,
         "extended": false,
         "status": "NO_SIGNAL",
-        "reason": "IDS 54.4<=70.0; velocity -2.6<=0",
-        "stop_px": 211.43,
-        "target_px": 208.29,
+        "reason": "IDS 55.2<=70.0",
+        "stop_px": 211.39,
+        "target_px": 208.24,
         "side": "SHORT",
         "market_bias": "BEAR",
         "benchmark_bear_ok": true,
@@ -26456,26 +26492,26 @@
       },
       {
         "ticker": "AAPL",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 51.634,
-        "ids_velocity": -1.667,
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 51.289,
+        "ids_velocity": -0.345,
         "rank": 8,
-        "relative_strength_score": 61.126,
+        "relative_strength_score": 58.534,
         "recovery_score": 64.863,
         "absorption_score": 0.0,
-        "vwap_score": 86.694,
-        "persistence_score": 77.991,
-        "volume_quality_score": 25.77,
-        "last_px": 299.68,
-        "vwap": 297.9405,
-        "vwap_distance_pct": 0.5838,
-        "relative_strength_latest_pct": 0.2199,
+        "vwap_score": 87.043,
+        "persistence_score": 77.135,
+        "volume_quality_score": 29.125,
+        "last_px": 299.53,
+        "vwap": 297.946,
+        "vwap_distance_pct": 0.5316,
+        "relative_strength_latest_pct": 0.1645,
         "above_vwap": true,
         "extended": false,
         "status": "NO_SIGNAL",
-        "reason": "IDS 51.6<=70.0; velocity -1.7<=0",
-        "stop_px": 297.43,
-        "target_px": 301.93,
+        "reason": "IDS 51.3<=70.0; velocity -0.3<=0",
+        "stop_px": 297.28,
+        "target_px": 301.78,
         "side": "LONG",
         "market_bias": "BULL",
         "benchmark_bear_ok": true,
@@ -26486,31 +26522,31 @@
       },
       {
         "ticker": "QQQ",
-        "timestamp": "2026-06-22T15:22:26Z",
-        "ids": 58.988,
+        "timestamp": "2026-06-22T15:24:26Z",
+        "ids": 60.156,
         "ids_velocity": 0.0,
         "rank": 9,
-        "relative_strength_score": 55.885,
+        "relative_strength_score": 58.628,
         "recovery_score": 68.13,
-        "absorption_score": 25.32,
-        "vwap_score": 60.088,
-        "persistence_score": 59.904,
-        "volume_quality_score": 50.459,
-        "last_px": 737.215,
-        "vwap": 739.8769,
-        "vwap_distance_pct": -0.3598,
-        "relative_strength_latest_pct": -0.0942,
+        "absorption_score": 25.37,
+        "vwap_score": 59.879,
+        "persistence_score": 60.783,
+        "volume_quality_score": 50.425,
+        "last_px": 736.93,
+        "vwap": 739.8756,
+        "vwap_distance_pct": -0.3981,
+        "relative_strength_latest_pct": -0.138,
         "above_vwap": false,
         "extended": false,
         "status": "NO_SIGNAL",
-        "reason": "APM_BASKET_PROXY_QQQ blocked: pressure 0.25<0.65; confirm cycles 0<2; QQQ velocity -3.3<=0",
-        "stop_px": 738.32,
-        "target_px": 735.37,
+        "reason": "APM_BASKET_PROXY_QQQ blocked: pressure 0.25<0.65; confirm cycles 0<2",
+        "stop_px": 738.04,
+        "target_px": 735.09,
         "side": "SHORT",
         "market_bias": "BEAR",
         "benchmark_bear_ok": true,
         "signal_source": "BASKET_PROXY_QQQ",
-        "basket_pressure": -0.2532,
+        "basket_pressure": -0.2537,
         "basket_participation": 0.6813,
         "basket_confirmation_cycles": 0
       }
@@ -26522,8 +26558,8 @@
     "AEGIS_LARGE_SWING",
     "AEGIS_LARGE_INTRADAY"
   ],
-  "published_at_utc": "2026-06-22T15:23:32Z",
-  "source_updated_at_max": "2026-06-22T08:23:25.702169",
+  "published_at_utc": "2026-06-22T15:25:34Z",
+  "source_updated_at_max": "2026-06-22T08:25:28.091463",
   "broker_accounts": {
     "new_intraday": {
       "label": "Tech Basket + QQQ APM Intraday",
@@ -26534,29 +26570,29 @@
       "inception_equity": 2500.0,
       "ytd_start_equity": 2500.0,
       "since_inception_pnl_dollars": -9.1,
-      "asof": "2026-06-22T08:23:23"
+      "asof": "2026-06-22T08:25:25"
     },
     "apm_swing": {
       "label": "Tech Basket + APM Swing",
       "profile": "APM_LARGE_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 13588.16,
-      "buying_power": 24989.48,
+      "equity": 13586.6,
+      "buying_power": 24987.92,
       "inception_equity": 13750.0,
       "ytd_start_equity": 13750.0,
-      "since_inception_pnl_dollars": -161.84,
-      "asof": "2026-06-22T08:23:14"
+      "since_inception_pnl_dollars": -163.4,
+      "asof": "2026-06-22T08:25:20"
     },
     "swing": {
       "label": "Mixed Basket + AEGIS Swing",
       "profile": "LARGE_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 13746.45,
+      "equity": 13738.09,
       "buying_power": null,
       "inception_equity": 13750.0,
       "ytd_start_equity": 13750.0,
-      "since_inception_pnl_dollars": -3.55,
-      "asof": "2026-06-22T08:22:59"
+      "since_inception_pnl_dollars": -11.91,
+      "asof": "2026-06-22T08:25:07"
     },
     "intraday": {
       "label": "SPY + AEGIS Intraday",
@@ -26567,7 +26603,7 @@
       "inception_equity": 2500.0,
       "ytd_start_equity": 2500.0,
       "since_inception_pnl_dollars": -9.1,
-      "asof": "2026-06-22T08:22:12"
+      "asof": "2026-06-22T08:24:12"
     }
   },
   "account_views": {
@@ -26584,7 +26620,7 @@
         "inception_equity": 2500.0,
         "ytd_start_equity": 2500.0,
         "since_inception_pnl_dollars": -9.1,
-        "asof": "2026-06-22T08:23:23"
+        "asof": "2026-06-22T08:25:25"
       },
       "performance": {
         "closed_trades_count": 18,
@@ -26606,13 +26642,13 @@
         "open_positions_count": 0,
         "open_long_count": 0,
         "open_short_count": 0,
-        "signals_ready_count": 0,
+        "signals_ready_count": 1,
         "recent_trades_count": 18,
         "avg_open_r_multiple": null,
         "twelve_data_ema9_called": false,
         "twelve_data_macd_called": false,
-        "apm_signals_ready": 0,
-        "apm_top_ids": 83.148
+        "apm_signals_ready": 1,
+        "apm_top_ids": 83.328
       },
       "positioning": {
         "long_short_ratio": null,
@@ -27256,19 +27292,19 @@
       "open_positions_live": [],
       "equity_curve": [
         {
-          "ts": "2026-06-22T15:23:23+00:00",
+          "ts": "2026-06-22T15:25:25+00:00",
           "equity": 2490.9,
           "drawdown_pct": 0.0
         }
       ],
       "drawdown_curve": [
         {
-          "ts": "2026-06-22T15:23:23+00:00",
+          "ts": "2026-06-22T15:25:25+00:00",
           "drawdown_pct": 0.0
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-22T08:23:25.702169",
+      "updated_at": "2026-06-22T08:25:28.091463",
       "published_at_utc": null
     },
     "apm_swing": {
@@ -27279,12 +27315,12 @@
         "label": "Tech Basket + APM Swing",
         "profile": "APM_LARGE_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 13588.16,
-        "buying_power": 24989.48,
+        "equity": 13586.6,
+        "buying_power": 24987.92,
         "inception_equity": 13750.0,
         "ytd_start_equity": 13750.0,
-        "since_inception_pnl_dollars": -161.84,
-        "asof": "2026-06-22T08:23:14"
+        "since_inception_pnl_dollars": -163.4,
+        "asof": "2026-06-22T08:25:20"
       },
       "performance": {
         "closed_trades_count": 2,
@@ -27300,7 +27336,7 @@
         "profit_factor_r": 0.0,
         "gross_profit_r": 0.0,
         "gross_loss_r": 972.51,
-        "max_drawdown_pct_est": 0.002
+        "max_drawdown_pct_est": 0.0
       },
       "summary": {
         "leaderboard_count": 8,
@@ -27457,17 +27493,17 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-06-22T08:23:14",
+          "ts_utc": "2026-06-22T08:25:20",
           "broker_account": "Tech Basket + APM Swing",
           "broker_profile": "APM_LARGE_SWING",
           "symbol": "AMD",
           "side": "LONG",
           "qty": 4.0,
           "entry_px": 541.5425,
-          "exit_px": 546.71,
-          "current_px": 546.71,
+          "exit_px": 546.32,
+          "current_px": 546.32,
           "R_realized": null,
-          "pnl_pct": 0.9542187362949386,
+          "pnl_pct": 0.8822022278953234,
           "entry_model": "Swing"
         }
       ],
@@ -27493,14 +27529,14 @@
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-06-22T15:23:13+00:00",
-          "equity": 13588.36,
+          "ts": "2026-06-22T15:25:19+00:00",
+          "equity": 13586.64,
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-06-22T15:23:14+00:00",
-          "equity": 13588.16,
-          "drawdown_pct": -0.0015
+          "ts": "2026-06-22T15:25:20+00:00",
+          "equity": 13586.6,
+          "drawdown_pct": -0.0003
         }
       ],
       "drawdown_curve": [
@@ -27521,17 +27557,17 @@
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-06-22T15:23:13+00:00",
+          "ts": "2026-06-22T15:25:19+00:00",
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-06-22T15:23:14+00:00",
-          "drawdown_pct": -0.0015
+          "ts": "2026-06-22T15:25:20+00:00",
+          "drawdown_pct": -0.0003
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-22T08:23:14.037260",
-      "published_at_utc": "2026-06-22T15:23:14Z"
+      "updated_at": "2026-06-22T08:25:20.239439",
+      "published_at_utc": "2026-06-22T15:25:20Z"
     },
     "swing": {
       "label": "Mixed Basket + AEGIS Swing",
@@ -27541,12 +27577,12 @@
         "label": "Mixed Basket + AEGIS Swing",
         "profile": "LARGE_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 13746.45,
+        "equity": 13738.09,
         "buying_power": null,
         "inception_equity": 13750.0,
         "ytd_start_equity": 13750.0,
-        "since_inception_pnl_dollars": -3.55,
-        "asof": "2026-06-22T08:22:59"
+        "since_inception_pnl_dollars": -11.91,
+        "asof": "2026-06-22T08:25:07"
       },
       "performance": {
         "closed_trades_count": 3,
@@ -27570,7 +27606,7 @@
         "open_short_count": 1,
         "signals_ready_count": 0,
         "recent_trades_count": 3,
-        "avg_open_r_multiple": 0.09,
+        "avg_open_r_multiple": 0.06,
         "twelve_data_ema9_called": false,
         "twelve_data_macd_called": false,
         "apm_signals_ready": 0,
@@ -27692,17 +27728,17 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-06-22T08:22:59",
+          "ts_utc": "2026-06-22T08:25:07",
           "broker_account": "Mixed Basket + AEGIS Swing",
           "broker_profile": "LARGE_SWING",
           "symbol": "AMZN",
           "side": "SHORT",
           "qty": 22.0,
           "entry_px": 234.65,
-          "exit_px": 233.04,
-          "current_px": 233.04,
-          "R_realized": 0.09,
-          "pnl_pct": 0.6861282761559828,
+          "exit_px": 233.42,
+          "current_px": 233.42,
+          "R_realized": 0.06,
+          "pnl_pct": 0.524184956317928,
           "entry_model": "Swing"
         }
       ],
@@ -33506,6 +33542,16 @@
           "ts": "2026-06-22T15:22:56+00:00",
           "equity": 13747.77,
           "drawdown_pct": -1.3227
+        },
+        {
+          "ts": "2026-06-22T15:24:49+00:00",
+          "equity": 13737.1,
+          "drawdown_pct": -1.3993
+        },
+        {
+          "ts": "2026-06-22T15:25:00+00:00",
+          "equity": 13739.41,
+          "drawdown_pct": -1.3827
         }
       ],
       "drawdown_curve": [
@@ -38148,10 +38194,18 @@
         {
           "ts": "2026-06-22T15:22:56+00:00",
           "drawdown_pct": -1.3227
+        },
+        {
+          "ts": "2026-06-22T15:24:49+00:00",
+          "drawdown_pct": -1.3993
+        },
+        {
+          "ts": "2026-06-22T15:25:00+00:00",
+          "drawdown_pct": -1.3827
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-22T08:23:10.164422",
+      "updated_at": "2026-06-22T08:25:16.289747",
       "published_at_utc": null
     },
     "intraday": {
@@ -38167,7 +38221,7 @@
         "inception_equity": 2500.0,
         "ytd_start_equity": 2500.0,
         "since_inception_pnl_dollars": -9.1,
-        "asof": "2026-06-22T08:22:12"
+        "asof": "2026-06-22T08:24:12"
       },
       "performance": {
         "closed_trades_count": 18,
@@ -44657,6 +44711,16 @@
           "ts": "2026-06-22T15:22:12+00:00",
           "equity": 2490.9,
           "drawdown_pct": -1.3493
+        },
+        {
+          "ts": "2026-06-22T15:24:06+00:00",
+          "equity": 2490.9,
+          "drawdown_pct": -1.3493
+        },
+        {
+          "ts": "2026-06-22T15:24:11+00:00",
+          "equity": 2490.9,
+          "drawdown_pct": -1.3493
         }
       ],
       "drawdown_curve": [
@@ -49315,10 +49379,18 @@
         {
           "ts": "2026-06-22T15:22:12+00:00",
           "drawdown_pct": -1.3493
+        },
+        {
+          "ts": "2026-06-22T15:24:06+00:00",
+          "drawdown_pct": -1.3493
+        },
+        {
+          "ts": "2026-06-22T15:24:11+00:00",
+          "drawdown_pct": -1.3493
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-22T08:22:23.294841",
+      "updated_at": "2026-06-22T08:24:23.837676",
       "published_at_utc": null
     }
   },
