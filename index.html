@@ -52,7 +52,7 @@
       <div class="container">
         <div class="panel-head">
           <h2>Key Investor Metrics</h2>
-          <p>SPY/QQQ, Tech basket, and swing strategy accounts are reported separately.</p>
+          <p>AEGIS swing and APM swing strategy accounts are reported separately.</p>
         </div>
         <div class="account-metrics-grid">
           <section class="account-metrics">
@@ -73,7 +73,7 @@
           </section>
 
           <section class="account-metrics">
-            <h3 id="swing_account_title">SPY/QQQ + Mixed Basket SwingTrade</h3>
+            <h3 id="swing_account_title">Mixed Basket + AEGIS Swing</h3>
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="swing_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="swing_ytd_return">-</strong></article>
@@ -90,7 +90,7 @@
           </section>
 
           <section class="account-metrics">
-            <h3 id="apm_swing_shadow_account_title">SPY/QQQ + Tech Basket SwingTrade</h3>
+            <h3 id="apm_swing_shadow_account_title">Tech Basket + APM Swing</h3>
             <div class="kpi-grid kpi-grid-primary">
               <article class="kpi"><span>Since Inception Return</span><strong id="apm_swing_shadow_since_inception_return">-</strong></article>
               <article class="kpi"><span>YTD Return</span><strong id="apm_swing_shadow_ytd_return">-</strong></article>
@@ -1346,6 +1346,18 @@
       if (el) el.textContent = val;
     }
 
+    function setAccountVisible(prefix, view){
+      const visible = !(view && view.missing);
+      const metricTitle = document.getElementById(`${prefix}_account_title`);
+      const metricPanel = metricTitle ? metricTitle.closest(".account-metrics") : null;
+      if (metricPanel) metricPanel.hidden = !visible;
+      for (const id of [`${prefix}_equity_curve_title`, `${prefix}_drawdown_title`]){
+        const title = document.getElementById(id);
+        const card = title ? title.closest(".chart-card") : null;
+        if (card) card.hidden = !visible;
+      }
+    }
+
     async function loadDashboard(){
       try{
         const res = await fetch("data/public_dashboard.json?ts=" + Date.now(), { cache: "no-store" });
@@ -1367,6 +1379,11 @@
         const recentTradesCount = Number(sum.recent_trades_count) || 0;
         const hasActivity = closedTrades > 0 || executionHistory.length > 0 || openPositionsCount > 0 || recentTradesCount > 0;
         const noActivity = !hasActivity;
+
+        setAccountVisible("intraday", intradayView);
+        setAccountVisible("new_intraday", newIntradayView);
+        setAccountVisible("swing", swingView);
+        setAccountVisible("apm_swing_shadow", apmSwingShadowView);
 
         setAccountTitles("intraday", intradayView);
         setAccountTitles("new_intraday", newIntradayView);
@@ -1477,6 +1494,10 @@
         renderTrades(executionHistory);
       }catch(e){
         setText("updated_at", "Dashboard data unavailable");
+        setAccountVisible("intraday", { missing: true });
+        setAccountVisible("new_intraday", { missing: true });
+        setAccountVisible("swing", { missing: false });
+        setAccountVisible("apm_swing_shadow", { missing: false });
         const equitySeries = fallbackEquitySeries();
         renderInteractiveLineChart("intraday_equity_curve_chart", equitySeries, {
           stroke: "#c67627",
