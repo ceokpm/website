@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-06-25T10:01:58.416127",
-  "published_at_utc": "2026-06-25T17:01:58Z",
+  "updated_at": "2026-06-25T10:15:52.810292",
+  "published_at_utc": "2026-06-25T17:15:52Z",
   "profile": "LARGE",
   "strategy": "APM_SWING",
   "shadow_only": false,
@@ -29,22 +29,22 @@
   ],
   "benchmark": "SPY",
   "account": {
-    "equity": 27920.52,
-    "buying_power": 19833.62,
+    "equity": 27915.03,
+    "buying_power": 19887.17,
     "inception_equity": 27500.0,
     "ytd_start_equity": 27500.0,
-    "since_inception_pnl_dollars": 420.52,
-    "asof": "2026-06-25T10:01:50"
+    "since_inception_pnl_dollars": 415.03,
+    "asof": "2026-06-25T10:15:47"
   },
   "summary": {
     "leaderboard_count": 19,
     "signals_ready_count": 8,
-    "open_positions_count": 6,
+    "open_positions_count": 7,
     "recent_trades_count": 19,
     "top_ticker": "IBIT",
     "top_score": 83.626,
     "open_long_count": 1,
-    "open_short_count": 5
+    "open_short_count": 6
   },
   "performance": {
     "closed_trades_count": 19,
@@ -1132,87 +1132,101 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-06-25T10:01:50",
+      "ts_utc": "2026-06-25T10:15:47",
       "broker_account": "Tech Basket + APM Swing",
       "broker_profile": "APM_LARGE_SWING",
       "symbol": "COST",
       "side": "SHORT",
       "qty": 1.0,
       "entry_px": 959.93,
-      "exit_px": 940.205,
-      "current_px": 940.205,
+      "exit_px": 940.3,
+      "current_px": 940.3,
       "R_realized": null,
-      "pnl_pct": 2.0548373318887743,
+      "pnl_pct": 2.044940776931651,
       "entry_model": "Swing"
     },
     {
-      "ts_utc": "2026-06-25T10:01:50",
+      "ts_utc": "2026-06-25T10:15:47",
+      "broker_account": "Tech Basket + APM Swing",
+      "broker_profile": "APM_LARGE_SWING",
+      "symbol": "IBIT",
+      "side": "SHORT",
+      "qty": 98.0,
+      "entry_px": 33.5,
+      "exit_px": 33.655,
+      "current_px": 33.655,
+      "R_realized": null,
+      "pnl_pct": -0.46268656716418244,
+      "entry_model": "Swing"
+    },
+    {
+      "ts_utc": "2026-06-25T10:15:47",
       "broker_account": "Tech Basket + APM Swing",
       "broker_profile": "APM_LARGE_SWING",
       "symbol": "TSLA",
       "side": "SHORT",
       "qty": 2.0,
       "entry_px": 376.5,
-      "exit_px": 373.895,
-      "current_px": 373.895,
+      "exit_px": 374.845,
+      "current_px": 374.845,
       "R_realized": null,
-      "pnl_pct": 0.691899070385131,
+      "pnl_pct": 0.43957503320052393,
       "entry_model": "Swing"
     },
     {
-      "ts_utc": "2026-06-25T10:01:50",
+      "ts_utc": "2026-06-25T10:15:47",
       "broker_account": "Tech Basket + APM Swing",
       "broker_profile": "APM_LARGE_SWING",
       "symbol": "WMT",
       "side": "SHORT",
       "qty": 31.0,
       "entry_px": 118.31,
-      "exit_px": 115.595,
-      "current_px": 115.595,
+      "exit_px": 115.6009,
+      "current_px": 115.6009,
       "R_realized": null,
-      "pnl_pct": 2.2948186966444113,
+      "pnl_pct": 2.2898317978192937,
       "entry_model": "Swing"
     },
     {
-      "ts_utc": "2026-06-25T10:01:50",
+      "ts_utc": "2026-06-25T10:15:47",
       "broker_account": "Tech Basket + APM Swing",
       "broker_profile": "APM_LARGE_SWING",
       "symbol": "XOM",
       "side": "SHORT",
       "qty": 6.0,
       "entry_px": 135.67,
-      "exit_px": 137.03,
-      "current_px": 137.03,
+      "exit_px": 136.64,
+      "current_px": 136.64,
       "R_realized": null,
-      "pnl_pct": -1.0024323726689863,
+      "pnl_pct": -0.7149701481536073,
       "entry_model": "Swing"
     },
     {
-      "ts_utc": "2026-06-25T10:00:47",
+      "ts_utc": "2026-06-25T10:15:23",
       "broker_account": "Mixed Basket + AEGIS Swing",
       "broker_profile": "LARGE_SWING",
       "symbol": "CVX",
       "side": "SHORT",
       "qty": 38.0,
       "entry_px": 171.28,
-      "exit_px": 171.41,
-      "current_px": 171.41,
-      "R_realized": -0.01,
-      "pnl_pct": -0.07589911256421968,
+      "exit_px": 171.015,
+      "current_px": 171.015,
+      "R_realized": 0.03,
+      "pnl_pct": 0.15471742176553877,
       "entry_model": "Swing"
     },
     {
-      "ts_utc": "2026-06-25T10:00:47",
+      "ts_utc": "2026-06-25T10:15:23",
       "broker_account": "Mixed Basket + AEGIS Swing",
       "broker_profile": "LARGE_SWING",
       "symbol": "GOOGL",
       "side": "LONG",
       "qty": 14.0,
       "entry_px": 341.53,
-      "exit_px": 341.6399,
-      "current_px": 341.6399,
-      "R_realized": null,
-      "pnl_pct": 0.03217872514860737,
+      "exit_px": 341.27,
+      "current_px": 341.27,
+      "R_realized": -0.01,
+      "pnl_pct": -0.0761280121804793,
       "entry_model": "Swing"
     }
   ],
@@ -10450,13 +10464,18 @@
       "drawdown_pct": -0.9859
     },
     {
-      "ts": "2026-06-25T17:01:49",
-      "equity": 27918.82,
-      "drawdown_pct": 0.0
+      "ts": "2026-06-25T17:15:08",
+      "equity": 27215.32,
+      "drawdown_pct": -0.9572
     },
     {
-      "ts": "2026-06-25T17:01:50",
-      "equity": 27918.84,
+      "ts": "2026-06-25T17:15:20",
+      "equity": 27218.67,
+      "drawdown_pct": -0.945
+    },
+    {
+      "ts": "2026-06-25T17:15:47",
+      "equity": 27914.77,
       "drawdown_pct": 0.0
     }
   ],
@@ -17406,18 +17425,22 @@
       "drawdown_pct": -0.9859
     },
     {
-      "ts": "2026-06-25T17:01:49",
-      "drawdown_pct": 0.0
+      "ts": "2026-06-25T17:15:08",
+      "drawdown_pct": -0.9572
     },
     {
-      "ts": "2026-06-25T17:01:50",
+      "ts": "2026-06-25T17:15:20",
+      "drawdown_pct": -0.945
+    },
+    {
+      "ts": "2026-06-25T17:15:47",
       "drawdown_pct": 0.0
     }
   ],
   "positioning": {
-    "long_short_ratio": 0.2,
-    "long_pct": 16.7,
-    "short_pct": 83.3,
+    "long_short_ratio": 0.167,
+    "long_pct": 14.3,
+    "short_pct": 85.7,
     "dynamic_positioning_on": true,
     "effective_max_positions": 7,
     "dynamic_slot_fraction": 0.35,
@@ -17427,29 +17450,29 @@
     "APM_LARGE_SWING",
     "AEGIS_LARGE_SWING"
   ],
-  "source_updated_at_max": "2026-06-25T10:01:50.274992",
+  "source_updated_at_max": "2026-06-25T10:15:47.579054",
   "broker_accounts": {
     "apm_swing": {
       "label": "Tech Basket + APM Swing",
       "profile": "APM_LARGE_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 14654.87,
-      "buying_power": 19833.62,
+      "equity": 14639.55,
+      "buying_power": 19887.17,
       "inception_equity": 13750.0,
       "ytd_start_equity": 13750.0,
-      "since_inception_pnl_dollars": 904.87,
-      "asof": "2026-06-25T10:01:50"
+      "since_inception_pnl_dollars": 889.55,
+      "asof": "2026-06-25T10:15:47"
     },
     "swing": {
       "label": "Mixed Basket + AEGIS Swing",
       "profile": "LARGE_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 13265.65,
+      "equity": 13275.48,
       "buying_power": null,
       "inception_equity": 13750.0,
       "ytd_start_equity": 13750.0,
-      "since_inception_pnl_dollars": -484.35,
-      "asof": "2026-06-25T10:00:47"
+      "since_inception_pnl_dollars": -474.52,
+      "asof": "2026-06-25T10:15:23"
     }
   },
   "account_views": {
@@ -17461,12 +17484,12 @@
         "label": "Tech Basket + APM Swing",
         "profile": "APM_LARGE_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 14654.87,
-        "buying_power": 19833.62,
+        "equity": 14639.55,
+        "buying_power": 19887.17,
         "inception_equity": 13750.0,
         "ytd_start_equity": 13750.0,
-        "since_inception_pnl_dollars": 904.87,
-        "asof": "2026-06-25T10:01:50"
+        "since_inception_pnl_dollars": 889.55,
+        "asof": "2026-06-25T10:15:47"
       },
       "performance": {
         "closed_trades_count": 13,
@@ -17487,12 +17510,12 @@
       "summary": {
         "leaderboard_count": 19,
         "signals_ready_count": 7,
-        "open_positions_count": 4,
+        "open_positions_count": 5,
         "recent_trades_count": 13,
         "top_ticker": "IBIT",
         "top_score": 83.626,
         "open_long_count": 0,
-        "open_short_count": 4
+        "open_short_count": 5
       },
       "positioning": {
         "long_short_ratio": 0.0,
@@ -18380,59 +18403,73 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-06-25T10:01:50",
+          "ts_utc": "2026-06-25T10:15:47",
           "broker_account": "Tech Basket + APM Swing",
           "broker_profile": "APM_LARGE_SWING",
           "symbol": "COST",
           "side": "SHORT",
           "qty": 1.0,
           "entry_px": 959.93,
-          "exit_px": 940.205,
-          "current_px": 940.205,
+          "exit_px": 940.3,
+          "current_px": 940.3,
           "R_realized": null,
-          "pnl_pct": 2.0548373318887743,
+          "pnl_pct": 2.044940776931651,
           "entry_model": "Swing"
         },
         {
-          "ts_utc": "2026-06-25T10:01:50",
+          "ts_utc": "2026-06-25T10:15:47",
+          "broker_account": "Tech Basket + APM Swing",
+          "broker_profile": "APM_LARGE_SWING",
+          "symbol": "IBIT",
+          "side": "SHORT",
+          "qty": 98.0,
+          "entry_px": 33.5,
+          "exit_px": 33.655,
+          "current_px": 33.655,
+          "R_realized": null,
+          "pnl_pct": -0.46268656716418244,
+          "entry_model": "Swing"
+        },
+        {
+          "ts_utc": "2026-06-25T10:15:47",
           "broker_account": "Tech Basket + APM Swing",
           "broker_profile": "APM_LARGE_SWING",
           "symbol": "TSLA",
           "side": "SHORT",
           "qty": 2.0,
           "entry_px": 376.5,
-          "exit_px": 373.895,
-          "current_px": 373.895,
+          "exit_px": 374.845,
+          "current_px": 374.845,
           "R_realized": null,
-          "pnl_pct": 0.691899070385131,
+          "pnl_pct": 0.43957503320052393,
           "entry_model": "Swing"
         },
         {
-          "ts_utc": "2026-06-25T10:01:50",
+          "ts_utc": "2026-06-25T10:15:47",
           "broker_account": "Tech Basket + APM Swing",
           "broker_profile": "APM_LARGE_SWING",
           "symbol": "WMT",
           "side": "SHORT",
           "qty": 31.0,
           "entry_px": 118.31,
-          "exit_px": 115.595,
-          "current_px": 115.595,
+          "exit_px": 115.6009,
+          "current_px": 115.6009,
           "R_realized": null,
-          "pnl_pct": 2.2948186966444113,
+          "pnl_pct": 2.2898317978192937,
           "entry_model": "Swing"
         },
         {
-          "ts_utc": "2026-06-25T10:01:50",
+          "ts_utc": "2026-06-25T10:15:47",
           "broker_account": "Tech Basket + APM Swing",
           "broker_profile": "APM_LARGE_SWING",
           "symbol": "XOM",
           "side": "SHORT",
           "qty": 6.0,
           "entry_px": 135.67,
-          "exit_px": 137.03,
-          "current_px": 137.03,
+          "exit_px": 136.64,
+          "current_px": 136.64,
           "R_realized": null,
-          "pnl_pct": -1.0024323726689863,
+          "pnl_pct": -0.7149701481536073,
           "entry_model": "Swing"
         }
       ],
@@ -18473,14 +18510,14 @@
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-06-25T17:01:49+00:00",
-          "equity": 14654.85,
+          "ts": "2026-06-25T17:15:47+00:00",
+          "equity": 14639.6,
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-06-25T17:01:50+00:00",
-          "equity": 14654.87,
-          "drawdown_pct": 0.0
+          "ts": "2026-06-25T17:15:47+00:00",
+          "equity": 14639.55,
+          "drawdown_pct": -0.0003
         }
       ],
       "drawdown_curve": [
@@ -18513,17 +18550,17 @@
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-06-25T17:01:49+00:00",
+          "ts": "2026-06-25T17:15:47+00:00",
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-06-25T17:01:50+00:00",
-          "drawdown_pct": 0.0
+          "ts": "2026-06-25T17:15:47+00:00",
+          "drawdown_pct": -0.0003
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-25T10:01:50.274992",
-      "published_at_utc": "2026-06-25T17:01:50Z"
+      "updated_at": "2026-06-25T10:15:47.579054",
+      "published_at_utc": "2026-06-25T17:15:47Z"
     },
     "swing": {
       "label": "Mixed Basket + AEGIS Swing",
@@ -18533,12 +18570,12 @@
         "label": "Mixed Basket + AEGIS Swing",
         "profile": "LARGE_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 13265.65,
+        "equity": 13275.48,
         "buying_power": null,
         "inception_equity": 13750.0,
         "ytd_start_equity": 13750.0,
-        "since_inception_pnl_dollars": -484.35,
-        "asof": "2026-06-25T10:00:47"
+        "since_inception_pnl_dollars": -474.52,
+        "asof": "2026-06-25T10:15:23"
       },
       "performance": {
         "closed_trades_count": 6,
@@ -18562,9 +18599,9 @@
         "open_short_count": 1,
         "signals_ready_count": 1,
         "recent_trades_count": 6,
-        "avg_open_r_multiple": -0.005,
+        "avg_open_r_multiple": 0.01,
         "twelve_data_ema9_called": false,
-        "twelve_data_macd_called": true,
+        "twelve_data_macd_called": false,
         "apm_signals_ready": 0,
         "apm_top_ids": null
       },
@@ -18789,31 +18826,31 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-06-25T10:00:47",
+          "ts_utc": "2026-06-25T10:15:23",
           "broker_account": "Mixed Basket + AEGIS Swing",
           "broker_profile": "LARGE_SWING",
           "symbol": "CVX",
           "side": "SHORT",
           "qty": 38.0,
           "entry_px": 171.28,
-          "exit_px": 171.41,
-          "current_px": 171.41,
-          "R_realized": -0.01,
-          "pnl_pct": -0.07589911256421968,
+          "exit_px": 171.015,
+          "current_px": 171.015,
+          "R_realized": 0.03,
+          "pnl_pct": 0.15471742176553877,
           "entry_model": "Swing"
         },
         {
-          "ts_utc": "2026-06-25T10:00:47",
+          "ts_utc": "2026-06-25T10:15:23",
           "broker_account": "Mixed Basket + AEGIS Swing",
           "broker_profile": "LARGE_SWING",
           "symbol": "GOOGL",
           "side": "LONG",
           "qty": 14.0,
           "entry_px": 341.53,
-          "exit_px": 341.6399,
-          "current_px": 341.6399,
-          "R_realized": null,
-          "pnl_pct": 0.03217872514860737,
+          "exit_px": 341.27,
+          "current_px": 341.27,
+          "R_realized": -0.01,
+          "pnl_pct": -0.0761280121804793,
           "entry_model": "Swing"
         }
       ],
@@ -27462,6 +27499,16 @@
           "ts": "2026-06-25T17:00:44+00:00",
           "equity": 13263.97,
           "drawdown_pct": -4.7953
+        },
+        {
+          "ts": "2026-06-25T17:15:08+00:00",
+          "equity": 13271.87,
+          "drawdown_pct": -4.7386
+        },
+        {
+          "ts": "2026-06-25T17:15:20+00:00",
+          "equity": 13275.22,
+          "drawdown_pct": -4.7145
         }
       ],
       "drawdown_curve": [
@@ -34380,10 +34427,18 @@
         {
           "ts": "2026-06-25T17:00:44+00:00",
           "drawdown_pct": -4.7953
+        },
+        {
+          "ts": "2026-06-25T17:15:08+00:00",
+          "drawdown_pct": -4.7386
+        },
+        {
+          "ts": "2026-06-25T17:15:20+00:00",
+          "drawdown_pct": -4.7145
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-06-25T10:01:15.937479",
+      "updated_at": "2026-06-25T10:15:42.964164",
       "published_at_utc": null
     }
   },
