@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-01T12:45:37.679674",
-  "published_at_utc": "2026-07-01T19:45:37Z",
+  "updated_at": "2026-07-01T13:10:27.450096",
+  "published_at_utc": "2026-07-01T20:10:27Z",
   "profile": "LARGE",
   "strategy": "APM_SWING",
   "shadow_only": false,
@@ -23,12 +23,12 @@
   ],
   "benchmark": "SPY",
   "account": {
-    "equity": 1000.88,
+    "equity": 1000.43,
     "buying_power": 235.7,
     "inception_equity": 1000.0,
     "ytd_start_equity": 1000.0,
-    "since_inception_pnl_dollars": 0.88,
-    "asof": "2026-07-01T12:45:34"
+    "since_inception_pnl_dollars": 0.43,
+    "asof": "2026-07-01T19:59:50Z"
   },
   "summary": {
     "leaderboard_count": 13,
@@ -426,60 +426,68 @@
   "trade_history": [],
   "open_positions_live": [
     {
-      "ts_utc": "2026-07-01T12:45:34",
-      "broker_account": "Live Trading Account",
-      "broker_profile": "APM_REAL_ACCOUNT_SWING",
+      "ts_utc": "2026-06-30T17:15:35Z",
       "symbol": "KDP",
       "side": "LONG",
       "qty": 6.0,
       "entry_px": 33.2899,
-      "exit_px": 33.315,
-      "current_px": 33.315,
-      "R_realized": null,
-      "pnl_pct": 0.07539824391180144,
-      "entry_model": "Swing"
+      "exit_px": 33.395,
+      "current_px": 33.395,
+      "R_realized": 0.07753,
+      "pnl_pct": 0.315711,
+      "pnl_dollars": 0.63,
+      "entry_model": "Swing",
+      "reason": "OPEN",
+      "broker_account": "Live Trading Account",
+      "broker_profile": "APM_REAL_ACCOUNT_SWING"
     },
     {
-      "ts_utc": "2026-07-01T12:45:34",
-      "broker_account": "Live Trading Account",
-      "broker_profile": "APM_REAL_ACCOUNT_SWING",
+      "ts_utc": "2026-06-30T17:15:36Z",
       "symbol": "NCLH",
       "side": "LONG",
       "qty": 9.0,
       "entry_px": 21.1998,
-      "exit_px": 20.595,
-      "current_px": 20.595,
-      "R_realized": null,
-      "pnl_pct": -2.852857102425499,
-      "entry_model": "Swing"
+      "exit_px": 20.685,
+      "current_px": 20.685,
+      "R_realized": -0.585399,
+      "pnl_pct": -2.428325,
+      "pnl_dollars": -4.63,
+      "entry_model": "Swing",
+      "reason": "OPEN",
+      "broker_account": "Live Trading Account",
+      "broker_profile": "APM_REAL_ACCOUNT_SWING"
     },
     {
-      "ts_utc": "2026-07-01T12:45:34",
-      "broker_account": "Live Trading Account",
-      "broker_profile": "APM_REAL_ACCOUNT_SWING",
+      "ts_utc": "2026-06-30T17:15:35Z",
       "symbol": "PENN",
       "side": "LONG",
       "qty": 9.0,
       "entry_px": 21.3209,
-      "exit_px": 21.705,
-      "current_px": 21.705,
-      "R_realized": null,
-      "pnl_pct": 1.801518697615938,
-      "entry_model": "Swing"
+      "exit_px": 21.49,
+      "current_px": 21.49,
+      "R_realized": 0.281177,
+      "pnl_pct": 0.793118,
+      "pnl_dollars": 1.52,
+      "entry_model": "Swing",
+      "reason": "OPEN",
+      "broker_account": "Live Trading Account",
+      "broker_profile": "APM_REAL_ACCOUNT_SWING"
     },
     {
-      "ts_utc": "2026-07-01T12:45:34",
-      "broker_account": "Live Trading Account",
-      "broker_profile": "APM_REAL_ACCOUNT_SWING",
+      "ts_utc": "2026-06-30T17:15:35Z",
       "symbol": "RF",
       "side": "LONG",
       "qty": 6.0,
       "entry_px": 30.3099,
-      "exit_px": 30.765,
-      "current_px": 30.765,
-      "R_realized": null,
-      "pnl_pct": 1.5014896123048957,
-      "entry_model": "Swing"
+      "exit_px": 30.795,
+      "current_px": 30.795,
+      "R_realized": 0.487244,
+      "pnl_pct": 1.600467,
+      "pnl_dollars": 2.91,
+      "entry_model": "Swing",
+      "reason": "OPEN",
+      "broker_account": "Live Trading Account",
+      "broker_profile": "APM_REAL_ACCOUNT_SWING"
     }
   ],
   "recent_executions": [],
@@ -490,8 +498,8 @@
       "drawdown_pct": 0.0
     },
     {
-      "ts": "2026-07-01T19:45:34",
-      "equity": 1000.88,
+      "ts": "2026-07-01T19:59:50",
+      "equity": 1000.43,
       "drawdown_pct": 0.0
     }
   ],
@@ -501,7 +509,7 @@
       "drawdown_pct": 0.0
     },
     {
-      "ts": "2026-07-01T19:45:34",
+      "ts": "2026-07-01T19:59:50",
       "drawdown_pct": 0.0
     }
   ],
@@ -517,18 +525,18 @@
   "strategy_lanes": [
     "APM_REAL_ACCOUNT_SWING"
   ],
-  "source_updated_at_max": "2026-07-01T12:45:34.916181",
+  "source_updated_at_max": "2026-07-01T12:59:50",
   "broker_accounts": {
     "apm_swing": {
       "label": "Live Trading Account",
       "profile": "APM_REAL_ACCOUNT_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 1000.88,
+      "equity": 1000.43,
       "buying_power": 235.7,
       "inception_equity": 1000.0,
       "ytd_start_equity": 1000.0,
-      "since_inception_pnl_dollars": 0.88,
-      "asof": "2026-07-01T12:45:34"
+      "since_inception_pnl_dollars": 0.43,
+      "asof": "2026-07-01T19:59:50Z"
     }
   },
   "account_views": {
@@ -540,12 +548,12 @@
         "label": "Live Trading Account",
         "profile": "APM_REAL_ACCOUNT_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 1000.88,
+        "equity": 1000.43,
         "buying_power": 235.7,
         "inception_equity": 1000.0,
         "ytd_start_equity": 1000.0,
-        "since_inception_pnl_dollars": 0.88,
-        "asof": "2026-07-01T12:45:34"
+        "since_inception_pnl_dollars": 0.43,
+        "asof": "2026-07-01T19:59:50Z"
       },
       "performance": {
         "closed_trades_count": 0,
@@ -557,9 +565,7 @@
         "open_positions_count": 4,
         "recent_trades_count": 0,
         "top_ticker": "AAL",
-        "top_score": 84.658,
-        "open_long_count": 4,
-        "open_short_count": 0
+        "top_score": 84.658
       },
       "positioning": {
         "long_short_ratio": null,
@@ -574,60 +580,68 @@
       "recent_executions": [],
       "open_positions_live": [
         {
-          "ts_utc": "2026-07-01T12:45:34",
-          "broker_account": "Live Trading Account",
-          "broker_profile": "APM_REAL_ACCOUNT_SWING",
+          "ts_utc": "2026-06-30T17:15:35Z",
           "symbol": "KDP",
           "side": "LONG",
           "qty": 6.0,
           "entry_px": 33.2899,
-          "exit_px": 33.315,
-          "current_px": 33.315,
-          "R_realized": null,
-          "pnl_pct": 0.07539824391180144,
-          "entry_model": "Swing"
+          "exit_px": 33.395,
+          "current_px": 33.395,
+          "R_realized": 0.07753,
+          "pnl_pct": 0.315711,
+          "pnl_dollars": 0.63,
+          "entry_model": "Swing",
+          "reason": "OPEN",
+          "broker_account": "Live Trading Account",
+          "broker_profile": "APM_REAL_ACCOUNT_SWING"
         },
         {
-          "ts_utc": "2026-07-01T12:45:34",
-          "broker_account": "Live Trading Account",
-          "broker_profile": "APM_REAL_ACCOUNT_SWING",
+          "ts_utc": "2026-06-30T17:15:36Z",
           "symbol": "NCLH",
           "side": "LONG",
           "qty": 9.0,
           "entry_px": 21.1998,
-          "exit_px": 20.595,
-          "current_px": 20.595,
-          "R_realized": null,
-          "pnl_pct": -2.852857102425499,
-          "entry_model": "Swing"
+          "exit_px": 20.685,
+          "current_px": 20.685,
+          "R_realized": -0.585399,
+          "pnl_pct": -2.428325,
+          "pnl_dollars": -4.63,
+          "entry_model": "Swing",
+          "reason": "OPEN",
+          "broker_account": "Live Trading Account",
+          "broker_profile": "APM_REAL_ACCOUNT_SWING"
         },
         {
-          "ts_utc": "2026-07-01T12:45:34",
-          "broker_account": "Live Trading Account",
-          "broker_profile": "APM_REAL_ACCOUNT_SWING",
+          "ts_utc": "2026-06-30T17:15:35Z",
           "symbol": "PENN",
           "side": "LONG",
           "qty": 9.0,
           "entry_px": 21.3209,
-          "exit_px": 21.705,
-          "current_px": 21.705,
-          "R_realized": null,
-          "pnl_pct": 1.801518697615938,
-          "entry_model": "Swing"
+          "exit_px": 21.49,
+          "current_px": 21.49,
+          "R_realized": 0.281177,
+          "pnl_pct": 0.793118,
+          "pnl_dollars": 1.52,
+          "entry_model": "Swing",
+          "reason": "OPEN",
+          "broker_account": "Live Trading Account",
+          "broker_profile": "APM_REAL_ACCOUNT_SWING"
         },
         {
-          "ts_utc": "2026-07-01T12:45:34",
-          "broker_account": "Live Trading Account",
-          "broker_profile": "APM_REAL_ACCOUNT_SWING",
+          "ts_utc": "2026-06-30T17:15:35Z",
           "symbol": "RF",
           "side": "LONG",
           "qty": 6.0,
           "entry_px": 30.3099,
-          "exit_px": 30.765,
-          "current_px": 30.765,
-          "R_realized": null,
-          "pnl_pct": 1.5014896123048957,
-          "entry_model": "Swing"
+          "exit_px": 30.795,
+          "current_px": 30.795,
+          "R_realized": 0.487244,
+          "pnl_pct": 1.600467,
+          "pnl_dollars": 2.91,
+          "entry_model": "Swing",
+          "reason": "OPEN",
+          "broker_account": "Live Trading Account",
+          "broker_profile": "APM_REAL_ACCOUNT_SWING"
         }
       ],
       "equity_curve": [
@@ -637,13 +651,8 @@
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-07-01T19:45:34+00:00",
-          "equity": 1000.88,
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-07-01T19:45:34+00:00",
-          "equity": 1000.88,
+          "ts": "2026-07-01T19:59:50+00:00",
+          "equity": 1000.43,
           "drawdown_pct": 0.0
         }
       ],
@@ -653,17 +662,13 @@
           "drawdown_pct": 0.0
         },
         {
-          "ts": "2026-07-01T19:45:34+00:00",
-          "drawdown_pct": 0.0
-        },
-        {
-          "ts": "2026-07-01T19:45:34+00:00",
+          "ts": "2026-07-01T19:59:50+00:00",
           "drawdown_pct": 0.0
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-07-01T12:45:34.916181",
-      "published_at_utc": "2026-07-01T19:45:34Z"
+      "updated_at": "2026-07-01T12:59:50",
+      "published_at_utc": "2026-07-01T19:59:50Z"
     }
   },
   "public_reset_starts": {
