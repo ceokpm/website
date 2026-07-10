@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-10T07:01:07.943217",
-  "published_at_utc": "2026-07-10T14:01:07Z",
+  "updated_at": "2026-07-10T07:01:09.414702",
+  "published_at_utc": "2026-07-10T14:01:09Z",
   "profile": "LARGE",
   "strategy": "APM_SWING",
   "shadow_only": false,
@@ -47,16 +47,16 @@
     "inception_equity": 1000.0,
     "ytd_start_equity": 1000.0,
     "since_inception_pnl_dollars": -90.44,
-    "asof": "2026-07-10T14:01:07Z"
+    "asof": "2026-07-10T07:01:07"
   },
   "summary": {
     "leaderboard_count": 19,
     "signals_ready_count": 4,
-    "open_positions_count": 0,
+    "open_positions_count": 1,
     "recent_trades_count": 16,
     "top_ticker": "AMD",
     "top_score": 81.211,
-    "open_long_count": 0,
+    "open_long_count": 1,
     "open_short_count": 0
   },
   "performance": {
@@ -1422,7 +1422,22 @@
       "broker_profile": "APM_REAL_ACCOUNT_SWING"
     }
   ],
-  "open_positions_live": [],
+  "open_positions_live": [
+    {
+      "ts_utc": "2026-07-10T07:01:07",
+      "broker_account": "Live Trading Account",
+      "broker_profile": "APM_REAL_ACCOUNT_SWING",
+      "symbol": "VXX",
+      "side": "LONG",
+      "qty": 42.0,
+      "entry_px": 21.9999,
+      "exit_px": 21.36,
+      "current_px": 21.36,
+      "R_realized": null,
+      "pnl_pct": -2.9086495847708433,
+      "entry_model": "Swing"
+    }
+  ],
   "recent_executions": [
     {
       "ts_utc": "2026-07-02T14:02:08Z",
@@ -2117,7 +2132,7 @@
   ],
   "positioning": {
     "long_short_ratio": null,
-    "long_pct": 0.0,
+    "long_pct": 100.0,
     "short_pct": 0.0,
     "dynamic_positioning_on": true,
     "effective_max_positions": 0,
@@ -2127,7 +2142,7 @@
   "strategy_lanes": [
     "APM_REAL_ACCOUNT_SWING"
   ],
-  "source_updated_at_max": "2026-07-10T07:01:07",
+  "source_updated_at_max": "2026-07-10T07:01:07.786663",
   "broker_accounts": {
     "apm_swing": {
       "label": "Live Trading Account",
@@ -2138,7 +2153,7 @@
       "inception_equity": 1000.0,
       "ytd_start_equity": 1000.0,
       "since_inception_pnl_dollars": -90.44,
-      "asof": "2026-07-10T14:01:07Z"
+      "asof": "2026-07-10T07:01:07"
     }
   },
   "account_views": {
@@ -2155,7 +2170,7 @@
         "inception_equity": 1000.0,
         "ytd_start_equity": 1000.0,
         "since_inception_pnl_dollars": -90.44,
-        "asof": "2026-07-10T14:01:07Z"
+        "asof": "2026-07-10T07:01:07"
       },
       "performance": {
         "closed_trades_count": 16,
@@ -2176,14 +2191,16 @@
       "summary": {
         "leaderboard_count": 19,
         "signals_ready_count": 4,
-        "open_positions_count": 0,
+        "open_positions_count": 1,
         "recent_trades_count": 16,
         "top_ticker": "AMD",
-        "top_score": 81.211
+        "top_score": 81.211,
+        "open_long_count": 1,
+        "open_short_count": 0
       },
       "positioning": {
         "long_short_ratio": null,
-        "long_pct": 0.0,
+        "long_pct": 100.0,
         "short_pct": 0.0,
         "dynamic_positioning_on": true,
         "effective_max_positions": 0,
@@ -3406,7 +3423,22 @@
           "status": "CLOSED"
         }
       ],
-      "open_positions_live": [],
+      "open_positions_live": [
+        {
+          "ts_utc": "2026-07-10T07:01:07",
+          "broker_account": "Live Trading Account",
+          "broker_profile": "APM_REAL_ACCOUNT_SWING",
+          "symbol": "VXX",
+          "side": "LONG",
+          "qty": 42.0,
+          "entry_px": 21.9999,
+          "exit_px": 21.36,
+          "current_px": 21.36,
+          "R_realized": null,
+          "pnl_pct": -2.9086495847708433,
+          "entry_model": "Swing"
+        }
+      ],
       "equity_curve": [
         {
           "ts": "2026-06-30T19:59:08+00:00",
@@ -3447,6 +3479,11 @@
           "ts": "2026-07-10T14:01:07+00:00",
           "equity": 909.56,
           "drawdown_pct": -9.0831
+        },
+        {
+          "ts": "2026-07-10T14:01:07+00:00",
+          "equity": 909.56,
+          "drawdown_pct": -9.0831
         }
       ],
       "drawdown_curve": [
@@ -3481,10 +3518,14 @@
         {
           "ts": "2026-07-10T14:01:07+00:00",
           "drawdown_pct": -9.0831
+        },
+        {
+          "ts": "2026-07-10T14:01:07+00:00",
+          "drawdown_pct": -9.0831
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-07-10T07:01:07",
+      "updated_at": "2026-07-10T07:01:07.786663",
       "published_at_utc": "2026-07-10T14:01:07Z"
     }
   },
