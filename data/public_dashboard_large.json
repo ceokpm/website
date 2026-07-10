@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-10T06:30:41.829732",
-  "published_at_utc": "2026-07-10T13:30:41Z",
+  "updated_at": "2026-07-10T06:31:05.186101",
+  "published_at_utc": "2026-07-10T13:31:05Z",
   "profile": "LARGE",
   "strategy": "APM_SWING",
   "shadow_only": false,
@@ -42,12 +42,12 @@
     "XLV"
   ],
   "account": {
-    "equity": 914.6,
+    "equity": 912.71,
     "buying_power": 12.44,
     "inception_equity": 1000.0,
     "ytd_start_equity": 1000.0,
-    "since_inception_pnl_dollars": -85.4,
-    "asof": "2026-07-10T06:30:40"
+    "since_inception_pnl_dollars": -87.29,
+    "asof": "2026-07-10T06:31:03"
   },
   "summary": {
     "leaderboard_count": 19,
@@ -73,7 +73,7 @@
     "profit_factor_r": 0.109,
     "gross_profit_r": 6.54,
     "gross_loss_r": 59.816,
-    "max_drawdown_pct_est": 8.579
+    "max_drawdown_pct_est": 8.768
   },
   "monthly_performance": [],
   "leaderboard": [
@@ -152,10 +152,47 @@
       "factor_trend_symbols": "XLK/QQQ"
     },
     {
+      "ticker": "COST",
+      "timestamp": "2026-07-10T13:30:02Z",
+      "score": 80.665,
+      "rank": 3,
+      "relative_strength_score": 89.563,
+      "accumulation_score": 67.332,
+      "trend_score": 89.215,
+      "anchored_vwap_score": 93.724,
+      "persistence_score": 69.801,
+      "volume_quality_score": 57.147,
+      "benchmark_trend_score": 15.203,
+      "last_px": 912.97,
+      "anchored_vwap": 959.6263,
+      "ema20": 953.6229,
+      "ema50": 972.9826,
+      "atr": 20.7547,
+      "relative_strength_latest_pct": -8.4509,
+      "above_anchor_vwap": false,
+      "trend_ok": true,
+      "extended": false,
+      "status": "NO_SIGNAL",
+      "reason": "shorts disabled until Alpaca equity >= $2,000 (current $914.60); SPY bear trend filter",
+      "stop_px": 958.6185,
+      "target_px": 857.6395,
+      "side": "SHORT",
+      "market_bias": "BEAR",
+      "relative_strength_mode": "spy_fallback",
+      "factor_expected_move_pct": 0.0,
+      "factor_actual_move_pct": 0.0,
+      "factor_residual_pct": 0.0,
+      "factor_position_mult": 1.0,
+      "factor_risk_reward_score": 80.665,
+      "factor_betas": "",
+      "factor_trend_score": 15.203,
+      "factor_trend_symbols": "SPY"
+    },
+    {
       "ticker": "JNJ",
       "timestamp": "2026-07-10T13:30:02Z",
       "score": 79.736,
-      "rank": 3,
+      "rank": 4,
       "relative_strength_score": 80.817,
       "accumulation_score": 64.22,
       "trend_score": 96.035,
@@ -189,10 +226,47 @@
       "factor_trend_symbols": "XLV/SPY"
     },
     {
+      "ticker": "WMT",
+      "timestamp": "2026-07-10T13:30:02Z",
+      "score": 79.655,
+      "rank": 5,
+      "relative_strength_score": 83.254,
+      "accumulation_score": 66.858,
+      "trend_score": 91.011,
+      "anchored_vwap_score": 91.047,
+      "persistence_score": 74.353,
+      "volume_quality_score": 59.575,
+      "benchmark_trend_score": 15.203,
+      "last_px": 112.21,
+      "anchored_vwap": 116.3081,
+      "ema20": 115.2193,
+      "ema50": 119.1627,
+      "atr": 2.7907,
+      "relative_strength_latest_pct": -8.248,
+      "above_anchor_vwap": false,
+      "trend_ok": true,
+      "extended": false,
+      "status": "NO_SIGNAL",
+      "reason": "shorts disabled until Alpaca equity >= $2,000 (current $914.60); SPY bear trend filter",
+      "stop_px": 117.8205,
+      "target_px": 105.5377,
+      "side": "SHORT",
+      "market_bias": "BEAR",
+      "relative_strength_mode": "spy_fallback",
+      "factor_expected_move_pct": 0.0,
+      "factor_actual_move_pct": 0.0,
+      "factor_residual_pct": 0.0,
+      "factor_position_mult": 1.0,
+      "factor_risk_reward_score": 79.655,
+      "factor_betas": "",
+      "factor_trend_score": 15.203,
+      "factor_trend_symbols": "SPY"
+    },
+    {
       "ticker": "AMD",
       "timestamp": "2026-07-10T13:30:02Z",
       "score": 79.312,
-      "rank": 4,
+      "rank": 6,
       "relative_strength_score": 89.694,
       "accumulation_score": 63.497,
       "trend_score": 89.858,
@@ -224,80 +298,6 @@
       "factor_betas": "{\"qqq_resid\": 1.875, \"sector_resid\": 0.8351, \"spy\": 1.866}",
       "factor_trend_score": 42.077,
       "factor_trend_symbols": "SMH/QQQ"
-    },
-    {
-      "ticker": "COST",
-      "timestamp": "2026-07-10T13:30:02Z",
-      "score": 77.503,
-      "rank": 5,
-      "relative_strength_score": 77.403,
-      "accumulation_score": 67.332,
-      "trend_score": 89.215,
-      "anchored_vwap_score": 93.724,
-      "persistence_score": 69.801,
-      "volume_quality_score": 57.147,
-      "benchmark_trend_score": 15.203,
-      "last_px": 912.97,
-      "anchored_vwap": 959.6263,
-      "ema20": 953.6229,
-      "ema50": 972.9826,
-      "atr": 20.7547,
-      "relative_strength_latest_pct": -4.3845,
-      "above_anchor_vwap": false,
-      "trend_ok": true,
-      "extended": false,
-      "status": "NO_SIGNAL",
-      "reason": "shorts disabled until Alpaca equity >= $2,000 (current $914.60); factor bear filter (XLP/SPY)",
-      "stop_px": 958.6185,
-      "target_px": 859.9745,
-      "side": "SHORT",
-      "market_bias": "BEAR",
-      "relative_strength_mode": "factor",
-      "factor_expected_move_pct": -0.3492,
-      "factor_actual_move_pct": -4.7338,
-      "factor_residual_pct": -4.3845,
-      "factor_position_mult": 0.7487,
-      "factor_risk_reward_score": 77.468,
-      "factor_betas": "{\"sector_resid\": 0.5566, \"spy\": -0.0099}",
-      "factor_trend_score": 15.203,
-      "factor_trend_symbols": "XLP/SPY"
-    },
-    {
-      "ticker": "WMT",
-      "timestamp": "2026-07-10T13:30:02Z",
-      "score": 76.674,
-      "rank": 6,
-      "relative_strength_score": 71.79,
-      "accumulation_score": 66.858,
-      "trend_score": 91.011,
-      "anchored_vwap_score": 91.047,
-      "persistence_score": 74.353,
-      "volume_quality_score": 59.575,
-      "benchmark_trend_score": 15.203,
-      "last_px": 112.21,
-      "anchored_vwap": 116.3081,
-      "ema20": 115.2193,
-      "ema50": 119.1627,
-      "atr": 2.7907,
-      "relative_strength_latest_pct": -4.3149,
-      "above_anchor_vwap": false,
-      "trend_ok": true,
-      "extended": false,
-      "status": "NO_SIGNAL",
-      "reason": "shorts disabled until Alpaca equity >= $2,000 (current $914.60); factor bear filter (XLP/SPY)",
-      "stop_px": 117.8205,
-      "target_px": 105.9587,
-      "side": "SHORT",
-      "market_bias": "BEAR",
-      "relative_strength_mode": "factor",
-      "factor_expected_move_pct": -0.216,
-      "factor_actual_move_pct": -4.5309,
-      "factor_residual_pct": -4.3149,
-      "factor_position_mult": 0.6739,
-      "factor_risk_reward_score": 74.965,
-      "factor_betas": "{\"sector_resid\": 0.8915, \"spy\": 0.0108}",
-      "factor_trend_score": 15.203,
-      "factor_trend_symbols": "XLP/SPY"
     },
     {
       "ticker": "V",
@@ -807,8 +807,8 @@
     },
     "long_loss_risk": 83.333,
     "expected_symbols_count": 30,
-    "failed_symbols_count": 0,
-    "failed_fraction": 0.0,
+    "failed_symbols_count": 1,
+    "failed_fraction": 0.0333,
     "data_quality_ok": true,
     "strong_breadth_ok": false,
     "strong_signals_ok": false,
@@ -1424,17 +1424,17 @@
   ],
   "open_positions_live": [
     {
-      "ts_utc": "2026-07-10T06:30:40",
+      "ts_utc": "2026-07-10T06:31:03",
       "broker_account": "Live Trading Account",
       "broker_profile": "APM_REAL_ACCOUNT_SWING",
       "symbol": "VXX",
       "side": "LONG",
       "qty": 42.0,
       "entry_px": 21.9999,
-      "exit_px": 21.48,
-      "current_px": 21.48,
+      "exit_px": 21.435,
+      "current_px": 21.435,
       "R_realized": null,
-      "pnl_pct": -2.3631925599661807,
+      "pnl_pct": -2.5677389442679353,
       "entry_model": "Swing"
     }
   ],
@@ -2091,14 +2091,9 @@
       "drawdown_pct": -8.0126
     },
     {
-      "ts": "2026-07-10T13:30:39",
-      "equity": 914.6,
-      "drawdown_pct": -8.5793
-    },
-    {
-      "ts": "2026-07-10T13:30:40",
-      "equity": 914.6,
-      "drawdown_pct": -8.5793
+      "ts": "2026-07-10T13:31:03",
+      "equity": 912.71,
+      "drawdown_pct": -8.7682
     }
   ],
   "drawdown_curve": [
@@ -2131,12 +2126,8 @@
       "drawdown_pct": -8.0126
     },
     {
-      "ts": "2026-07-10T13:30:39",
-      "drawdown_pct": -8.5793
-    },
-    {
-      "ts": "2026-07-10T13:30:40",
-      "drawdown_pct": -8.5793
+      "ts": "2026-07-10T13:31:03",
+      "drawdown_pct": -8.7682
     }
   ],
   "positioning": {
@@ -2151,18 +2142,18 @@
   "strategy_lanes": [
     "APM_REAL_ACCOUNT_SWING"
   ],
-  "source_updated_at_max": "2026-07-10T06:30:40.039772",
+  "source_updated_at_max": "2026-07-10T06:31:03.450137",
   "broker_accounts": {
     "apm_swing": {
       "label": "Live Trading Account",
       "profile": "APM_REAL_ACCOUNT_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 914.6,
+      "equity": 912.71,
       "buying_power": 12.44,
       "inception_equity": 1000.0,
       "ytd_start_equity": 1000.0,
-      "since_inception_pnl_dollars": -85.4,
-      "asof": "2026-07-10T06:30:40"
+      "since_inception_pnl_dollars": -87.29,
+      "asof": "2026-07-10T06:31:03"
     }
   },
   "account_views": {
@@ -2174,12 +2165,12 @@
         "label": "Live Trading Account",
         "profile": "APM_REAL_ACCOUNT_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 914.6,
+        "equity": 912.71,
         "buying_power": 12.44,
         "inception_equity": 1000.0,
         "ytd_start_equity": 1000.0,
-        "since_inception_pnl_dollars": -85.4,
-        "asof": "2026-07-10T06:30:40"
+        "since_inception_pnl_dollars": -87.29,
+        "asof": "2026-07-10T06:31:03"
       },
       "performance": {
         "closed_trades_count": 16,
@@ -2195,7 +2186,7 @@
         "profit_factor_r": 0.109,
         "gross_profit_r": 6.54,
         "gross_loss_r": 59.816,
-        "max_drawdown_pct_est": 8.579
+        "max_drawdown_pct_est": 8.768
       },
       "summary": {
         "leaderboard_count": 19,
@@ -3434,17 +3425,17 @@
       ],
       "open_positions_live": [
         {
-          "ts_utc": "2026-07-10T06:30:40",
+          "ts_utc": "2026-07-10T06:31:03",
           "broker_account": "Live Trading Account",
           "broker_profile": "APM_REAL_ACCOUNT_SWING",
           "symbol": "VXX",
           "side": "LONG",
           "qty": 42.0,
           "entry_px": 21.9999,
-          "exit_px": 21.48,
-          "current_px": 21.48,
+          "exit_px": 21.435,
+          "current_px": 21.435,
           "R_realized": null,
-          "pnl_pct": -2.3631925599661807,
+          "pnl_pct": -2.5677389442679353,
           "entry_model": "Swing"
         }
       ],
@@ -3485,14 +3476,14 @@
           "drawdown_pct": -8.0126
         },
         {
-          "ts": "2026-07-10T13:30:39+00:00",
-          "equity": 914.6,
-          "drawdown_pct": -8.5793
+          "ts": "2026-07-10T13:31:03+00:00",
+          "equity": 912.71,
+          "drawdown_pct": -8.7682
         },
         {
-          "ts": "2026-07-10T13:30:40+00:00",
-          "equity": 914.6,
-          "drawdown_pct": -8.5793
+          "ts": "2026-07-10T13:31:03+00:00",
+          "equity": 912.71,
+          "drawdown_pct": -8.7682
         }
       ],
       "drawdown_curve": [
@@ -3525,17 +3516,17 @@
           "drawdown_pct": -8.0126
         },
         {
-          "ts": "2026-07-10T13:30:39+00:00",
-          "drawdown_pct": -8.5793
+          "ts": "2026-07-10T13:31:03+00:00",
+          "drawdown_pct": -8.7682
         },
         {
-          "ts": "2026-07-10T13:30:40+00:00",
-          "drawdown_pct": -8.5793
+          "ts": "2026-07-10T13:31:03+00:00",
+          "drawdown_pct": -8.7682
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-07-10T06:30:40.039772",
-      "published_at_utc": "2026-07-10T13:30:40Z"
+      "updated_at": "2026-07-10T06:31:03.450137",
+      "published_at_utc": "2026-07-10T13:31:03Z"
     }
   },
   "public_reset_starts": {
