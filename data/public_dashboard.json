@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-13T12:45:33.916619",
-  "published_at_utc": "2026-07-13T19:45:33Z",
+  "updated_at": "2026-07-13T13:10:13.583326",
+  "published_at_utc": "2026-07-13T20:10:13Z",
   "profile": "LARGE",
   "strategy": "APM_SWING",
   "shadow_only": false,
@@ -42,21 +42,21 @@
     "XLV"
   ],
   "account": {
-    "equity": 951.01,
+    "equity": 947.96,
     "buying_power": 0.19,
     "inception_equity": 1000.0,
     "ytd_start_equity": 1000.0,
-    "since_inception_pnl_dollars": -48.99,
-    "asof": "2026-07-13T12:45:32"
+    "since_inception_pnl_dollars": -52.04,
+    "asof": "2026-07-13T19:59:24Z"
   },
   "summary": {
     "leaderboard_count": 19,
     "signals_ready_count": 1,
-    "open_positions_count": 1,
+    "open_positions_count": 0,
     "recent_trades_count": 16,
     "top_ticker": "AAPL",
     "top_score": 79.198,
-    "open_long_count": 1,
+    "open_long_count": 0,
     "open_short_count": 0
   },
   "performance": {
@@ -839,21 +839,27 @@
     }
   ],
   "bear_defense": {
-    "enabled": true,
-    "level": "NORMAL",
-    "candidate_level": "NORMAL",
     "active": false,
-    "liquidity_switch": false,
-    "risk_off_candidate": false,
-    "derisk_candidate": false,
-    "switch_candidate": false,
-    "score": 52.148,
-    "participation": 0.0556,
-    "eligible_count": 1,
-    "valid_count": 18,
-    "avg_short_score": 79.092,
     "avg_context_score": 54.336,
+    "avg_short_score": 79.092,
+    "candidate_level": "NORMAL",
+    "confirm_runs_required": 5,
+    "consecutive_derisk_runs": 0,
+    "consecutive_risk_off_runs": 0,
+    "consecutive_switch_runs": 0,
+    "data_quality_ok": true,
     "density_score": 25.0,
+    "derisk_candidate": false,
+    "derisk_runs_required": 3,
+    "eligible_count": 1,
+    "enabled": true,
+    "expected_symbols_count": 30,
+    "failed_fraction": 0.0,
+    "failed_symbols_count": 0,
+    "level": "NORMAL",
+    "liquidity_switch": false,
+    "long_loss_risk": 94.444,
+    "long_risk_ok": true,
     "long_signal_count": 1,
     "long_signal_participation": 0.0556,
     "new_long_loss_risk": 94.444,
@@ -862,22 +868,16 @@
       "open_long_loss_risk": 0.0,
       "positions": {}
     },
-    "long_loss_risk": 94.444,
-    "expected_symbols_count": 30,
-    "failed_symbols_count": 0,
-    "failed_fraction": 0.0,
-    "data_quality_ok": true,
+    "participation": 0.0556,
+    "reason": "APM_BEAR_DEFENSE score=52.1; shorts=1/18; participation=0.06; long_loss_risk=94.4",
+    "risk_off_candidate": false,
+    "risk_off_runs_required": 2,
+    "score": 52.148,
     "strong_breadth_ok": false,
     "strong_signals_ok": true,
-    "long_risk_ok": true,
-    "risk_off_runs_required": 2,
-    "derisk_runs_required": 3,
-    "confirm_runs_required": 5,
-    "consecutive_risk_off_runs": 0,
-    "consecutive_derisk_runs": 0,
-    "consecutive_switch_runs": 0,
+    "switch_candidate": false,
     "ts_utc": "2026-07-13T19:45:01Z",
-    "reason": "APM_BEAR_DEFENSE score=52.1; shorts=1/18; participation=0.06; long_loss_risk=94.4"
+    "valid_count": 18
   },
   "trade_history": [
     {
@@ -1479,22 +1479,7 @@
       "broker_profile": "APM_REAL_ACCOUNT_SWING"
     }
   ],
-  "open_positions_live": [
-    {
-      "ts_utc": "2026-07-13T12:45:32",
-      "broker_account": "Live Trading Account",
-      "broker_profile": "APM_REAL_ACCOUNT_SWING",
-      "symbol": "SQQQ",
-      "side": "LONG",
-      "qty": 23.764646726,
-      "entry_px": 37.7866,
-      "exit_px": 40.0099,
-      "current_px": 40.0099,
-      "R_realized": null,
-      "pnl_pct": 5.883831834565697,
-      "entry_model": "Swing"
-    }
-  ],
+  "open_positions_live": [],
   "recent_executions": [
     {
       "ts_utc": "2026-07-02T14:02:08Z",
@@ -2153,14 +2138,9 @@
       "drawdown_pct": -9.308
     },
     {
-      "ts": "2026-07-13T19:45:31",
-      "equity": 950.78,
-      "drawdown_pct": -4.9629
-    },
-    {
-      "ts": "2026-07-13T19:45:32",
-      "equity": 951.01,
-      "drawdown_pct": -4.9399
+      "ts": "2026-07-13T19:59:24",
+      "equity": 947.96,
+      "drawdown_pct": -5.2447
     }
   ],
   "drawdown_curve": [
@@ -2197,17 +2177,13 @@
       "drawdown_pct": -9.308
     },
     {
-      "ts": "2026-07-13T19:45:31",
-      "drawdown_pct": -4.9629
-    },
-    {
-      "ts": "2026-07-13T19:45:32",
-      "drawdown_pct": -4.9399
+      "ts": "2026-07-13T19:59:24",
+      "drawdown_pct": -5.2447
     }
   ],
   "positioning": {
     "long_short_ratio": null,
-    "long_pct": 100.0,
+    "long_pct": 0.0,
     "short_pct": 0.0,
     "dynamic_positioning_on": true,
     "effective_max_positions": 0,
@@ -2217,18 +2193,18 @@
   "strategy_lanes": [
     "APM_REAL_ACCOUNT_SWING"
   ],
-  "source_updated_at_max": "2026-07-13T12:45:32.164850",
+  "source_updated_at_max": "2026-07-13T12:59:24",
   "broker_accounts": {
     "apm_swing": {
       "label": "Live Trading Account",
       "profile": "APM_REAL_ACCOUNT_SWING",
       "public_reset_start": "2026-06-16T13:30:00Z",
-      "equity": 951.01,
+      "equity": 947.96,
       "buying_power": 0.19,
       "inception_equity": 1000.0,
       "ytd_start_equity": 1000.0,
-      "since_inception_pnl_dollars": -48.99,
-      "asof": "2026-07-13T12:45:32"
+      "since_inception_pnl_dollars": -52.04,
+      "asof": "2026-07-13T19:59:24Z"
     }
   },
   "account_views": {
@@ -2240,12 +2216,12 @@
         "label": "Live Trading Account",
         "profile": "APM_REAL_ACCOUNT_SWING",
         "public_reset_start": "2026-06-16T13:30:00Z",
-        "equity": 951.01,
+        "equity": 947.96,
         "buying_power": 0.19,
         "inception_equity": 1000.0,
         "ytd_start_equity": 1000.0,
-        "since_inception_pnl_dollars": -48.99,
-        "asof": "2026-07-13T12:45:32"
+        "since_inception_pnl_dollars": -52.04,
+        "asof": "2026-07-13T19:59:24Z"
       },
       "performance": {
         "closed_trades_count": 16,
@@ -2266,16 +2242,14 @@
       "summary": {
         "leaderboard_count": 19,
         "signals_ready_count": 1,
-        "open_positions_count": 1,
+        "open_positions_count": 0,
         "recent_trades_count": 16,
         "top_ticker": "AAPL",
-        "top_score": 79.198,
-        "open_long_count": 1,
-        "open_short_count": 0
+        "top_score": 79.198
       },
       "positioning": {
         "long_short_ratio": null,
-        "long_pct": 100.0,
+        "long_pct": 0.0,
         "short_pct": 0.0,
         "dynamic_positioning_on": true,
         "effective_max_positions": 0,
@@ -3498,22 +3472,7 @@
           "status": "CLOSED"
         }
       ],
-      "open_positions_live": [
-        {
-          "ts_utc": "2026-07-13T12:45:32",
-          "broker_account": "Live Trading Account",
-          "broker_profile": "APM_REAL_ACCOUNT_SWING",
-          "symbol": "SQQQ",
-          "side": "LONG",
-          "qty": 23.764646726,
-          "entry_px": 37.7866,
-          "exit_px": 40.0099,
-          "current_px": 40.0099,
-          "R_realized": null,
-          "pnl_pct": 5.883831834565697,
-          "entry_model": "Swing"
-        }
-      ],
+      "open_positions_live": [],
       "equity_curve": [
         {
           "ts": "2026-06-30T19:59:08+00:00",
@@ -3556,14 +3515,9 @@
           "drawdown_pct": -9.308
         },
         {
-          "ts": "2026-07-13T19:45:31+00:00",
-          "equity": 950.78,
-          "drawdown_pct": -4.9629
-        },
-        {
-          "ts": "2026-07-13T19:45:32+00:00",
-          "equity": 951.01,
-          "drawdown_pct": -4.9399
+          "ts": "2026-07-13T19:59:24+00:00",
+          "equity": 947.96,
+          "drawdown_pct": -5.2447
         }
       ],
       "drawdown_curve": [
@@ -3600,17 +3554,13 @@
           "drawdown_pct": -9.308
         },
         {
-          "ts": "2026-07-13T19:45:31+00:00",
-          "drawdown_pct": -4.9629
-        },
-        {
-          "ts": "2026-07-13T19:45:32+00:00",
-          "drawdown_pct": -4.9399
+          "ts": "2026-07-13T19:59:24+00:00",
+          "drawdown_pct": -5.2447
         }
       ],
       "monthly_performance": [],
-      "updated_at": "2026-07-13T12:45:32.164850",
-      "published_at_utc": "2026-07-13T19:45:32Z"
+      "updated_at": "2026-07-13T12:59:24",
+      "published_at_utc": "2026-07-13T19:59:24Z"
     }
   },
   "public_reset_starts": {
