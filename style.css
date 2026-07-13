@@ -33,8 +33,21 @@ a{color:inherit}
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 0; gap:14px;
 }
-.brand{display:inline-flex}
-.logo-img{height:38px;width:auto;display:block}
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+.logo-img{height:44px;width:auto;display:block}
+.brand-name{
+  color:var(--text);
+  font-weight:800;
+  font-size:18px;
+  line-height:1;
+  letter-spacing:0;
+  white-space:nowrap;
+}
 .nav-links{display:flex;gap:16px;flex-wrap:wrap}
 .nav-links a{
   text-decoration:none;
