@@ -1423,13 +1423,20 @@
 
         const currentEquity = toFiniteOrNull(acct.equity);
         const inceptionEquity = toFiniteOrNull(acct.inception_equity);
-        const visibleAccountViews = [newIntradayView, swingView, apmSwingShadowView].filter((view) => view && !view.missing);
+        const visibleAccountViews = [
+          { view: newIntradayView, resetStartEquity: null },
+          { view: swingView, resetStartEquity: null },
+          { view: apmSwingShadowView, resetStartEquity: PUBLIC_DASHBOARD_START_EQUITY }
+        ].filter((item) => item.view && !item.view.missing);
         const visibleAccountPnls = visibleAccountViews
-          .map((view) => {
+          .map(({ view, resetStartEquity }) => {
             const account = view.account || {};
+            const equity = toFiniteOrNull(account.equity);
+            if (equity !== null && Number.isFinite(resetStartEquity) && resetStartEquity > 0){
+              return equity - resetStartEquity;
+            }
             const direct = toFiniteOrNull(account.since_inception_pnl_dollars);
             if (direct !== null) return direct;
-            const equity = toFiniteOrNull(account.equity);
             const inception = toFiniteOrNull(account.inception_equity);
             return equity !== null && inception !== null ? equity - inception : null;
           })
