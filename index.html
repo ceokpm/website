@@ -331,7 +331,8 @@
     const INTRADAY_PUBLIC_LABEL = "SPY/QQQ + Tech Basket DayTrade";
     const SWING_PUBLIC_LABEL = "SPY/QQQ + Mixed Basket SwingTrade";
     const APM_SWING_PUBLIC_LABEL = "APM Swing Live Trading";
-    const PUBLIC_DASHBOARD_START_ISO = "2026-06-16T13:30:00Z";
+    const PUBLIC_DASHBOARD_START_ISO = "2026-07-14T15:30:00Z";
+    const PUBLIC_DASHBOARD_START_EQUITY = 2019.21;
 
     function normalizedAccountText(raw){
       return String(raw || "").trim().toUpperCase().replace(/[_-]+/g, " ").replace(/\s+/g, " ");
@@ -503,7 +504,7 @@
         .map((item) => item.row);
     }
 
-    function renderOpenPositions(rows){
+    function renderOpenPositions(rows, { suppressReturn = false } = {}){
       const tbody = document.querySelector("#open_table tbody");
       const displayRows = uniqueOpenPositionRowsForDisplay(rows);
       if (displayRows.length === 0){
@@ -520,7 +521,7 @@
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const exPx = r.exit_px !== "" && r.exit_px !== undefined ? r.exit_px : (r.current_px ?? r.last_px ?? r.px);
         const ex = exPx !== "" && exPx !== undefined && exPx !== null ? fNum(exPx, 2) : "";
-        const ret = returnCell(r);
+        const ret = suppressReturn ? '<span class="return-neutral">-</span>' : returnCell(r);
         return `<tr>
           <td>${t}</td><td>${acct}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
           <td>${en}</td><td>${ex}</td><td>${ret}</td>
@@ -556,7 +557,7 @@
       });
     }
 
-    function renderTrades(rows){
+    function renderTrades(rows, { suppressReturn = false } = {}){
       const tbody = document.querySelector("#trade_table tbody");
       if (!Array.isArray(rows) || rows.length === 0){
         tbody.innerHTML = '<tr><td colspan="9" class="empty">No trade history yet.</td></tr>';
@@ -572,7 +573,7 @@
         const q = r.qty ?? "";
         const en = r.entry_px !== "" && r.entry_px !== undefined ? fNum(r.entry_px, 2) : "";
         const ex = r.exit_px !== "" && r.exit_px !== undefined ? fNum(r.exit_px, 2) : "";
-        const ret = returnCell(r);
+        const ret = suppressReturn ? '<span class="return-neutral">-</span>' : returnCell(r);
         return `<tr>
           <td>${t}</td><td>${acct}</td><td>${tk}</td><td>${sd}</td><td>${model}</td><td>${q}</td>
           <td>${en}</td><td>${ex}</td><td>${ret}</td>
@@ -961,12 +962,15 @@
       return ((c / b) - 1) * 100;
     }
 
-    function resetScopedStartEquity(view, equitySeries){
+    function resetScopedStartEquity(view, equitySeries, configuredStartEquity = null){
       const acct = (view && view.account) || {};
       const explicit = toFiniteOrNull(
         acct.public_reset_start_equity ?? acct.reset_start_equity ?? acct.reset_inception_equity
       );
       if (explicit !== null && explicit > 0) return explicit;
+      if (Number.isFinite(configuredStartEquity) && configuredStartEquity > 0){
+        return configuredStartEquity;
+      }
 
       const resetMs = toTimestampMs(acct.public_reset_start || (view && view.public_reset_start) || PUBLIC_DASHBOARD_START_ISO);
       const rows = (Array.isArray(equitySeries) ? equitySeries : [])
@@ -979,6 +983,20 @@
         if (firstAfterReset) return firstAfterReset.value;
       }
       return rows[0].value;
+    }
+
+    function isFreshResetView(view){
+      if (!view || view.missing) return false;
+      const acct = view.account || {};
+      const resetMs = toTimestampMs(
+        acct.public_reset_start || view.public_reset_start || PUBLIC_DASHBOARD_START_ISO
+      );
+      if (!Number.isFinite(resetMs)) return false;
+
+      const perf = view.performance || {};
+      const closedTrades = toFiniteOrNull(perf.closed_trades_count) ?? 0;
+      const tradeRows = Array.isArray(view.trade_history) ? view.trade_history.length : 0;
+      return closedTrades === 0 && tradeRows === 0;
     }
 
     function dateKeyFromTimestampMs(tsMs){
@@ -1310,9 +1328,12 @@
 
       const currentEquity = toFiniteOrNull(acct.equity);
       const useResetScopedBaseline = prefix === "swing" || prefix === "apm_swing_shadow";
-      const resetStartEquity = useResetScopedBaseline ? resetScopedStartEquity(view, equitySeries) : null;
-      const inceptionEquity = toFiniteOrNull(acct.inception_equity) ?? resetStartEquity;
-      const ytdStartEquity = toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity ?? resetStartEquity;
+      const configuredStartEquity = prefix === "apm_swing_shadow" ? PUBLIC_DASHBOARD_START_EQUITY : null;
+      const resetStartEquity = useResetScopedBaseline
+        ? resetScopedStartEquity(view, equitySeries, configuredStartEquity)
+        : null;
+      const inceptionEquity = resetStartEquity ?? toFiniteOrNull(acct.inception_equity);
+      const ytdStartEquity = resetStartEquity ?? toFiniteOrNull(acct.ytd_start_equity) ?? inceptionEquity;
       const sinceInceptionReturn = pctFromBase(currentEquity, inceptionEquity);
       const ytdReturn = pctFromBase(currentEquity, ytdStartEquity);
       const dailyReturn = dailyReturnFromView(
@@ -1326,16 +1347,17 @@
       const minDrawdown = drawdownSeries.length ? Math.min(...drawdownSeries.map(x => Number(x.value)).filter(Number.isFinite)) : fallbackDrawdown;
       const maxDrawdown = maxDrawdownMetric(perf, monthlyRows, minDrawdown);
 
-      setText(`${prefix}_since_inception_return`, fPct(sinceInceptionReturn, 2));
-      setText(`${prefix}_ytd_return`, fPct(ytdReturn, 2));
-      setText(`${prefix}_daily_return`, fPct(dailyReturn, 2));
+      const freshReset = useResetScopedBaseline && isFreshResetView(view);
+      setText(`${prefix}_since_inception_return`, freshReset ? "-" : fPct(sinceInceptionReturn, 2));
+      setText(`${prefix}_ytd_return`, freshReset ? "-" : fPct(ytdReturn, 2));
+      setText(`${prefix}_daily_return`, freshReset ? "-" : fPct(dailyReturn, 2));
       setText(`${prefix}_current_equity`, currentEquity === null ? "-" : fMoney(currentEquity));
-      setText(`${prefix}_max_drawdown_pct`, fPct(maxDrawdown, 2));
-      setText(`${prefix}_current_drawdown_pct`, fPct(currentDrawdown, 2));
-      setText(`${prefix}_sharpe_ratio`, fNum(perf.sharpe_like, 3));
-      setText(`${prefix}_sortino_ratio`, fNum(perf.sortino_ratio, 3));
-      setText(`${prefix}_profit_factor`, fNum(perf.profit_factor_r, 3));
-      setText(`${prefix}_win_rate`, fPct(perf.win_rate_pct ?? perf.recent_trades_win_rate_pct, 1));
+      setText(`${prefix}_max_drawdown_pct`, freshReset ? "-" : fPct(maxDrawdown, 2));
+      setText(`${prefix}_current_drawdown_pct`, freshReset ? "-" : fPct(currentDrawdown, 2));
+      setText(`${prefix}_sharpe_ratio`, freshReset ? "-" : fNum(perf.sharpe_like, 3));
+      setText(`${prefix}_sortino_ratio`, freshReset ? "-" : fNum(perf.sortino_ratio, 3));
+      setText(`${prefix}_profit_factor`, freshReset ? "-" : fNum(perf.profit_factor_r, 3));
+      setText(`${prefix}_win_rate`, freshReset ? "-" : fPct(perf.win_rate_pct ?? perf.recent_trades_win_rate_pct, 1));
       setText(`${prefix}_closed_trades`, Number.isFinite(Number(perf.closed_trades_count)) ? String(Number(perf.closed_trades_count)) : "-");
 
       return { equitySeries, drawdownSeries, summary };
@@ -1416,7 +1438,8 @@
         const liveMonthlyRows = Array.isArray(d.monthly_performance) && d.monthly_performance.length
           ? d.monthly_performance
           : [];
-        const monthlyRows = liveMonthlyRows.length ? liveMonthlyRows : fallbackMonthlyRows();
+        const freshApmReset = isFreshResetView(apmSwingShadowView);
+        const monthlyRows = freshApmReset ? [] : (liveMonthlyRows.length ? liveMonthlyRows : fallbackMonthlyRows());
 
         setText("updated_at", fUpdatedAt(d.published_at_utc || d.updated_at));
 
@@ -1429,7 +1452,7 @@
             toFiniteOrNull(acct.since_inception_pnl_dollars)
             ?? ((currentEquity !== null && inceptionEquity !== null) ? (currentEquity - inceptionEquity) : null)
           );
-        setText("run_pnl", noActivity ? "-" : fMoney(sinceInceptionPnl));
+        setText("run_pnl", noActivity || freshApmReset ? "-" : fMoney(sinceInceptionPnl));
 
         renderInteractiveLineChart("intraday_equity_curve_chart", intradayMetrics.equitySeries, {
           stroke: "#c67627",
@@ -1490,8 +1513,8 @@
 
         renderMonthlyTable(monthlyRows);
 
-        renderOpenPositions(openPositionsLive);
-        renderTrades(executionHistory);
+        renderOpenPositions(openPositionsLive, { suppressReturn: freshApmReset });
+        renderTrades(executionHistory, { suppressReturn: freshApmReset });
       }catch(e){
         setText("updated_at", "Dashboard data unavailable");
         setAccountVisible("intraday", { missing: true });
